@@ -36,5 +36,8 @@ Simplifier l’accès aux informations financières et statistiques des collecti
 - `python3 manage.py migrate`
 - `python3 manage.py collectstatic`
 
+#### Create the superuser
+- ` python manage.py createsuperuser`
+
 ### Launch it
  - `python3 manage.py runserver`
