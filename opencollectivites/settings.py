@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-# Keep secrets and environment_specific in a separate file not using version control
+# Keep secrets and environment_specific variables in a separate file not using version control
 from settings_local import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "feeds",
 ]
 
 MIDDLEWARE = [
