@@ -1,5 +1,11 @@
-# opencollectivites
-Open Collectivités
+# Open Collectivités
+
+![Open Collectivités](open-collectivites.png?raw=true "Open Collectivités")
+
+
+Simplifier l’accès aux informations financières et statistiques des collectivités locales
+
+[Page de présentation du défi](https://entrepreneur-interet-general.etalab.gouv.fr/defis/2020/open-collectivites.html)
 
 ## Install
 ### Packages
