@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 # Keep secrets and environment_specific variables in a separate file not using version control
 from settings_local import *
+from os import path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = LOCAL_BASE_DIR
@@ -40,6 +41,7 @@ INSTALLED_APPS = [
     "feeds",
     "rest_framework",
     "ocback.apps.OcbackConfig",
+    "ocfront.apps.OcfrontConfig",
 ]
 
 MIDDLEWARE = [
@@ -121,3 +123,4 @@ FEEDS_SOURCE_NAME_AUTOUPDATE = False
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = "/static/"
+STATIC_ROOT = path.join(BASE_DIR, "static")
