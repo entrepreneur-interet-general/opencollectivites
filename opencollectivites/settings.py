@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "feeds",
+    "rest_framework",
+    "ocback.apps.OcbackConfig",
 ]
 
 MIDDLEWARE = [
