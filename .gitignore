@@ -107,4 +107,5 @@ media/
 *.pyc
 *.db
 *.pid
+*.sqlite3.*
 
