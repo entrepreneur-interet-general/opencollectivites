@@ -7,10 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="{% static 'dsfr/dist/css/dsfr.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
     <title>Open Collectivités</title>
 </head>
 
 <body>
+    <!-- Big header -->
     <header class="rf-header">
         <div class="rf-container">
             <div class="rf-header__body">
@@ -37,8 +39,74 @@
     </header>
 
     <div class="rf-container">
-        <p>Hello world</p>
+        <!-- Barre de recherche collectivités -->
+        <div class="jumbotron">
+            <h1>Trouver les études, statistiques et outils locaux utiles à vos prises de décision, recherches ou au
+                débat public</h1>
+            <p>Commune, EPCI, département, région</p>
+            <div class="rf-search-bar" id="search-input">
+                <label for="search-input-input" class="rf-label" for="search-input-input">
+                    Commune, EPCI, département, région
+                </label>
+                <input class="rf-input" placeholder="Taper les premières lettres de la collectivité recherchée"
+                    type="search" id="search-input-input" name="search-input-input">
+                <button class="rf-btn" title="Rechercher">
+                    <span>
+                        Rechercher
+                    </span>
+                </button>
+            </div>
+        </div>
     </div>
+
+    <div class="rf-container">
+        <div class="rf-grid-row rf-grid-row--gutters">
+            <div class="rf-col-8">
+                <h2>Études et statistiques locales</h2>
+                <h3>Synthèses sur l’ensemble des activités</h3>
+                <div class="rf-card rf-card--no-arrow">
+                    <div class="rf-card__body">
+                        <h4 class="rf-card__lead">
+                            <a href="#" class="rf-card__link">Qu’est-ce que le Pass Culture et comment l’obtenir
+                                ?</a>
+                        </h4>
+                        <p class="rf-card__desc">Description texte body small regular consectetur adipisicing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore…</p>
+                    </div>
+                </div>
+                <div class="rf-card rf-card--no-arrow">
+                    <div class="rf-card__body">
+                        <h4 class="rf-card__lead">
+                            <a href="#" class="rf-card__link">Qu’est-ce que le Pass Culture et comment l’obtenir
+                                ?</a>
+                        </h4>
+                        <p class="rf-card__desc">Description texte body small regular consectetur adipisicing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore…</p>
+                    </div>
+                </div>
+                <div class="rf-card rf-card--no-arrow">
+                    <div class="rf-card__body">
+                        <h4 class="rf-card__lead">
+                            <a href="#" class="rf-card__link">Qu’est-ce que le Pass Culture et comment l’obtenir
+                                ?</a>
+                        </h4>
+                        <p class="rf-card__desc">Description texte body small regular consectetur adipisicing elit,
+                            sed do eiusmod tempor incididunt ut labore et dolore…</p>
+                    </div>
+                </div>
+            </div>
+            <div class="rf-col-xs-12 rf-col-lg-4">
+                <h2>Dernières publications</h2>
+                <p>On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and
+                    demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee
+                    the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their
+                    duty through weakness of will, which is the same as saying through shrinking from toil and pain.
+                    These cases are perfectly simple and easy to distinguish.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer-->
     <script src="{% static 'dsfr/dist/js/dsfr.min.js' %}"></script>
 </body>
 
