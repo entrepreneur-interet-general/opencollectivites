@@ -30,6 +30,9 @@ class Region(models.Model):
     insee = models.CharField(max_length=2)
     siren = models.CharField(max_length=9)
 
+    def __str__(self):
+        return self.name
+
 
 class Departement(models.Model):
     """
@@ -43,6 +46,9 @@ class Departement(models.Model):
     insee = models.CharField(max_length=3)
     siren = models.CharField(max_length=9)
 
+    def __str__(self):
+        return f"{self.insee} - {self.name}"
+
 
 class Epci(models.Model):
     """
@@ -55,6 +61,9 @@ class Epci(models.Model):
     year = models.IntegerField()
     insee = models.CharField(max_length=2)
     siren = models.CharField(max_length=9)
+
+    def __str__(self):
+        return self.name
 
 
 class Commune(models.Model):
@@ -70,3 +79,6 @@ class Commune(models.Model):
     insee = models.CharField(max_length=5)
     siren = models.CharField(max_length=9)
     population = models.IntegerField(null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.name} ({self.departement})"
