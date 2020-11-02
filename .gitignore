@@ -110,3 +110,6 @@ media/
 *.pid
 *.sqlite3.*
 
+# App specific
+resources/
+logos/
