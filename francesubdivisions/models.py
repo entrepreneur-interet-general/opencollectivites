@@ -69,3 +69,4 @@ class Commune(models.Model):
     epci = models.ForeignKey("Epci", on_delete=models.CASCADE, null=True)
     insee = models.CharField(max_length=5)
     siren = models.CharField(max_length=9)
+    population = models.IntegerField(null=True, blank=True)

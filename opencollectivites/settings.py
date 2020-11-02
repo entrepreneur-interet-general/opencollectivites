@@ -40,9 +40,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "feeds",
     "rest_framework",
+    "francesubdivisions.apps.FrancesubdivisionsConfig",
     "ocback.apps.OcbackConfig",
     "ocfront.apps.OcfrontConfig",
-    "francesubdivisions.apps.FrancesubdivisionsConfig",
 ]
 
 MIDDLEWARE = [
@@ -122,6 +122,12 @@ FEEDS_SOURCE_NAME_AUTOUPDATE = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+
+# REST Framework
+REST_FRAMEWORK = {
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 50,
+}
 
 STATIC_URL = "/static/"
 STATIC_ROOT = path.join(BASE_DIR, "static")
