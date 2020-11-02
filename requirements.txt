@@ -5,3 +5,4 @@ feedparser==6.0.2
 beautifulsoup4==4.9.3
 requests==2.24.0
 pyRFC3339==1.1
+Pillow==8.0.1
