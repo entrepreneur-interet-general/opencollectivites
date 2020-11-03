@@ -3,7 +3,7 @@
 
 from django.core.management.base import BaseCommand
 from django.core.exceptions import ValidationError
-from francesubdivisions.models import Commune, Epci, Departement, Region
+from francesubdivisions.models import Commune, Departement, Region
 from francesubdivisions.models import validate_insee_commune
 import csv
 from os import path
