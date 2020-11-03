@@ -50,6 +50,15 @@ class Departement(models.Model):
         return f"{self.insee} - {self.name}"
 
 
+class EpciType(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
+    name = models.CharField(max_length=100)
+    acronym = models.CharField(max_length=10)
+
+    def __str__(self):
+        return f"{self.name} ({self.acronym})"
+
+
 class Epci(models.Model):
     """
     A French établissement public de coopération intercommunale
@@ -60,6 +69,7 @@ class Epci(models.Model):
     name = models.CharField(max_length=100)
     year = models.IntegerField()
     insee = models.CharField(max_length=2)
+    epci_type = models.ForeignKey("EpciType", null=True, on_delete=models.CASCADE)
     siren = models.CharField(max_length=9)
 
     def __str__(self):
