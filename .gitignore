@@ -109,6 +109,7 @@ media/
 *.db
 *.pid
 *.sqlite3.*
+db.json
 
 # App specific
 resources/
