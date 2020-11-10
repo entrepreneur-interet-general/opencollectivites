@@ -1,3 +1,6 @@
 [submodule "submodules/django-feed-reader"]
 	path = submodules/django-feed-reader
 	url = https://github.com/Ash-Crow/django-feed-reader
+[submodule "submodules/django-france-subdivisions"]
+	path = submodules/django-france-subdivisions
+	url = git@github.com:Ash-Crow/django-france-subdivisions.git
