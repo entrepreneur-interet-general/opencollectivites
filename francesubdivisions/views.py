@@ -10,6 +10,7 @@ from rest_framework import permissions
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
+from rest_framework import filters
 
 
 @api_view(["GET"])
@@ -27,10 +28,20 @@ def api_root(request, format=None):
     )
 
 
+@api_view(["GET"])
+def SearchAll(request):
+    """
+    Search within all categories
+    """
+    pass
+
+
 class RegionList(generics.ListCreateAPIView):
     queryset = Region.objects.all()
     serializer_class = RegionSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    filter_backends = [filters.SearchFilter]
+    search_fields = ["name"]
 
 
 class RegionDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -43,6 +54,8 @@ class DepartementList(generics.ListCreateAPIView):
     queryset = Departement.objects.all()
     serializer_class = DepartementSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    filter_backends = [filters.SearchFilter]
+    search_fields = ["name"]
 
 
 class DepartementDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -55,6 +68,8 @@ class EpciList(generics.ListCreateAPIView):
     queryset = Epci.objects.all()
     serializer_class = EpciSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    filter_backends = [filters.SearchFilter]
+    search_fields = ["name"]
 
 
 class EpciDetail(generics.RetrieveUpdateDestroyAPIView):
@@ -67,6 +82,9 @@ class CommuneList(generics.ListCreateAPIView):
     queryset = Commune.objects.all()
     serializer_class = CommuneSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    filter_backends = [filters.SearchFilter]
+    search_fields = ["name"]
+    ordering_fields = ["population"]
 
 
 class CommuneDetail(generics.RetrieveUpdateDestroyAPIView):
