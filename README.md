@@ -9,7 +9,7 @@ Simplifier l’accès aux informations financières et statistiques des collecti
 
 ## Install
 ### Packages
-- `apt install python3-dev python3-venv`postgresql
+- `apt install python3-dev python3-venv postgresql libpq-dev`
 
 ### Prepare database
 - For now, the default SQLite3 database will suffice.
