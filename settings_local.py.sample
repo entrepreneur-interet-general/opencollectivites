@@ -2,12 +2,16 @@ from pathlib import Path
 
 LOCAL_BASE_DIR = Path(__file__).resolve().parent
 
-LOCAL_SECRET_KEY = # Generate with base64 /dev/urandom | head -c50
+LOCAL_SECRET_KEY = <your_secret_key> # Generate with base64 /dev/urandom | head -c50
 LOCAL_DEBUG = True
 LOCAL_ALLOWED_HOSTS = ["127.0.0.1"]
 LOCAL_DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": LOCAL_BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": <your_db_name>,
+        "USER": <your_user_name>,
+        "PASSWORD": <your_password>,
+        "HOST": "localhost",
+        "PORT": "",
     }
 }

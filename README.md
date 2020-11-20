@@ -9,10 +9,22 @@ Simplifier l’accès aux informations financières et statistiques des collecti
 
 ## Install
 ### Packages
-- `apt install python3-dev python3-venv postgresql libpq-dev`
+- `sudo apt install python3-dev python3-venv postgresql libpq-dev`
 
 ### Prepare database
-- For now, the default SQLite3 database will suffice.
+- Create a PostgreSQL database and user
+```
+sudo -u postgres psql
+postgres=# CREATE DATABASE opencollectivites;
+postgres=# CREATE USER opencollectivites WITH ENCRYPTED PASSWORD 'your_password';
+postgres=# GRANT ALL PRIVILEGES ON DATABASE opencollectivites TO opencollectivites;
+```
+
+- Create the Unaccent extension manually
+
+```
+postgres=# CREATE EXTENSION unaccent;
+```
 
 ### Install the project
 #### Clone the project and get the submodules
