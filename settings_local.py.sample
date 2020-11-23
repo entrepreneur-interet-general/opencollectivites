@@ -15,3 +15,5 @@ LOCAL_DATABASES = {
         "PORT": "",
     }
 }
+
+LOCAL_CORS_ORIGIN_WHITELIST = ("http://localhost:8080",)
