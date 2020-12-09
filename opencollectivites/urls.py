@@ -20,5 +20,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api-auth/", include("rest_framework.urls")),
     path("api/france/", include("francesubdivisions.urls")),
+    path("api/aspic/", include("aspic.urls")),
     path("", include("ocfront.urls")),
 ]

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "feeds",
     "rest_framework",
     "francesubdivisions.apps.FrancesubdivisionsConfig",
+    "aspic.apps.AspicConfig",
     "ocback.apps.OcbackConfig",
     "ocfront.apps.OcfrontConfig",
 ]
@@ -84,6 +85,7 @@ WSGI_APPLICATION = "opencollectivites.wsgi.application"
 
 DATABASES = LOCAL_DATABASES
 
+DATABASE_ROUTERS = ["aspic.router.AspicRouter"]
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
