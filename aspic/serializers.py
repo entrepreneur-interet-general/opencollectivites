@@ -6,6 +6,8 @@ from aspic.models.t_aspic_communes import (
 )
 from aspic.models.t_aspic_cantons import T011Cantons
 
+from aspic.models.t_aspic_other import T173DatesDonnees
+
 
 class T050CommunesSerializer(serializers.ModelSerializer):
     class Meta:
@@ -29,9 +31,3 @@ class T150DonneesCommunesSerializer(serializers.ModelSerializer):
     class Meta:
         model = T150DonneesCommunes
         fields = ["siren", "code_donnee", "annee", "valeur"]
-
-
-class T011Cantons(serializers.ModelSerializer):
-    class Meta:
-        model = T011Cantons
-        fields = "__all__"

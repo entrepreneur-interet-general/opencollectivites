@@ -9,7 +9,12 @@ from aspic.models.t_aspic_communes import (
     T052AdressesCommunes,
 )
 from aspic.models.t_aspic_cantons import T011Cantons
-from aspic.serializers import T050CommunesSerializer, T150DonneesCommunesSerializer
+from aspic.models.t_aspic_interco_liaison import T311050CommunesMembres
+from aspic.models.t_aspic_other import T173DatesDonnees
+from aspic.serializers import (
+    T050CommunesSerializer,
+    T150DonneesCommunesSerializer,
+)
 from rest_framework.decorators import api_view
 from django.db.models import Max
 
@@ -47,17 +52,33 @@ def FicheCommuneView(request, siren):
             value = int(value)
         response[datacode] = value
 
+    # get the year of the data
+    years = {}
+
+    years_data = T173DatesDonnees.objects.all()
+    for y in years_data:
+        years[y.code] = y.libelle
+
+    response["years"] = years
+
     # Missing data
     ## Code postal
     response["code_postal"] = T052AdressesCommunes.objects.get(siren=siren).code_postal
 
     ## Bassin de vie
     insee_bv = str(response["CodeBV"])
-
     dep = insee_bv[0:2]
     cod = insee_bv[2:5]
-
     response["NomBV"] = T050Communes.objects.get(dep=dep, cod=cod).nom
+
+    ## Groupements
+    response["groupements"] = list(
+        T311050CommunesMembres.objects.filter(membre=siren).values(
+            "groupement__raison_sociale",
+            "groupement__nature_juridique",
+            "groupement_id",
+        )
+    )
 
     return Response(response)
 
