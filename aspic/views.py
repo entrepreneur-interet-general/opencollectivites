@@ -66,10 +66,19 @@ def FicheCommuneView(request, siren):
     response["code_postal"] = T052AdressesCommunes.objects.get(siren=siren).code_postal
 
     ## Bassin de vie
-    insee_bv = str(response["CodeBV"])
-    dep = insee_bv[0:2]
-    cod = insee_bv[2:5]
-    response["NomBV"] = T050Communes.objects.get(dep=dep, cod=cod).nom
+    # Data is in an int, so:
+    # - we need to fix it for depts 01-09 by adding back the missing initial 0
+    # - the data is missing for Corsica (dept codes being 2A/2B)
+    try:
+        insee_bv = str(response["CodeBV"])
+
+        if len(insee_bv) == 4:
+            insee_bv = f"0{insee_bv}"
+        dep = insee_bv[0:2]
+        cod = insee_bv[2:5]
+        response["NomBV"] = T050Communes.objects.get(dep=dep, cod=cod).nom
+    except:
+        response["NomBV"] = ""
 
     ## Groupements
     response["groupements"] = list(
