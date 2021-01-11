@@ -15,9 +15,13 @@ Pillow = "==8.0.1"
 python-stdnum = "==1.14"
 psycopg2-binary = "==2.8.6"
 django-cors-headers = "==3.5.0"
-unidecode = "*"
+Unidecode = "*"
 
 [dev-packages]
+pylint = "*"
 
 [requires]
 python_version = "3.8"
+
+[pipenv]
+allow_prereleases = true
