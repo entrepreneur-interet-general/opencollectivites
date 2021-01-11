@@ -4,17 +4,17 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-dateparser = "==0.7.6"
-Django = "==3.1.2"
-djangorestframework = "==3.12.1"
-feedparser = "==6.0.2"
-beautifulsoup4 = "==4.9.3"
-requests = "==2.24.0"
-pyRFC3339 = "==1.1"
-Pillow = "==8.0.1"
-python-stdnum = "==1.14"
-psycopg2-binary = "==2.8.6"
-django-cors-headers = "==3.5.0"
+dateparser = "*"
+Django = "*"
+djangorestframework = "*"
+feedparser = "*"
+beautifulsoup4 = "*"
+requests = "*"
+pyRFC3339 = "*"
+Pillow = "*"
+python-stdnum = "*"
+psycopg2-binary = "*"
+django-cors-headers = "*"
 Unidecode = "*"
 
 [dev-packages]
