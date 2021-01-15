@@ -16,6 +16,7 @@ python-stdnum = "*"
 psycopg2-binary = "*"
 django-cors-headers = "*"
 Unidecode = "*"
+openpyxl-dictreader = "*"
 
 [dev-packages]
 pylint = "*"
