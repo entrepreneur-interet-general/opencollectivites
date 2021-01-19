@@ -44,8 +44,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "francesubdivisions.apps.FrancesubdivisionsConfig",
     "aspic.apps.AspicConfig",
-    "ocback.apps.OcbackConfig",
-    "ocfront.apps.OcfrontConfig",
+    "core.apps.CoreConfig",
 ]
 
 MIDDLEWARE = [

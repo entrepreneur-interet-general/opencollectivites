@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from ocback import models
+from core import models
 
 admin.site.register(models.Topic)
 admin.site.register(models.Scope)

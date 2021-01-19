@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('ocback', '0002_editor_platform_scope'),
+        ("core", "0002_editor_platform_scope"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='editor',
-            name='logo',
-            field=models.ImageField(upload_to='logos'),
+            model_name="editor",
+            name="logo",
+            field=models.ImageField(upload_to="logos"),
         ),
     ]
