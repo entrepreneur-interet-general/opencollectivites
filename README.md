@@ -15,9 +15,9 @@ Simplifier l’accès aux informations financières et statistiques des collecti
 - Create a PostgreSQL database and user
 ```
 sudo -u postgres psql
-postgres=# CREATE DATABASE opencollectivites;
-postgres=# CREATE USER opencollectivites WITH ENCRYPTED PASSWORD 'your_password';
-postgres=# GRANT ALL PRIVILEGES ON DATABASE opencollectivites TO opencollectivites;
+postgres=# CREATE DATABASE <db_name>;
+postgres=# CREATE USER <db_user> WITH ENCRYPTED PASSWORD '<db_password>';
+postgres=# GRANT ALL PRIVILEGES ON DATABASE <db_name> TO <db_user>;
 ```
 
 - Create the Unaccent extension manually
