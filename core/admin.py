@@ -36,17 +36,34 @@ class ScopeAdmin(TimeStampModelAdmin):
 
 @admin.register(models.DocumentType)
 class DocumentTypeAdmin(TimeStampModelAdmin):
-    pass
+    list_display = ("name", "view_documents_link")
+    ordering = ["name"]
+
+    def view_documents_link(self, obj):
+        return view_reverse_changelink(obj, "core", "documenttype", "document")
+
+    view_documents_link.short_description = "Documents"
 
 
 @admin.register(models.Topic)
 class TopicAdmin(TimeStampModelAdmin):
-    pass
+    list_display = ("name", "view_sources_link", "view_documents_link")
+    ordering = ["name"]
+
+    def view_sources_link(self, obj):
+        return view_reverse_changelink(obj, "core", "topic", "source")
+
+    view_sources_link.short_description = "Sources"
+
+    def view_documents_link(self, obj):
+        return view_reverse_changelink(obj, "core", "topic", "document")
+
+    view_documents_link.short_description = "Documents"
 
 
-@admin.register(models.Editor)
-class EditorAdmin(TimeStampModelAdmin):
-    pass
+@admin.register(models.Organization)
+class OrganizationAdmin(TimeStampModelAdmin):
+    list_display = ("__str__", "acronym", "name")
 
 
 @admin.register(models.PageType)
@@ -137,12 +154,6 @@ class SourceAdmin(TimeStampModelAdmin):
     view_rss_feed_link.short_description = "Lien flux associé"
 
     def view_documents_link(self, obj):
-        count = obj.document_set.count()
-        url = (
-            reverse("admin:core_document_changelist")
-            + "?"
-            + urlencode({"source__id": f"{obj.pk}"})
-        )
-        return format_html('<a href="{}">{} documents</a>', url, count)
+        return view_reverse_changelink(obj, "core", "source", "document")
 
     view_documents_link.short_description = "Documents"

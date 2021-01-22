@@ -103,21 +103,28 @@ class Scope(TimeStampModel):
         verbose_name = "portée"
 
 
-class Editor(TimeStampModel):
+class Organization(TimeStampModel):
     """
-    (fr: Éditeur)
-    The editor of a site or document
+    (fr: Organisation)
+    An organization (eg, the editor of a site or document)
     """
 
     name = models.CharField("nom", max_length=100)
+    acronym = models.CharField("sigle", max_length=100, blank=True)
+    part_of = models.ForeignKey(
+        "Organization", blank=True, on_delete=models.SET_NULL, null=True
+    )
     logo = models.ImageField(upload_to="logos", blank=True)
 
     def __str__(self):
-        return self.name
+        if self.acronym:
+            return f"{self.acronym} ({self.name})"
+        else:
+            return self.name
 
     class Meta:
         ordering = ["name"]
-        verbose_name = "éditeur"
+        verbose_name = "organisation"
 
 
 class Source(TimeStampModel):
@@ -126,7 +133,7 @@ class Source(TimeStampModel):
     """
 
     title = models.CharField("titre", max_length=100)
-    editor = models.ManyToManyField("Editor", verbose_name="éditeur")
+    editor = models.ManyToManyField("Organization", verbose_name="éditeur")
     rss_feed = models.OneToOneField(
         "feeds.Source", verbose_name="flux RSS", on_delete=models.SET_NULL, null=True
     )
