@@ -1,0 +1,236 @@
+[
+    {
+        "model": "core.pagetype",
+        "pk": 1,
+        "fields": {
+            "name": "Fiche commune",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.pagetype",
+        "pk": 2,
+        "fields": {
+            "name": "Fiche département",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.pagetype",
+        "pk": 3,
+        "fields": {
+            "name": "Fiche région",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.pagetype",
+        "pk": 4,
+        "fields": {
+            "name": "Fiche EPCI",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.pagetype",
+        "pk": 5,
+        "fields": {
+            "name": "Page principale",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.pagetype",
+        "pk": 6,
+        "fields": {
+            "name": "Page de recherche",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.scope",
+        "pk": 1,
+        "fields": {
+            "name": "Collectivités locales (toutes)",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.scope",
+        "pk": 2,
+        "fields": {
+            "name": "Communes de littoral",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.scope",
+        "pk": 3,
+        "fields": {
+            "name": "Communes de montagne",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.scope",
+        "pk": 4,
+        "fields": {
+            "name": "Communes & EPCI (toutes)",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.scope",
+        "pk": 5,
+        "fields": {
+            "name": "Départements (tous)",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.scope",
+        "pk": 6,
+        "fields": {
+            "name": "Régions (toutes)",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.topic",
+        "pk": 1,
+        "fields": {
+            "name": "Aide & Dotations",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.topic",
+        "pk": 2,
+        "fields": {
+            "name": "Culture & Éducation",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.topic",
+        "pk": 3,
+        "fields": {
+            "name": "Développement durable",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.topic",
+        "pk": 4,
+        "fields": {
+            "name": "Emploi & Fonction publique territoriale",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.topic",
+        "pk": 5,
+        "fields": {
+            "name": "Finances & Fiscalité",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.topic",
+        "pk": 6,
+        "fields": {
+            "name": "Géographie & Intercommunalités",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.topic",
+        "pk": 7,
+        "fields": {
+            "name": "Parité",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.topic",
+        "pk": 8,
+        "fields": {
+            "name": "Santé & Social",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.topic",
+        "pk": 9,
+        "fields": {
+            "name": "Sécurité",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.documenttype",
+        "pk": 1,
+        "fields": {
+            "name": "Publication statistique",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.documenttype",
+        "pk": 2,
+        "fields": {
+            "name": "Jeu de données",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.documenttype",
+        "pk": 3,
+        "fields": {
+            "name": "Outil",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.documenttype",
+        "pk": 4,
+        "fields": {
+            "name": "Site officiel",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    },
+    {
+        "model": "core.documenttype",
+        "pk": 5,
+        "fields": {
+            "name": "Plateforme open data",
+            "created_at": "2021-01-21 14:00:00+01:00",
+            "updated_at": "2021-01-21 14:00:00+01:00"
+        }
+    }
+]

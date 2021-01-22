@@ -17,6 +17,7 @@ psycopg2-binary = "*"
 django-cors-headers = "*"
 Unidecode = "*"
 openpyxl-dictreader = "*"
+xlrd = "*"
 
 [dev-packages]
 pylint = "*"
