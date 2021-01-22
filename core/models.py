@@ -1,16 +1,9 @@
 from django.db import models
 
+from core.utils.django_admin import TimeStampModel
+
 from urllib.parse import urlparse
 from datetime import date
-
-
-class TimeStampModel(models.Model):
-    created_at = models.DateTimeField("date de création", auto_now_add=True)
-    updated_at = models.DateTimeField("date de modification", auto_now=True)
-
-    class Meta:
-        ordering = ["created_at"]
-        abstract = True
 
 
 # Models
@@ -19,7 +12,7 @@ class Metadata(TimeStampModel):
     The metadata, as property (prop)/value couples
     """
 
-    prop = models.CharField("propriété", max_length=100)
+    prop = models.CharField("propriété", max_length=100, unique=True)
     value = models.CharField("valeur", max_length=255)
 
     def __str__(self):
@@ -180,6 +173,9 @@ class Source(TimeStampModel):
     def save(self, *args, **kwargs):
         self.base_domain = urlparse(self.url).hostname[:100]
         super().save(*args, **kwargs)
+
+    class Meta:
+        ordering = ["title"]
 
 
 class Document(TimeStampModel):
