@@ -9,6 +9,8 @@ from core.models import Metadata, Source, Document, Scope
 
 from urllib.parse import urlparse
 from dateutil import parser as dateparser
+from datetime import datetime
+from pytz import UTC
 from pprint import pprint
 
 """
@@ -27,18 +29,23 @@ class Command(BaseCommand):
         )
 
     def handle(self, *args, **options):
+        last_update_entry, return_code_lu = Metadata.objects.get_or_create(
+            prop="ipfp_last_update"
+        )
         if options["since"]:
             last_update = options["since"]
+        elif return_code_lu:
+            # If the prop was not in metadata, the database is empty
+            last_update = None
         else:
-            try:
-                last_update_value = Metadata.objects.get(prop="ipfp_last_update")
-                last_update = dateparser.parse(last_update_value)
-            except ObjectDoesNotExist as e:
-                last_update = None
+            last_update = dateparser.parse(last_update_entry.value)
 
         if last_update:
-            posts = Post.objects.filter(created__gte=sd)
+            last_update = UTC.localize(last_update)
+            print(f"🗓️  Importing new posts since last update ({last_update})")
+            posts = Post.objects.filter(created__gte=last_update)
         else:
+            print(f"⏳  Importing all posts since the beginning")
             posts = Post.objects.all()
 
         for post in posts:
@@ -78,3 +85,7 @@ class Command(BaseCommand):
                 new_doc.save()
             else:
                 print(f"📜  Publication {new_doc.title} already in database")
+
+        current_time = datetime.now().isoformat()
+        last_update_entry.value = current_time
+        last_update_entry.save()
