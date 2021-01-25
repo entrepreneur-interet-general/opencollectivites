@@ -23,7 +23,8 @@ postgres=# GRANT ALL PRIVILEGES ON DATABASE <db_name> TO <db_user>;
 - Create the Unaccent extension manually
 
 ```
-postgres=# CREATE EXTENSION unaccent;
+postgres=# \c <db_name>
+<db_name>=# CREATE EXTENSION unaccent;
 ```
 
 ### Install the project
