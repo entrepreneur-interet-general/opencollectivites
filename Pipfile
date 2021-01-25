@@ -18,6 +18,7 @@ django-cors-headers = "*"
 Unidecode = "*"
 openpyxl-dictreader = "*"
 xlrd = "*"
+gunicorn = "*"
 
 [dev-packages]
 pylint = "*"
