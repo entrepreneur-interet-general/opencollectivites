@@ -1,0 +1,10 @@
+[Unit]
+Description=OpenCollectivites gunicorn daemon
+
+[Service]
+Type=simple
+User=<username>
+ExecStart=<projectpath>gunicorn_start.sh
+
+[Install]
+WantedBy=multi-user.target

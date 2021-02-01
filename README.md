@@ -54,4 +54,4 @@ postgres=# \c <db_name>
 ### Parameters for launching with Gunicorn/nginx/systemd
  - `cp gunicorn_start.sh.sample gunicorn_start.sh`
  - Fill the `gunicorn_start.sh` file
- 
+ - Copy `devops/gunicorn.service.sample` to `/etc/systemd/system/gunicorn-<projectname>.service`
