@@ -37,14 +37,10 @@ postgres=# \c <db_name>
 - `cp settings_local.py.sample settings_local.py`
 - Fill the `settings_local.py` file
 
-#### Create and activate the virtualenv
-- `python3 -m venv venv`
-- `source venv/bin/activate`
-
-#### Install the Python dependancies 
-- `pip install wheel`
-- `pip install -r requirements.txt`
-
+#### Create and activate the virtualenv with the dependencies
+- `pipenv install`
+- `pipenv shell`
+ 
 #### Initiate the database and static files for Django
 - `python3 manage.py migrate`
 - `python3 manage.py collectstatic`
