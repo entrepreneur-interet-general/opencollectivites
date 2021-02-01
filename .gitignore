@@ -114,3 +114,6 @@ db.json
 # App specific
 resources/
 logos/
+
+# gunicorn stuff
+gunicorn_start.sh
