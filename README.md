@@ -50,3 +50,8 @@ postgres=# \c <db_name>
 
 ### Launch it
  - `python3 manage.py runserver`
+
+### Parameters for launching with Gunicorn/nginx/systemd
+ - `cp gunicorn_start.sh.sample gunicorn_start.sh`
+ - Fill the `gunicorn_start.sh` file
+ 
