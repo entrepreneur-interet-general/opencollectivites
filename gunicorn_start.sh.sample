@@ -1,3 +1,5 @@
+#!/bin/bash
+
 NAME="<appname>-app"                               #Name of the application (*)
 DJANGODIR=<projectpath>                            # Django project directory (*)
 SOCKFILE=<socketpath>/run/gunicorn.sock            # we will communicate using this unix socket (*)
