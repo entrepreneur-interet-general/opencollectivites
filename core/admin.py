@@ -5,6 +5,7 @@ from django.urls import reverse
 
 from core.utils.django_admin import TimeStampModelAdmin, view_reverse_changelink
 from core import models
+from config.settings import FRONT_HOME_URL
 
 
 @admin.register(models.Metadata)
@@ -47,7 +48,12 @@ class DocumentTypeAdmin(TimeStampModelAdmin):
 
 @admin.register(models.Topic)
 class TopicAdmin(TimeStampModelAdmin):
-    list_display = ("name", "view_sources_link", "view_documents_link")
+    list_display = ("name", "view_sources_link", "view_documents_link", "view_logo")
+    readonly_fields = [
+        "view_logo",
+        "created_at",
+        "updated_at",
+    ]
     ordering = ["name"]
 
     def view_sources_link(self, obj):
@@ -57,6 +63,12 @@ class TopicAdmin(TimeStampModelAdmin):
 
     def view_documents_link(self, obj):
         return view_reverse_changelink(obj, "core", "topic", "document")
+
+    def view_logo(self, obj):
+        logo_full_url = f"{FRONT_HOME_URL}{obj.icon_path}"
+        return format_html(f'<img src="{logo_full_url}" />')
+
+    view_logo.short_description = "Logo"
 
     view_documents_link.short_description = "Documents"
 
