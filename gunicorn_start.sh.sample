@@ -15,9 +15,17 @@ echo "Starting $NAME as `whoami`"
 RUNDIR=$(dirname $SOCKFILE)
 test -d $RUNDIR || mkdir -p $RUNDIR
 
+
+# Go to the directory and update if needed
+cd $DJANGODIR
+git pull
+git submodule update
+pipenv install
+pipenv run manage.py migrate
+pipenv run manage.py collectstatic --no-input
+
 # Start your Django Unicorn
 # Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)
-cd $DJANGODIR
 exec pipenv run gunicorn ${DJANGO_WSGI_MODULE}:application \
   --name $NAME \
   --workers $NUM_WORKERS \
