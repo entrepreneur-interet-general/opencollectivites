@@ -19,6 +19,9 @@ from django.views.generic import RedirectView
 from django.conf.urls import url
 from config.api import api
 
+# Personalize the Django admin header
+admin.site.site_header = "Administration d’Open Collectivités"
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     url(r"^favicon\.ico$", RedirectView.as_view(url="/static/favicon.ico")),
