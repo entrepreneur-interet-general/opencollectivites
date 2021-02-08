@@ -66,7 +66,7 @@ class TopicAdmin(TimeStampModelAdmin):
 
     def view_logo(self, obj):
         logo_full_url = f"{FRONT_HOME_URL}{obj.icon_path}"
-        return format_html(f'<img src="{logo_full_url}" />')
+        return format_html(f'<img src="{logo_full_url}" alt="" />')
 
     view_logo.short_description = "Logo"
 
