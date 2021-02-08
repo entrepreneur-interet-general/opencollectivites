@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     "django.contrib.postgres",
     "corsheaders",
     "feeds",
-    "rest_framework",
     "francesubdivisions.apps.FrancesubdivisionsConfig",
     "aspic.apps.AspicConfig",
     "core.apps.CoreConfig",
@@ -129,11 +128,6 @@ FEEDS_SOURCE_NAME_AUTOUPDATE = False
 STATIC_URL = "/static/"
 STATIC_ROOT = path.join(BASE_DIR, "static")
 
-# REST Framework
-REST_FRAMEWORK = {
-    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
-    "PAGE_SIZE": 50,
-}
 
 # CORS
 CORS_ORIGIN_ALLOW_ALL = False

@@ -6,7 +6,6 @@ name = "pypi"
 [packages]
 dateparser = "*"
 Django = "*"
-djangorestframework = "*"
 feedparser = "*"
 beautifulsoup4 = "*"
 requests = "*"
