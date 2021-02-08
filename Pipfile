@@ -19,6 +19,7 @@ Unidecode = "*"
 openpyxl-dictreader = "*"
 xlrd = "*"
 gunicorn = "*"
+django-ninja = "*"
 
 [dev-packages]
 pylint = "*"

@@ -77,7 +77,7 @@ class Topic(TimeStampModel):
     """
 
     name = models.CharField("nom", max_length=100)
-    icon_url = models.URLField("URL de l’icône", null=True)
+    icon_path = models.CharField("Chemin de l’icône", max_length=255, null=True)
 
     def __str__(self):
         return self.name

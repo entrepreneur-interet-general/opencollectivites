@@ -17,3 +17,5 @@ LOCAL_DATABASES = {
 }
 
 LOCAL_CORS_ORIGIN_WHITELIST = ("http://localhost:8080",)
+
+LOCAL_FRONT_HOME_URL = "http://localhost:8080"

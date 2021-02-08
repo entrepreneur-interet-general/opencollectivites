@@ -17,12 +17,14 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
 from django.conf.urls import url
+from config.api import api
+
+# Personalize the Django admin header
+admin.site.site_header = "Administration d’Open Collectivités"
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     url(r"^favicon\.ico$", RedirectView.as_view(url="/static/favicon.ico")),
-    path("api-auth/", include("rest_framework.urls")),
-    path("api/france/", include("francesubdivisions.urls")),
-    path("api/aspic/", include("aspic.urls")),
+    path("api/", api.urls),
     path("", include("core.urls")),
 ]
