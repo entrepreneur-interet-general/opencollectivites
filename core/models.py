@@ -84,7 +84,7 @@ class Topic(TimeStampModel):
 
     class Meta:
         ordering = ["name"]
-        verbose_name = "sujet"
+        verbose_name = "thématique"
 
 
 class Scope(TimeStampModel):
