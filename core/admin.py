@@ -99,6 +99,7 @@ class DocumentAdmin(TimeStampModelAdmin):
         "is_published",
         "rss_post",
         "view_rss_post_content",
+        "body",
         "publication_pages",
         "scope",
         "regions",

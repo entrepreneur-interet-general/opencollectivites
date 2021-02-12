@@ -3,6 +3,7 @@
 
 from django.core.management.base import BaseCommand
 from django.core.exceptions import ObjectDoesNotExist
+from django.utils.html import strip_tags
 
 from feeds.models import Post
 from core.models import Metadata, Source, Document, Scope
@@ -52,9 +53,8 @@ class Command(BaseCommand):
             new_doc, return_code_doc = Document.objects.get_or_create(url=post.link)
             if return_code_doc:
                 print(f"📜  New publication created from RSS post {post.title}")
-                new_doc.title = post.title[:255]
-                new_doc.rss_post = post
 
+                # Only do source-related part on first creation
                 source_entry, return_code_source = Source.objects.get_or_create(
                     rss_feed=post.source
                 )
@@ -80,11 +80,17 @@ class Command(BaseCommand):
                 source_entry.last_update = post.source.last_change
                 source_entry.save()
                 new_doc.source = source_entry
-                new_doc.last_update = post.created
 
-                new_doc.save()
             else:
-                print(f"📜  Publication {new_doc.title} already in database")
+                print(f"📜  Publication {new_doc.title} already in database, updating.")
+            new_doc.title = strip_tags(post.title[:255])
+            new_doc.rss_post = post
+
+            new_doc.body = strip_tags(post.body)
+
+            new_doc.last_update = post.created
+
+            new_doc.save()
 
         current_time = datetime.now().isoformat()
         last_update_entry.value = current_time
