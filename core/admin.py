@@ -116,7 +116,6 @@ class DocumentAdmin(TimeStampModelAdmin):
     readonly_fields = [
         "base_domain",
         "view_rss_post_link",
-        "view_rss_post_content",
         "created_at",
         "updated_at",
     ]
@@ -129,11 +128,6 @@ class DocumentAdmin(TimeStampModelAdmin):
             return ""
 
     view_rss_post_link.short_description = "Lien post associé"
-
-    def view_rss_post_content(self, obj):
-        return obj.rss_post.body
-
-    view_rss_post_content.short_description = "Contenu du post associé"
 
 
 @admin.register(models.Source)
