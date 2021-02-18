@@ -57,12 +57,12 @@ class TopicAdmin(TimeStampModelAdmin):
     ordering = ["name"]
 
     def view_sources_link(self, obj):
-        return view_reverse_changelink(obj, "core", "topic", "source")
+        return view_reverse_changelink(obj, "core", "topics", "source")
 
     view_sources_link.short_description = "Sources"
 
     def view_documents_link(self, obj):
-        return view_reverse_changelink(obj, "core", "topic", "document")
+        return view_reverse_changelink(obj, "core", "topics", "document")
 
     def view_logo(self, obj):
         logo_full_url = f"{FRONT_HOME_URL}{obj.icon_path}"
