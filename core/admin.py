@@ -91,8 +91,14 @@ class PageTypeAdmin(TimeStampModelAdmin):
 @admin.register(models.Document)
 class DocumentAdmin(TimeStampModelAdmin):
     search_fields = ("title", "url")
-    list_display = ("__str__", "is_published", "last_update", "view_rss_post_link")
-    list_filter = ("is_published", "source__editor", "source")
+    list_display = (
+        "__str__",
+        "is_published",
+        "last_update",
+        "view_thumbnail",
+        "view_rss_post_link",
+    )
+    list_filter = ("is_published", "source__editor", "source", "image_url")
 
     raw_id_fields = ("rss_post", "epcis", "communes")
 
@@ -104,7 +110,10 @@ class DocumentAdmin(TimeStampModelAdmin):
         "is_published",
         "rss_post",
         "body",
+        "image_url",
+        "view_image",
         "publication_pages",
+        "weight",
         "scope",
         "regions",
         "departements",
@@ -118,8 +127,8 @@ class DocumentAdmin(TimeStampModelAdmin):
     )
 
     readonly_fields = [
+        "view_image",
         "base_domain",
-        "view_rss_post_link",
         "created_at",
         "updated_at",
     ]
@@ -132,6 +141,16 @@ class DocumentAdmin(TimeStampModelAdmin):
             return ""
 
     view_rss_post_link.short_description = "Lien post associé"
+
+    def view_image(self, obj):
+        return format_html(f'<img src="{obj.image_url}" width="300px" alt="" />')
+
+    view_image.short_description = "Image"
+
+    def view_thumbnail(self, obj):
+        return format_html(f'<img src="{obj.image_url}" width="40px" alt="" />')
+
+    view_thumbnail.short_description = "Image"
 
 
 @admin.register(models.Source)

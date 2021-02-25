@@ -198,6 +198,8 @@ class Document(TimeStampModel):
     publication_pages = models.ManyToManyField(
         PageType, verbose_name="pages de publication", blank=True
     )
+    image_url = models.URLField("URL de l’image", max_length=255, blank=True, null=True)
+    weight = models.PositiveSmallIntegerField("poids", default=100)
     scope = models.ManyToManyField(Scope, verbose_name="portée", blank=True)
     topics = models.ManyToManyField(Topic, verbose_name="sujet", blank=True)
     years = models.ManyToManyField(DataYear, blank=True)

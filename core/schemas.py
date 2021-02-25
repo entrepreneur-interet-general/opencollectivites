@@ -93,6 +93,7 @@ class DocumentSchema(Schema):
     url: str
     title: str
     base_domain: str
+    image_url: str = None
     publication_pages: List[PageTypeSchema]
     scope: List[ScopeSchema]
     topics: List[TopicSchema] = None

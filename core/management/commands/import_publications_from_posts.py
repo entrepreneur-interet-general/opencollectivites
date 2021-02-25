@@ -87,6 +87,7 @@ class Command(BaseCommand):
             new_doc.rss_post = post
 
             new_doc.body = strip_tags(post.body)
+            new_doc.image_url = post.image_url
 
             new_doc.last_update = post.created
 
