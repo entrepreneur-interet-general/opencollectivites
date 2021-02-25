@@ -80,7 +80,12 @@ class OrganizationAdmin(TimeStampModelAdmin):
 
 @admin.register(models.PageType)
 class PageTypeAdmin(TimeStampModelAdmin):
-    pass
+    list_display = ("name", "view_documents_link")
+
+    def view_documents_link(self, obj):
+        return view_reverse_changelink(obj, "core", "scope", "document")
+
+    view_documents_link.short_description = "Documents"
 
 
 @admin.register(models.Document)
