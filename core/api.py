@@ -42,17 +42,30 @@ def list_filters(request):
 
 
 @router.get("/documents", response=List[DocumentSchema], tags=["core"])
-def list_documents(request, topic: int = None, scope: int = None, page: int = None):
+def list_documents(
+    request,
+    topic: int = None,
+    scope: int = None,
+    page: int = None,
+    limit: int = None,
+    offset: int = 0,
+):
     """
     Lists all **published** documents.
     """
     qs = Document.objects.filter(is_published=True)
+
+    # Filters
     if topic:
         qs = qs.filter(topics__id=topic)
     if scope:
         qs = qs.filter(scope__id=scope)
     if page:
         qs = qs.filter(publication_pages__id=page)
+
+    # Pagination
+    if limit:
+        qs = qs[offset : offset + limit]
     return qs
 
 
