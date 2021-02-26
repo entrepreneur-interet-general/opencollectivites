@@ -30,13 +30,15 @@ def get_fiche_commune(request, siren_id):
     most_recent = context_data.aggregate(Max("annee"))
     context_data_recent = context_data.filter(annee=most_recent["annee__max"])
 
+    response["T150"] = {}
+    response["T150"]["max_year"] = most_recent["annee__max"]
     # reorder the context data
     for data in context_data_recent:
         datacode = data.code_donnee
         value = data.valeur
         if isinstance(value, float) and value.is_integer():
             value = int(value)
-        response[datacode] = value
+        response["T150"][datacode] = value
 
     # get the year of the data
     years = {}
