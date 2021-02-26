@@ -72,7 +72,9 @@ def get_fiche_commune(request, siren_id):
 
     ## Groupements
     response["groupements"] = list(
-        T311050CommunesMembres.objects.filter(membre=siren_id).values(
+        T311050CommunesMembres.objects.filter(membre=siren_id)
+        .filter(groupement__archive=False)
+        .values(
             "groupement__raison_sociale",
             "groupement__nature_juridique",
             "groupement_id",
