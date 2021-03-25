@@ -7,7 +7,21 @@ from core.utils.django_admin import TimeStampModelAdmin, view_reverse_changelink
 from core import models
 from config.settings import FRONT_HOME_URL
 
+# Admin methods
+def make_published(modeladmin, request, queryset):
+    queryset.update(is_published=True)
 
+
+make_published.short_description = "Marquer la sélection comme publiée"
+
+
+def make_not_published(modeladmin, request, queryset):
+    queryset.update(is_published=False)
+
+
+make_not_published.short_description = "Marquer la sélection comme non publiée"
+
+# Admin panels
 @admin.register(models.Metadata)
 class MetadataAdmin(TimeStampModelAdmin):
     list_display = ("prop", "value")
@@ -132,6 +146,8 @@ class DocumentAdmin(TimeStampModelAdmin):
         "created_at",
         "updated_at",
     ]
+
+    actions = [make_published, make_not_published]
 
     def view_rss_post_link(self, obj):
         if obj.rss_post:
