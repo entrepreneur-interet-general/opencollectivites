@@ -1,8 +1,14 @@
 from ninja import Router
 from typing import List
 
-from core.models import Scope, Topic, Document
-from core.schemas import ScopeSchema, TopicSchema, FilterSchema, DocumentSchema
+from core.models import Scope, Topic, Document, DocumentType
+from core.schemas import (
+    ScopeSchema,
+    TopicSchema,
+    FilterSchema,
+    DocumentSchema,
+    DocumentTypeSchema,
+)
 
 router = Router()
 
@@ -31,13 +37,26 @@ def get_topic(request, topic_id: int):
     return item
 
 
+@router.get("/document_types", response=List[DocumentTypeSchema], tags=["core"])
+def list_document_types(request):
+    qs = DocumentType.objects.all()
+    return qs
+
+
+@router.get("/document_types/{type_id}", response=DocumentTypeSchema, tags=["core"])
+def get_document_type(request, type_id: int):
+    item = get_object_or_404(DocumentType, id=type_id)
+    return item
+
+
 @router.get("/filters", response=FilterSchema, tags=["core"])
 def list_filters(request):
     """Returns all the filters in a single query"""
     scopes = list(Scope.objects.all())
     topics = list(Topic.objects.all())
+    document_types = list(DocumentType.objects.all())
 
-    qs = {"scopes": scopes, "topics": topics}
+    qs = {"scopes": scopes, "topics": topics, "types": document_types}
     return qs
 
 

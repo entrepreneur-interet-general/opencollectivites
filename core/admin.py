@@ -51,8 +51,14 @@ class ScopeAdmin(TimeStampModelAdmin):
 
 @admin.register(models.DocumentType)
 class DocumentTypeAdmin(TimeStampModelAdmin):
-    list_display = ("name", "view_documents_link")
+    list_display = ("name", "view_documents_link", "view_logo")
     ordering = ["name"]
+
+    def view_logo(self, obj):
+        logo_full_url = f"{FRONT_HOME_URL}{obj.icon_path}"
+        return format_html(f'<img src="{logo_full_url}" alt="" />')
+
+    view_logo.short_description = "Logo"
 
     def view_documents_link(self, obj):
         return view_reverse_changelink(obj, "core", "documenttype", "document")
