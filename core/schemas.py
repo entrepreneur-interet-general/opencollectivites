@@ -28,7 +28,7 @@ class ScopeSchema(Schema):
 class FilterSchema(Schema):
     scopes: List[ScopeSchema]
     topics: List[TopicSchema]
-    types: List[DocumentTypeSchema]
+    document_types: List[DocumentTypeSchema]
 
 
 class OrganizationSchema(Schema):

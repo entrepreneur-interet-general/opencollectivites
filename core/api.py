@@ -56,7 +56,7 @@ def list_filters(request):
     topics = list(Topic.objects.all())
     document_types = list(DocumentType.objects.all())
 
-    qs = {"scopes": scopes, "topics": topics, "types": document_types}
+    qs = {"scopes": scopes, "topics": topics, "document_types": document_types}
     return qs
 
 
@@ -65,6 +65,7 @@ def list_documents(
     request,
     topic: int = None,
     scope: int = None,
+    document_type: int = None,
     page: int = None,
     limit: int = None,
     offset: int = 0,
@@ -79,6 +80,8 @@ def list_documents(
         qs = qs.filter(topics__id=topic)
     if scope:
         qs = qs.filter(scope__id=scope)
+    if document_type:
+        qs = qs.filter(document_type__id=document_type)
     if page:
         qs = qs.filter(publication_pages__id=page)
 
