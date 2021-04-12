@@ -1,0 +1,27 @@
+{% load static %}
+<!doctype html>
+<html lang="fr" data-rf-theme="default">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="{% static 'lib/dsfr-v0.6.0/dist/css/dsfr.min.css' %}">
+    <link rel="apple-touch-icon" href="{% static 'lib/dsfr-v0.6.0/dist/favicons/apple-touch-icon.png' %}"><!-- 180×180 -->
+    <link rel="icon" href="{% static 'lib/dsfr-v0.6.0/dist/favicons/favicon.svg' %}" type="image/svg+xml">
+    <link rel="shortcut icon" href="{% static 'lib/dsfr-v0.6.0/dist/favicons/favicon.ico' %}" type="image/x-icon"><!-- 32×32 -->
+    <link rel="manifest" href="{% static 'lib/dsfr-v0.6.0/dist/favicons/manifest.webmanifest' %}" crossorigin="use-credentials">
+
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    {% block title %}{% endblock %}
+  </head>
+  <body>
+    <div id="content">
+        {% include "core/header.html" %}
+        {% block content %}{% endblock %}
+    </div>
+
+    <script type="module" src="{% static 'lib/dsfr-v0.6.0/dist/js/dsfr.module.min.js' %}"></script>
+    <script type="text/javascript" nomodule src="{% static 'lib/dsfr-v0.6.0/dist/js/dsfr.nomodule.min.js' %}"></script>
+  </body>
+</html>

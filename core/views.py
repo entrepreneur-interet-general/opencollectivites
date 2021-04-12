@@ -1,10 +1,6 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def index(request):
-    return HttpResponse(
-        """
-        <h1>Bienvenue sur Open Collectivités!</h1>
-        <p>La documentation de l’API se trouve sur la page <a href="api/docs">/api/docs</a> 
-        """
-    )
+    return render(request, "core/index.html", {"title": "OpenCo"})
