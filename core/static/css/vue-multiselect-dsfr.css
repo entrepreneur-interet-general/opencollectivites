@@ -71,12 +71,12 @@ fieldset[disabled] .multiselect {
     --data-uri-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 24 24' %3E%3Cpath fill='%231e1e1e' d='M12,13.1l5-4.9l1.4,1.4L12,15.9L5.6,9.5l1.4-1.4L12,13.1z'/%3E%3C/svg%3E%0A");
     background-image: var(--data-uri-svg); }
 
-    /* classe .rf-select du dsfr renommée en .multiselect  */
+    /* classe .fr-select du dsfr renommée en .multiselect  */
     :root[data-theme="dark"] .multiselect {
       --data-uri-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 24 24' %3E%3Cpath fill='%23fff' d='M12,13.1l5-4.9l1.4,1.4L12,15.9L5.6,9.5l1.4-1.4L12,13.1z'/%3E%3C/svg%3E%0A"); }
-    [class*="rf-scheme-light"] .multiselect :root:not([data-theme="dark"]) {
+    [class*="fr-scheme-light"] .multiselect :root:not([data-theme="dark"]) {
       --data-uri-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 24 24' %3E%3Cpath fill='%231e1e1e' d='M12,13.1l5-4.9l1.4,1.4L12,15.9L5.6,9.5l1.4-1.4L12,13.1z'/%3E%3C/svg%3E%0A"); }
-    [class*="rf-scheme-dark"] .multiselect :root:not([data-theme="dark"]) {
+    [class*="fr-scheme-dark"] .multiselect :root:not([data-theme="dark"]) {
       --data-uri-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 24 24' %3E%3Cpath fill='%231e1e1e' d='M12,13.1l5-4.9l1.4,1.4L12,15.9L5.6,9.5l1.4-1.4L12,13.1z'/%3E%3C/svg%3E%0A"); }
     .multiselect:focus {
       outline: 2px solid var(--focus);
@@ -96,14 +96,14 @@ fieldset[disabled] .multiselect {
       background-image: var(--data-uri-svg); }
       :root[data-theme="dark"] .multiselect:disabled {
         --data-uri-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 24 24' %3E%3Cpath fill='%239c9c9c' d='M12,13.1l5-4.9l1.4,1.4L12,15.9L5.6,9.5l1.4-1.4L12,13.1z'/%3E%3C/svg%3E%0A"); }
-      [class*="rf-scheme-light"] .multiselect:disabled :root:not([data-theme="dark"]) {
+      [class*="fr-scheme-light"] .multiselect:disabled :root:not([data-theme="dark"]) {
         --data-uri-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 24 24' %3E%3Cpath fill='%236a6a6a' d='M12,13.1l5-4.9l1.4,1.4L12,15.9L5.6,9.5l1.4-1.4L12,13.1z'/%3E%3C/svg%3E%0A"); }
-      [class*="rf-scheme-dark"] .multiselect:disabled :root:not([data-theme="dark"]) {
+      [class*="fr-scheme-dark"] .multiselect:disabled :root:not([data-theme="dark"]) {
         --data-uri-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 24 24' %3E%3Cpath fill='%236a6a6a' d='M12,13.1l5-4.9l1.4,1.4L12,15.9L5.6,9.5l1.4-1.4L12,13.1z'/%3E%3C/svg%3E%0A"); }
     .multiselect:-webkit-autofill, .multiselect:-webkit-autofill:hover, .multiselect:-webkit-autofill:focus {
       box-shadow: inset 0 0 0 100px var(--g200);
       -webkit-text-fill-color: var(--g800); }
-    /* fin classe .rf-select du dsfr renommée en .multiselect  */
+    /* fin classe .fr-select du dsfr renommée en .multiselect  */
 
 
 .multiselect {
@@ -121,7 +121,7 @@ fieldset[disabled] .multiselect {
     z-index: 50;
 }
 
-/* classe .rf-input transformée en .multiselect__input */
+/* classe .fr-input transformée en .multiselect__input */
 .multiselect__input {
     display: block;
     width: 100%;
@@ -164,15 +164,13 @@ fieldset[disabled] .multiselect {
 .multiselect__input:-webkit-autofill, .multiselect__input:-webkit-autofill:hover, .multiselect__input:-webkit-autofill:focus {
     box-shadow: inset 0 0 0 100px var(--g200);
     -webkit-text-fill-color: var(--g800); }
-/* fin classe .rf-input transformée en .multiselect__input */
+/* fin classe .fr-input transformée en .multiselect__input */
     
 .multiselect__input,
 .multiselect__single {
-    position: relative;
-    display: inline-block;
     min-height: 20px;
     line-height: 20px;
-    width: 100%;
+    width: 100% !important;
     box-sizing: border-box;
     margin-bottom: 8px;
     vertical-align: top;

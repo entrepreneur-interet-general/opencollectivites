@@ -26,12 +26,13 @@
 
 <body>
   <main id="content">
-    {% include "core/parts/header.html" %}
+    {% include "core/blocks/header.html" %}
     {% include "core/dsfr/theme_modale.html" %}
 
     {% block content %}{% endblock %}
 
-    {% include "core/parts/footer.html" %}
+    {% include "core/blocks/footer_categories.html" %}
+    {% include "core/blocks/footer.html" %}
   </main>
 
   <script type="module" src="{% static 'lib/dsfr-v1.0.0rc1/dist/js/dsfr.module.min.js' %}"></script>

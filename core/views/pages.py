@@ -1,0 +1,55 @@
+from django.http import HttpResponse
+from django.shortcuts import render
+
+from .utils import init_payload
+from .communes import commune_data, commune_context_data
+
+########### Pages
+def page_index(request):
+    payload = init_payload()
+    payload["title"] = "Accueil"
+    return render(request, "core/index.html", payload)
+
+
+def page_tests(request):
+    payload = init_payload()
+    payload["title"] = "Tests"
+    return render(request, "core/tests.html", payload)
+
+
+def page_commune_detail(request, siren, commune_name):
+    payload = init_payload()
+    payload["title"] = f"Fiche commune : {commune_name}"
+    payload["siren"] = siren
+    payload["commune_name"] = commune_name
+    payload["data"] = commune_data(siren)
+    payload["page_data"] = {"type": "commune", "siren": siren}
+    payload["page_summary"] = [
+        {"link": "#donnees-contexte", "title": "Données de contexte"},
+        {"link": "#intercommunalites-zonage", "title": "Intercommunalités et zonage"},
+        {
+            "link": "#ressources-financieres-fiscales",
+            "title": "Ressources financières et fiscales",
+        },
+        {
+            "link": "#comparaison-autres-communes",
+            "title": "Comparaison avec d’autres communes",
+        },
+    ]
+
+    return render(request, "core/commune_detail.html", payload)
+
+
+def page_commune_compare(request, siren1, siren2, siren3=0, siren4=0):
+    sirens = [siren1, siren2]
+
+    if siren3:
+        sirens.append(siren3)
+    if siren4:
+        sirens.append(siren4)
+
+    payload = init_payload()
+    payload["data"] = {}
+    payload["data"]["tables"] = commune_context_data(sirens)
+
+    return render(request, "core/commune_compare.html", payload)

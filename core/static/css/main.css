@@ -1,9 +1,9 @@
-.rf-header {
+.fr-header {
     box-shadow: none;
     border-bottom: 1.5px solid var(--g400);
 }
 
-.rf-bg--alt {
+.fr-bg--alt {
     background-color: var(--g200);
 }
 
@@ -26,22 +26,8 @@
     font-size: 1.3rem;
 }
 
-#home-categories, #navigation-tiles {
-    display: flex;
-    flex-wrap: wrap;
-}
 
-#home-categories .rf-col-2, #navigation-tiles .rf-col-2 {
-    margin-bottom: 3rem;
-}
-
-.home-tile {
-    margin: 0 1rem;
-    height: 100%;
-    hyphens: auto;
-}
-
-.rf-tile__link {
+.fr-tile__link {
     text-align: center;
     display: inline-block;
 }
@@ -68,8 +54,12 @@
     z-index: 100;
   }
 
-.rf-header, .header-block {
+.fr-header, .header-block {
     background-image: url('/static/img/beta.png'); 
     background-repeat: no-repeat;
     background-position: right top;
+}
+
+.oc-tile-row > .fr-tile{
+    margin-bottom: 2em;
 }
