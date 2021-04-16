@@ -1,0 +1,51 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}
+<title>{{ title }} </title>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/vue-multiselect-dsfr.css' %}">
+<style scoped>
+#homesearch {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="fr-container">
+{# Fil d'ariane #}
+<nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
+    <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
+    <div class="fr-collapse" id="breadcrumb-1">
+        <ol class="fr-breadcrumb__list">
+            <li>
+                <a class="fr-breadcrumb__link" href="/">Accueil</a>
+            </li>
+            <li>
+                <a class="fr-breadcrumb__link" aria-current="page">{{ title }}</a>
+            </li>
+        </ol>
+    </div>
+</nav>
+
+{# Intro #}
+<h1>{{ title }}</h1>
+<p>
+  Code postal : {{ data.code_postal }} / Code INSEE :
+  {{ data.insee }} / Code SIREN : {{ siren }}
+</p>
+
+<p>
+  {{ data.nom }} est une commune française, située dans le département de
+  {{ data.departement.name }} en région {{ data.region.name }}. Le maire actuel est
+  {{ data.civ_maire }} {{ data.pre_maire }}
+  {{ data.nom_maire }}.
+</p>
+
+{{ commune_name }}
+</div>
+{% endblock %}
