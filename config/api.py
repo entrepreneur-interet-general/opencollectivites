@@ -3,7 +3,7 @@ from core.api import router as core_router
 from francesubdivisions.api import router as fs_router
 from aspic.api import router as aspic_router
 
-api = NinjaAPI()
+api = NinjaAPI(version="v1", urls_namespace="api")
 
 
 api.add_router("/core/", core_router)
