@@ -11,6 +11,19 @@ def page_index(request):
     return render(request, "core/index.html", payload)
 
 
+def error404(request, exception):
+    payload = init_payload()
+    payload["title"] = "Erreur"
+    payload["exception"] = exception
+    return render(request, "core/404.html", payload)
+
+
+def page_not_yet(request, siren, epci_name):
+    payload = init_payload()
+    payload["title"] = "Page en construction"
+    return render(request, "core/page_not_yet.html", payload)
+
+
 def page_tests(request):
     payload = init_payload()
     payload["title"] = "Tests"
