@@ -60,6 +60,32 @@ def commune_context_data(siren_ids):
 
     vintages = data_vintage()
 
+    context_fields = [
+        "PopTot",
+        "PopMuni",
+        "Densité",
+        "TCAM",
+        "PopActive1564%",
+        "PopChom1564%",
+        "RevenuFiscal",
+        "ZRR",
+        "ZUS",
+        "Montagne",
+        "Touristique",
+        "DGF_Totale",
+        "Forfaitaire",
+        "DSU",
+        "DSR",
+        "DNP",
+        "DGFParHab",
+        "PopDGF",
+        "DotationEluLocal",
+        "SoldeFPIC",
+        "AttributionFPIC",
+        "ContributionFPIC",
+        "SoldeFPIC_DGF",
+    ]
+
     for siren_id in siren_ids:
         context_data[siren_id] = {}
 
@@ -82,6 +108,11 @@ def commune_context_data(siren_ids):
             if isinstance(value, float) and value.is_integer():
                 value = int(value)
             context_data[siren_id][datacode] = value
+
+        # make sure the keys exist
+        for field in context_fields:
+            if field not in context_data[siren_id]:
+                context_data[siren_id][field] = ""
 
     # Prepare tables
     ## Population
