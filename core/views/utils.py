@@ -26,7 +26,9 @@ def init_payload():
 
 
 def formatNumber(n):
-    # format the number with French locale and rounds to one decimal place if needed
+    """
+    Format the number with French locale and rounds to one decimal place if needed
+    """
     if type(n) in [int, float]:
         return format_decimal(n, locale="fr_FR", format="#,##0.#")
     elif n is None:
