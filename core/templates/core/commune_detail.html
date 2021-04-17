@@ -65,19 +65,19 @@
 <div class="fr-grid-row">
   <div class="fr-col-8">
     <h2 id="donnees-contexte">Données de contexte</h2>
-    {% include "core/dsfr/table.html" with caption="Population" content=data.tables.population %}
+    {% include "core/dsfr/table.html" with caption="Population" content=data.tables.population extra_classes="oc-table--fullwidth oc-table--force10" %}
     {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year %}
 
-    {% include "core/dsfr/table.html" with caption="Emploi - chômage" content=data.tables.emploi %}
+    {% include "core/dsfr/table.html" with caption="Emploi - chômage" content=data.tables.emploi extra_classes="oc-table--fullwidth oc-table--force10" %}
     {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year %}
 
-    {% include "core/dsfr/table.html" with caption="Niveau de vie" content=data.tables.niveau_de_vie %}
+    {% include "core/dsfr/table.html" with caption="Niveau de vie" content=data.tables.niveau_de_vie extra_classes="oc-table--fullwidth oc-table--force10" %}
     {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year %}
 
     <h2 id="intercommunalites-zonage">Intercommunalités et zonage</h2>
-    {% include "core/dsfr/table.html" with caption="Intercommunalités" content=data.groupements %}
+    {% include "core/dsfr/table.html" with caption="Intercommunalités" content=data.groupements extra_classes="oc-table--fullwidth" %}
     
-    {% include "core/dsfr/table.html" with caption="Zonage" content=data.tables.zonage %}
+    {% include "core/dsfr/table.html" with caption="Zonage" content=data.tables.zonage extra_classes="oc-table--fullwidth" %}
     {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year %}
 
     <a
@@ -93,14 +93,14 @@
     <h2 id="ressources-financieres-fiscales">
       Ressources financières et fiscales
     </h2>
-    {% include "core/dsfr/table.html" with caption="Dotation globale" content=data.tables.dotation_globale %}
+    {% include "core/dsfr/table.html" with caption="Dotation globale" content=data.tables.dotation_globale extra_classes="oc-table--fullwidth oc-table--force10" %}
     {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year %}
 
-    {% include "core/dsfr/table.html" with caption="Dotation élu local" content=data.tables.dotation_elu_local %}
+    {% include "core/dsfr/table.html" with caption="Dotation élu local" content=data.tables.dotation_elu_local extra_classes="oc-table--fullwidth oc-table--force10" %}
     {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year %}
 
-    {% include "core/dsfr/table.html" with caption="Dotation FPIC" content=data.tables.dotation_fpic %}
-    {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year %}    
+    {% include "core/dsfr/table.html" with caption="Dotation FPIC" content=data.tables.dotation_fpic extra_classes="oc-table--fullwidth oc-table--force10" %}
+    {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year %}
     <a
       title="Dotation - Direction générale des Collectivités locales"
       href="http://www.dotations-dgcl.interieur.gouv.fr/"
