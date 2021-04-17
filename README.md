@@ -62,7 +62,7 @@ postgres=# \c <db_name>
 
 #### Nginx
  - Create the SSL certificate
- - Copy `devops/nginx-conf.sample` to `/etc/nginx/sites-available/gunicorn-<projectname>.conf` and fill the correct data
+ - Copy `devops/nginx-conf.sample` to `/etc/nginx/sites-available/<projectname>.conf` and fill the correct data
  - Make a symbolic link to the config file in the sites-enabled folder
  - Test the configuration with `nginx -t`
  - If it is ok, relaunch nginx
