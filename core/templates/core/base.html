@@ -26,7 +26,9 @@
 
 <body>
   <main id="content">
-    {% include "core/blocks/header.html" %}
+    {% block custom_header %}
+      {% include "core/blocks/header.html" with hide_brand=context.hide_brand %}
+    {% endblock %}
     {% include "core/dsfr/theme_modale.html" %}
 
     {% block content %}{% endblock %}

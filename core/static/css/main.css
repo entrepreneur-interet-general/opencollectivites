@@ -60,6 +60,25 @@
     background-position: right top;
 }
 
+.oc-sticky-header {
+    color: var(--g800);
+    background-color: var(--w);
+    border-bottom: 1px solid #ccc;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    z-index: 100;
+}
+
 .oc-tile-row > .fr-tile{
     margin-bottom: 2em;
 }
+
+/* Force certain classes to tables */
+.oc-table--fullwidth {
+    width: 100%;
+  }
+  
+.oc-table--force10 td + td, .oc-table--force10 th + th {
+    width: 10%;
+  }

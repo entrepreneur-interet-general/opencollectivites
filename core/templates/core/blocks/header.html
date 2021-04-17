@@ -9,11 +9,14 @@
 {% block service_tagline %}Un service de la DGCL{% endblock %}
 
 {% block brand %}
-<p class="fr-logo"
-    title="Ministère de la Cohésion des territoires et des Relations avec les collectivités territoriales">
-    Ministère <br />de la Cohésion <br />des territoires <br />et des Relations <br />avec les collectivités
-    <br />territoriales
-</p>
+  {% if hide_brand is not True %}
+  <p class="fr-logo"
+      title="Ministère de la Cohésion des territoires et des Relations avec les collectivités territoriales">
+      Ministère <br />de la Cohésion <br />des territoires <br />et des Relations <br />avec les collectivités
+      <br />territoriales
+  </p>
+  {% else %}
+  {% endif %}
 {% endblock %}
 
 {% block header_tools %}
