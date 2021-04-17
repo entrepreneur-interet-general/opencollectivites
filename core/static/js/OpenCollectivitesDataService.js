@@ -1,5 +1,5 @@
 const apiCall = axios.create({
-  baseURL: "http://localhost:8000/api",
+  baseURL: "/api",
   headers: {
     "Content-type": "application/json"
   }
