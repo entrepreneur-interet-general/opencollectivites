@@ -14,6 +14,7 @@ def page_index(request):
 def page_tests(request):
     payload = init_payload()
     payload["title"] = "Tests"
+    payload["context"]["hide_brand"] = True
     return render(request, "core/tests.html", payload)
 
 
