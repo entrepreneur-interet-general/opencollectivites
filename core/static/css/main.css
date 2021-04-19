@@ -3,7 +3,7 @@
     border-bottom: 1.5px solid var(--g400);
 }
 
-.fr-bg--alt {
+.oc-bg--alt {
     background-color: var(--g200);
 }
 
@@ -41,18 +41,17 @@
     margin-top: 1em;
 }
 
-#full-page-message {
-    margin: 3em auto;
+.oc-padding-bottom-3em {
+    padding-bottom: 3em;
 }
 
-.header-block {
-    background-color: #fff;
-    border-bottom: 1px solid #ccc;
-    position: fixed;
-    top: 0px;
-    width: 100%;
-    z-index: 100;
-  }
+.oc-padding-top-1em {
+    padding-top: 1em;
+}
+
+.oc-padding-top-2em {
+    padding-top: 2em;
+}
 
 .fr-header, .header-block {
     background-image: url('/static/img/beta.png'); 
