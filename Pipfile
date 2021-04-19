@@ -19,6 +19,7 @@ openpyxl-dictreader = "*"
 xlrd = "*"
 gunicorn = "*"
 django-ninja = "*"
+django = "*"
 
 [dev-packages]
 pylint = "*"
