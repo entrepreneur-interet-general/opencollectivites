@@ -294,6 +294,12 @@ def commune_data(siren_id):
     response = T050Communes.objects.get(siren=siren_id).__dict__
     response.pop("_state", None)
 
+    # Fix the 'civ_maire' syntax
+    if response["civ_maire"] == "Mme":
+        response["civ_maire"] = "M<sup>me</sup>"
+    elif response["civ_maire"] == "M":
+        response["civ_maire"] = "M."
+
     # Enrich the basic data
     ## Insee
     response["insee"] = f"{response['dep']}{response['cod']}"
