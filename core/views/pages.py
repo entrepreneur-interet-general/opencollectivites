@@ -3,6 +3,7 @@ from django.shortcuts import render
 
 from .utils import init_payload
 from .communes import commune_data, commune_context_data
+from .publications import list_documents
 
 ########### Pages
 def page_index(request):
@@ -24,13 +25,6 @@ def page_not_yet(request, siren, epci_name):
     return render(request, "core/page_not_yet.html", payload)
 
 
-def page_tests(request):
-    payload = init_payload()
-    payload["title"] = "Tests"
-    payload["context"]["hide_brand"] = True
-    return render(request, "core/tests.html", payload)
-
-
 def page_commune_detail(request, siren, commune_name):
     payload = init_payload()
     payload["title"] = f"Fiche commune : {commune_name}"
@@ -50,7 +44,7 @@ def page_commune_detail(request, siren, commune_name):
             "title": "Comparaison avec d’autres communes",
         },
     ]
-
+    payload["context"]["hide_brand"] = True
     return render(request, "core/commune_detail.html", payload)
 
 
@@ -67,3 +61,31 @@ def page_commune_compare(request, siren1, siren2, siren3=0, siren4=0):
     payload["data"]["tables"] = commune_context_data(sirens)
 
     return render(request, "core/commune_compare.html", payload)
+
+
+def page_publications(request):
+    payload = init_payload()
+    payload["title"] = "Publications"
+
+    topic = request.GET.get("topic")
+    scope = request.GET.get("scope")
+    document_type = request.GET.get("document_type")
+    publication_page = request.GET.get("publication_page")
+    limit = request.GET.get("limit")
+    offset = request.GET.get("offset")
+    payload["data"] = list_documents(
+        topic=topic,
+        scope=scope,
+        document_type=document_type,
+        publication_page=publication_page,
+        limit=limit,
+        offset=offset,
+    )
+    return render(request, "core/publications.html", payload)
+
+
+def page_tests(request):
+    payload = init_payload()
+    payload["title"] = "Tests"
+    payload["context"]["hide_brand"] = True
+    return render(request, "core/tests.html", payload)

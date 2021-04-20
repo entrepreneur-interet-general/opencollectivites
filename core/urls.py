@@ -18,6 +18,8 @@ urlpatterns = [
         views.page_commune_compare,
         name="page_commune_compare",
     ),
+    path("publications", views.page_publications, name="page_publications"),
     path("tests", views.page_tests, name="page_tests"),
+    path("test_404", views.error404, {"exception": Exception()}, name="page_test_404"),
     path("", views.page_index, name="page_index"),
 ]
