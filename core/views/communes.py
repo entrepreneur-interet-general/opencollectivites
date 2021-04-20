@@ -14,8 +14,6 @@ from aspic.models.t_aspic_cantons import T011Cantons
 from aspic.models.t_aspic_interco_liaison import T311050CommunesMembres
 from aspic.models.t_aspic_interco_meta import T301NaturesJuridiques
 
-from pprint import pprint
-
 
 def group_data(siren_id):
     """
@@ -339,5 +337,4 @@ def commune_data(siren_id):
     ## Groups
     response["groupements"] = group_data(siren_id)
 
-    pprint(response)
     return response
