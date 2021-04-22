@@ -1,14 +1,14 @@
-    <div class="fr-table {% if extra_classes %} {{ extra_classes }}{% endif %}">
-        <table>
-            <caption>{{ caption }}</caption>
-            <tbody>
-              {% for row in content %}
-                <tr>
-                  {% for cell in row %}
-                    <td>{{ cell }}</td>
-                  {% endfor %}
-                </tr>
-              {% endfor %}
-            </tbody>
-        </table>
-    </div>
+<div class="fr-table {% if extra_classes %} {{ extra_classes }}{% endif %}">
+    <table>
+        <caption>{{ caption }}</caption>
+        <tbody>
+            {% for row in content %}
+            <tr>
+                {% for cell in row %}
+                <td>{{ cell }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
