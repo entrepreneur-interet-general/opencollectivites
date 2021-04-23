@@ -93,6 +93,12 @@ def page_publications(request):
     return render(request, "core/publications.html", payload)
 
 
+def page_legal(request):
+    payload = init_payload()
+    payload["title"] = "Mentions légales"
+    return render(request, "core/mentions-legales.html", payload)
+
+
 def page_tests(request):
     payload = init_payload()
     payload["title"] = "Tests"

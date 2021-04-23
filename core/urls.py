@@ -20,6 +20,7 @@ urlpatterns = [
     ),
     path("publications", views.page_publications, name="page_publications"),
     path("tests", views.page_tests, name="page_tests"),
+    path("mentions-legales", views.page_legal, name="page_legal"),
     path("test_404", views.error404, {"exception": Exception()}, name="page_test_404"),
     path("", views.page_index, name="page_index"),
 ]
