@@ -9,6 +9,8 @@ from core.models import Document, DocumentType, Metadata, Source, PageType, Scop
 from random import choice, choices, randrange
 from pprint import pprint
 
+from datetime import datetime
+
 """
 Ce script crée des publications d'exemple.
 ⚠️ Ne pas utiliser sur le serveur de production
@@ -74,6 +76,7 @@ def create_sample_publication(entry_number):
     new_doc.title = f"Publication de test #{entry_number}"
     new_doc.base_domain = "example.open-collectivites.fr"
     new_doc.is_published = True
+    new_doc.last_update = datetime.now()
 
     body_list = []
     # Randomize characteristics
