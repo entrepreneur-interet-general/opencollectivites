@@ -1,9 +1,12 @@
+from django.core.paginator import Paginator
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.conf import settings
 
-from .utils import init_payload
+from .utils import init_payload, list_pages, publication_filters
 from .communes import commune_data, commune_context_data
-from .publications import list_documents
+from .publications import list_documents, documents_to_cards
+from pprint import pprint
 
 ########### Pages
 def page_index(request):
@@ -67,20 +70,26 @@ def page_publications(request):
     payload = init_payload()
     payload["title"] = "Publications"
 
-    topic = request.GET.get("topic")
-    scope = request.GET.get("scope")
-    document_type = request.GET.get("document_type")
-    publication_page = request.GET.get("publication_page")
-    limit = request.GET.get("limit")
-    offset = request.GET.get("offset")
-    payload["data"] = list_documents(
-        topic=topic,
-        scope=scope,
-        document_type=document_type,
-        publication_page=publication_page,
-        limit=limit,
-        offset=offset,
+    documents = list_documents(
+        topic=request.GET.get("topic"),
+        scope=request.GET.get("scope"),
+        document_type=request.GET.get("document_type"),
+        publication_page=request.GET.get("publication_page"),
     )
+
+    cards = documents_to_cards(documents)
+
+    paginated_docs = Paginator(cards, settings.PUBLICATIONS_PER_PAGE)
+
+    data = {}
+    data["total"] = paginated_docs.count
+    data["cards_page"] = paginated_docs.get_page(request.GET.get("page"))
+
+    payload["data"] = data
+
+    payload["filters"] = publication_filters(request)
+    pprint(payload["filters"])
+
     return render(request, "core/publications.html", payload)
 
 

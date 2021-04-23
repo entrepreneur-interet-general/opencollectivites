@@ -3,8 +3,106 @@
 
 {% block content %}
 <div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
-<h1> Études, statistiques et outils locaux </h1>
+{# Fil d'ariane #}
+<nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
+    <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
+    <div class="fr-collapse" id="breadcrumb-1">
+        <ol class="fr-breadcrumb__list">
+            <li>
+                <a class="fr-breadcrumb__link" href="/">Accueil</a>
+            </li>
+            <li>
+                <a class="fr-breadcrumb__link" aria-current="page">{{ title }}</a>
+            </li>
+        </ol>
+    </div>
+</nav>
 
-{{ request }}
+{# Intro #}
+<h1> Études, statistiques et outils locaux </h1>
+{% if data.total %}
+<h2>Votre recherche a renvoyé {{data.total}} résultat{% if data.total > 1 %}s{% endif %} :</h2>
+
+{% include "core/blocks/publications_list.html" with data=data.cards_page %}
+
+{% if data.cards_page.has_other_pages %}
+    {% include "core/dsfr/pagination.html" with page_obj=data.cards_page %}
+{% endif %}
+
+
+{% else %}
+<h2>Votre recherche n’a renvoyé aucun résultat</h2>
+<p>
+    Essayez de relancer la recherche en supprimant l’un des filtres
+    sélectionnés ci-dessus, ou essayez une recherche type :
+</p>
+<p>
+    <a
+    class="fr-link fr-fi-arrow-right-line fr-link--icon-right"
+    target="_self"
+    href="/publications?type=1"
+    >
+        Publications statistiques sur les collectivités locales
+    </a>
+</p>
+<p>
+    <a
+    class="fr-link fr-fi-arrow-right-line fr-link--icon-right"
+    target="_self"
+    href="/publications?type=2"
+    >
+        Jeux de données sur les collectivités locales
+    </a>
+</p>
+<p>
+    <a
+    class="fr-link fr-fi-arrow-right-line fr-link--icon-right"
+    target="_self"
+    href="/publications?type=3"
+    >
+        Outils utiles pour les collectivités locales
+    </a>
+</p>
+{% endif %}
+
 </div>
 {% endblock %}
+
+
+{% block custom_header %}
+<header role="banner" class="fr-header oc-sticky-header">
+    <div class="fr-header__body">
+        <div class="fr-container">
+            <form id="publications-header-form" class="fr-grid-row">
+                <div class="fr-col-1 fr-input-group oc-inline-form">
+                    <button class="fr-btn fr-btn--secondary fr-fi-arrow-left-s-line" title="Page précédente" onclick="goBack()">
+                        Précédent
+                    </button>
+                </div>
+                {% include "core/dsfr/select.html" with select_data=filters.topic extra_classes="fr-col-2" %}
+                <span class="fr-col-1"></span>
+                {% include "core/dsfr/select.html" with select_data=filters.scope extra_classes="fr-col-3" %}
+                <span class="fr-col-1"></span>
+                {% include "core/dsfr/select.html" with select_data=filters.document_type extra_classes="fr-col-2" %}
+                <span class="fr-col-1"></span>
+            </form>
+        </div>
+    </div>
+</header>
+{% endblock%}
+
+
+{% block extra_js %}
+<script>
+function goBack() {
+    window.history.back();
+}
+
+function setUrlParam(select) {
+    const filterParams = new URLSearchParams(window.location.search);
+    filterParams.delete("page") //This will change the list of results so removing the page parameter if set
+    filterParams.set(select.id, select.value);
+    window.location.href = "/publications?"+filterParams.toString();
+}
+</script>
+{% endblock%}

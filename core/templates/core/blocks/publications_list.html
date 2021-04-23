@@ -1,0 +1,9 @@
+<div class="bloc-publications">
+    <div class="col-auto">
+        {% for card in data %}
+        <div class="fr-col-4 feedcard">
+            {% include "core/dsfr/card.html" with card_data=card extra_classes="fr-card--no-arrow" new_tab=True %}
+        </div>
+        {% endfor %}
+    </div>
+</div>

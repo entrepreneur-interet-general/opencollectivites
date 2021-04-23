@@ -8,11 +8,9 @@ def list_documents(
     scope: int = None,
     document_type: int = None,
     publication_page: int = None,
-    limit: int = None,
-    offset: int = 0,
 ):
     """
-    Lists all **published** documents.
+    Lists **published** documents, with optional filters
     """
     qs = Document.objects.filter(is_published=True)
 
@@ -25,16 +23,32 @@ def list_documents(
         qs = qs.filter(document_type__id=document_type)
     if publication_page:
         qs = qs.filter(publication_pages__id=publication_page)
+    return qs
 
-    # Pagination
-    if not limit or limit > 20:
-        limit = 20
 
-    total = qs.count()
-    if limit:
-        qs = qs[offset : offset + limit]
+def documents_to_cards(qs):
+    """
+    Converts a queryset of documents to a list of cards
+    """
+    cards = []
+    for doc in qs:
+        if len(doc.document_type.all()):
+            detail = f"{doc.document_type.all()[0]} | {doc.last_update}"
+        else:
+            detail = f"{doc.last_update}"
 
-    response = {"documents": list(qs), "total": total}
+        if doc.source and len(doc.source.editor.all()):
+            detail = (
+                f"{detail} • {', '.join([ i.acronym for i in doc.source.editor.all()])}"
+            )
+        cards.append(
+            {
+                "detail": detail,
+                "link": doc.url,
+                "title": doc.title,
+                "description": doc.body,
+                "image": doc.image_url,
+            }
+        )
 
-    pprint(response)
-    return response
+    return cards

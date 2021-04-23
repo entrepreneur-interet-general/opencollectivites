@@ -1,4 +1,4 @@
-from core.models import Topic
+from core.models import Topic, Scope, DocumentType
 
 from babel.numbers import format_decimal
 
@@ -46,3 +46,62 @@ def data_vintage():
         vintages[v.code] = v.libelle
 
     return vintages
+
+
+def list_pages(page_obj):
+    """
+    Gets a paginator page item and returns it with a list of pages to display like:
+    [1, 2, "…", 17, 18, 19, "…" 41, 42]
+    """
+    last_page_number = page_obj.paginator.num_pages
+    pages_list = [1, 2]
+    if page_obj.number > 1:
+        pages_list.append(page_obj.number - 1)
+    pages_list.append(page_obj.number)
+    if page_obj.number < last_page_number:
+        pages_list.append(page_obj.number + 1)
+    pages_list.append(last_page_number - 1)
+    pages_list.append(last_page_number)
+
+    # Keep only one of each
+    unique_pages_items = list(set(pages_list))
+
+    list_with_separators = [unique_pages_items[0]]
+
+    for i in range(1, len(unique_pages_items)):
+        difference = unique_pages_items[i] - unique_pages_items[i - 1]
+        # If "…" would replace only one value, show it instead
+        if difference == 2:
+            list_with_separators.append(unique_pages_items[i - 1] + 1)
+        elif difference > 1:
+            list_with_separators.append("…")
+        list_with_separators.append(unique_pages_items[i])
+
+    page_obj.pages_list = list_with_separators
+    return page_obj
+
+
+def publication_filters(request):
+    models = [
+        {"name": "Thématique", "model": Topic, "key": "topic"},
+        {"name": "Portée", "model": Scope, "key": "scope"},
+        {"name": "Type de ressource", "model": DocumentType, "key": "document_type"},
+    ]
+    response = {}
+    for m in models:
+        values = []
+
+        entries = m["model"].objects.all()
+        for entry in entries:
+            values.append({"value": str(entry.id), "text": entry.name})
+
+        model_key = m["key"]
+        response[model_key] = {
+            "label": m["name"],
+            "id": m["key"],
+            "options": values,
+            "selected": request.GET.get(m["key"]),
+            "onchange": f"setUrlParam({m['key']})",
+            "default": {"text": f"- {m['name']} -", "disabled": False, "hidden": False},
+        }
+    return response
