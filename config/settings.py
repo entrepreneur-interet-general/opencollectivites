@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     "feeds",
     "francesubdivisions.apps.FrancesubdivisionsConfig",
     "aspic.apps.AspicConfig",
-    "core.apps.CoreConfig",
+    "core",
 ]
 
 MIDDLEWARE = [
