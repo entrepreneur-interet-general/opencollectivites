@@ -1,0 +1,17 @@
+////
+/// Accordions Settings
+/// @group accordions
+////
+
+$ac-btn-settings:(
+  sizes: (
+    md: (
+      font-size: 16,
+      min-height: 12v,
+      padding-x: 4v,
+      icon: sm,
+      icon-margin-x: 1v
+    )
+  ),
+  places: right
+);

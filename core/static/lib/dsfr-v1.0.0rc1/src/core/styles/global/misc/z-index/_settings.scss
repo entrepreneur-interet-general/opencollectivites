@@ -1,0 +1,22 @@
+////
+/// Core Settings : z-index
+/// @group core
+////
+
+/// Liste des z-index présent dans le DS
+/// @type map
+$z-indexes: (
+  auto: auto,
+  under: -1,
+  base: 0,
+  over: 1,
+  focus: 2000,
+  menu: 2500,
+  menu-focus: 3000,
+  nav: 3500,
+  nav-focus: 4000,
+  modal: 4500,
+  modal-focus: 5000,
+  modal-footer: 5500,
+  modal-footer-focus: 6000,
+);
