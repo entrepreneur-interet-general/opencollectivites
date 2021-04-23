@@ -81,3 +81,9 @@
 .oc-table--force10 td + td, .oc-table--force10 th + th {
     width: 10%;
   }
+
+/* Improve inline forms */
+.oc-inline-form {
+    display: flex;
+    align-items: center;
+}
