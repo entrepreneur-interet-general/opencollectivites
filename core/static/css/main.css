@@ -58,6 +58,11 @@
     z-index: 100;
 }
 
+.oc-sticky-block {
+    position: sticky;
+    top: 20px;
+}
+
 .oc-tile-row > .fr-tile{
     margin-bottom: 2em;
 }
