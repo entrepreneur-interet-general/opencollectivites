@@ -20,9 +20,11 @@ xlrd = "*"
 gunicorn = "*"
 django-ninja = "*"
 django = "*"
+babel = "*"
 
 [dev-packages]
 pylint = "*"
+coverage = "*"
 
 [requires]
 python_version = "3.8"
