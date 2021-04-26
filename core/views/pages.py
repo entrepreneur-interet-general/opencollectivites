@@ -47,6 +47,7 @@ def page_commune_detail(request, siren, commune_name):
             "title": "Comparaison avec d’autres communes",
         },
     ]
+    payload["breadcrumb_data"] = {"links": [], "current": payload["title"]}
     payload["context"]["hide_brand"] = True
     return render(request, "core/commune_detail.html", payload)
 
@@ -88,7 +89,7 @@ def page_publications(request):
     payload["data"] = data
 
     payload["filters"] = publication_filters(request)
-    pprint(payload["filters"])
+    payload["breadcrumb_data"] = {"links": [], "current": payload["title"]}
 
     return render(request, "core/publications.html", payload)
 

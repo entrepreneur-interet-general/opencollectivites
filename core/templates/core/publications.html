@@ -3,20 +3,7 @@
 
 {% block content %}
 <div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
-{# Fil d'ariane #}
-<nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
-    <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
-    <div class="fr-collapse" id="breadcrumb-1">
-        <ol class="fr-breadcrumb__list">
-            <li>
-                <a class="fr-breadcrumb__link" href="/">Accueil</a>
-            </li>
-            <li>
-                <a class="fr-breadcrumb__link" aria-current="page">{{ title }}</a>
-            </li>
-        </ol>
-    </div>
-</nav>
+{% include "core/dsfr/breadcrumb.html" with breadcrumb_data=breadcrumb_data %}
 
 {# Intro #}
 <h1> Études, statistiques et outils locaux </h1>
