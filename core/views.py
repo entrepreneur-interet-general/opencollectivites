@@ -20,7 +20,7 @@ def error404(request, exception):
     return render(request, "core/404.html", payload)
 
 
-def page_not_yet(request, siren, epci_name):
+def page_not_yet(request, **kwargs):
     payload = init_payload("Page en construction")
     return render(request, "core/page_not_yet.html", payload)
 

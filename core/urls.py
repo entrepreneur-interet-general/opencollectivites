@@ -9,14 +9,19 @@ urlpatterns = [
         name="page_commune_detail",
     ),
     path(
-        "epci/<int:siren>/<str:epci_name>",
+        "<str:place_type>/<int:siren>/<str:epci_name>",
         views.page_not_yet,
-        name="page_epci_detail",
+        name="page_place_detail",
     ),
     re_path(
         r"^compare\/commune\/(?P<siren1>\d{9})\/(?P<siren2>\d{9})\/?(?P<siren3>\d{9})?\/?(?P<siren4>\d{9})?\/?",
         views.page_commune_compare,
         name="page_commune_compare",
+    ),
+    re_path(
+        r"^compare\/.*",
+        views.page_not_yet,
+        name="page_place_compare",
     ),
     path("publications", views.page_publications, name="page_publications"),
     path("tests", views.page_tests, name="page_tests"),
