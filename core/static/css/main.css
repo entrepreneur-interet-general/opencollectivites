@@ -87,3 +87,9 @@
     display: flex;
     align-items: center;
 }
+
+/* Center the pagination component */
+.fr-pagination {
+    display: flex;
+    justify-content: center;
+    }
