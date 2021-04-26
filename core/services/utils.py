@@ -5,8 +5,11 @@ from babel.numbers import format_decimal
 from aspic.models.t_aspic_other import T173DatesDonnees
 
 
-def init_payload():
-    # Returns the common payload passed to all pages
+def init_payload(page_title: str, links: list = []):
+    # Returns the common payload passed to all pages:
+    # title: the page title
+    # breadcrumb_data: a dictionary used by the page's breadcrumb
+    # context: a dictionary used for content for the base template
 
     ## Topics
     context = {}
@@ -22,7 +25,9 @@ def init_payload():
             }
         )
 
-    return {"context": context}
+    breadcrumb_data = {"current": page_title, "links": links}
+
+    return {"context": context, "title": page_title, "breadcrumb_data": breadcrumb_data}
 
 
 def formatNumber(n):

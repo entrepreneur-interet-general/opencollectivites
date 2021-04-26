@@ -10,27 +10,23 @@ from pprint import pprint
 
 ########### Pages
 def page_index(request):
-    payload = init_payload()
-    payload["title"] = "Accueil"
+    payload = init_payload("Accueil")
     return render(request, "core/index.html", payload)
 
 
 def error404(request, exception):
-    payload = init_payload()
-    payload["title"] = "Erreur"
+    payload = init_payload("Erreur")
     payload["exception"] = exception
     return render(request, "core/404.html", payload)
 
 
 def page_not_yet(request, siren, epci_name):
-    payload = init_payload()
-    payload["title"] = "Page en construction"
+    payload = init_payload("Page en construction")
     return render(request, "core/page_not_yet.html", payload)
 
 
 def page_commune_detail(request, siren, commune_name):
-    payload = init_payload()
-    payload["title"] = f"Fiche commune : {commune_name}"
+    payload = init_payload(f"Fiche commune : {commune_name}")
     payload["siren"] = siren
     payload["commune_name"] = commune_name
     payload["data"] = commune_data(siren)
@@ -47,7 +43,6 @@ def page_commune_detail(request, siren, commune_name):
             "title": "Comparaison avec d’autres communes",
         },
     ]
-    payload["breadcrumb_data"] = {"links": [], "current": payload["title"]}
     payload["context"]["hide_brand"] = True
     return render(request, "core/commune_detail.html", payload)
 
@@ -60,7 +55,7 @@ def page_commune_compare(request, siren1, siren2, siren3=0, siren4=0):
     if siren4:
         sirens.append(siren4)
 
-    payload = init_payload()
+    payload = init_payload("Comparaison de communes")
     payload["data"] = {}
     payload["data"]["tables"] = commune_context_data(sirens)
 
@@ -68,8 +63,7 @@ def page_commune_compare(request, siren1, siren2, siren3=0, siren4=0):
 
 
 def page_publications(request):
-    payload = init_payload()
-    payload["title"] = "Publications"
+    payload = init_payload("Publications")
 
     documents = list_documents(
         topic=request.GET.get("topic"),
@@ -89,25 +83,21 @@ def page_publications(request):
     payload["data"] = data
 
     payload["filters"] = publication_filters(request)
-    payload["breadcrumb_data"] = {"links": [], "current": payload["title"]}
 
     return render(request, "core/publications.html", payload)
 
 
 def page_legal(request):
-    payload = init_payload()
-    payload["title"] = "Mentions légales"
+    payload = init_payload("Mentions légales")
     return render(request, "core/mentions-legales.html", payload)
 
 
 def page_sitemap(request):
-    payload = init_payload()
-    payload["title"] = "Plan du site"
+    payload = init_payload("Plan du site")
     return render(request, "core/sitemap.html", payload)
 
 
 def page_tests(request):
-    payload = init_payload()
-    payload["title"] = "Tests"
+    payload = init_payload("Tests")
     payload["context"]["hide_brand"] = True
     return render(request, "core/tests.html", payload)

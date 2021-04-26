@@ -3,7 +3,8 @@
 
 {% block content %}
 <div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
-<h1> Plan du site </h1>
+{% include "core/dsfr/breadcrumb.html" with breadcrumb_data=breadcrumb_data %}
+
 
 </div>
 {% endblock %}
