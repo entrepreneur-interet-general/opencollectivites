@@ -3,7 +3,7 @@ from django.utils.http import urlencode
 from django.utils.html import format_html
 from django.urls import reverse
 
-from core.utils.django_admin import TimeStampModelAdmin, view_reverse_changelink
+from core.services.django_admin import TimeStampModelAdmin, view_reverse_changelink
 from core import models
 from config.settings import FRONT_HOME_URL
 

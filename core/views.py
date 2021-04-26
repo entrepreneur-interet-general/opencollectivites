@@ -3,9 +3,9 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.conf import settings
 
-from .utils import init_payload, list_pages, publication_filters
-from .communes import commune_data, commune_context_data
-from .publications import list_documents, documents_to_cards
+from core.services.utils import init_payload, list_pages, publication_filters
+from core.services.communes import commune_data, commune_context_data
+from core.services.publications import list_documents, documents_to_cards
 from pprint import pprint
 
 ########### Pages
