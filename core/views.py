@@ -100,6 +100,12 @@ def page_legal(request):
     return render(request, "core/mentions-legales.html", payload)
 
 
+def page_sitemap(request):
+    payload = init_payload()
+    payload["title"] = "Plan du site"
+    return render(request, "core/sitemap.html", payload)
+
+
 def page_tests(request):
     payload = init_payload()
     payload["title"] = "Tests"
