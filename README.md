@@ -24,7 +24,7 @@ postgres=# GRANT ALL PRIVILEGES ON DATABASE <db_name> TO <db_user>;
 
 ```
 postgres=# \c <db_name>
-<db_name>=# CREATE EXTENSION unaccent;
+<db_name>=# CREATE EXTENSION  IF NOT EXISTS unaccent;
 ```
 
 ### Install the project
