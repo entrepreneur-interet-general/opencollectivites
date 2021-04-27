@@ -1,0 +1,9 @@
+[run]
+omit =
+    config/*
+    */environment/*
+    */migrations/*
+    */__init__.py
+    manage.py
+    submodules/*
+    feeds/*
