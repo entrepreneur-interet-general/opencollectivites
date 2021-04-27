@@ -3,9 +3,13 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.conf import settings
 
+from core.models import Topic, Scope, Source
 from core.services.utils import init_payload, list_pages, publication_filters
 from core.services.communes import commune_data, commune_context_data
 from core.services.publications import list_documents, documents_to_cards
+
+from francesubdivisions.models import Region
+
 from pprint import pprint
 
 ########### Pages
@@ -94,6 +98,24 @@ def page_legal(request):
 
 def page_sitemap(request):
     payload = init_payload("Plan du site")
+
+    regions = Region.objects.order_by("name")
+    regions_data = []
+    for r in regions:
+        # Using insee because Mayotte should appear here
+        regions_data.append(
+            {"name": r.name, "slug": r.slug, "counts": r.subdivisions_count()}
+        )
+
+    filter_data = {}
+    filter_data["topic"] = Topic.objects.order_by("name")
+    filter_data["scope"] = Scope.objects.order_by("name")
+    filter_data["source"] = Source.objects.order_by("title")
+    payload["filter_data"] = filter_data
+
+    pprint(regions_data)
+    payload["regions_data"] = regions_data
+
     return render(request, "core/sitemap.html", payload)
 
 

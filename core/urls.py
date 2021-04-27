@@ -23,6 +23,16 @@ urlpatterns = [
         views.page_not_yet,
         name="page_place_compare",
     ),
+    path(
+        "region/liste_departements/<slug:slug>",
+        views.page_not_yet,
+        name="page_region_departements",
+    ),
+    path(
+        "region/liste_communes/<slug:slug>",
+        views.page_not_yet,
+        name="page_region_communes",
+    ),
     path("publications", views.page_publications, name="page_publications"),
     path("tests", views.page_tests, name="page_tests"),
     path("mentions-legales", views.page_legal, name="page_legal"),

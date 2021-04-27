@@ -3,8 +3,128 @@
 
 {% block content %}
 <div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
-{% include "core/dsfr/breadcrumb.html" with breadcrumb_data=breadcrumb_data %}
+    {% include "core/dsfr/breadcrumb.html" with breadcrumb_data=breadcrumb_data %}
+
+    <h1> Plan du site </h1>
+    <h2> Trouver les données de ma communauté </h2>
+    <hr />
+    <div class="fr-grid-row fr-grid-row--gutters oc-padding-bottom-3em">
+        <div class="fr-col-12 fr-col-md-6">
+            {% for region in regions_data|slice:":9" %}
+            <h3>{{ region.name }}</h3>
+            <ul>
+                {% if region.counts.departements > 1 %}
+                <li><a href="/region/liste_departements/{{ region.slug }}">
+                    Voir les {{ region.counts.departements }} départements de la Région {{ region.name }}
+                </a></li>
+                {% endif %}
+                <li><a href="/region/liste_communes/{{ region.slug }}">
+                    Voir les {{ region.counts.communes }} communes de la Région {{ region.name }}
+                </a></li>
+            </ul>
+            {% endfor %}
+        </div>
+
+        <div class="fr-col-12 fr-col-md-6">
+            {% for region in regions_data|slice:"9:" %}
+            <h3>{{ region.name }}</h3>
+            <ul>
+                {% if region.counts.departements > 1 %}
+                <li><a href="/region/liste_departements/{{ region.slug }}">
+                    Voir les {{ region.counts.departements }} départements de la Région {{ region.name }}
+                </a></li>
+                {% endif %}
+                <li><a href="/region/liste_communes/{{ region.slug }}">
+                    Voir les {{ region.counts.communes }} communes de la Région {{ region.name }}
+                </a></li>
+            </ul>
+            {% endfor %}
+        </div>
+    </div>
+
+    <h2> Trouver une publication </h2>
+    <hr />
+    <div class="fr-grid-row fr-grid-row--gutters oc-padding-bottom-3em">
+        <div class="fr-col-12 fr-col-md-6">
+            <h3>Par thématique</h3>
+            <ul>
+                {% for topic in filter_data.topic %}
+                <li><a href="/publications?document_type=1&topic={{ topic.id }}">{{ topic.name }}</a></li>
+                {% endfor %}
+            </ul>
+            <h3>Par type de collectivité</h3>
+            <ul>
+                {% for scope in filter_data.scope %}
+                <li><a href="/publications?document_type=1&scope={{ scope.id }}">{{ scope.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="fr-col-12 fr-col-md-6">
+            <h3>Par source</h3>
+            <ul>
+                {% for source in filter_data.source %}
+                <li><a href="/publications?document_type=1&source={{ source.id }}">{{ source.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <h2> Trouver un jeu de données</h2>
+    <hr />
+    <div class="fr-grid-row fr-grid-row--gutters oc-padding-bottom-3em">
+        <div class="fr-col-12 fr-col-md-6">
+            <h3>Par thématique</h3>
+            <ul>
+                {% for topic in filter_data.topic %}
+                <li><a href="/publications?document_type=2&topic={{ topic.id }}">{{ topic.name }}</a></li>
+                {% endfor %}
+            </ul>
+            <h3>Par type de collectivité</h3>
+            <ul>
+                {% for scope in filter_data.scope %}
+                <li><a href="/publications?document_type=2&scope={{ scope.id }}">{{ scope.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="fr-col-12 fr-col-md-6">
+            <h3>Par source</h3>
+            <ul>
+                {% for source in filter_data.source %}
+                <li><a href="/publications?document_type=2&source={{ source.id }}">{{ source.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 
 
+    <h2> Trouver un outil</h2>
+    <hr />
+    <div class="fr-grid-row fr-grid-row--gutters oc-padding-bottom-3em">
+        <div class="fr-col-12 fr-col-md-6">
+            <h3>Par thématique</h3>
+            <ul>
+                {% for topic in filter_data.topic %}
+                <li><a href="/publications?document_type=3&topic={{ topic.id }}">{{ topic.name }}</a></li>
+                {% endfor %}
+            </ul>
+            <h3>Par type de collectivité</h3>
+            <ul>
+                {% for scope in filter_data.scope %}
+                <li><a href="/publications?document_type=3&scope={{ scope.id }}">{{ scope.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="fr-col-12 fr-col-md-6">
+            <h3>Par source</h3>
+            <ul>
+                {% for source in filter_data.source %}
+                <li><a href="/publications?document_type=3&source={{ source.id }}">{{ source.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 </div>
 {% endblock %}
