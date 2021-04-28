@@ -4,13 +4,15 @@ from django.shortcuts import render
 from django.conf import settings
 
 from core.models import Topic, Scope, Source
-from core.services.utils import init_payload, list_pages, publication_filters
+from core.services.utils import init_payload, list_pages
 from core.services.communes import commune_data, commune_context_data
-from core.services.publications import list_documents, documents_to_cards
+from core.services.publications import (
+    list_documents,
+    documents_to_cards,
+    publication_filters,
+)
 
 from francesubdivisions.models import Region
-
-from pprint import pprint
 
 ########### Pages
 def page_index(request):
@@ -74,6 +76,9 @@ def page_publications(request):
         scope=request.GET.get("scope"),
         document_type=request.GET.get("document_type"),
         publication_page=request.GET.get("publication_page"),
+        source_org=request.GET.get("source_org"),
+        before=request.GET.get("before"),
+        after=request.GET.get("after"),
     )
 
     cards = documents_to_cards(documents)
@@ -113,7 +118,6 @@ def page_sitemap(request):
     filter_data["source"] = Source.objects.order_by("title")
     payload["filter_data"] = filter_data
 
-    pprint(regions_data)
     payload["regions_data"] = regions_data
 
     return render(request, "core/sitemap.html", payload)

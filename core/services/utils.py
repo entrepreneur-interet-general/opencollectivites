@@ -1,8 +1,12 @@
-from core.models import Topic, Scope, DocumentType
+from core.models import Topic
 
 from babel.numbers import format_decimal
 
 from aspic.models.t_aspic_other import T173DatesDonnees
+
+from django.core.exceptions import ValidationError
+
+import dateparser
 
 
 def init_payload(page_title: str, links: list = []):
@@ -84,29 +88,3 @@ def list_pages(page_obj):
 
     page_obj.pages_list = list_with_separators
     return page_obj
-
-
-def publication_filters(request):
-    models = [
-        {"name": "Thématique", "model": Topic, "key": "topic"},
-        {"name": "Portée", "model": Scope, "key": "scope"},
-        {"name": "Type de ressource", "model": DocumentType, "key": "document_type"},
-    ]
-    response = {}
-    for m in models:
-        values = []
-
-        entries = m["model"].objects.all()
-        for entry in entries:
-            values.append({"value": str(entry.id), "text": entry.name})
-
-        model_key = m["key"]
-        response[model_key] = {
-            "label": m["name"],
-            "id": m["key"],
-            "options": values,
-            "selected": request.GET.get(m["key"]),
-            "onchange": f"setUrlParam({m['key']})",
-            "default": {"text": f"- {m['name']} -", "disabled": False, "hidden": False},
-        }
-    return response

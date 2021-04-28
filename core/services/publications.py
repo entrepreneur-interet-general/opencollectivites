@@ -1,6 +1,8 @@
-from core.models import Document
-from pprint import pprint
+from core.models import Topic, Scope, DocumentType, Document, Organization
+
 from core.api import list_documents
+
+import dateparser
 
 
 def list_documents(
@@ -8,6 +10,9 @@ def list_documents(
     scope: int = None,
     document_type: int = None,
     publication_page: int = None,
+    source_org: int = None,
+    before: str = None,
+    after: str = None,
 ):
     """
     Lists **published** documents, with optional filters
@@ -23,6 +28,13 @@ def list_documents(
         qs = qs.filter(document_type__id=document_type)
     if publication_page:
         qs = qs.filter(publication_pages__id=publication_page)
+    if source_org:
+        qs = qs.filter(source__editor__id=source_org)
+    if before:
+        parsed_date = dateparser.parse(before)
+        qs = qs.filter(last_update__lte=parsed_date)
+    if after and dateparser.parse(after):
+        qs = qs.filter(last_update__gte=after)
     return qs
 
 
@@ -52,3 +64,123 @@ def documents_to_cards(qs):
         )
 
     return cards
+
+
+def publication_filters(request):
+    """
+    Returns a list of filters
+    """
+    # Model type: select
+    models = [
+        {"name": "Thématique", "model": Topic, "key": "topic", "label": "name"},
+        {"name": "Portée", "model": Scope, "key": "scope", "label": "name"},
+        {
+            "name": "Type de ressource",
+            "model": DocumentType,
+            "key": "document_type",
+            "label": "name",
+        },
+        {
+            "name": "Organisme auteur",
+            "model": Organization,
+            "key": "source_org",
+            "label": "name",
+        },
+    ]
+    response = {}
+    for m in models:
+        values = []
+        model_key = m["key"]
+
+        entries = m["model"].objects.all()
+        for entry in entries:
+            if m["label"] == "title":
+                entry_text = entry.title
+            else:
+                entry_text = entry.name
+            values.append({"value": str(entry.id), "text": entry_text})
+
+        response[model_key] = {
+            "label": m["name"],
+            "id": model_key,
+            "options": values,
+            "selected": request.GET.get(m["key"]),
+            "onchange": f"setUrlParam({m['key']})",
+            "default": {"text": f"- {m['name']} -", "disabled": False, "hidden": False},
+        }
+
+    # Model type: date
+
+    ## Last update
+    ### The values need to be:
+    # - between the extreme values in the database
+    # - but also after needs to be < before
+
+    date_min = (
+        Document.objects.filter(is_published=True)
+        .order_by("last_update")[0]
+        .last_update
+    )
+
+    date_max = (
+        Document.objects.filter(is_published=True)
+        .order_by("-last_update")[0]
+        .last_update
+    )
+
+    date_before = None
+    date_before_max = date_max.strftime("%Y-%m-%d")
+    date_after = None
+    date_after_min = date_min.strftime("%Y-%m-%d")
+
+    date_after_max = date_before_max
+    date_before_min = date_after_min
+
+    if request.GET.get("before"):
+        try:
+            date_before = request.GET.get("before")
+            date_before_parsed = dateparser.parse(date_before)
+            if date_before_parsed.date() < date_max:
+                date_after_max = date_before
+
+        except ValidationError:
+            pass
+
+    if request.GET.get("after"):
+        try:
+            date_after = request.GET.get("after")
+            date_after_parsed = dateparser.parse(date_after)
+            if date_after_parsed.date() > date_min:
+                date_before_min = date_after
+        except ValidationError:
+            pass
+
+    response["after"] = {
+        "label": "Entre le",
+        "id": "after",
+        "type": "date",
+        "value": date_after,
+        "min": date_after_min,
+        "max": date_after_max,
+        "onchange": f"setUrlParam(after)",
+    }
+    response["before"] = {
+        "label": "Et le",
+        "id": "before",
+        "type": "date",
+        "value": date_before,
+        "min": date_before_min,
+        "max": date_before_max,
+        "onchange": f"setUrlParam(before)",
+    }
+
+    # Count the extra filters
+    extra_filters_count = 0
+    if request.GET.get("source_org"):
+        extra_filters_count += 1
+    if date_after or date_before:
+        extra_filters_count += 1
+
+    response["extra_count"] = extra_filters_count
+
+    return response
