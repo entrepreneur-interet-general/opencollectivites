@@ -47,12 +47,10 @@ def documents_to_cards(qs):
         if len(doc.document_type.all()):
             detail = f"{doc.document_type.all()[0]} | {doc.last_update}"
         else:
-            detail = f"{doc.last_update}"
+            detail = f" Publication | {doc.last_update}"
 
         if doc.source and len(doc.source.editor.all()):
-            detail = (
-                f"{detail} • {', '.join([ i.acronym for i in doc.source.editor.all()])}"
-            )
+            detail = f"{detail} • {', '.join([ i.short_name() for i in doc.source.editor.all()])}"
         cards.append(
             {
                 "detail": detail,

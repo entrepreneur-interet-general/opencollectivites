@@ -122,6 +122,12 @@ class Organization(TimeStampModel):
         else:
             return self.name
 
+    def short_name(self):
+        if self.acronym:
+            return self.acronym
+        else:
+            return self.name
+
     class Meta:
         ordering = ["name"]
         verbose_name = "organisation"
