@@ -184,6 +184,12 @@ class Source(TimeStampModel):
         return self.title
 
     def save(self, *args, **kwargs):
+        if self.rss_feed and not self.url:
+            self.url = self.rss_feed.feed_url
+
+        if not self.title:
+            self.title = self.url
+
         self.base_domain = urlparse(self.url).hostname[:100]
         super().save(*args, **kwargs)
 

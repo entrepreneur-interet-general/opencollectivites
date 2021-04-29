@@ -9,7 +9,6 @@ from core.models import Source as CoreSource
 
 from urllib.parse import urlparse
 from dateutil import parser as dateparser
-from pprint import pprint
 
 """
 Ce script importe les sources depuis celles présentes dans les flux RSS
