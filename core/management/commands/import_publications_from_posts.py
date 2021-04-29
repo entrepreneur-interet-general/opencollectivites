@@ -61,7 +61,7 @@ class Command(BaseCommand):
                 if return_code_source:
                     source_entry.title = post.source.name
                     source_entry.url = post.source.site_url
-                    source_entry.base_domain = urlparse(source_entry.url).hostname
+                    source_entry.base_domain = urlparse(source_entry.url).hostname[:100]
 
                 else:
                     # Copy many-to-many entries that automatically apply to all documents from this source
