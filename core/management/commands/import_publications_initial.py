@@ -45,8 +45,6 @@ class Command(BaseCommand):
                 "resources", "202101-sources-a-referencer_sources.csv"
             )
             with open(plateformes_file, "r", encoding="utf-8-sig") as input_csv:
-                all_sources = []
-
                 reader = csv.DictReader(input_csv)
                 for row in reader:
                     url = row["URL"]
