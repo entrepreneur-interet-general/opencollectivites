@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     "feeds",
     "francesubdivisions.apps.FrancesubdivisionsConfig",
     "aspic.apps.AspicConfig",
-    "core.apps.CoreConfig",
+    "core",
 ]
 
 MIDDLEWARE = [
@@ -85,6 +85,8 @@ DATABASES = LOCAL_DATABASES
 
 DATABASE_ROUTERS = ["aspic.router.AspicRouter"]
 
+DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -109,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "fr-fr"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Europe/Paris"
 
 USE_I18N = True
 
@@ -128,7 +130,6 @@ FEEDS_SOURCE_NAME_AUTOUPDATE = False
 STATIC_URL = "/static/"
 STATIC_ROOT = path.join(BASE_DIR, "static")
 
-
 # CORS
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = LOCAL_CORS_ORIGIN_WHITELIST
@@ -138,3 +139,4 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = None
 
 # Other
 FRONT_HOME_URL = LOCAL_FRONT_HOME_URL
+PUBLICATIONS_PER_PAGE = LOCAL_PUBLICATIONS_PER_PAGE

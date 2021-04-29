@@ -28,3 +28,5 @@ urlpatterns = [
     path("api/", api.urls),
     path("", include("core.urls")),
 ]
+
+handler404 = "core.views.error404"

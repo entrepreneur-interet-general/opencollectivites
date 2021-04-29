@@ -1,0 +1,49 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="fr-container">
+  {# Tables #}
+  <h2 id="donnees-contexte">Données de contexte</h2>
+  {% include "core/dsfr/table.html" with caption="Population" content=data.tables.population extra_classes="oc-table--fullwidth oc-table--force10" %}
+  {% include "core/dsfr/table.html" with caption="Emploi - chômage" content=data.tables.emploi extra_classes="oc-table--fullwidth oc-table--force10" %}
+  {% include "core/dsfr/table.html" with caption="Niveau de vie" content=data.tables.niveau_de_vie extra_classes="oc-table--fullwidth oc-table--force10" %}
+  {% include "core/dsfr/table.html" with caption="Zonage" content=data.tables.zonage extra_classes="oc-table--fullwidth oc-table--force10" %}
+  {% include "core/dsfr/table.html" with caption="Dotation globale" content=data.tables.dotation_globale extra_classes="oc-table--fullwidth oc-table--force10" %}
+  {% include "core/dsfr/table.html" with caption="Dotation élu local" content=data.tables.dotation_elu_local extra_classes="oc-table--fullwidth oc-table--force10" %}
+  {% include "core/dsfr/table.html" with caption="Dotation FPIC" content=data.tables.dotation_fpic extra_classes="oc-table--fullwidth oc-table--force10" %}
+</div>
+{% endblock %}
+
+{% block custom_header %}
+<header role="banner" class="fr-header oc-sticky-header">
+    <div class="fr-header__body">
+        <div class="fr-container">
+            <div class="fr-header__body-row fr-container">
+              <table class="oc-table--fullwidth oc-table--force10">
+                <thead>
+                  <tr>
+                      <th scope="col" style="text-align: left;">
+                        <button class="fr-btn fr-btn--secondary fr-fi-arrow-left-s-line" title="Page précédente" onclick="goBack()">
+                          Précédent
+                        </button>
+                      </th>
+                      {% for name in data.tables.places_names %}
+                      <th scope="col"> {{ name }} </th>
+                      {% endfor %}
+                  </tr>
+                </thead>
+              </table>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock%}
+
+{% block extra_js %}
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+{% endblock%}

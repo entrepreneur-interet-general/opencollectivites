@@ -1,0 +1,39 @@
+////
+/// Summary Module
+/// @group summary
+////
+
+//TODO: rapprocher de la liste ordonnée et vérifier les sous-niveaux.
+
+#{ns(summary)} {
+  @include disable-link-style;
+  @include disable-list-style;
+  @include padding(6v);
+  @include padding(8v, md);
+
+  @include title {
+    @include margin(0 0 2v);
+    @include text-style(xs);
+    font-weight: font-weight(bold);
+    text-transform: uppercase;
+  }
+
+  @include list {
+    > li { // TODO: BEM
+      @include margin(0);
+      @include before(null, none);
+    }
+
+    > li > a { // TODO: BEM
+      display: inline-flex;
+      @include padding(2v);
+      @include margin(0 -2v);
+      @include text-style(xs);
+
+      @include before {
+        @include margin-right(2v);
+        content: counters(list-number, ".") ".";
+      }
+    }
+  }
+}

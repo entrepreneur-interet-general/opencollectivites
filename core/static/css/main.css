@@ -1,0 +1,89 @@
+.fr-header {
+    box-shadow: none;
+    border-bottom: 1.5px solid var(--g400);
+}
+
+.oc-bg--alt {
+    background-color: var(--g200);
+}
+
+.feed-more-link {
+    text-align: right;
+}
+
+.feed-more-link a {
+    font-size: 1.3rem;
+}
+
+
+.fr-tile__link {
+    text-align: center;
+    display: inline-block;
+}
+
+.comparison-selector {
+    padding: 10px;
+    margin-bottom: 2em;
+}
+
+.comparison-selector button {
+    margin-top: 1em;
+}
+
+.oc-padding-bottom-3em {
+    padding-bottom: 3em;
+}
+
+.oc-padding-top-1em {
+    padding-top: 1em;
+}
+
+.oc-padding-top-2em {
+    padding-top: 2em;
+}
+
+.fr-header, .header-block {
+    background-image: url('/static/img/beta.png'); 
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+
+.oc-sticky-header {
+    color: var(--g800);
+    background-color: var(--w);
+    border-bottom: 1px solid #ccc;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    z-index: 100;
+}
+
+.oc-sticky-block {
+    position: sticky;
+    top: 20px;
+}
+
+.oc-tile-row > .fr-tile{
+    margin-bottom: 2em;
+}
+
+/* Force certain classes to tables */
+.oc-table--fullwidth {
+    width: 100%;
+  }
+  
+.oc-table--force10 td + td, .oc-table--force10 th + th {
+    width: 10%;
+  }
+
+/* Improve inline forms */
+.oc-inline-form {
+    display: flex;
+    align-items: center;
+}
+
+/* Center the pagination component */
+.fr-pagination {
+    display: flex;
+    justify-content: center;
+    }

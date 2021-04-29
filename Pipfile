@@ -19,9 +19,14 @@ openpyxl-dictreader = "*"
 xlrd = "*"
 gunicorn = "*"
 django-ninja = "*"
+django = "*"
+babel = "*"
 
 [dev-packages]
 pylint = "*"
+coverage = "*"
+mock = "*"
+requests-mock = "*"
 
 [requires]
 python_version = "3.8"

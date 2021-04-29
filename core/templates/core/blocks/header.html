@@ -1,0 +1,27 @@
+{% extends "core/dsfr/header.html" %}
+
+{% block service_title %}
+<a href="/" title="Accueil - Open Collectivités">
+    <p class="fr-header__service-title">Open Collectivités</p>
+</a>
+{% endblock %}
+
+{% block service_tagline %}Un service de la DGCL{% endblock %}
+
+{% block brand %}
+  {% if hide_brand is not True %}
+  <p class="fr-logo"
+      title="Ministère de la Cohésion des territoires et des Relations avec les collectivités territoriales">
+      Ministère <br />de la Cohésion <br />des territoires <br />et des Relations <br />avec les collectivités
+      <br />territoriales
+  </p>
+  {% else %}
+  <p class="fr-logo"></p>
+  {% endif %}
+{% endblock %}
+
+{% block header_tools %}
+<li>
+  <button class="fr-link fr-fi-theme-fill fr-link--icon-left" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d'affichage</button>
+</li>
+{% endblock%}

@@ -1,6 +1,6 @@
 from django.db import models
 
-from core.utils.django_admin import TimeStampModel
+from core.services.django_admin import TimeStampModel
 
 from urllib.parse import urlparse
 from datetime import date
@@ -122,6 +122,12 @@ class Organization(TimeStampModel):
         else:
             return self.name
 
+    def short_name(self):
+        if self.acronym:
+            return self.acronym
+        else:
+            return self.name
+
     class Meta:
         ordering = ["name"]
         verbose_name = "organisation"
@@ -178,6 +184,12 @@ class Source(TimeStampModel):
         return self.title
 
     def save(self, *args, **kwargs):
+        if self.rss_feed and not self.url:
+            self.url = self.rss_feed.feed_url
+
+        if not self.title:
+            self.title = self.url
+
         self.base_domain = urlparse(self.url).hostname[:100]
         super().save(*args, **kwargs)
 

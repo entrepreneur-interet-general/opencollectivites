@@ -1,0 +1,298 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
+{% include "core/dsfr/breadcrumb.html" with breadcrumb_data=breadcrumb_data %}
+
+    <h1>Mentions légales</h1>
+    <h2>Informations éditeur</h2>
+    <h3 id="Service-gestionnaire">Service gestionnaire</h3>
+    <p>Direction générale des Collectivités locales (DGCL)</p>
+    <p>
+    Département de publication de l'information et de la documentation -
+    Pôle communication
+    </p>
+    <p>
+    2 Place des Saussaies<br />
+    75008 Paris<br />
+    France<br />
+    </p>
+
+    <h3 id="Directeur-de-la-publication">Directeur de la publication</h3>
+    <p>Stanislas Bourron</p>
+
+    <h2 id="Informations-techniques">Informations techniques</h2>
+    <h3 id="Hébergement-du-site">Hébergement du site</h3>
+    <p>
+    OVH SAS, filiale de la société OVH Groupe SAS, société immatriculée au
+    RCS de Lille sous le numéro 537 407 926 sise 2, rue Kellermann, 59100
+    Roubaix.
+    </p>
+    <p><a href="https://www.ovh.com/fr/">ovh.com</a></p>
+
+    <h3 id="Conception-et-developpement">Conception et développement</h3>
+    <p>Réalisation technique et graphique :</p>
+    <p>
+    Direction Générale des Collectivités Locales (DGCL) avec l’appui du
+    programme
+    <a
+        href="https://entrepreneur-interet-general.etalab.gouv.fr/defis/2020/open-collectivites.html"
+    >
+        Entrepreneurs d’Intérêt Général</a
+    >.
+    </p>
+    <p>
+    Le code du portail est intégralement open source et mis à disposition
+    sur les dépôts GitHub du projet : (<a
+        href="https://github.com/entrepreneur-interet-general/opencollectivites"
+        >back-end</a
+    >
+    en Django,
+    <a
+        href="https://github.com/entrepreneur-interet-general/opencollectivites-front"
+        >front-end</a
+    >
+    en Vue.js)
+    </p>
+    <p>
+    Ce site n'aurait pas pu être réalisé sans les outils ou les
+    fonctionnalités mis à disposition par :
+    </p>
+    <ul>
+    <li>
+        les&nbsp;communautés :
+        <ul>
+        <li>
+            <a href="https://www.djangoproject.com/">djangoproject.com</a>
+        </li>
+        <li>
+            <a href="https://vuejs.org/">vuejs.org</a>
+        </li>
+        <li>
+            <a href="https://undraw.co/">undraw.co</a>
+        </li>
+        </ul>
+    </li>
+
+    <li>
+        le design system de l’État basé sur :
+        <ul>
+        <li>
+            <a href="https://www.gouvernement.fr/marque-Etat"
+            >La marque de l’État</a
+            >
+        </li>
+
+        <li>
+            <a href="https://remixicon.com/">Remix Icon</a>
+        </li>
+        </ul>
+    </li>
+
+    <li>
+        les contenus issus des sources officielles suivantes :
+        <ul>
+        <li>
+            <a href="https://www.ademe.fr/"
+            >Ademe (Agence de l'environnement et de la maîtrise de
+            l'énergie)</a
+            >
+        </li>
+
+        <li>
+            <a
+            href="https://www.banatic.interieur.gouv.fr/V5/accueil/index.php"
+            >Base nationale sur l’intercommunalité</a
+            >
+        </li>
+
+        <li><a href="https://www.ccomptes.fr/fr">Cour des comptes</a></li>
+        <li>
+            <a href="https://dares.travail-emploi.gouv.fr/"
+            >Dares (Direction de l'Animation de la recherche, des Études et
+            des Statistiques)</a
+            >
+        </li>
+
+        <li>
+            <a
+            href="https://drees.solidarites-sante.gouv.fr/etudes-et-statistiques/"
+            >Drees (Direction de la Recherche, des Études, de l'Évaluation
+            et des Statistiques)</a
+            >
+        </li>
+
+        <li>
+            <a href="https://www.collectivites-locales.gouv.fr/"
+            >DGCL (Direction générale des collectivités locales)</a
+            >
+        </li>
+
+        <li>
+            <a href="https://www.economie.gouv.fr/dgfip"
+            >DGFiP (direction générale des Finances publiques)</a
+            >
+        </li>
+
+        <li>
+            <a href="https://www.insee.fr/fr/accueil">Insee</a>
+        </li>
+        <li>
+            <a href="https://www.cohesion-territoires.gouv.fr/"
+            >Ministère de la Cohésion des territoires et des Relations avec
+            les collectivités territoriales</a
+            >
+        </li>
+
+        <li>
+            <a href="https://www.ecologie.gouv.fr/"
+            >Ministère de la Transition écologique et solidaire</a
+            >
+        </li>
+
+        <li>
+            <a href="https://www.economie.gouv.fr/"
+            >Ministère de l'Économie, des Finances, et de la Relance</a
+            >
+        </li>
+
+        <li>
+            <a href="https://solidarites-sante.gouv.fr/"
+            >Ministère des Solidarités et de la Santé</a
+            >
+        </li>
+
+        <li>
+            <a href="https://travail-emploi.gouv.fr/">Ministère du Travail</a>
+        </li>
+
+        <li>
+            <a href="https://data.ofgl.fr/pages/accueil/"
+            >OFGL (Observatoire des finances et de la gestion publique
+            locales)</a
+            >
+        </li>
+        </ul>
+    </li>
+    </ul>
+
+    <h2 id="Responsabilite-de-la-DGCL">
+    Responsabilité de la Direction Générale des Collectivités Locales (DGCL)
+    </h2>
+    <p>
+    Les informations proposées sur ce site le sont au titre de service rendu
+    au public. Malgré tout le soin apporté à l’actualisation des textes
+    officiels et à la vérification des contenus, les documents mis en ligne
+    ne sauraient engager la responsabilité de la DGCL.
+    </p>
+    <p>
+    Les informations et/ou documents disponibles sur ce site sont
+    susceptibles d’être modifiés à tout moment, et peuvent faire l’objet de
+    mises à jour.
+    </p>
+    <p>
+    La DGCL&nbsp;ne pourra en aucun cas être tenu responsable de tout
+    dommage de quelque nature qu’il soit résultant de l’interprétation ou de
+    l’utilisation des informations et/ou documents disponibles sur ce site.
+    </p>
+    <h2 id="Donnees-personnelles">Données personnelles</h2>
+    <p>
+    Lorsque des données présentes sur ce site ont un caractère nominatif,
+    les utilisateurs doivent en faire un usage conforme aux réglementations
+    en vigueur et aux recommandations de la Commission nationale de
+    l'informatique et des libertés (CNIL).
+    </p>
+    <p>
+    Conformément à la loi Informatique et Liberté 78-17 du 6 janvier 1978
+    modifiée, vous disposez d'un droit d'opposition (art. 38), d'accès (art.
+    39), de rectification ou de suppression (art. 40) des données qui vous
+    concernent. Vous pouvez exercer ce droit en vous adressant à la DGCL :
+    </p>
+    <ul>
+    <li>
+        en envoyant un courriel au délégué à la protection des données du
+        Ministère de l’Intérieur :
+        <a href="mailto:delegue-protection-donnees@interieur.gouv.fr"
+        >delegue-protection-donnees@interieur.gouv.fr</a
+        >
+    </li>
+
+    <li>
+        ou en envoyant un courrier à la DGCL : Département de publication de
+        l'information et de la documentation, 2 place des Saussaies 75008
+        PARIS.
+    </li>
+    </ul>
+
+    <h2 id="Gestion-des-cookies">Gestion des cookies</h2>
+    <p>
+    Ce portail n'utilise aucun cookie nécessitant un consentement des
+    usagers. C'est pourquoi vous n'avez pas à accepter leur utilisation
+    avant de poursuivre votre navigation.
+    </p>
+
+    <h3 id="cookies-strictement-necessaires">
+    Cookies strictement nécessaires
+    </h3>
+    <p>
+    Ce portail utilise les cookies suivants, nécessaires à son
+    fonctionnement. Sans eux, vous ne pourrez pas l’utiliser normalement. Il
+    s'agit de cookies déposés par Open Collectivités qui ne concernent que
+    son fonctionnement.
+    </p>
+
+    <dl>
+    <dt>csrftoken</dt>
+    <dd>
+        Token Django pour protection anti CSRF : ce cookie de sécurité permet
+        de se protéger des attaques de type
+        <a
+        href="https://fr.wikipedia.org/wiki/Cross-site_request_forgery"
+        target="_blank"
+        >Cross-Site Request Forgery (CSRF)</a
+        >
+    </dd>
+
+    <dt>scheme</dt>
+    <dd>
+        Ce cookie fonctionnel sert à mémoriser le thème sélectionné (clair ou
+        sombre)
+    </dd>
+    </dl>
+
+    <h2 id="Liens-hypertextes">Liens hypertextes</h2>
+    <p>
+    Tout site public ou privé est autorisé à établir, sans autorisation
+    préalable, un lien vers les informations diffusées par la Direction
+    Générale des Collectivités Locales. En revanche, les pages du site ne
+    doivent pas être imbriquées à l’intérieur des pages d’un autre site.
+    </p>
+    <p>
+    L’autorisation de mise en place d’un lien est valable pour tout support,
+    à l’exception de ceux diffusant des informations à caractère polémique,
+    pornographique, xénophobe ou pouvant, dans une plus large mesure porter
+    atteinte à la sensibilité du plus grand nombre.
+    </p>
+    <h2 id="Disponibilite-du-site">Disponibilité du site</h2>
+    <p>
+    L’éditeur s’efforce de permettre l’accès au site 24 heures sur 24, 7
+    jours sur 7, sauf en cas de force majeure ou d’un événement hors du
+    contrôle de la Direction générale des collectivités locales, et sous
+    réserve des éventuelles pannes et interventions de maintenance
+    nécessaires au bon fonctionnement du site et des services.<br />
+    Il n’est prévu aucune assistance technique vis-à-vis de l’utilisateur
+    que ce soit par des moyens électronique ou téléphonique.<br />
+    La responsabilité de l’éditeur ne saurait être engagée en cas
+    d’impossibilité d’accès à ce site et/ou d’utilisation des services.
+    </p>
+    <h2 id="Acceptation-des-conditions-d-utilisation">
+    Acceptation des conditions d’utilisation
+    </h2>
+    <p>
+    L’utilisateur reconnaît avoir pris connaissance des conditions
+    d’utilisation, au moment de sa connexion vers le site Open Collectivités
+    et déclare expressément les accepter sans réserve.
+    </p>
+</div>
+{% endblock %}

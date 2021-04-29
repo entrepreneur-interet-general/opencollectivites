@@ -1,0 +1,235 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}
+<title>{{ title }} </title>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/vue-multiselect-dsfr.css' %}">
+<style scoped>
+#homesearch {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="fr-container">
+{% include "core/dsfr/breadcrumb.html" with breadcrumb_data=breadcrumb_data %}
+
+{# Intro #}
+<h1>{{ title }}</h1>
+<p>
+  Code postal : {{ data.code_postal }} / Code INSEE :
+  {{ data.insee }} / Code SIREN : {{ siren }}
+</p>
+
+<p>
+  {{ data.nom }} est une commune française, située dans le département
+  {{ data.departement.name }} en région {{ data.region.name }}.{% if data.nom_maire %} Le maire actuel est
+  {{ data.civ_maire | safe }} {{ data.pre_maire }} {{ data.nom_maire }}.{% endif%}
+</p>
+
+{# Navigation #}
+<div id="navigation-tiles" class="fr-grid-row fr-grid-row--gutters oc-tile-row">
+  <div class="fr-col-12 fr-col-md-2">
+    {% include "core/dsfr/tile.html" with tiledata=data.epci %}
+  </div>
+
+  <div class="fr-col-12 fr-col-md-2">
+    {% include "core/dsfr/tile.html" with tiledata=data.departement %}
+  </div>
+
+  <div class="fr-col-12 fr-col-md-2">
+    {% include "core/dsfr/tile.html" with tiledata=data.region %}
+  </div>
+</div>
+
+{# Tables #}
+<div class="fr-grid-row fr-grid-row--gutters ">
+  <div class="fr-col-12 fr-col-md-8">
+    <h2 id="donnees-contexte">Données de contexte</h2>
+    {% include "core/dsfr/table.html" with caption="Population" content=data.tables.population extra_classes="oc-table--fullwidth oc-table--force10" %}
+    {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year %}
+
+    {% include "core/dsfr/table.html" with caption="Emploi - chômage" content=data.tables.emploi extra_classes="oc-table--fullwidth oc-table--force10" %}
+    {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year %}
+
+    {% include "core/dsfr/table.html" with caption="Niveau de vie" content=data.tables.niveau_de_vie extra_classes="oc-table--fullwidth oc-table--force10" %}
+    {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year %}
+
+    <h2 id="intercommunalites-zonage">Intercommunalités et zonage</h2>
+    {% include "core/dsfr/table.html" with caption="Intercommunalités" content=data.groupements extra_classes="oc-table--fullwidth" %}
+    
+    {% include "core/dsfr/table.html" with caption="Zonage" content=data.tables.zonage extra_classes="oc-table--fullwidth" %}
+    {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year %}
+
+    <a
+      title="Observatoire des Territoires"
+      href="https://www.observatoire-des-territoires.gouv.fr/"
+      target="_blank"
+      rel="noopener"
+      class="fr-link fr-link--icon-right"
+    >
+      Plus d’informations sur le site de l’Observatoire des Territoires
+    </a>
+
+    <h2 id="ressources-financieres-fiscales">
+      Ressources financières et fiscales
+    </h2>
+    {% include "core/dsfr/table.html" with caption="Dotation globale" content=data.tables.dotation_globale extra_classes="oc-table--fullwidth oc-table--force10" %}
+    {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year %}
+
+    {% include "core/dsfr/table.html" with caption="Dotation élu local" content=data.tables.dotation_elu_local extra_classes="oc-table--fullwidth oc-table--force10" %}
+    {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year %}
+
+    {% include "core/dsfr/table.html" with caption="Dotation FPIC" content=data.tables.dotation_fpic extra_classes="oc-table--fullwidth oc-table--force10" %}
+    {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year %}
+    <a
+      title="Dotation - Direction générale des Collectivités locales"
+      href="http://www.dotations-dgcl.interieur.gouv.fr/"
+      target="_blank"
+      rel="noopener"
+      class="fr-link fr-link--icon-right"
+    >
+      Plus d’informations sur le site dotations de la DGCL
+    </a>
+
+    <h2 id="comparaison-autres-communes">
+      Comparaison avec d’autres communes
+    </h2>
+    <div id="vue-app" class="comparison-selector fr-bg--alt">
+    {% verbatim %}
+    <form @submit.prevent="loadResultPage">
+        <div class="fr-select-group">
+        <label class="fr-label">
+            Sélectionnez jusqu'à trois collectivités :
+        </label>
+        <vue-multiselect
+            v-model="places"
+            :options="optionList"
+            track-by="value"
+            label="text"
+            :multiple="true"
+            :max="3"
+            :internal-search="false"
+            :close-on-select="false"
+            :loading="isLoading"
+            :preserve-search="true"
+            placeholder="Taper les premières lettres de la collectivité recherchée"
+            @search-change="searchCollectivities"
+            :options-limit="300"
+            :limit="3"
+            :limit-text="limitText"
+        >
+            <span slot="noOptions"></span>
+            <span slot="noResult">
+            Aucun résultat trouvé, merci de vérifier votre saisie.
+            </span>
+        </vue-multiselect>
+        </div>
+        <button class="fr-btn fr-fi-checkbox-line fr-btn--icon-right" :isDisabled="!(places && places.length)">
+            Comparer
+        </button>
+    </form>
+    {% endverbatim %}
+    </div>
+
+
+  </div> <!-- end left column -->
+  <div class="fr-col-3">
+    <div class="oc-sticky-block">
+      {% include "core/dsfr/summary.html" with items=page_summary %}
+    </div>
+  </div>
+</div> <!-- end div container-->
+
+{{ page_data | json_script:"page-data" }}
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript" src="{% static 'lib/vue-2.6.12/vue.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/vue-multiselect-2.1.0/dist/vue-multiselect.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/axios.0.21.1/axios.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/OpenCollectivitesDataService.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/utils.js' %}"></script>
+
+<script>
+const pageData = JSON.parse(document.getElementById('page-data').textContent);
+
+
+Vue.component('vue-multiselect', window.VueMultiselect.default);
+
+const openCollectivitesApiCall = new OpenCollectivitesDataService();
+
+var app = new Vue({
+  el: '#vue-app',
+
+  data() {
+    return {
+      optionList: [],
+      defaultList: [],
+      places: null,
+      isLoading: false,
+      type: pageData.type,
+      origin: pageData.siren
+    };
+  },
+
+  computed: {
+    groupName() {
+      if (this.type === "commune") {
+        return "Communes";
+      }
+      return "";
+    },
+  },
+
+  methods: {
+    limitText(count) {
+      return `et ${count} autres résultats`;
+    },
+
+    searchCollectivities(query) {
+      query = query.toLowerCase();
+
+      if (query.length < 3 && !shortnamedCommunes.includes(query)) {
+        this.optionList = this.defaultList;
+      } else {
+        this.isLoading = true;
+        openCollectivitesApiCall.listByName(query)
+          .then((response) => {
+            const results = response.data;
+            for (const r of results) {
+              // filtering to get only the needed type
+              if (r.groupName === this.groupName) {
+                // Do not list the current (origin) page in the results
+                this.optionList = r.items.filter((item) => {
+                  return item.value !== this.origin;
+                });
+                this.isLoading = false;
+              }
+            }
+          })
+          .catch((e) => {
+            console.log("🙅  Service not responding");
+            console.log(e);
+          });
+      }
+    },
+
+    loadResultPage() {
+      let result_url = `/compare/${this.type}/${this.origin}`
+      for (const p of this.places) {
+        result_url += '/' + p.value
+      }
+
+      window.location.href = result_url;
+
+    },
+  },
+});
+</script>
+{% endblock%}

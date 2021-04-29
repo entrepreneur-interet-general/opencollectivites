@@ -1,0 +1,45 @@
+{% load static %}
+<!doctype html>
+<html lang="fr" data-fr-theme="default">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="{% static 'lib/dsfr-v1.0.0rc1/dist/css/dsfr.min.css' %}">
+  <link rel="apple-touch-icon" href="{% static 'lib/dsfr-v1.0.0rc1/dist/favicons/apple-touch-icon.png' %}"><!-- 180×180 -->
+  <link rel="icon" href="{% static 'lib/dsfr-v1.0.0rc1/dist/favicons/favicon.svg' %}" type="image/svg+xml">
+  <link rel="shortcut icon" href="{% static 'lib/dsfr-v1.0.0rc1/dist/favicons/favicon.ico' %}" type="image/x-icon">
+  <!-- 32×32 -->
+  <link rel="manifest" href="{% static 'lib/dsfr-v1.0.0rc1/dist/favicons/manifest.webmanifest' %}"
+    crossorigin="use-credentials">
+
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  {% block extra_css %}{% endblock %}
+
+  {% if title %}
+  <title>{{ title }} — Open Collectivités</title>
+  {% else %}
+  <title>Open Collectivités</title>
+  {% endif %}
+</head>
+
+<body>
+  <main id="content">
+    {% block custom_header %}
+      {% include "core/blocks/header.html" with hide_brand=context.hide_brand %}
+    {% endblock %}
+    {% include "core/dsfr/theme_modale.html" %}
+
+    {% block content %}{% endblock %}
+
+    {% include "core/blocks/footer_categories.html" %}
+    {% include "core/blocks/footer.html" %}
+  </main>
+
+  <script type="module" src="{% static 'lib/dsfr-v1.0.0rc1/dist/js/dsfr.module.min.js' %}"></script>
+  <script type="text/javascript" nomodule src="{% static 'lib/dsfr-v1.0.0rc1/dist/js/dsfr.nomodule.min.js' %}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+////
+/// Buttons Module
+/// @group buttons
+////
+
+#{ns(btn)} {
+  @include build-btn();
+
+  &[type=submit] {
+    @extend %btn-reset;
+  }
+}
+
+@import 'modules/buttons-group.scss';

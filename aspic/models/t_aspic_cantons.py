@@ -3,8 +3,11 @@ from .t_aspic_departements import T009Departements
 
 # Données de base
 class T011Cantons(models.Model):
-    num_departement = models.ForeignKey(
-        T009Departements, models.DO_NOTHING, db_column="num_departement"
+    num_departement = models.OneToOneField(
+        T009Departements,
+        models.DO_NOTHING,
+        db_column="num_departement",
+        primary_key=True,
     )
     dep = models.CharField(max_length=2)
     ard = models.CharField(max_length=1)

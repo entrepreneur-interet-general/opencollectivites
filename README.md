@@ -24,7 +24,7 @@ postgres=# GRANT ALL PRIVILEGES ON DATABASE <db_name> TO <db_user>;
 
 ```
 postgres=# \c <db_name>
-<db_name>=# CREATE EXTENSION unaccent;
+<db_name>=# CREATE EXTENSION  IF NOT EXISTS unaccent;
 ```
 
 ### Install the project
@@ -62,7 +62,7 @@ postgres=# \c <db_name>
 
 #### Nginx
  - Create the SSL certificate
- - Copy `devops/nginx-conf.sample` to `/etc/nginx/sites-available/gunicorn-<projectname>.service` and fill the correct data
+ - Copy `devops/nginx-conf.sample` to `/etc/nginx/sites-available/<projectname>.conf` and fill the correct data
  - Make a symbolic link to the config file in the sites-enabled folder
  - Test the configuration with `nginx -t`
  - If it is ok, relaunch nginx
