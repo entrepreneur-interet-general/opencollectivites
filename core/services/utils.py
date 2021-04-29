@@ -34,7 +34,7 @@ def init_payload(page_title: str, links: list = []):
     return {"context": context, "title": page_title, "breadcrumb_data": breadcrumb_data}
 
 
-def formatNumber(n):
+def format_number(n):
     """
     Format the number with French locale and rounds to one decimal place if needed
     """

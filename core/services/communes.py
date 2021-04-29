@@ -1,7 +1,7 @@
 from django.db.models import Max
 from django.core import serializers
 
-from .utils import formatNumber, data_vintage
+from .utils import format_number, data_vintage
 
 from francesubdivisions.models import Commune, Epci, Departement, Region
 
@@ -208,26 +208,28 @@ def commune_context_data(siren_ids):
 
     ################
     for siren_id in siren_ids:
-        response["population"][0].append(formatNumber(context_data[siren_id]["PopTot"]))
+        response["population"][0].append(
+            format_number(context_data[siren_id]["PopTot"])
+        )
         response["population"][1].append(
-            formatNumber(context_data[siren_id]["PopMuni"])
+            format_number(context_data[siren_id]["PopMuni"])
         )
         response["population"][2].append(
-            formatNumber(context_data[siren_id]["Densité"])
+            format_number(context_data[siren_id]["Densité"])
         )
-        response["population"][3].append(formatNumber(context_data[siren_id]["TCAM"]))
+        response["population"][3].append(format_number(context_data[siren_id]["TCAM"]))
 
         ## Emploi
         response["emploi"][0].append(
-            formatNumber(context_data[siren_id]["PopActive1564%"])
+            format_number(context_data[siren_id]["PopActive1564%"])
         )
         response["emploi"][1].append(
-            formatNumber(context_data[siren_id]["PopChom1564%"])
+            format_number(context_data[siren_id]["PopChom1564%"])
         )
 
         ## Niveau de vie
         response["niveau_de_vie"][0].append(
-            formatNumber(context_data[siren_id]["RevenuFiscal"])
+            format_number(context_data[siren_id]["RevenuFiscal"])
         )
 
         ## Zoning
@@ -246,42 +248,42 @@ def commune_context_data(siren_ids):
 
         ## Dotations
         response["dotation_globale"][0].append(
-            formatNumber(context_data[siren_id]["DGF_Totale"])
+            format_number(context_data[siren_id]["DGF_Totale"])
         )
         response["dotation_globale"][1].append(
-            formatNumber(context_data[siren_id]["Forfaitaire"])
+            format_number(context_data[siren_id]["Forfaitaire"])
         )
         response["dotation_globale"][2].append(
-            formatNumber(context_data[siren_id]["DSU"])
+            format_number(context_data[siren_id]["DSU"])
         )
         response["dotation_globale"][3].append(
-            formatNumber(context_data[siren_id]["DSR"])
+            format_number(context_data[siren_id]["DSR"])
         )
         response["dotation_globale"][4].append(
-            formatNumber(context_data[siren_id]["DNP"])
+            format_number(context_data[siren_id]["DNP"])
         )
         response["dotation_globale"][5].append(
-            formatNumber(context_data[siren_id]["DGFParHab"])
+            format_number(context_data[siren_id]["DGFParHab"])
         )
         response["dotation_globale"][6].append(
-            formatNumber(context_data[siren_id]["PopDGF"])
+            format_number(context_data[siren_id]["PopDGF"])
         )
 
         response["dotation_elu_local"][0].append(
-            formatNumber(context_data[siren_id]["DotationEluLocal"])
+            format_number(context_data[siren_id]["DotationEluLocal"])
         )
 
         response["dotation_fpic"][0].append(
-            formatNumber(context_data[siren_id]["SoldeFPIC"])
+            format_number(context_data[siren_id]["SoldeFPIC"])
         )
         response["dotation_fpic"][1].append(
-            formatNumber(context_data[siren_id]["AttributionFPIC"])
+            format_number(context_data[siren_id]["AttributionFPIC"])
         )
         response["dotation_fpic"][2].append(
-            formatNumber(context_data[siren_id]["ContributionFPIC"])
+            format_number(context_data[siren_id]["ContributionFPIC"])
         )
         response["dotation_fpic"][3].append(
-            formatNumber(context_data[siren_id]["SoldeFPIC_DGF"])
+            format_number(context_data[siren_id]["SoldeFPIC_DGF"])
         )
 
     return response
