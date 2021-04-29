@@ -2,6 +2,7 @@ from django.core.paginator import Paginator
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.conf import settings
+from django.views.decorators.http import require_safe
 
 from core.models import Topic, Scope, Source
 from core.services.utils import init_payload, list_pages
@@ -15,22 +16,26 @@ from core.services.publications import (
 from francesubdivisions.models import Region
 
 ########### Pages
+@require_safe
 def page_index(request):
     payload = init_payload("Accueil")
     return render(request, "core/index.html", payload)
 
 
+@require_safe
 def error404(request, exception):
     payload = init_payload("Erreur")
     payload["exception"] = exception
     return render(request, "core/404.html", payload)
 
 
+@require_safe
 def page_not_yet(request, **kwargs):
     payload = init_payload("Page en construction")
     return render(request, "core/page_not_yet.html", payload)
 
 
+@require_safe
 def page_commune_detail(request, siren, commune_name):
     payload = init_payload(f"Fiche commune : {commune_name}")
     payload["siren"] = siren
@@ -53,6 +58,7 @@ def page_commune_detail(request, siren, commune_name):
     return render(request, "core/commune_detail.html", payload)
 
 
+@require_safe
 def page_commune_compare(request, siren1, siren2, siren3=0, siren4=0):
     sirens = [siren1, siren2]
 
@@ -68,6 +74,7 @@ def page_commune_compare(request, siren1, siren2, siren3=0, siren4=0):
     return render(request, "core/commune_compare.html", payload)
 
 
+@require_safe
 def page_publications(request):
     payload = init_payload("Publications")
 
@@ -96,11 +103,13 @@ def page_publications(request):
     return render(request, "core/publications.html", payload)
 
 
+@require_safe
 def page_legal(request):
     payload = init_payload("Mentions légales")
     return render(request, "core/mentions-legales.html", payload)
 
 
+@require_safe
 def page_sitemap(request):
     payload = init_payload("Plan du site")
 
@@ -123,6 +132,7 @@ def page_sitemap(request):
     return render(request, "core/sitemap.html", payload)
 
 
+@require_safe
 def page_tests(request):
     payload = init_payload("Tests")
     payload["context"]["hide_brand"] = True
