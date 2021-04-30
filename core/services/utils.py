@@ -26,6 +26,7 @@ def init_payload(page_title: str, links: list = []):
                 "title": topic.name,
                 "url": f"/publications?topic={topic.id}",
                 "image_path": f"/static{topic.icon_path}",
+                "svg_icon": True,
             }
         )
 

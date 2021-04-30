@@ -87,3 +87,14 @@
     display: flex;
     justify-content: center;
     }
+
+
+/* When using svg icons instead of images in the tiles */
+.oc-svg-icon {
+    width: 100%;
+}
+/* Set the color of svg icons in dark mode */
+
+:root[data-fr-theme="dark" i] .oc-svg-icon {
+    filter: brightness(0) saturate(100%) invert(61%) sepia(11%) saturate(2548%) hue-rotate(202deg) brightness(103%) contrast(102%);
+} 
