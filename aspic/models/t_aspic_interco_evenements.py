@@ -136,22 +136,3 @@ class T326Archive(models.Model):
         return (
             f"{self.departement_siege} - {self.nouveau_siren} - {self.code_operation}"
         )
-
-
-# Table vide
-"""
-class T325Journal(models.Model):
-    departement_siege = models.ForeignKey(
-        T009Departements,
-        models.DO_NOTHING,
-        db_column="departement_siege",
-        blank=True,
-        null=True,
-    )
-    texte_groupement = models.CharField(max_length=-1, blank=True, null=True)
-    date_creation = models.DateField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = "t325_journal"
-# """

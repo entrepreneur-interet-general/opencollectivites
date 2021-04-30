@@ -354,26 +354,3 @@ class C976Groupements(models.Model):
 
     def __str__(self):
         return f"{self.raison_sociale} ({self.siren})"
-
-
-# Table vide
-"""
-class C312GroupementsTous(models.Model):
-    siren = models.CharField(max_length=9)
-    raison_sociale = models.CharField(max_length=100)
-    sigle = models.CharField(max_length=100, blank=True, null=True)
-    nature_juridique = models.CharField(max_length=5)
-    mode_financ = models.CharField(max_length=5)
-    dep_siege = models.CharField(max_length=3, blank=True, null=True)
-    commune_siege = models.CharField(max_length=3, blank=True, null=True)
-    population = models.FloatField(blank=True, null=True)
-    nb_communes = models.IntegerField(blank=True, null=True)
-    nb_competences = models.IntegerField(blank=True, null=True)
-    competences = models.TextField(blank=True, null=True)  # This field type is a guess.
-    the_geom = models.TextField(blank=True, null=True)  # This field type is a guess.
-    centroid = models.TextField(blank=True, null=True)  # This field type is a guess.
-
-    class Meta:
-        managed = False
-        db_table = "c312_groupements_tous"
-#"""
