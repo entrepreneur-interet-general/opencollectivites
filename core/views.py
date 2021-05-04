@@ -75,6 +75,15 @@ def page_commune_compare(request, siren1, siren2, siren3=0, siren4=0):
 
 
 @require_safe
+def page_epci_detail(request, siren, epci_name):
+    payload = init_payload(f"Fiche EPCI : {epci_name}")
+    payload["siren"] = siren
+    payload["epci_name"] = epci_name
+
+    return render(request, "core/epci_detail.html", payload)
+
+
+@require_safe
 def page_publications(request):
     payload = init_payload("Publications")
 

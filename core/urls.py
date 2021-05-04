@@ -9,6 +9,11 @@ urlpatterns = [
         name="page_commune_detail",
     ),
     path(
+        "epci/<int:siren>/<str:epci_name>",
+        views.page_epci_detail,
+        name="page_epci_detail",
+    ),
+    path(
         "<str:place_type>/<int:siren>/<str:epci_name>",
         views.page_not_yet,
         name="page_place_detail",

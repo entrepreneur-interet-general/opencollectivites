@@ -1,0 +1,35 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}
+<title>{{ title }} </title>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/vue-multiselect-dsfr.css' %}">
+<style scoped>
+#homesearch {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="fr-container">
+{% include "core/dsfr/breadcrumb.html" with breadcrumb_data=breadcrumb_data %}
+
+{# Intro #}
+<h1>{{ title }}</h1>
+<p>
+Code SIREN : {{ siren }}
+</p>
+
+<p>
+  {{ data.nom }} est un EPCI français.{% if data.nom_maire %} Le président actuel est
+  {{ data.civ_maire | safe }} {{ data.pre_maire }} {{ data.nom_maire }}.{% endif%}
+</p>
+{% endblock %}
+
+{% block extra_js %}
+{% endblock %}
