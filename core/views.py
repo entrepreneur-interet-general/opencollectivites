@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from django.shortcuts import render
 from django.conf import settings
 from django.views.decorators.http import require_safe
@@ -7,14 +7,14 @@ from django.views.decorators.http import require_safe
 from core.models import Topic, Scope, Source
 from core.services.utils import init_payload, list_pages
 from core.services.communes import commune_data, commune_context_data
+from core.services.epcis import epci_data
 from core.services.publications import (
     list_documents,
     documents_to_cards,
     publication_filters,
 )
 
-from francesubdivisions.models import Region
-from francesubdivisions.services import commune_data_from_slug, epci_data_from_slug
+from francesubdivisions.models import Region, Commune, Epci
 
 ####################
 # Basic navigation #
@@ -47,15 +47,16 @@ def page_not_yet(request, **kwargs):
 
 @require_safe
 def page_commune_detail(request, slug):
-    basic_data = commune_data_from_slug(slug)
-    commune_name = basic_data["name"]
-    siren = basic_data["siren"]
+    try:
+        commune = Commune.objects.get(slug=slug)
+    except Commune.DoesNotExist:
+        raise Http404("Aucune commune correspondant à cet identifiant")
 
-    payload = init_payload(f"Fiche commune : {commune_name}")
-    payload["siren"] = siren
-    payload["commune_name"] = commune_name
-    payload["data"] = commune_data(siren)
-    payload["page_data"] = {"type": "commune", "siren": siren}
+    payload = init_payload(f"Fiche commune : {commune.name}")
+    payload["siren"] = commune.siren
+    payload["commune_name"] = commune.name
+    payload["data"] = commune_data(commune.siren)
+    payload["page_data"] = {"type": "commune", "siren": commune.siren}
     payload["page_summary"] = [
         {"link": "#donnees-contexte", "title": "Données de contexte"},
         {"link": "#intercommunalites-zonage", "title": "Intercommunalités et zonage"},
@@ -90,13 +91,15 @@ def page_commune_compare(request, siren1, siren2, siren3=0, siren4=0):
 
 @require_safe
 def page_epci_detail(request, slug):
-    basic_data = epci_data_from_slug(slug)
-    epci_name = basic_data["name"]
-    siren = basic_data["siren"]
+    try:
+        epci = Epci.objects.get(slug=slug)
+    except Epci.DoesNotExist:
+        raise Http404("Aucun EPCI correspondant à cet identifiant")
 
-    payload = init_payload(f"Fiche EPCI : {epci_name}")
-    payload["siren"] = siren
-    payload["epci_name"] = epci_name
+    payload = init_payload(f"Fiche EPCI : {epci.name}")
+    payload["siren"] = epci.siren
+    payload["epci_name"] = epci.name
+    payload["data"] = epci_data(epci.siren)
 
     return render(request, "core/epci_detail.html", payload)
 
