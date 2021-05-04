@@ -113,6 +113,12 @@ def page_publications(request):
 
 
 @require_safe
+def page_accessibility(request):
+    payload = init_payload("Déclaration d'accessibilité")
+    return render(request, "core/accessibility.html", payload)
+
+
+@require_safe
 def page_legal(request):
     payload = init_payload("Mentions légales")
     return render(request, "core/mentions-legales.html", payload)
