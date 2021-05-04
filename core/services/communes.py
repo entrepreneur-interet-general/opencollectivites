@@ -314,21 +314,21 @@ def commune_data(siren_id):
     response["epci"] = {
         "name": subdivisions.epci.name,
         "title": f"EPCI : {subdivisions.epci.name}",
-        "url": f"/epci/{subdivisions.epci.siren}/{subdivisions.epci.name}",
+        "url": f"/epci/{subdivisions.epci.slug}",
         "image_path": "/static/img/hexagon2.svg",
         "svg_icon": True,
     }
     response["departement"] = {
         "name": subdivisions.departement.name,
         "title": f"Département : {subdivisions.departement.name}",
-        "url": f"/departement/{subdivisions.departement.siren}/{subdivisions.departement.name}",
+        "url": f"/departement/{subdivisions.departement.slug}",
         "image_path": "/static/img/hexagon3.svg",
         "svg_icon": True,
     }
     response["region"] = {
         "name": subdivisions.departement.region.name,
         "title": f"Région : {subdivisions.departement.region.name}",
-        "url": f"/region/{subdivisions.departement.region.siren}/{subdivisions.departement.region.name}",
+        "url": f"/region/{subdivisions.departement.region.slug}",
         "image_path": "/static/img/hexagon4.svg",
         "svg_icon": True,
     }

@@ -14,7 +14,7 @@ from core.services.publications import (
 )
 
 from francesubdivisions.models import Region
-
+from francesubdivisions.services import commune_data_from_slug, epci_data_from_slug
 
 ####################
 # Basic navigation #
@@ -46,7 +46,11 @@ def page_not_yet(request, **kwargs):
 
 
 @require_safe
-def page_commune_detail(request, siren, commune_name):
+def page_commune_detail(request, slug):
+    basic_data = commune_data_from_slug(slug)
+    commune_name = basic_data["name"]
+    siren = basic_data["siren"]
+
     payload = init_payload(f"Fiche commune : {commune_name}")
     payload["siren"] = siren
     payload["commune_name"] = commune_name
@@ -85,7 +89,11 @@ def page_commune_compare(request, siren1, siren2, siren3=0, siren4=0):
 
 
 @require_safe
-def page_epci_detail(request, siren, epci_name):
+def page_epci_detail(request, slug):
+    basic_data = epci_data_from_slug(slug)
+    epci_name = basic_data["name"]
+    siren = basic_data["siren"]
+
     payload = init_payload(f"Fiche EPCI : {epci_name}")
     payload["siren"] = siren
     payload["epci_name"] = epci_name

@@ -4,12 +4,12 @@ from . import views
 app_name = "core"
 urlpatterns = [
     path(
-        "commune/<int:siren>/<str:commune_name>",
+        "commune/<slug:slug>",
         views.page_commune_detail,
         name="page_commune_detail",
     ),
     path(
-        "epci/<int:siren>/<str:epci_name>",
+        "epci/<slug:slug>",
         views.page_epci_detail,
         name="page_epci_detail",
     ),
