@@ -66,3 +66,6 @@ postgres=# \c <db_name>
  - Make a symbolic link to the config file in the sites-enabled folder
  - Test the configuration with `nginx -t`
  - If it is ok, relaunch nginx
+
+# Notes
+Up to version 0.5, the front-end was a separate VueJS project. It is now archived at https://github.com/entrepreneur-interet-general/opencollectivites-front.
