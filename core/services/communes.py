@@ -311,13 +311,14 @@ def commune_data(siren_id):
 
     # Subdivisions
     subdivisions = Commune.objects.get(siren=siren_id)
-    response["epci"] = {
-        "name": subdivisions.epci.name,
-        "title": f"EPCI : {subdivisions.epci.name}",
-        "url": f"/epci/{subdivisions.epci.slug}",
-        "image_path": "/static/img/hexagon2.svg",
-        "svg_icon": True,
-    }
+    if subdivisions.epci:
+        response["epci"] = {
+            "name": subdivisions.epci.name,
+            "title": f"EPCI : {subdivisions.epci.name}",
+            "url": f"/epci/{subdivisions.epci.slug}",
+            "image_path": "/static/img/hexagon2.svg",
+            "svg_icon": True,
+        }
     response["departement"] = {
         "name": subdivisions.departement.name,
         "title": f"Département : {subdivisions.departement.name}",
