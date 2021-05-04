@@ -7,7 +7,7 @@ const apiCall = axios.create({
 
 class OpenCollectivitesDataService {
   listByName(name) {
-    return apiCall.get(`/france/subdivisions/${name}?category=communes`);
+    return apiCall.get(`/france/subdivisions/${name}`);
   }
   communeBySiren(siren) {
     return apiCall.get(`/france/communes/siren/${siren}`)
