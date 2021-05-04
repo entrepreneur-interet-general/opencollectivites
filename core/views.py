@@ -15,7 +15,12 @@ from core.services.publications import (
 
 from francesubdivisions.models import Region
 
-########### Pages
+
+####################
+# Basic navigation #
+####################
+
+
 @require_safe
 def page_index(request):
     payload = init_payload("Accueil")
@@ -33,6 +38,11 @@ def error404(request, exception):
 def page_not_yet(request, **kwargs):
     payload = init_payload("Page en construction")
     return render(request, "core/page_not_yet.html", payload)
+
+
+########################
+# Places-related pages #
+########################
 
 
 @require_safe
@@ -83,6 +93,11 @@ def page_epci_detail(request, siren, epci_name):
     return render(request, "core/epci_detail.html", payload)
 
 
+###########################
+# Documents related pages #
+###########################
+
+
 @require_safe
 def page_publications(request):
     payload = init_payload("Publications")
@@ -112,6 +127,11 @@ def page_publications(request):
     return render(request, "core/publications.html", payload)
 
 
+###############
+# Legal pages #
+###############
+
+
 @require_safe
 def page_accessibility(request):
     payload = init_payload("Déclaration d'accessibilité")
@@ -131,7 +151,6 @@ def page_sitemap(request):
     regions = Region.objects.order_by("name")
     regions_data = []
     for r in regions:
-        # Using insee because Mayotte should appear here
         regions_data.append(
             {"name": r.name, "slug": r.slug, "counts": r.subdivisions_count()}
         )
@@ -145,6 +164,11 @@ def page_sitemap(request):
     payload["regions_data"] = regions_data
 
     return render(request, "core/sitemap.html", payload)
+
+
+#############
+# Test page #
+#############
 
 
 @require_safe
