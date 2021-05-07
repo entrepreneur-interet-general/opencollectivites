@@ -173,12 +173,8 @@ class T901SspEpci(models.Model):
 
 # Délégués
 class T311DeleguesCom(models.Model):
-    groupement = models.ForeignKey(
-        T311050CommunesMembres,
-        models.DO_NOTHING,
-        db_column="groupement",
-        blank=True,
-        null=True,
+    groupement = models.OneToOneField(
+        "T311Groupements", models.DO_NOTHING, db_column="groupement", primary_key=True
     )
     membre = models.CharField(max_length=9, blank=True, null=True)
     civilite = models.CharField(max_length=5, blank=True, null=True)
@@ -192,16 +188,12 @@ class T311DeleguesCom(models.Model):
         db_table = "t311_delegues_com"
 
     def __str__(self):
-        return f"{self.groupement} - {self.membre}"
+        return f"{self.groupement} - {self.membre} - {self.civilite} {self.prenom} {self.nom} ({self.fonction})"
 
 
 class T312DeleguesGrp(models.Model):
-    groupement = models.ForeignKey(
-        T311311GroupementsMembr,
-        models.DO_NOTHING,
-        db_column="groupement",
-        blank=True,
-        null=True,
+    groupement = models.OneToOneField(
+        "T311Groupements", models.DO_NOTHING, db_column="groupement", primary_key=True
     )
     membre = models.CharField(max_length=9, blank=True, null=True)
     civilite = models.CharField(max_length=5, blank=True, null=True)
@@ -215,16 +207,12 @@ class T312DeleguesGrp(models.Model):
         db_table = "t312_delegues_grp"
 
     def __str__(self):
-        return f"{self.groupement} - {self.membre}"
+        return f"{self.groupement} - {self.membre} - {self.civilite} {self.prenom} {self.nom} ({self.fonction})"
 
 
 class T313DeleguesAut(models.Model):
-    groupement = models.ForeignKey(
-        T311090AutresOrganismes,
-        models.DO_NOTHING,
-        db_column="groupement",
-        blank=True,
-        null=True,
+    groupement = models.OneToOneField(
+        "T311Groupements", models.DO_NOTHING, db_column="groupement", primary_key=True
     )
     membre = models.CharField(max_length=9, blank=True, null=True)
     civilite = models.CharField(max_length=5, blank=True, null=True)
@@ -238,4 +226,4 @@ class T313DeleguesAut(models.Model):
         db_table = "t313_delegues_aut"
 
     def __str__(self):
-        return f"{self.groupement} - {self.membre}"
+        return f"{self.groupement} - {self.membre} - {self.civilite} {self.prenom} {self.nom} ({self.fonction})"
