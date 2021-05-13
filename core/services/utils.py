@@ -2,8 +2,6 @@ from core.models import Topic
 
 from babel.numbers import format_decimal
 
-from aspic.models.t_aspic_other import T173DatesDonnees
-
 from django.core.exceptions import ValidationError
 
 import dateparser
@@ -45,17 +43,6 @@ def format_number(n):
         return ""
     else:
         return n
-
-
-def data_vintage():
-    # Get the vintage ("Millésime") of Aspic data
-    vintages = {}
-
-    vintages_data = T173DatesDonnees.objects.all()
-    for v in vintages_data:
-        vintages[v.code] = v.libelle
-
-    return vintages
 
 
 def list_pages(page_obj):
