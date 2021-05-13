@@ -5,8 +5,8 @@ from django.conf import settings
 from django.views.decorators.http import require_safe
 
 from core.models import Topic, Scope, Source
-from core.services.utils import init_payload, list_pages
-from core.services.communes import commune_data, commune_context_data
+from core.services.utils import init_payload
+from core.services.communes import commune_data, communes_compare
 from core.services.epcis import epci_data
 from core.services.publications import (
     list_documents,
@@ -84,7 +84,7 @@ def page_commune_compare(request, siren1, siren2, siren3=0, siren4=0):
 
     payload = init_payload("Comparaison de communes")
     payload["data"] = {}
-    payload["data"]["tables"] = commune_context_data(sirens)
+    payload["data"]["tables"] = communes_compare(sirens)
 
     return render(request, "core/commune_compare.html", payload)
 

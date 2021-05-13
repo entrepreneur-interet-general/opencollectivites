@@ -1,7 +1,8 @@
 from django.db.models import Max
 from django.core import serializers
 
-from .utils import format_number, data_vintage
+from .utils import format_number
+from .context_data import ContextData
 
 from francesubdivisions.models import Commune, Epci, Departement, Region
 
@@ -13,6 +14,164 @@ from aspic.models.t_aspic_communes import (
 from aspic.models.t_aspic_cantons import T011Cantons
 from aspic.models.t_aspic_interco_liaison import T311050CommunesMembres
 from aspic.models.t_aspic_interco_meta import T301NaturesJuridiques
+
+from aspic.utils import data_vintage, clean_civility
+
+from pprint import pprint
+
+
+class CommuneContextData(ContextData):
+    aspic_data_model_name = "T150DonneesCommunes"
+    fs_base_model_name = "Commune"
+    context_properties = [
+        {
+            "field": "PopTot",
+            "label": "Population totale en vigueur en {PopTot}",
+            "type": "numeric",
+            "table": "population",
+            "tooltip": "Ceci est un exemple d’infobulle",
+        },
+        {
+            "field": "PopMuni",
+            "label": "Population municipale en vigueur en {PopMuni}",
+            "type": "numeric",
+            "table": "population",
+        },
+        {
+            "field": "Densité",
+            "label": "Densité démographique en {Densité} (population totale/superficie géographique, en hab/km²)",
+            "type": "numeric",
+            "table": "population",
+        },
+        {
+            "field": "TCAM",
+            "label": "Variation annuelle de la population entre {TCAM} (en %)",
+            "type": "numeric",
+            "table": "population",
+        },
+        {
+            "field": "PopActive1564%",
+            "label": "Taux d’activité des 15 à 64 ans en {PopActive1564%} (en %)",
+            "type": "numeric",
+            "table": "emploi",
+        },
+        {
+            "field": "PopChom1564%",
+            "label": "Taux de chômage des 15 à 64 ans en {PopChom1564%} (en %)",
+            "type": "numeric",
+            "table": "emploi",
+        },
+        {
+            "field": "RevenuFiscal",
+            "label": "Revenu fiscal médian des ménages par unité de consommation {RevenuFiscal} (en €)",
+            "type": "numeric",
+            "table": "niveau_de_vie",
+        },
+        {
+            "field": "ZRR",
+            "label": "Classement de la commune en zone de revitalisation rurale (ZRR)",
+            "type": "boolean",
+            "value_true": "Classée en ZRR",
+            "value_false": "Non classée",
+            "table": "zonage",
+        },
+        {
+            "field": "ZUS",
+            "label": "Commune classée en zone urbaine sensible (ZUS)",
+            "type": "boolean",
+            "value_true": "Classée en ZUS",
+            "value_false": "Non classée",
+            "table": "zonage",
+        },
+        {
+            "field": "Montagne",
+            "label": "Commune classée en zone de montagne",
+            "type": "boolean",
+            "value_true": "Classée",
+            "value_false": "Non classée",
+            "table": "zonage",
+        },
+        {
+            "field": "Touristique",
+            "label": "Commune classée comme touristique",
+            "type": "boolean",
+            "value_true": "Classée",
+            "value_false": "Non classée",
+            "table": "zonage",
+        },
+        {
+            "field": "DGF_Totale",
+            "label": "Dotation globale de fonctionnement totale (en €)",
+            "type": "numeric",
+            "table": "dotation_globale",
+        },
+        {
+            "field": "Forfaitaire",
+            "label": "Dont dotation forfaitaire (en €)",
+            "type": "numeric",
+            "table": "dotation_globale",
+        },
+        {
+            "field": "DSU",
+            "label": " - dotation de solidarité urbaine et de cohésion sociale (DSU) (en €)",
+            "type": "numeric",
+            "table": "dotation_globale",
+        },
+        {
+            "field": "DSR",
+            "label": " - dotation de solidarité rurale (DSR) (en €)",
+            "type": "numeric",
+            "table": "dotation_globale",
+        },
+        {
+            "field": "DNP",
+            "label": " - dotation de péréquation totale (DNP) (en €)",
+            "type": "numeric",
+            "table": "dotation_globale",
+        },
+        {
+            "field": "DGFParHab",
+            "label": "DGF par habitant (en €)",
+            "type": "numeric",
+            "table": "dotation_globale",
+        },
+        {
+            "field": "PopDGF",
+            "label": "Population « DGF »",
+            "type": "numeric",
+            "table": "dotation_globale",
+        },
+        {
+            "field": "DotationEluLocal",
+            "label": "Dotation élu local (en €)",
+            "type": "numeric",
+            "table": "dotation_elu_local",
+        },
+        {
+            "field": "SoldeFPIC",
+            "label": "Solde net FPIC (en €)",
+            "type": "numeric",
+            "table": "dotation_fpic",
+        },
+        {
+            "field": "AttributionFPIC",
+            "label": "Dont reversement au profit de la commune (en €)",
+            "type": "numeric",
+            "table": "dotation_fpic",
+        },
+        {
+            "field": "ContributionFPIC",
+            "label": "Dont prélèvement de la commune (en €)",
+            "type": "numeric",
+            "table": "dotation_fpic",
+        },
+        {
+            "field": "SoldeFPIC_DGF",
+            "label": "FPIC par habitant (en €)",
+            "type": "numeric",
+            "table": "dotation_fpic",
+        },
+    ]
 
 
 def group_data(siren_id):
@@ -46,259 +205,13 @@ def group_data(siren_id):
     return response
 
 
-def commune_context_data(siren_ids):
-    """
-    Renvoie les tableaux de données de contexte pour une liste de communes données
-    """
-    # Init the loop variables
-    response = {}
-    response["places_names"] = []
-    context_data = {}
-    max_year = None
-
-    vintages = data_vintage()
-
-    context_fields = [
-        "PopTot",
-        "PopMuni",
-        "Densité",
-        "TCAM",
-        "PopActive1564%",
-        "PopChom1564%",
-        "RevenuFiscal",
-        "ZRR",
-        "ZUS",
-        "Montagne",
-        "Touristique",
-        "DGF_Totale",
-        "Forfaitaire",
-        "DSU",
-        "DSR",
-        "DNP",
-        "DGFParHab",
-        "PopDGF",
-        "DotationEluLocal",
-        "SoldeFPIC",
-        "AttributionFPIC",
-        "ContributionFPIC",
-        "SoldeFPIC_DGF",
-    ]
-
-    for siren_id in siren_ids:
-        context_data[siren_id] = {}
-
-        # list the places names
-        response["places_names"].append(Commune.objects.get(siren=siren_id).name)
-
-        context_data_unsorted = T150DonneesCommunes.objects.filter(siren=siren_id)
-
-        # get the most recent year
-        if not max_year:
-            most_recent = context_data_unsorted.aggregate(Max("annee"))
-            max_year = most_recent["annee__max"]
-            response["max_year"] = max_year
-
-        context_data_recent = context_data_unsorted.filter(annee=max_year)
-
-        for data in context_data_recent:
-            datacode = data.code_donnee
-            value = data.valeur
-            if isinstance(value, float) and value.is_integer():
-                value = int(value)
-            context_data[siren_id][datacode] = value
-
-        # make sure the keys exist
-        for field in context_fields:
-            if field not in context_data[siren_id]:
-                context_data[siren_id][field] = ""
-
-    # Prepare tables
-    ## Population
-    response["population"] = [
-        [
-            f"Population totale en vigueur en {vintages['PopTot']}",
-        ],
-        [
-            f"Population municipale en vigueur en {vintages['PopMuni']}",
-        ],
-        [
-            f"Densité démographique en {vintages['Densité']} (population totale/superficie géographique, en hab/km²)",
-        ],
-        [
-            f"Variation annuelle de la population entre {vintages['TCAM']} (en %)",
-        ],
-    ]
-
-    ## Emploi
-    response["emploi"] = [
-        [
-            f"Taux d’activité des 15 à 64 ans en {vintages['PopActive1564%']} (en %)",
-        ],
-        [
-            f"Taux de chômage des 15 à 64 ans en {vintages['PopChom1564%']} (en %)",
-        ],
-    ]
-
-    ## Niveau de vie
-    response["niveau_de_vie"] = [
-        [
-            f"Revenu fiscal médian des ménages par unité de consommation {vintages['RevenuFiscal']} (en €)",
-        ],
-    ]
-
-    ## Zoning
-    response["zonage"] = [
-        [
-            "Classement de la commune en zone de revitalisation rurale (ZRR)",
-        ],
-        [
-            "Commune classée en zone urbaine sensible (ZUS)",
-        ],
-        [
-            "Commune classée en zone de montagne",
-        ],
-        [
-            "Commune classée comme touristique",
-        ],
-    ]
-
-    ## Dotations
-    response["dotation_globale"] = [
-        [
-            "Dotation globale de fonctionnement totale (en €)",
-        ],
-        [
-            "Dont dotation forfaitaire (en €)",
-        ],
-        [
-            " - dotation de solidarité urbaine et de cohésion sociale (DSU) (en €)",
-        ],
-        [
-            " - dotation de solidarité rurale (DSR) (en €)",
-        ],
-        [
-            " - dotation de péréquation totale (DNP) (en €)",
-        ],
-        [
-            "DGF par habitant (en €)",
-        ],
-        ["Population « DGF »"],
-    ]
-
-    response["dotation_elu_local"] = [
-        [
-            "Dotation élu local (en €)",
-        ],
-    ]
-
-    response["dotation_fpic"] = [
-        [
-            "Solde net FPIC (en €)",
-        ],
-        [
-            "Dont reversement au profit de la commune (en €)",
-        ],
-        [
-            "Dont prélèvement de la commune (en €)",
-        ],
-        [
-            "FPIC par habitant (en €)",
-        ],
-    ]
-
-    ################
-    for siren_id in siren_ids:
-        response["population"][0].append(
-            format_number(context_data[siren_id]["PopTot"])
-        )
-        response["population"][1].append(
-            format_number(context_data[siren_id]["PopMuni"])
-        )
-        response["population"][2].append(
-            format_number(context_data[siren_id]["Densité"])
-        )
-        response["population"][3].append(format_number(context_data[siren_id]["TCAM"]))
-
-        ## Emploi
-        response["emploi"][0].append(
-            format_number(context_data[siren_id]["PopActive1564%"])
-        )
-        response["emploi"][1].append(
-            format_number(context_data[siren_id]["PopChom1564%"])
-        )
-
-        ## Niveau de vie
-        response["niveau_de_vie"][0].append(
-            format_number(context_data[siren_id]["RevenuFiscal"])
-        )
-
-        ## Zoning
-        response["zonage"][0].append(
-            "Classée en ZRR" if context_data[siren_id]["ZRR"] else "Non classée"
-        )
-        response["zonage"][1].append(
-            "Classée en ZUS" if context_data[siren_id]["ZUS"] else "Non classée"
-        )
-        response["zonage"][2].append(
-            "Classée" if context_data[siren_id]["Montagne"] else "Non classée"
-        )
-        response["zonage"][3].append(
-            "Classée" if context_data[siren_id]["Touristique"] else "Non classée"
-        )
-
-        ## Dotations
-        response["dotation_globale"][0].append(
-            format_number(context_data[siren_id]["DGF_Totale"])
-        )
-        response["dotation_globale"][1].append(
-            format_number(context_data[siren_id]["Forfaitaire"])
-        )
-        response["dotation_globale"][2].append(
-            format_number(context_data[siren_id]["DSU"])
-        )
-        response["dotation_globale"][3].append(
-            format_number(context_data[siren_id]["DSR"])
-        )
-        response["dotation_globale"][4].append(
-            format_number(context_data[siren_id]["DNP"])
-        )
-        response["dotation_globale"][5].append(
-            format_number(context_data[siren_id]["DGFParHab"])
-        )
-        response["dotation_globale"][6].append(
-            format_number(context_data[siren_id]["PopDGF"])
-        )
-
-        response["dotation_elu_local"][0].append(
-            format_number(context_data[siren_id]["DotationEluLocal"])
-        )
-
-        response["dotation_fpic"][0].append(
-            format_number(context_data[siren_id]["SoldeFPIC"])
-        )
-        response["dotation_fpic"][1].append(
-            format_number(context_data[siren_id]["AttributionFPIC"])
-        )
-        response["dotation_fpic"][2].append(
-            format_number(context_data[siren_id]["ContributionFPIC"])
-        )
-        response["dotation_fpic"][3].append(
-            format_number(context_data[siren_id]["SoldeFPIC_DGF"])
-        )
-
-    return response
-
-
 def commune_data(siren_id):
     # Get the basic data
     response = T050Communes.objects.get(siren=siren_id).__dict__
     response.pop("_state", None)
 
     # Fix the 'civ_maire' syntax
-    if response["civ_maire"] == "Mme":
-        response["civ_maire"] = "M<sup>me</sup>"
-    elif response["civ_maire"] == "M":
-        response["civ_maire"] = "M."
+    response["civ_maire"] = clean_civility(response["civ_maire"])
 
     # Enrich the basic data
     ## Insee
@@ -319,28 +232,41 @@ def commune_data(siren_id):
             "image_path": "/static/img/hexagon2.svg",
             "svg_icon": True,
         }
-    response["departement"] = {
-        "name": subdivisions.departement.name,
-        "title": f"Département : {subdivisions.departement.name}",
-        "url": f"/departement/{subdivisions.departement.slug}",
-        "image_path": "/static/img/hexagon3.svg",
-        "svg_icon": True,
-    }
-    response["region"] = {
-        "name": subdivisions.departement.region.name,
-        "title": f"Région : {subdivisions.departement.region.name}",
-        "url": f"/region/{subdivisions.departement.region.slug}",
-        "image_path": "/static/img/hexagon4.svg",
-        "svg_icon": True,
-    }
+    if subdivisions.departement:
+        response["departement"] = {
+            "name": subdivisions.departement.name,
+            "title": f"Département : {subdivisions.departement.name}",
+            "url": f"/departement/{subdivisions.departement.slug}",
+            "image_path": "/static/img/hexagon3.svg",
+            "svg_icon": True,
+        }
+    if subdivisions.departement.region:
+        response["region"] = {
+            "name": subdivisions.departement.region.name,
+            "title": f"Région : {subdivisions.departement.region.name}",
+            "url": f"/region/{subdivisions.departement.region.slug}",
+            "image_path": "/static/img/hexagon4.svg",
+            "svg_icon": True,
+        }
 
     # Data Tables
-    response["tables"] = commune_context_data([siren_id])
-    response["max_year"] = response["tables"]["max_year"]
 
-    ## Context_data
+    context_data = CommuneContextData([siren_id])
+    context_data.fetch_collectivity_context_data(siren_id)
+    context_data.format_tables()
+
+    response["tables"] = context_data.formated_tables
+    response["max_year"] = context_data.max_year
 
     ## Groups
     response["groupements"] = group_data(siren_id)
 
     return response
+
+
+def communes_compare(sirens: list):
+    context_data = CommuneContextData(sirens)
+    context_data.fetch_collectivities_context_data()
+    context_data.format_tables()
+
+    return context_data.formated_tables
