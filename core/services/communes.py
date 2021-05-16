@@ -1,23 +1,16 @@
-from django.db.models import Max
-from django.core import serializers
-
-from .utils import format_number
 from .context_data import ContextData
 
-from francesubdivisions.models import Commune, Epci, Departement, Region
+from francesubdivisions.models import Commune
 
 from aspic.models.t_aspic_communes import (
     T050Communes,
-    T150DonneesCommunes,
     T052AdressesCommunes,
 )
-from aspic.models.t_aspic_cantons import T011Cantons
+
 from aspic.models.t_aspic_interco_liaison import T311050CommunesMembres
 from aspic.models.t_aspic_interco_meta import T301NaturesJuridiques
 
-from aspic.utils import data_vintage, clean_civility
-
-from pprint import pprint
+from aspic.utils import clean_civility
 
 
 class CommuneContextData(ContextData):
