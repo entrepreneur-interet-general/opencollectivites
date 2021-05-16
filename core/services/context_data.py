@@ -6,31 +6,24 @@ from aspic.utils import data_vintage
 
 
 class ContextData:
-    sirens = []
+    # These properties must be set by defining classes
+    # inheriting this one
     context_properties = []
     aspic_data_model_name = ""
     fs_base_model_name = ""
-    context_data = {}
-    max_year = None
-    place_names = []
-    formated_tables = {}
-    vintages = []
 
     def __init__(
         self,
         sirens: list,
-        context_properties: list = [],
-        aspic_data_model_name: str = "",
-        fs_base_model_name: str = "",
     ) -> None:
-        if len(context_properties):
-            self.context_properties = context_properties
 
-        if len(aspic_data_model_name):
-            self.aspic_data_model_name = aspic_data_model_name
-
-        if len(fs_base_model_name):
-            self.fs_base_model_name = fs_base_model_name
+        # Instanciate variables
+        self.sirens = []
+        self.context_data = {}
+        self.max_year = None
+        self.place_names = []
+        self.formated_tables = {}
+        self.vintages = []
 
         if len(sirens):
             # We want to keep the list of Sirens in order
