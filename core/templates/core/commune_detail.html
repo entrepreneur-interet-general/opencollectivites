@@ -176,7 +176,7 @@ var app = new Vue({
       places: null,
       isLoading: false,
       type: pageData.type,
-      origin: pageData.siren.toString()
+      origin: pageData.slug
     };
   },
 
@@ -209,7 +209,7 @@ var app = new Vue({
               if (r.groupName === this.groupName) {
                 // Do not list the current (origin) page in the results
                 this.optionList = r.items.filter((item) => {
-                  return item.value !== this.origin;
+                  return item.slug !== this.origin;
                 });
                 this.isLoading = false;
               }
@@ -225,7 +225,7 @@ var app = new Vue({
     loadResultPage() {
       let result_url = `/compare/${this.type}/${this.origin}`
       for (const p of this.places) {
-        result_url += '/' + p.value
+        result_url += '/' + p.slug
       }
 
       window.location.href = result_url;

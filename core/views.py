@@ -1,6 +1,6 @@
 from django.core.paginator import Paginator
-from django.http import HttpResponse, Http404
-from django.shortcuts import render
+from django.http import Http404
+from django.shortcuts import render, get_object_or_404
 from django.conf import settings
 from django.views.decorators.http import require_safe
 
@@ -47,16 +47,13 @@ def page_not_yet(request, **kwargs):
 
 @require_safe
 def page_commune_detail(request, slug):
-    try:
-        commune = Commune.objects.get(slug=slug)
-    except Commune.DoesNotExist:
-        raise Http404("Aucune commune correspondant à cet identifiant")
+    commune = get_object_or_404(Commune, slug=slug)
 
     payload = init_payload(f"Fiche commune : {commune.name}")
     payload["siren"] = commune.siren
     payload["commune_name"] = commune.name
     payload["data"] = commune_data(commune.siren)
-    payload["page_data"] = {"type": "commune", "siren": commune.siren}
+    payload["page_data"] = {"type": "commune", "slug": slug}
     payload["page_summary"] = [
         {"link": "#donnees-contexte", "title": "Données de contexte"},
         {"link": "#intercommunalites-zonage", "title": "Intercommunalités et zonage"},
@@ -74,13 +71,18 @@ def page_commune_detail(request, slug):
 
 
 @require_safe
-def page_commune_compare(request, siren1, siren2, siren3=0, siren4=0):
-    sirens = [siren1, siren2]
+def page_commune_compare(request, slug1, slug2, slug3=0, slug4=0):
+    slugs = [slug1, slug2]
+    sirens = []
 
-    if siren3:
-        sirens.append(siren3)
-    if siren4:
-        sirens.append(siren4)
+    if slug3:
+        slugs.append(slug3)
+    if slug4:
+        slugs.append(slug4)
+
+    for s in slugs:
+        commune = get_object_or_404(Commune, slug=s)
+        sirens.append(commune.siren)
 
     payload = init_payload("Comparaison de communes")
     payload["data"] = {}

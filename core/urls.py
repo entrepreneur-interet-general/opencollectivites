@@ -19,7 +19,7 @@ urlpatterns = [
         name="page_place_detail",
     ),
     re_path(
-        r"^compare\/commune\/(?P<siren1>\d{9})\/(?P<siren2>\d{9})\/?(?P<siren3>\d{9})?\/?(?P<siren4>\d{9})?\/?",
+        r"^compare\/commune\/(?P<slug1>[-\w]+)\/(?P<slug2>[-\w]+)\/?(?P<slug3>[-\w]+)?\/?(?P<slug4>[-\w]+)?\/?",
         views.page_commune_compare,
         name="page_commune_compare",
     ),
