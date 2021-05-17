@@ -81,6 +81,11 @@ class T311Groupements(models.Model):
     def __str__(self):
         return f"{self.raison_sociale} ({self.siren})"
 
+    def list_current_epcis():
+        return T311Groupements.objects.filter(
+            nature_juridique__fiscalite_propre=True, archive=False
+        )
+
 
 class T315GroupementsSirene(models.Model):
     siren = models.CharField(unique=True, max_length=9)
