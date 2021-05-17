@@ -110,7 +110,7 @@ class ContextData:
             label = prop["label"].format(**self.vintages)
 
             if "tooltip" in prop:
-                label += f' <span class="fr-fi-question-line oc-tooltip" aria-hidden="true" title="{prop["tooltip"]}"></span>'
+                label += f' <span class="fr-fi-question-line oc-tooltip" role="tooltip" title="{prop["tooltip"]}"></span>'
 
             row.append(label)
             for siren_id in self.list_sirens():

@@ -22,7 +22,6 @@ class CommuneContextData(ContextData):
             "label": "Population totale en vigueur en {PopTot}",
             "type": "numeric",
             "table": "population",
-            "tooltip": "Ceci est un exemple d’infobulle",
         },
         {
             "field": "PopMuni",
