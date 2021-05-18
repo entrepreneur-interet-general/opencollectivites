@@ -13,6 +13,7 @@ def list_documents(
     source_org: int = None,
     before: str = None,
     after: str = None,
+    limit: int = None,
 ):
     """
     Lists **published** documents, with optional filters
@@ -35,6 +36,9 @@ def list_documents(
         qs = qs.filter(last_update__lte=parsed_date)
     if after and dateparser.parse(after):
         qs = qs.filter(last_update__gte=after)
+
+    if limit:
+        qs = qs[:limit]
     return qs
 
 
