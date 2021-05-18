@@ -1,5 +1,4 @@
 from django.core.paginator import Paginator
-from django.http import Http404
 from django.shortcuts import render, get_object_or_404
 from django.conf import settings
 from django.views.decorators.http import require_safe
@@ -93,15 +92,25 @@ def page_commune_compare(request, slug1, slug2, slug3=0, slug4=0):
 
 @require_safe
 def page_epci_detail(request, slug):
-    try:
-        epci = Epci.objects.get(slug=slug)
-    except Epci.DoesNotExist:
-        raise Http404("Aucun EPCI correspondant à cet identifiant")
+    epci = get_object_or_404(Epci, slug=slug)
 
     payload = init_payload(f"Fiche EPCI : {epci.name}")
+    payload["slug"] = slug
     payload["siren"] = epci.siren
     payload["epci_name"] = epci.name
     payload["data"] = epci_data(epci.siren)
+    payload["page_summary"] = [
+        {"link": "#donnees-socio-economiques", "title": "Données socio-économiques"},
+        {"link": "#coordonnees-siege", "title": "Coordonnées du siège"},
+        {"link": "#perimetre-competences", "title": "Périmètre & compétences"},
+        {
+            "link": "#ressources-financieres-fiscales",
+            "title": "Ressources financières et fiscales",
+        },
+        {"link": "#outils-pratiques", "title": "Outils pratiques"},
+    ]
+    tools = list_documents(document_type=3, publication_page=4, limit=10)
+    payload["tools_list"] = documents_to_cards(tools)
 
     return render(request, "core/epci_detail.html", payload)
 

@@ -14,14 +14,24 @@ urlpatterns = [
         name="page_epci_detail",
     ),
     path(
-        "<str:place_type>/<int:siren>/<str:epci_name>",
+        "departement/<slug:slug>",
         views.page_not_yet,
-        name="page_place_detail",
+        name="page_departement_detail",
+    ),
+    path(
+        "region/<slug:slug>",
+        views.page_not_yet,
+        name="page_region_detail",
     ),
     re_path(
         r"^compare\/commune\/(?P<slug1>[-\w]+)\/(?P<slug2>[-\w]+)\/?(?P<slug3>[-\w]+)?\/?(?P<slug4>[-\w]+)?\/?",
         views.page_commune_compare,
         name="page_commune_compare",
+    ),
+    path(
+        "compare/epci/membres/<slug:slug>",
+        views.page_not_yet,
+        name="csv_compare_epci_members",
     ),
     re_path(
         r"^compare\/.*",
