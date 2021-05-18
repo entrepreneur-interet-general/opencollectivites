@@ -1,6 +1,6 @@
-from core.models import Topic, Scope, DocumentType, Document, Organization
+from django.core.exceptions import ValidationError
 
-from core.api import list_documents
+from core.models import Topic, Scope, DocumentType, Document, Organization
 
 import dateparser
 
