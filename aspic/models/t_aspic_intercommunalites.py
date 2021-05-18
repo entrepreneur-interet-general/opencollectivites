@@ -1,3 +1,6 @@
+from django.core.validators import URLValidator
+from django.core.exceptions import ValidationError
+
 from django.db import models
 from .t_aspic_interco_meta import (
     T301NaturesJuridiques,
@@ -81,10 +84,25 @@ class T311Groupements(models.Model):
     def __str__(self):
         return f"{self.raison_sociale} ({self.siren})"
 
-    def list_current_epcis():
-        return T311Groupements.objects.filter(
-            nature_juridique__fiscalite_propre=True, archive=False
-        )
+    def sanitize_website(self):
+        """
+        Many of the values entered for website are a simple domain with no scheme,
+        or even completely invalid values.
+        This function first check if the website is valid, else it tries to add 'http:'
+        If neither works, it returns an empty string
+        """
+        website = self.adresse_site_internet
+
+        url_validate = URLValidator()
+        try:
+            url_validate(website)
+            return website
+        except ValidationError:
+            try:
+                url_validate(f"http://{website}")
+                return f"http://{website}"
+            except ValidationError:
+                return ""
 
 
 class T315GroupementsSirene(models.Model):

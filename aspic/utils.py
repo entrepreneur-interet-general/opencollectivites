@@ -1,4 +1,5 @@
 from aspic.models.t_aspic_other import T173DatesDonnees
+from aspic.models.t_aspic_intercommunalites import T311Groupements
 
 
 def data_vintage():
@@ -31,3 +32,9 @@ def clean_civility(civility: str):
         return "M."
     else:
         return ""
+
+
+def list_current_epcis():
+    return T311Groupements.objects.filter(
+        nature_juridique__fiscalite_propre=True, archive=False
+    )
