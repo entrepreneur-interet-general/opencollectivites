@@ -54,5 +54,6 @@ urlpatterns = [
     path("mentions-legales", views.page_legal, name="page_legal"),
     path("plan", views.page_sitemap, name="page_sitemap"),
     path("test_404", views.error404, {"exception": Exception()}, name="page_test_404"),
+    path("test_500", views.error500, {"exception": Exception()}, name="page_test_500"),
     path("", views.page_index, name="page_index"),
 ]
