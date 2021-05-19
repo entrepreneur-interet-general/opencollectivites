@@ -1,4 +1,5 @@
 {% load static %}
+{% load matomo %}
 <!doctype html>
 <html lang="fr" data-fr-theme="default">
 
@@ -40,6 +41,7 @@
   <script type="module" src="{% static 'lib/dsfr-v1.0.0rc1/dist/js/dsfr.module.min.js' %}"></script>
   <script type="text/javascript" nomodule src="{% static 'lib/dsfr-v1.0.0rc1/dist/js/dsfr.nomodule.min.js' %}"></script>
   {% block extra_js %}{% endblock %}
+  {% matomo %}
 </body>
 
 </html>

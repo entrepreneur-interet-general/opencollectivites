@@ -57,6 +57,7 @@ from .t_aspic_interco_liaison import (
     T311090AutresOrganismes,
     T311311GroupementsMembr,
     T3115090MembresSubst,
+    T302311CompetencesGroup,
 )
 from .t_aspic_intercommunalites import (
     T311Groupements,

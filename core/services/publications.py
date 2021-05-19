@@ -1,6 +1,6 @@
-from core.models import Topic, Scope, DocumentType, Document, Organization
+from django.core.exceptions import ValidationError
 
-from core.api import list_documents
+from core.models import Topic, Scope, DocumentType, Document, Organization
 
 import dateparser
 
@@ -13,6 +13,7 @@ def list_documents(
     source_org: int = None,
     before: str = None,
     after: str = None,
+    limit: int = None,
 ):
     """
     Lists **published** documents, with optional filters
@@ -35,6 +36,10 @@ def list_documents(
         qs = qs.filter(last_update__lte=parsed_date)
     if after and dateparser.parse(after):
         qs = qs.filter(last_update__gte=after)
+
+    qs = qs.order_by("-weight")
+    if limit:
+        qs = qs[:limit]
     return qs
 
 

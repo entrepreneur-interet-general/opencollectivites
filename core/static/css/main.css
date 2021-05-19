@@ -92,6 +92,14 @@
     justify-content: center;
     }
 
+/* Tooltip */
+.oc-tooltip {
+    float: right;
+}
+
+.oc-tooltip::before {
+    font-size: 1.2em;
+} 
 
 /* When using svg icons instead of images in the tiles */
 .oc-svg-icon {

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.postgres",
     "corsheaders",
+    "analytical",
     "feeds",
     "francesubdivisions.apps.FrancesubdivisionsConfig",
     "aspic.apps.AspicConfig",
@@ -133,6 +134,10 @@ STATIC_ROOT = path.join(BASE_DIR, "static")
 # CORS
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = LOCAL_CORS_ORIGIN_WHITELIST
+
+# Matomo
+MATOMO_DOMAIN_PATH = LOCAL_MATOMO_DOMAIN_PATH
+MATOMO_SITE_ID = LOCAL_MATOMO_SITE_ID
 
 # Allow bulk deletions
 DATA_UPLOAD_MAX_NUMBER_FIELDS = None

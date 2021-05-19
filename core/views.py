@@ -1,21 +1,25 @@
 from django.core.paginator import Paginator
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.conf import settings
 from django.views.decorators.http import require_safe
 
 from core.models import Topic, Scope, Source
-from core.services.utils import init_payload, list_pages
-from core.services.communes import commune_data, commune_context_data
+from core.services.utils import init_payload
+from core.services.communes import commune_data, communes_compare
+from core.services.epcis import epci_data
 from core.services.publications import (
     list_documents,
     documents_to_cards,
     publication_filters,
 )
 
-from francesubdivisions.models import Region
+from francesubdivisions.models import Region, Commune, Epci
 
-########### Pages
+####################
+# Basic navigation #
+####################
+
+
 @require_safe
 def page_index(request):
     payload = init_payload("Accueil")
@@ -35,13 +39,20 @@ def page_not_yet(request, **kwargs):
     return render(request, "core/page_not_yet.html", payload)
 
 
+########################
+# Places-related pages #
+########################
+
+
 @require_safe
-def page_commune_detail(request, siren, commune_name):
-    payload = init_payload(f"Fiche commune : {commune_name}")
-    payload["siren"] = siren
-    payload["commune_name"] = commune_name
-    payload["data"] = commune_data(siren)
-    payload["page_data"] = {"type": "commune", "siren": siren}
+def page_commune_detail(request, slug):
+    commune = get_object_or_404(Commune, slug=slug)
+
+    payload = init_payload(f"Fiche commune : {commune.name}")
+    payload["siren"] = commune.siren
+    payload["commune_name"] = commune.name
+    payload["data"] = commune_data(commune.siren)
+    payload["page_data"] = {"type": "commune", "slug": slug}
     payload["page_summary"] = [
         {"link": "#donnees-contexte", "title": "Données de contexte"},
         {"link": "#intercommunalites-zonage", "title": "Intercommunalités et zonage"},
@@ -59,19 +70,54 @@ def page_commune_detail(request, siren, commune_name):
 
 
 @require_safe
-def page_commune_compare(request, siren1, siren2, siren3=0, siren4=0):
-    sirens = [siren1, siren2]
+def page_commune_compare(request, slug1, slug2, slug3=0, slug4=0):
+    slugs = [slug1, slug2]
+    sirens = []
 
-    if siren3:
-        sirens.append(siren3)
-    if siren4:
-        sirens.append(siren4)
+    if slug3:
+        slugs.append(slug3)
+    if slug4:
+        slugs.append(slug4)
+
+    for s in slugs:
+        commune = get_object_or_404(Commune, slug=s)
+        sirens.append(commune.siren)
 
     payload = init_payload("Comparaison de communes")
     payload["data"] = {}
-    payload["data"]["tables"] = commune_context_data(sirens)
+    payload["data"]["tables"] = communes_compare(sirens)
 
     return render(request, "core/commune_compare.html", payload)
+
+
+@require_safe
+def page_epci_detail(request, slug):
+    epci = get_object_or_404(Epci, slug=slug)
+
+    payload = init_payload(f"Fiche EPCI : {epci.name}")
+    payload["slug"] = slug
+    payload["siren"] = epci.siren
+    payload["epci_name"] = epci.name
+    payload["data"] = epci_data(epci.siren)
+    payload["page_summary"] = [
+        {"link": "#donnees-socio-economiques", "title": "Données socio-économiques"},
+        {"link": "#coordonnees-siege", "title": "Coordonnées du siège"},
+        {"link": "#perimetre-competences", "title": "Périmètre & compétences"},
+        {
+            "link": "#ressources-financieres-fiscales",
+            "title": "Ressources financières et fiscales",
+        },
+        {"link": "#outils-pratiques", "title": "Outils pratiques"},
+    ]
+    tools = list_documents(document_type=3, publication_page=4, limit=10)
+    payload["tools_list"] = documents_to_cards(tools)
+
+    return render(request, "core/epci_detail.html", payload)
+
+
+###########################
+# Documents related pages #
+###########################
 
 
 @require_safe
@@ -103,6 +149,17 @@ def page_publications(request):
     return render(request, "core/publications.html", payload)
 
 
+###############
+# Legal pages #
+###############
+
+
+@require_safe
+def page_accessibility(request):
+    payload = init_payload("Déclaration d'accessibilité")
+    return render(request, "core/accessibility.html", payload)
+
+
 @require_safe
 def page_legal(request):
     payload = init_payload("Mentions légales")
@@ -116,7 +173,6 @@ def page_sitemap(request):
     regions = Region.objects.order_by("name")
     regions_data = []
     for r in regions:
-        # Using insee because Mayotte should appear here
         regions_data.append(
             {"name": r.name, "slug": r.slug, "counts": r.subdivisions_count()}
         )
@@ -130,6 +186,11 @@ def page_sitemap(request):
     payload["regions_data"] = regions_data
 
     return render(request, "core/sitemap.html", payload)
+
+
+#############
+# Test page #
+#############
 
 
 @require_safe

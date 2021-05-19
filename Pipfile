@@ -21,6 +21,7 @@ gunicorn = "*"
 django-ninja = "*"
 django = "*"
 babel = "*"
+django-analytical = "*"
 
 [dev-packages]
 pylint = "*"
