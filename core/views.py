@@ -30,7 +30,13 @@ def page_index(request):
 def error404(request, exception):
     payload = init_payload("Erreur")
     payload["exception"] = exception
-    return render(request, "core/404.html", payload)
+    return render(request, "core/404.html", payload, status=404)
+
+
+@require_safe
+def error500(request, *args, **argv):
+    payload = init_payload("Erreur serveur")
+    return render(request, "core/500.html", payload, status=500)
 
 
 @require_safe
