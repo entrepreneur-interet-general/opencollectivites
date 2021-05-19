@@ -37,10 +37,10 @@ class ContextData:
         self.vintages = data_vintage()
 
     def list_context_fields(self) -> list:
-        return set([cp_dict["field"] for cp_dict in self.context_properties])
+        return list(set([cp_dict["field"] for cp_dict in self.context_properties]))
 
     def list_context_tables(self) -> list:
-        return set([cp_dict["table"] for cp_dict in self.context_properties])
+        return list(set([cp_dict["table"] for cp_dict in self.context_properties]))
 
     def get_context_properties_for_table(self, table: list) -> list:
         return [
