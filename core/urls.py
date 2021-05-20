@@ -15,13 +15,33 @@ urlpatterns = [
     ),
     path(
         "departement/<slug:slug>",
-        views.page_not_yet,
+        views.page_departement_detail,
         name="page_departement_detail",
     ),
     path(
-        "region/<slug:slug>",
+        "departement/<slug:slug>/liste-communes",
         views.page_not_yet,
+        name="page_departement_liste_communes",
+    ),
+    path(
+        "departement/<slug:slug>/liste-epcis",
+        views.page_not_yet,
+        name="page_departement_liste_epcis",
+    ),
+    path(
+        "region/<slug:slug>",
+        views.page_region_detail,
         name="page_region_detail",
+    ),
+    path(
+        "region/<slug:slug>/liste-communes",
+        views.page_not_yet,
+        name="page_region_liste_communes",
+    ),
+    path(
+        "region/<slug:slug>/liste-departements",
+        views.page_not_yet,
+        name="page_region_liste_departements",
     ),
     re_path(
         r"^compare\/commune\/(?P<slug1>[-\w]+)\/(?P<slug2>[-\w]+)\/?(?P<slug3>[-\w]+)?\/?(?P<slug4>[-\w]+)?\/?",
@@ -37,16 +57,6 @@ urlpatterns = [
         r"^compare\/.*",
         views.page_not_yet,
         name="page_place_compare",
-    ),
-    path(
-        "region/liste_departements/<slug:slug>",
-        views.page_not_yet,
-        name="page_region_departements",
-    ),
-    path(
-        "region/liste_communes/<slug:slug>",
-        views.page_not_yet,
-        name="page_region_communes",
     ),
     path("publications", views.page_publications, name="page_publications"),
     path("tests", views.page_tests, name="page_tests"),

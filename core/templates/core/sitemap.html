@@ -11,33 +11,13 @@
     <div class="fr-grid-row fr-grid-row--gutters oc-padding-bottom-3em">
         <div class="fr-col-12 fr-col-md-6">
             {% for region in regions_data|slice:":9" %}
-            <h3>{{ region.name }}</h3>
-            <ul>
-                {% if region.counts.departements > 1 %}
-                <li><a href="/region/liste_departements/{{ region.slug }}">
-                    Voir les {{ region.counts.departements }} départements de la Région {{ region.name }}
-                </a></li>
-                {% endif %}
-                <li><a href="/region/liste_communes/{{ region.slug }}">
-                    Voir les {{ region.counts.communes }} communes de la Région {{ region.name }}
-                </a></li>
-            </ul>
+                {% include "core/blocks/sitemap_region_entry.html" with region=region %}
             {% endfor %}
         </div>
 
         <div class="fr-col-12 fr-col-md-6">
             {% for region in regions_data|slice:"9:" %}
-            <h3>{{ region.name }}</h3>
-            <ul>
-                {% if region.counts.departements > 1 %}
-                <li><a href="/region/liste_departements/{{ region.slug }}">
-                    Voir les {{ region.counts.departements }} départements de la Région {{ region.name }}
-                </a></li>
-                {% endif %}
-                <li><a href="/region/liste_communes/{{ region.slug }}">
-                    Voir les {{ region.counts.communes }} communes de la Région {{ region.name }}
-                </a></li>
-            </ul>
+                {% include "core/blocks/sitemap_region_entry.html" with region=region %}
             {% endfor %}
         </div>
     </div>

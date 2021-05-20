@@ -1,3 +1,4 @@
+from django.urls.base import reverse
 from francesubdivisions.models import Epci, Commune
 from aspic.models.t_aspic_intercommunalites import (
     T311Groupements,
@@ -144,7 +145,10 @@ def epci_data(siren_id):
         "name": seat.name,
         "title": f"Siège : {seat.name}",
         "slug": seat.slug,
-        "url": f"/commune/{seat.slug}",
+        "url": reverse(
+            "core:page_commune_detail",
+            kwargs={"slug": seat.slug},
+        ),
         "image_path": "/static/img/hexagon1.svg",
         "svg_icon": True,
     }
@@ -152,7 +156,10 @@ def epci_data(siren_id):
         "name": seat.departement.name,
         "title": f"Département du siège : {seat.departement.name}",
         "slug": seat.departement.slug,
-        "url": f"/departement/{seat.departement.slug}",
+        "url": reverse(
+            "core:page_departement_detail",
+            kwargs={"slug": seat.departement.slug},
+        ),
         "image_path": "/static/img/hexagon3.svg",
         "svg_icon": True,
     }
@@ -160,7 +167,10 @@ def epci_data(siren_id):
         "name": seat.departement.region.name,
         "title": f"Région du siège : {seat.departement.region.name}",
         "slug": seat.departement.region.slug,
-        "url": f"/region/{seat.departement.region.slug}",
+        "url": reverse(
+            "core:page_region_detail",
+            kwargs={"slug": seat.departement.region.slug},
+        ),
         "image_path": "/static/img/hexagon4.svg",
         "svg_icon": True,
     }

@@ -1,0 +1,19 @@
+<h3>{{ region.name }}</h3>
+<ul>
+    {% if region.counts.departements > 1 %}
+    <li><a href="{% url 'core:page_region_liste_departements' region.slug %}">
+        Voir les {{ region.counts.departements }} départements de la Région {{ region.name }}
+    </a></li>
+    {% endif %}
+
+    {% if region.name != 'Mayotte' %}
+    {# Mayotte is not a region per se #}
+    <li><a href="{% url 'core:page_region_liste_communes' region.slug %}">
+        Voir les {{ region.counts.communes }} communes de la Région {{ region.name }}
+    </a></li>
+    {% else %}
+    <li><a href="{% url 'core:page_departement_liste_communes' region.slug %}">
+        Voir les {{ region.counts.communes }} communes de Mayotte
+    </a></li>
+    {% endif %}
+</ul>
