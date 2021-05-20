@@ -2,10 +2,6 @@ from core.models import Topic
 
 from babel.numbers import format_decimal
 
-from django.core.exceptions import ValidationError
-
-import dateparser
-
 
 def init_payload(page_title: str, links: list = []):
     # Returns the common payload passed to all pages:
