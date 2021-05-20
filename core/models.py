@@ -3,7 +3,7 @@ from django.db import models
 from core.services.django_admin import TimeStampModel
 
 from urllib.parse import urlparse
-from datetime import date
+from datetime import date, datetime
 
 
 # Models
@@ -256,4 +256,7 @@ class Document(TimeStampModel):
 
     def save(self, *args, **kwargs):
         self.base_domain = urlparse(self.url).hostname[:100]
+        if not self.last_update:
+            self.last_update = datetime.now()
+
         super().save(*args, **kwargs)
