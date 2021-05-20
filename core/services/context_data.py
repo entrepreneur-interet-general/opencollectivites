@@ -102,7 +102,7 @@ class ContextData:
 
         self.formated_tables["places_names"] = self.place_names
 
-    def format_table(self, table):
+    def format_table(self, table) -> None:
         formated_table = []
         for prop in self.get_context_properties_for_table(table):
             field = prop["field"]
