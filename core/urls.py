@@ -39,6 +39,11 @@ urlpatterns = [
         name="page_region_liste_communes",
     ),
     path(
+        "region/<slug:slug>/liste-epcis",
+        views.page_not_yet,
+        name="page_region_liste_epcis",
+    ),
+    path(
         "region/<slug:slug>/liste-departements",
         views.page_not_yet,
         name="page_region_liste_departements",

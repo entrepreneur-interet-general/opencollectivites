@@ -1,3 +1,5 @@
+from core.services.regions import region_data
+from core.services.departements import departement_data
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
 from django.conf import settings
@@ -13,7 +15,7 @@ from core.services.publications import (
     publication_filters,
 )
 
-from francesubdivisions.models import Region, Commune, Epci
+from francesubdivisions.models import Departement, Region, Commune, Epci
 
 ####################
 # Basic navigation #
@@ -119,6 +121,30 @@ def page_epci_detail(request, slug):
     payload["tools_list"] = documents_to_cards(tools)
 
     return render(request, "core/epci_detail.html", payload)
+
+
+@require_safe
+def page_departement_detail(request, slug):
+    departement = get_object_or_404(Departement, slug=slug)
+
+    payload = init_payload(f"Fiche département : {departement.name}")
+    payload["slug"] = slug
+    payload["siren"] = departement.siren
+    payload["data"] = departement_data(departement)
+
+    return render(request, "core/departement_detail.html", payload)
+
+
+@require_safe
+def page_region_detail(request, slug):
+    region = get_object_or_404(Region, slug=slug)
+
+    payload = init_payload(f"Fiche région : {region.name}")
+    payload["slug"] = slug
+    payload["siren"] = region.siren
+    payload["data"] = region_data(region)
+
+    return render(request, "core/region_detail.html", payload)
 
 
 ###########################
