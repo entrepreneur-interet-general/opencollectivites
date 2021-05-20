@@ -20,12 +20,12 @@ urlpatterns = [
     ),
     path(
         "departement/<slug:slug>/liste-communes",
-        views.page_not_yet,
+        views.page_departement_liste_communes,
         name="page_departement_liste_communes",
     ),
     path(
         "departement/<slug:slug>/liste-epcis",
-        views.page_not_yet,
+        views.page_departement_liste_epcis,
         name="page_departement_liste_epcis",
     ),
     path(
@@ -35,17 +35,17 @@ urlpatterns = [
     ),
     path(
         "region/<slug:slug>/liste-communes",
-        views.page_not_yet,
+        views.page_region_liste_communes,
         name="page_region_liste_communes",
     ),
     path(
         "region/<slug:slug>/liste-epcis",
-        views.page_not_yet,
+        views.page_region_liste_epcis,
         name="page_region_liste_epcis",
     ),
     path(
         "region/<slug:slug>/liste-departements",
-        views.page_not_yet,
+        views.page_region_liste_departements,
         name="page_region_liste_departements",
     ),
     re_path(

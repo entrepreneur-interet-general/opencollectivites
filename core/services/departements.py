@@ -42,7 +42,8 @@ def departement_data(dept_fs: Departement) -> dict:
             "svg_icon": True,
         }
 
-    epcis = dept_fs.commune_set.all().values("epci__slug", "epci__name").distinct()
+    epcis = dept_fs.list_epcis()
+
     if epcis.count() > 1:
         response["epcis_list"] = {
             "name": f"Liste des {epcis.count()} EPCI",
@@ -57,11 +58,9 @@ def departement_data(dept_fs: Departement) -> dict:
         # Should only concern Paris
         epci = epcis[0]
         response["epcis_list"] = {
-            "name": epci["epci__name"],
-            "title": f"EPCI : {epci['epci__name']}",
-            "url": reverse(
-                "core:page_epci_detail", kwargs={"slug": epci["epci__slug"]}
-            ),
+            "name": epci.name,
+            "title": f"EPCI : {epci.name}",
+            "url": reverse("core:page_epci_detail", kwargs={"slug": epci.slug}),
             "image_path": "/static/img/hexagon2.svg",
             "svg_icon": True,
         }
