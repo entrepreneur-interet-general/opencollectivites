@@ -239,7 +239,10 @@ def commune_data(siren_id):
             "image_path": "/static/img/hexagon3.svg",
             "svg_icon": True,
         }
-    if subdivisions.departement.region:
+    if (
+        subdivisions.departement.region
+        and subdivisions.departement.region.name != "Mayotte"
+    ):
         response["region"] = {
             "name": subdivisions.departement.region.name,
             "title": f"Région : {subdivisions.departement.region.name}",

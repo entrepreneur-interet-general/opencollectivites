@@ -116,17 +116,6 @@ def epci_data(siren_id):
         "acronym": epci_fs.epci_type,
     }
 
-    response["departements"] = (
-        epci_fs.commune_set.all()
-        .values("departement__slug", "departement__name")
-        .distinct()
-    )
-    response["regions"] = (
-        epci_fs.commune_set.all()
-        .values("departement__region__slug", "departement__region__name")
-        .distinct()
-    )
-
     response["contact"] = {}
     response["contact"]["address1"] = epci_aspic.ligne_1
     response["contact"]["address2"] = epci_aspic.ligne_2
@@ -163,17 +152,32 @@ def epci_data(siren_id):
         "image_path": "/static/img/hexagon3.svg",
         "svg_icon": True,
     }
-    response["region"] = {
-        "name": seat.departement.region.name,
-        "title": f"Région du siège : {seat.departement.region.name}",
-        "slug": seat.departement.region.slug,
-        "url": reverse(
-            "core:page_region_detail",
-            kwargs={"slug": seat.departement.region.slug},
-        ),
-        "image_path": "/static/img/hexagon4.svg",
-        "svg_icon": True,
-    }
+
+    response["departements"] = (
+        epci_fs.commune_set.all()
+        .values("departement__slug", "departement__name")
+        .distinct()
+    )
+
+    if seat.departement.region.name != "Mayotte":
+        # Mayotte is not a proper region
+        response["regions"] = (
+            epci_fs.commune_set.all()
+            .values("departement__region__slug", "departement__region__name")
+            .distinct()
+        )
+
+        response["region"] = {
+            "name": seat.departement.region.name,
+            "title": f"Région du siège : {seat.departement.region.name}",
+            "slug": seat.departement.region.slug,
+            "url": reverse(
+                "core:page_region_detail",
+                kwargs={"slug": seat.departement.region.slug},
+            ),
+            "image_path": "/static/img/hexagon4.svg",
+            "svg_icon": True,
+        }
 
     response["communes_list"] = {
         "name": "Liste des communes",

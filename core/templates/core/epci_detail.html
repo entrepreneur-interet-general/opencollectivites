@@ -33,8 +33,8 @@
   <p>
   {% if data.departements.count == 1 %}
     Elle est située intégralement dans le département
-    <a href="{% url 'core:page_departement_detail' data.departement.slug %}">{{ data.departement.name }}</a>
-    et la région <a href="{% url 'core:page_region_detail' data.region.slug %}">{{ data.region.name }}</a>.
+    <a href="{% url 'core:page_departement_detail' data.departement.slug %}">{{ data.departement.name }}</a>{% if data.region %}
+    et la région <a href="{% url 'core:page_region_detail' data.region.slug %}">{{ data.region.name }}</a>{% endif %}.
   {% else %}
     Elle est située sur les départements 
       {% for departement in data.departements %}
@@ -42,7 +42,7 @@
       {%endfor%}
       {% if data.regions.count == 1 %}
         et la région <a href="{% url 'core:page_region_detail' data.region.slug %}">{{ data.region.name }}</a>.
-      {% else %}
+      {% elif data.regions.count > 1 %}
         et les régions
         {% for region in data.regions %}
           <a href="{% url 'core:page_region_detail' region.departement__region__slug %}">{{ region.departement__region__name }}</a>{% if forloop.last %}.{% else %}, {% endif%}
@@ -72,9 +72,11 @@
       {% include "core/dsfr/tile.html" with tiledata=data.departement %}
     </div>
 
+    {% if data.region %}
     <div class="fr-col-12 fr-col-md-2">
       {% include "core/dsfr/tile.html" with tiledata=data.region %}
     </div>
+    {% endif %}
   </div>
 
 {# Tables #}

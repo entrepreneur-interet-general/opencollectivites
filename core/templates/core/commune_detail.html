@@ -28,7 +28,7 @@
 
 <p>
   {{ data.nom }} est une commune française, située dans le département
-  {{ data.departement.name }} en région {{ data.region.name }}.{% if data.nom_maire %} Le maire actuel est
+  {{ data.departement.name }}{% if data.region%} en région {{ data.region.name }}{% endif %}.{% if data.nom_maire %} Le maire actuel est
   {{ data.civ_maire | safe }} {{ data.pre_maire }} {{ data.nom_maire }}.{% endif%}
 </p>
 
@@ -44,9 +44,11 @@
     {% include "core/dsfr/tile.html" with tiledata=data.departement %}
   </div>
 
+  {% if data.region %}
   <div class="fr-col-12 fr-col-md-2">
     {% include "core/dsfr/tile.html" with tiledata=data.region %}
   </div>
+  {% endif %}
 </div>
 
 {# Tables #}
