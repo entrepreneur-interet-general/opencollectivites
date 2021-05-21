@@ -139,6 +139,10 @@ def page_departement_detail(request, slug):
     payload["siren"] = departement.siren
     payload["data"] = departement_data(departement)
 
+    payload["page_summary"] = [
+        {"link": "#donnees-contexte", "title": "Données de contexte"},
+    ]
+
     return render(request, "core/departement_detail.html", payload)
 
 

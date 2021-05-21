@@ -1,6 +1,58 @@
+from core.services.context_data import ContextData
 from francesubdivisions.models import Departement
 
 from django.urls import reverse
+
+
+class DepartementContextData(ContextData):
+    aspic_data_model_name = "T109DonneesDepartements"
+    fs_base_model_name = "Departement"
+    context_properties = [
+        {
+            "field": "PopTot",
+            "label": "Population totale en vigueur en {PopTot}",
+            "type": "numeric",
+            "table": "population",
+        },
+        {
+            "field": "Densité",
+            "label": "Densité démographique en {Densité} (population totale/superficie géographique, en hab/km²)",
+            "type": "numeric",
+            "table": "population",
+        },
+        {
+            "field": "TCAM",
+            "label": "Variation annuelle moyenne de la population entre {TCAM} (en %)",
+            "type": "numeric",
+            "table": "population",
+        },
+        {
+            "field": "PopActive1564",
+            "label": "Taux d’activité des 15 à 64 ans en {PopActive1564%} (en %)",
+            "type": "numeric",
+            "table": "emploi",
+        },
+        {
+            "field": "PopChom1564",
+            "label": "Taux de chômage des 15 à 64 ans en {PopChom1564%} (en %)",
+            "type": "numeric",
+            "table": "emploi",
+        },
+        {
+            "field": "RevenuFiscal",
+            "label": "Revenu fiscal médian des ménages par unité de consommation {RevenuFiscal} (en €)",
+            "type": "numeric",
+            "table": "niveau_de_vie",
+        },
+    ]
+
+    def fetch_departements_context_data(self):
+        for siren_id in self.list_sirens():
+            dept_fs = Departement.objects.get(siren=siren_id)
+            dept_number = dept_fs.insee
+            self.fetch_collectivity_context_data(
+                siren_id, "num_departement", dept_number
+            )
 
 
 def departement_data(dept_fs: Departement) -> dict:
@@ -64,5 +116,12 @@ def departement_data(dept_fs: Departement) -> dict:
             "image_path": "/static/img/hexagon2.svg",
             "svg_icon": True,
         }
+
+    dept_context_data = DepartementContextData([dept_fs.siren])
+    dept_context_data.fetch_departements_context_data()
+    dept_context_data.format_tables()
+
+    response["tables"] = dept_context_data.formated_tables
+    response["max_year"] = dept_context_data.max_year
 
     return response

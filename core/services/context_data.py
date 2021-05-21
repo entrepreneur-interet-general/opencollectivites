@@ -59,8 +59,7 @@ class ContextData:
             self.fetch_collectivity_context_data(siren_id)
 
     def fetch_collectivity_context_data(
-        self,
-        siren_id: str,
+        self, siren_id: str, other_field: str = "", other_id: str = ""
     ):
         """
         Returns the raw context data for a collectivity
@@ -69,7 +68,11 @@ class ContextData:
 
         data_model = apps.get_model("aspic", self.aspic_data_model_name)
 
-        context_data_unsorted = data_model.objects.filter(siren=siren_id)
+        if not other_field:
+            context_data_unsorted = data_model.objects.filter(siren=siren_id)
+        elif other_field == "num_departement":
+            # Departements don't have siren ids in Aspic.
+            context_data_unsorted = data_model.objects.filter(num_departement=other_id)
 
         # get the most recent year
         if not self.max_year:

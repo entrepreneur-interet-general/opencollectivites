@@ -50,6 +50,22 @@
     {% endif %}
   </div>
 
+  {# Tables #}
+  <div class="fr-grid-row fr-grid-row--gutters ">
+    <div class="fr-col-12 fr-col-md-8">
+      <h2 id="donnees-contexte">Données de contexte</h2>
+      {% include "core/dsfr/table.html" with caption="Population" content=data.tables.population extra_classes="oc-table--fullwidth oc-table--force10" %}
+      {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données départements" %}
+
+      {% include "core/dsfr/table.html" with caption="Emploi - chômage" content=data.tables.emploi extra_classes="oc-table--fullwidth oc-table--force10" %}
+      {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données départements" %}
+
+    </div> <!-- end left column -->
+    <div class="fr-col-3">
+    <div class="oc-sticky-block">
+      {% include "core/dsfr/summary.html" with items=page_summary %}
+    </div>
+  </div>
 </div> <!-- end div container-->
 
 {% endblock %}
