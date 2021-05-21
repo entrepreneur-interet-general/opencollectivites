@@ -43,6 +43,12 @@ def error500(request, *args, **argv):
 
 
 @require_safe
+def error50x(request, *args, **argv):
+    payload = init_payload("Erreur serveur")
+    return render(request, "core/50x.html", payload, status=503)
+
+
+@require_safe
 def page_not_yet(request, **kwargs):
     payload = init_payload("Page en construction")
     return render(request, "core/page_not_yet.html", payload)
