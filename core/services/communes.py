@@ -1,3 +1,4 @@
+from django.urls.base import reverse
 from .context_data import ContextData
 
 from francesubdivisions.models import Commune
@@ -220,7 +221,10 @@ def commune_data(siren_id):
         response["epci"] = {
             "name": subdivisions.epci.name,
             "title": f"EPCI : {subdivisions.epci.name}",
-            "url": f"/epci/{subdivisions.epci.slug}",
+            "url": reverse(
+                "core:page_epci_detail",
+                kwargs={"slug": subdivisions.epci.slug},
+            ),
             "image_path": "/static/img/hexagon2.svg",
             "svg_icon": True,
         }
@@ -228,15 +232,24 @@ def commune_data(siren_id):
         response["departement"] = {
             "name": subdivisions.departement.name,
             "title": f"Département : {subdivisions.departement.name}",
-            "url": f"/departement/{subdivisions.departement.slug}",
+            "url": reverse(
+                "core:page_departement_detail",
+                kwargs={"slug": subdivisions.departement.slug},
+            ),
             "image_path": "/static/img/hexagon3.svg",
             "svg_icon": True,
         }
-    if subdivisions.departement.region:
+    if (
+        subdivisions.departement.region
+        and subdivisions.departement.region.name != "Mayotte"
+    ):
         response["region"] = {
             "name": subdivisions.departement.region.name,
             "title": f"Région : {subdivisions.departement.region.name}",
-            "url": f"/region/{subdivisions.departement.region.slug}",
+            "url": reverse(
+                "core:page_region_detail",
+                kwargs={"slug": subdivisions.departement.region.slug},
+            ),
             "image_path": "/static/img/hexagon4.svg",
             "svg_icon": True,
         }

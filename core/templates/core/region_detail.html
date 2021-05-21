@@ -1,0 +1,59 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}
+<title>{{ title }} </title>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/vue-multiselect-dsfr.css' %}">
+<style scoped>
+#homesearch {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
+  {% include "core/dsfr/breadcrumb.html" with breadcrumb_data=breadcrumb_data %}
+
+  {# Intro #}
+  <h1>{{ title }}</h1>
+  <p>
+  Code SIREN : {{ siren }}
+  </p>
+
+  <p>
+    {{ data.name }} est une région française.
+  </p>
+
+  {# Navigation #}
+  <div id="navigation-tiles" class="fr-grid-row fr-grid-row--gutters oc-tile-row">
+    {% if data.communes_list %}
+    <div class="fr-col-12 fr-col-md-2">
+      {% include "core/dsfr/tile.html" with tiledata=data.communes_list %}
+    </div>
+    {% endif %}
+
+    {% if data.epcis_list %}
+    <div class="fr-col-12 fr-col-md-2">
+      {% include "core/dsfr/tile.html" with tiledata=data.epcis_list %}
+    </div>
+    {% endif %}
+
+    {% if data.departements_list %}
+    <div class="fr-col-12 fr-col-md-2">
+      {% include "core/dsfr/tile.html" with tiledata=data.departements_list %}
+    </div>
+    {% endif %}
+  </div>
+
+
+</div> <!-- end div container-->
+
+{% endblock %}
+
+{% block extra_js %}
+{% endblock %}

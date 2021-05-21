@@ -1,0 +1,21 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
+  {% include "core/dsfr/breadcrumb.html" with breadcrumb_data=breadcrumb_data %}
+
+  <h1>{{ title }}</h1>
+
+  <ul>
+  {% if sort_by_departement %}
+    {% for entry in list %}
+      <h2>{{ entry.title }}</h2>
+      {% include "core/blocks/list_subdivisions.html" with list=entry.list entry_link=entry_link subdivisions_link=subdivisions_link %}
+    {% endfor %}
+  {% else %}
+    {% include "core/blocks/list_subdivisions.html" with list=list entry_link=entry_link subdivisions_link=subdivisions_link %}
+  {% endif %}
+  </ul>
+</div>
+{% endblock %}

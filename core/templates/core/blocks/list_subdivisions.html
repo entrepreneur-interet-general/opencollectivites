@@ -1,0 +1,14 @@
+{% for place in list %}
+
+<li>
+    {% if subdivisions_link %}
+    <strong>{{ place.name }}{%if place.insee %} ({{place.insee}}){% endif %} :</strong>  
+        <a href="{% url entry_link.view place.slug %}">{{ entry_link.title }}</a> / 
+        <a href="{% url subdivisions_link.view place.slug %}">{{ subdivisions_link.title }}</a>
+    {% else %}
+    <a href="{% url entry_link.view place.slug %}">
+        <strong>{{ place.name }}{%if place.insee %} ({{place.insee}}){% endif %}</strong>
+    </a>
+    {% endif %}
+</li>
+{% endfor %}

@@ -3,14 +3,36 @@
 
 {% block content %}
 <div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
-  <img
-    src="/static/img/undraw_server_down_s4lk.svg"
-    style="float: right; width: 40%"
-    alt=""
-  />
-  <h1>Le site est actuellement inaccessible</h1>
-  <p>Nous mettons tout en oeuvre pour que le site soit de nouveau accessible rapidement. Veuillez revenir plus tard.</p>
+  <div class="fr-grid-row fr-grid-row--gutters ">
+    <div class="fr-col-12 fr-col-md-6">
+      <h1>Page actuellement indisponible</h1>
+      <p>Nous essayons de résoudre le problème.</p>
+      
+      <p>Pendant ce temps vous pouvez tenter de :</p>
+      <ul>
+        <li><span class="ri-time-line" aria-hidden="true"></span> Revenir dans quelques minutes</li>
+        <li><span class="ri-refresh-line" aria-hidden="true"></span> Rafraîchir la page</li>
+      </ul>
 
-  <br class="oc-clear" />
+      <p>Si cela ne fonctionne pas,</p>
+
+      <a class="fr-link fr-link--lg fr-fi-arrow-left-line fr-link--icon-left" title="Retourner à la page précédente" href="#" onclick="goBack()">Retourner à la page précédente</a>
+    </div>
+    <div class="fr-col-12 fr-col-md-6">
+        <img
+        src="/static/img/undraw_programmer_imem.svg"
+        style="width:100%"
+        alt=""
+      />
+    </div>
+  </div>
 </div>
 {% endblock %}
+
+{% block extra_js %}
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+{% endblock%}

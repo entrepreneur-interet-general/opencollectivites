@@ -1,3 +1,4 @@
+from django.urls.base import reverse
 from francesubdivisions.models import Epci, Commune
 from aspic.models.t_aspic_intercommunalites import (
     T311Groupements,
@@ -115,17 +116,6 @@ def epci_data(siren_id):
         "acronym": epci_fs.epci_type,
     }
 
-    response["departements"] = (
-        epci_fs.commune_set.all()
-        .values("departement__slug", "departement__name")
-        .distinct()
-    )
-    response["regions"] = (
-        epci_fs.commune_set.all()
-        .values("departement__region__slug", "departement__region__name")
-        .distinct()
-    )
-
     response["contact"] = {}
     response["contact"]["address1"] = epci_aspic.ligne_1
     response["contact"]["address2"] = epci_aspic.ligne_2
@@ -144,7 +134,10 @@ def epci_data(siren_id):
         "name": seat.name,
         "title": f"Siège : {seat.name}",
         "slug": seat.slug,
-        "url": f"/commune/{seat.slug}",
+        "url": reverse(
+            "core:page_commune_detail",
+            kwargs={"slug": seat.slug},
+        ),
         "image_path": "/static/img/hexagon1.svg",
         "svg_icon": True,
     }
@@ -152,18 +145,39 @@ def epci_data(siren_id):
         "name": seat.departement.name,
         "title": f"Département du siège : {seat.departement.name}",
         "slug": seat.departement.slug,
-        "url": f"/departement/{seat.departement.slug}",
+        "url": reverse(
+            "core:page_departement_detail",
+            kwargs={"slug": seat.departement.slug},
+        ),
         "image_path": "/static/img/hexagon3.svg",
         "svg_icon": True,
     }
-    response["region"] = {
-        "name": seat.departement.region.name,
-        "title": f"Région du siège : {seat.departement.region.name}",
-        "slug": seat.departement.region.slug,
-        "url": f"/region/{seat.departement.region.slug}",
-        "image_path": "/static/img/hexagon4.svg",
-        "svg_icon": True,
-    }
+
+    response["departements"] = (
+        epci_fs.commune_set.all()
+        .values("departement__slug", "departement__name")
+        .distinct()
+    )
+
+    if seat.departement.region.name != "Mayotte":
+        # Mayotte is not a proper region
+        response["regions"] = (
+            epci_fs.commune_set.all()
+            .values("departement__region__slug", "departement__region__name")
+            .distinct()
+        )
+
+        response["region"] = {
+            "name": seat.departement.region.name,
+            "title": f"Région du siège : {seat.departement.region.name}",
+            "slug": seat.departement.region.slug,
+            "url": reverse(
+                "core:page_region_detail",
+                kwargs={"slug": seat.departement.region.slug},
+            ),
+            "image_path": "/static/img/hexagon4.svg",
+            "svg_icon": True,
+        }
 
     response["communes_list"] = {
         "name": "Liste des communes",
