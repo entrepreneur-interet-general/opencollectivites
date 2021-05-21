@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg">
+<defs>
+    <font id="remixicon" horiz-adv-x="1200">
+    <font-face font-family="remixicon"
+        units-per-em="1200" ascent="1200"
+        descent="0" />
+    <missing-glyph horiz-adv-x="0" /><glyph glyph-name="time-line"
+            unicode="&#xF20F;"
+            horiz-adv-x="1200" d="M600 100C323.85 100 100 323.85 100 600S323.85 1100 600 1100S1100 876.15 1100 600S876.15 100 600 100zM600 200A400 400 0 1 1 600 1000A400 400 0 0 1 600 200zM650 600H850V500H550V850H650V600z" /><glyph glyph-name="refresh-line"
+            unicode="&#xF064;"
+            horiz-adv-x="1200" d="M273.15 978.35A498.05 498.05 0 0 0 600 1100C876.15 1100 1100 876.15 1100 600C1100 493.2 1066.5 394.2000000000001 1009.5000000000002 312.9999999999999L850 600H1000A400 400 0 0 1 323 888.6L273.15 978.35zM926.85 221.65A498.05 498.05 0 0 0 600 100C323.85 100 100 323.85 100 600C100 706.8 133.5 805.8 190.5 887L350 600H200A400 400 0 0 1 877 311.4000000000001L926.85 221.65z" /></font></defs></svg>
