@@ -15,7 +15,7 @@ class R009Departements(models.Model):
         db_table = "r009_departements"
 
     def __str__(self):
-        return f"{code}"
+        return f"{self.code}"
 
 
 class R010Arrondissements(models.Model):
@@ -28,7 +28,7 @@ class R010Arrondissements(models.Model):
         db_table = "r010_arrondissements"
 
     def __str__(self):
-        return f"{code}"
+        return f"{self.code}"
 
 
 class R011Cantons(models.Model):
@@ -41,7 +41,7 @@ class R011Cantons(models.Model):
         db_table = "r011_cantons"
 
     def __str__(self):
-        return f"{code}"
+        return f"{self.code}"
 
 
 class R050Communes(models.Model):
@@ -54,7 +54,7 @@ class R050Communes(models.Model):
         db_table = "r050_communes"
 
     def __str__(self):
-        return f"{code}"
+        return f"{self.code}"
 
 
 class R311Groupements(models.Model):
@@ -67,4 +67,4 @@ class R311Groupements(models.Model):
         db_table = "r311_groupements"
 
     def __str__(self):
-        return f"{code}"
+        return f"{self.code}"
