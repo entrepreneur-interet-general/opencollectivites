@@ -1,0 +1,36 @@
+<div id="vue-app" class="comparison-selector fr-bg--alt">
+  {% verbatim %}
+  <form @submit.prevent="loadResultPage">
+    <div class="fr-select-group">
+    <label class="fr-label">
+      Sélectionnez jusqu'à trois collectivités :
+    </label>
+    <vue-multiselect
+      v-model="places"
+      :options="optionList"
+      track-by="value"
+      label="text"
+      :multiple="true"
+      :max="3"
+      :internal-search="false"
+      :close-on-select="false"
+      :loading="isLoading"
+      :preserve-search="true"
+      placeholder="Taper les premières lettres de la collectivité recherchée"
+      @search-change="searchCollectivities"
+      :options-limit="300"
+      :limit="3"
+      :limit-text="limitText"
+    >
+      <span slot="noOptions"></span>
+      <span slot="noResult">
+      Aucun résultat trouvé, merci de vérifier votre saisie.
+      </span>
+    </vue-multiselect>
+    </div>
+    <button class="fr-btn fr-fi-checkbox-line fr-btn--icon-right" :isDisabled="!(places && places.length)">
+      Comparer
+    </button>
+  </form>
+  {% endverbatim %}
+</div>
