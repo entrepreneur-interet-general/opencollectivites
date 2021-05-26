@@ -14,6 +14,16 @@ server {
                 proxy_pass <socketpath>/run/gunicorn.sock;
         }
 
+        error_page 502 503 504 /nginx-error-pages/oc-error50x.html;
+        location /nginx-error-pages/ {
+                root <projectpath>/devops/config_files/;
+        }
+
+        location /errortesting {
+                fastcgi_pass unix:/does/not/exist;
+        } # This page should render the error page even if the site is properly loaded 
+
+
         # SSL
         ssl_certificate /etc/letsencrypt/live/<domain>/fullchain.pem;
         ssl_certificate_key /etc/letsencrypt/live/<domain>/privkey.pem;
