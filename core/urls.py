@@ -55,8 +55,8 @@ urlpatterns = [
     ),
     path(
         "compare/epci/membres/<slug:slug>",
-        views.page_not_yet,
-        name="csv_compare_epci_members",
+        views.csv_epci_compare_communes,
+        name="csv_epci_compare_communes",
     ),
     re_path(
         r"^compare\/.*",

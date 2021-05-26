@@ -255,7 +255,6 @@ def commune_data(siren_id):
         }
 
     # Data Tables
-
     context_data = CommuneContextData([siren_id])
     context_data.fetch_collectivity_context_data(siren_id)
     context_data.format_tables()
@@ -269,9 +268,10 @@ def commune_data(siren_id):
     return response
 
 
-def communes_compare(sirens: list):
+def communes_compare(sirens: list, format_for_web: bool = True) -> dict:
     context_data = CommuneContextData(sirens)
     context_data.fetch_collectivities_context_data()
-    context_data.format_tables()
+
+    context_data.format_tables(format_for_web)
 
     return context_data.formated_tables

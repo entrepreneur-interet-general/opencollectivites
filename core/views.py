@@ -7,7 +7,7 @@ from django.conf import settings
 from django.views.decorators.http import require_safe
 
 from core.models import Topic, Scope, Source
-from core.services.utils import init_payload
+from core.services.utils import generate_csv, init_payload
 from core.services.communes import commune_data, communes_compare
 from core.services.epcis import epci_data
 from core.services.publications import (
@@ -17,6 +17,7 @@ from core.services.publications import (
 )
 
 from francesubdivisions.models import Departement, Region, Commune, Epci
+
 
 ####################
 # Basic navigation #
@@ -377,6 +378,34 @@ def page_sitemap(request):
     payload["regions_data"] = regions_data
 
     return render(request, "core/sitemap.html", payload)
+
+
+###############
+# CSV exports #
+###############
+
+
+def csv_epci_compare_communes(request, slug):
+    filename = f"comparaisons-communes-{slug}"
+
+    epci = get_object_or_404(Epci, slug=slug)
+    epci_members_siren = list(epci.commune_set.all().values_list("siren", flat=True))
+    epci_members_insee = list(epci.commune_set.all().values_list("insee", flat=True))
+
+    members_context_data = communes_compare(epci_members_siren, format_for_web=False)
+    members_names = members_context_data.pop("places_names")
+
+    title_row = ["Nom de la commune"] + members_names
+    ids_table = [["SIREN"] + epci_members_siren, ["Insee"] + epci_members_insee]
+
+    response = generate_csv(
+        filename,
+        title_row,
+        table=ids_table,
+        tables_dict=members_context_data,
+    )
+
+    return response
 
 
 #############
