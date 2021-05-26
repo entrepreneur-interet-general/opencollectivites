@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -a
-[ -f  .env] && . .env
+[ -f  .env ] && . .env
 set +a
 
 echo "Starting $NAME as `whoami`"
