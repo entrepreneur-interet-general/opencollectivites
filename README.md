@@ -53,16 +53,18 @@ postgres=# \c <db_name>
 
 ### Parameters for launching with Gunicorn/nginx/systemd
 #### Gunicorn
- - `cp gunicorn_start.sh.sample gunicorn_start.sh`
- - Fill the `gunicorn_start.sh` file
+ - `cd devops`
+ - `cp .env.sample .env`
+ - Fill the `.env` file
  - `chmod ug+x gunicorn_start.sh`
+ - `chmod ug+x update.sh`
 
 #### Systemd
- - Copy `devops/gunicorn.service.sample` to `/etc/systemd/system/gunicorn-<projectname>.service` and fill the correct data
+ - Copy `devops/config_files/gunicorn.service.sample` to `/etc/systemd/system/gunicorn-<projectname>.service` and fill the correct data
 
 #### Nginx
  - Create the SSL certificate
- - Copy `devops/nginx-conf.sample` to `/etc/nginx/sites-available/<projectname>.conf` and fill the correct data
+ - Copy `devops/config_files/nginx-conf.sample` to `/etc/nginx/sites-available/<projectname>.conf` and fill the correct data
  - Make a symbolic link to the config file in the sites-enabled folder
  - Test the configuration with `nginx -t`
  - If it is ok, relaunch nginx
