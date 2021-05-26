@@ -16,3 +16,4 @@ $PIPENV run python manage.py migrate
 $PIPENV run python manage.py collectstatic --no-input
 
 sudo service $GUNICORN_SERVICE start
+sudo service $GUNICORN_SERVICE status
