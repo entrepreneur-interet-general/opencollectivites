@@ -80,7 +80,4 @@ def region_data(region_fs: Region) -> dict:
             "svg_icon": True,
         }
 
-    from pprint import pprint
-
-    pprint(response)
     return response
