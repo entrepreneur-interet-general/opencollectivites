@@ -60,6 +60,20 @@
       {% include "core/dsfr/table.html" with caption="Emploi - chômage" content=data.tables.emploi extra_classes="oc-table--fullwidth oc-table--force10" %}
       {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données départements" %}
 
+    <h2 id="perimetre">Périmètre</h2>
+    <p>Nombre total de communes membres : {{ data.communes_count }}</p>
+
+    {% if data.communes_count > 1 %}
+      <a
+        title="Comparatif des communes membres"
+        href="{% url 'core:csv_departement_compare_communes' slug %}"
+        target="_blank"
+        rel="noopener"
+        class="fr-link fr-fi-arrow-right-line fr-link--icon-right"
+      >
+        Télécharger le comparatif des {{ data.communes_count }} communes au format csv
+      </a>
+    {% endif %}
     </div> <!-- end left column -->
     <div class="fr-col-3">
     <div class="oc-sticky-block">

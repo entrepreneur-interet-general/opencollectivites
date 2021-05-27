@@ -53,8 +53,18 @@ urlpatterns = [
         views.page_commune_compare,
         name="page_commune_compare",
     ),
+    re_path(
+        r"^compare_export\/commune\/(?P<slug1>[-\w]+)\/(?P<slug2>[-\w]+)\/?(?P<slug3>[-\w]+)?\/?(?P<slug4>[-\w]+)?\/?",
+        views.csv_compare_communes_from_list,
+        name="csv_compare_communes_from_list",
+    ),
     path(
-        "compare/epci/membres/<slug:slug>",
+        "compare_export/departement/membres/<slug:slug>",
+        views.csv_departement_compare_communes,
+        name="csv_departement_compare_communes",
+    ),
+    path(
+        "compare_export/epci/membres/<slug:slug>",
         views.csv_epci_compare_communes,
         name="csv_epci_compare_communes",
     ),

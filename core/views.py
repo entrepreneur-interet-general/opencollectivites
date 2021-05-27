@@ -2,13 +2,17 @@ from django.urls.base import reverse
 from core.services.regions import region_data
 from core.services.departements import departement_data
 from django.core.paginator import Paginator
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_list_or_404, render, get_object_or_404
 from django.conf import settings
 from django.views.decorators.http import require_safe
 
 from core.models import Topic, Scope, Source
 from core.services.utils import generate_csv, init_payload
-from core.services.communes import commune_data, communes_compare
+from core.services.communes import (
+    commune_data,
+    communes_compare,
+    compare_communes_for_export,
+)
 from core.services.epcis import epci_data
 from core.services.publications import (
     list_documents,
@@ -86,27 +90,6 @@ def page_commune_detail(request, slug):
 
 
 @require_safe
-def page_commune_compare(request, slug1, slug2, slug3=0, slug4=0):
-    slugs = [slug1, slug2]
-    sirens = []
-
-    if slug3:
-        slugs.append(slug3)
-    if slug4:
-        slugs.append(slug4)
-
-    for s in slugs:
-        commune = get_object_or_404(Commune, slug=s)
-        sirens.append(commune.siren)
-
-    payload = init_payload("Comparaison de communes")
-    payload["data"] = {}
-    payload["data"]["tables"] = communes_compare(sirens)
-
-    return render(request, "core/commune_compare.html", payload)
-
-
-@require_safe
 def page_epci_detail(request, slug):
     epci = get_object_or_404(Epci, slug=slug)
 
@@ -142,6 +125,7 @@ def page_departement_detail(request, slug):
 
     payload["page_summary"] = [
         {"link": "#donnees-contexte", "title": "Données de contexte"},
+        {"link": "#perimetre", "title": "Périmètre"},
     ]
 
     return render(request, "core/departement_detail.html", payload)
@@ -157,6 +141,43 @@ def page_region_detail(request, slug):
     payload["data"] = region_data(region)
 
     return render(request, "core/region_detail.html", payload)
+
+
+##########################
+# Place comparison pages #
+##########################
+
+
+@require_safe
+def page_commune_compare(request, slug1, slug2, slug3=0, slug4=0):
+    slugs = [slug1, slug2]
+    sirens = []
+    slugs_dict = {"slug1": slug1, "slug2": slug2}
+
+    """
+    Storing all supplementary slugs in slug2 because the reverse() function is not able to 
+    figure out the optional slashes.
+    """
+    if slug3:
+        slugs.append(slug3)
+        slugs_dict["slug2"] = f"{slugs_dict['slug2']}/{slug3}"
+    if slug4:
+        slugs.append(slug4)
+        slugs_dict["slug2"] = f"{slugs_dict['slug2']}/{slug4}"
+
+    for s in slugs:
+        commune = get_object_or_404(Commune, slug=s)
+        sirens.append(commune.siren)
+
+    payload = init_payload("Comparaison de communes")
+    payload["data"] = {}
+    payload["data"]["tables"] = communes_compare(sirens)
+
+    payload["data"]["export_link"] = reverse(
+        "core:csv_compare_communes_from_list", kwargs=slugs_dict
+    )
+
+    return render(request, "core/commune_compare.html", payload)
 
 
 #####################
@@ -385,26 +406,34 @@ def page_sitemap(request):
 ###############
 
 
+@require_safe
+def csv_compare_communes_from_list(request, slug1, slug2, slug3=0, slug4=0):
+    slugs = [slug1, slug2]
+    if slug3:
+        slugs.append(slug3)
+    if slug4:
+        slugs.append(slug4)
+
+    communes = Commune.objects.filter(slug__in=slugs)
+    filename = f"comparaisons-communes-{'-'.join(slugs)}"
+
+    response = compare_communes_for_export(communes, filename)
+    return response
+
+
+@require_safe
 def csv_epci_compare_communes(request, slug):
-    filename = f"comparaisons-communes-{slug}"
-
     epci = get_object_or_404(Epci, slug=slug)
-    epci_members_siren = list(epci.commune_set.all().values_list("siren", flat=True))
-    epci_members_insee = list(epci.commune_set.all().values_list("insee", flat=True))
+    filename = f"comparaisons-communes-{slug}"
+    response = compare_communes_for_export(epci.commune_set.all(), filename)
+    return response
 
-    members_context_data = communes_compare(epci_members_siren, format_for_web=False)
-    members_names = members_context_data.pop("places_names")
 
-    title_row = ["Nom de la commune"] + members_names
-    ids_table = [["SIREN"] + epci_members_siren, ["Insee"] + epci_members_insee]
-
-    response = generate_csv(
-        filename,
-        title_row,
-        table=ids_table,
-        tables_dict=members_context_data,
-    )
-
+@require_safe
+def csv_departement_compare_communes(request, slug):
+    departement = get_object_or_404(Departement, slug=slug)
+    filename = f"comparaisons-communes-{slug}"
+    response = compare_communes_for_export(departement.commune_set.all(), filename)
     return response
 
 

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div class="fr-container">
+<div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
   {# Tables #}
   <h2 id="donnees-contexte">Données de contexte</h2>
   {% include "core/dsfr/table.html" with caption="Population" content=data.tables.population extra_classes="oc-table--fullwidth oc-table--force10" %}
@@ -12,6 +12,19 @@
   {% include "core/dsfr/table.html" with caption="Dotation globale" content=data.tables.dotation_globale extra_classes="oc-table--fullwidth oc-table--force10" %}
   {% include "core/dsfr/table.html" with caption="Dotation élu local" content=data.tables.dotation_elu_local extra_classes="oc-table--fullwidth oc-table--force10" %}
   {% include "core/dsfr/table.html" with caption="Dotation FPIC" content=data.tables.dotation_fpic extra_classes="oc-table--fullwidth oc-table--force10" %}
+
+  <p>
+    <a
+      title="Comparatif des communes sélectionnées"
+      href="{{ data.export_link }}"
+      target="_blank"
+      rel="noopener"
+      class="fr-link fr-fi-arrow-right-line fr-link--icon-right"
+    >
+      Télécharger le comparatif des communes sélectionnées au format csv
+    </a>
+  </p>
+  
 </div>
 {% endblock %}
 
