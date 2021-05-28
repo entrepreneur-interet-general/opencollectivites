@@ -53,6 +53,11 @@ urlpatterns = [
         views.page_commune_compare,
         name="page_commune_compare",
     ),
+    path(
+        "export/commune/<slug:slug>",
+        views.csv_commune_export,
+        name="csv_commune_export",
+    ),
     re_path(
         r"^compare_export\/commune\/(?P<slug1>[-\w]+)\/(?P<slug2>[-\w]+)\/?(?P<slug3>[-\w]+)?\/?(?P<slug4>[-\w]+)?\/?",
         views.csv_compare_communes_from_list,

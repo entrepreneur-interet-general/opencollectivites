@@ -69,6 +69,7 @@ def page_commune_detail(request, slug):
     commune = get_object_or_404(Commune, slug=slug)
 
     payload = init_payload(f"Fiche commune : {commune.name}")
+    payload["slug"] = slug
     payload["siren"] = commune.siren
     payload["commune_name"] = commune.name
     payload["data"] = commune_data(commune.siren)
@@ -404,6 +405,14 @@ def page_sitemap(request):
 ###############
 # CSV exports #
 ###############
+@require_safe
+def csv_commune_export(request, slug):
+    commune = Commune.objects.filter(slug=slug)
+    # Commune.objects.filter is used instead of get_object_or_404 because
+    # compare_communes_for_export expects a QuerySet
+    filename = f"export-commune-{slug}"
+    response = compare_communes_for_export(commune, filename)
+    return response
 
 
 @require_safe
