@@ -16,7 +16,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="fr-container">
+<div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
 {% include "core/dsfr/breadcrumb.html" with breadcrumb_data=breadcrumb_data %}
 
 {# Intro #}
@@ -100,6 +100,18 @@
     >
       Plus d’informations sur le site dotations de la DGCL
     </a>
+
+    <p class="oc-padding-top-2em">
+        <a
+        title="Export données de la commune"
+        href="{% url 'core:csv_commune_export' slug %}"
+        target="_blank"
+        rel="noopener"
+        class="fr-link fr-fi-download-line fr-link--icon-right"
+      >
+        Télécharger les données de la commune au format csv
+      </a>
+    </p>
 
     <h2 id="comparaison-autres-communes">
       Comparaison avec d’autres communes
