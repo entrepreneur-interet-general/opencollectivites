@@ -120,8 +120,12 @@ class ContextData:
 
             row.append(label)
             for siren_id in self.list_sirens():
-                if prop["type"] == "numeric" and format_for_web:
-                    row.append(format_number(self.context_data[siren_id][field]))
+                if prop["type"] == "numeric":
+                    row.append(
+                        format_number(
+                            self.context_data[siren_id][field], format_for_web
+                        )
+                    )
                 elif prop["type"] == "boolean":
                     row.append(self.format_boolean(siren_id, prop))
                 else:

@@ -31,12 +31,19 @@ def init_payload(page_title: str, links: list = []):
     return {"context": context, "title": page_title, "breadcrumb_data": breadcrumb_data}
 
 
-def format_number(n):
+def format_number(n, format_for_web):
     """
-    Format the number with French locale and rounds to one decimal place if needed
+    Rounds a number to one decimal place if needed.
+
+    If format_for_web is True, then it also applies French locale (comma
+    for decimal separator, narrow no-break space for thousands separator)
     """
     if type(n) in [int, float]:
-        return format_decimal(n, locale="fr_FR", format="#,##0.#")
+        if format_for_web:
+            return format_decimal(n, locale="fr_FR", format="#,##0.#")
+        else:
+            # Useful for csv export
+            return format_decimal(n, locale="en_US", format="###0.#")
     elif n is None:
         return ""
     else:
