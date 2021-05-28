@@ -1,3 +1,5 @@
+from core.services.utils import generate_csv
+from django.db.models.query import QuerySet
 from django.urls.base import reverse
 from .context_data import ContextData
 
@@ -255,7 +257,6 @@ def commune_data(siren_id):
         }
 
     # Data Tables
-
     context_data = CommuneContextData([siren_id])
     context_data.fetch_collectivity_context_data(siren_id)
     context_data.format_tables()
@@ -269,9 +270,30 @@ def commune_data(siren_id):
     return response
 
 
-def communes_compare(sirens: list):
+def communes_compare(sirens: list, format_for_web: bool = True) -> dict:
     context_data = CommuneContextData(sirens)
     context_data.fetch_collectivities_context_data()
-    context_data.format_tables()
+
+    context_data.format_tables(format_for_web)
 
     return context_data.formated_tables
+
+
+def compare_communes_for_export(qs: QuerySet, filename: str):
+    communes_siren = list(qs.values_list("siren", flat=True))
+    communes_insee = list(qs.values_list("insee", flat=True))
+
+    members_context_data = communes_compare(communes_siren, format_for_web=False)
+    members_names = members_context_data.pop("places_names")
+
+    title_row = ["Nom de la commune"] + members_names
+    ids_table = [["SIREN"] + communes_siren, ["Insee"] + communes_insee]
+
+    response = generate_csv(
+        filename,
+        title_row,
+        table=ids_table,
+        tables_dict=members_context_data,
+    )
+
+    return response

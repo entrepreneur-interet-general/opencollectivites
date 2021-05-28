@@ -73,7 +73,8 @@ def departement_data(dept_fs: Departement) -> dict:
     }
 
     communes = dept_fs.commune_set.all()
-    if communes.count() > 1:
+    communes_count = communes.count()
+    if communes_count > 1:
         response["communes_list"] = {
             "name": f"Liste des {communes.count()} communes",
             "title": f"Liste des {communes.count()}  communes",
@@ -83,7 +84,7 @@ def departement_data(dept_fs: Departement) -> dict:
             "image_path": "/static/img/hexagon1.svg",
             "svg_icon": True,
         }
-    elif communes.count() == 1:
+    elif communes_count == 1:
         # Should only concern Paris
         commune = communes[0]
         response["communes_list"] = {
@@ -93,9 +94,9 @@ def departement_data(dept_fs: Departement) -> dict:
             "image_path": "/static/img/hexagon1.svg",
             "svg_icon": True,
         }
+    response["communes_count"] = communes_count
 
     epcis = dept_fs.list_epcis()
-
     if epcis.count() > 1:
         response["epcis_list"] = {
             "name": f"Liste des {epcis.count()} EPCI",

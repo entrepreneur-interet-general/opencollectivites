@@ -1,3 +1,5 @@
+import csv
+from django.http.response import HttpResponse
 from core.models import Topic
 
 from babel.numbers import format_decimal
@@ -72,3 +74,36 @@ def list_pages(page_obj):
 
     page_obj.pages_list = list_with_separators
     return page_obj
+
+
+def generate_csv(
+    filename: str = "output",
+    title_row: list = [],
+    table: list = None,
+    tables_dict: dict = None,
+) -> HttpResponse:
+    """
+    Generates a csv file, taking either a list of lists,
+    or a dictionary whose values are lists of lists, for the content.
+    If both are provided, "table" is managed first
+    """
+    response = HttpResponse(
+        content_type="text/csv",
+        headers={"Content-Disposition": f'attachment; filename="{filename}.csv"'},
+    )
+
+    writer = csv.writer(response)
+
+    if title_row:
+        writer.writerow(title_row)
+
+    if table:
+        for row in table:
+            writer.writerow(row)
+
+    if tables_dict:
+        for _, table in tables_dict.items():
+            for row in table:
+                writer.writerow(row)
+
+    return response

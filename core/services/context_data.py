@@ -37,10 +37,13 @@ class ContextData:
         self.vintages = data_vintage()
 
     def list_context_fields(self) -> list:
-        return list(set([cp_dict["field"] for cp_dict in self.context_properties]))
+        fields = [cp_dict["field"] for cp_dict in self.context_properties]
+        return list(dict.fromkeys(fields).keys())
 
     def list_context_tables(self) -> list:
-        return list(set([cp_dict["table"] for cp_dict in self.context_properties]))
+        # Set does not guarantee order,
+        tables = [cp_dict["table"] for cp_dict in self.context_properties]
+        return list(dict.fromkeys(tables).keys())
 
     def get_context_properties_for_table(self, table: list) -> list:
         return [
@@ -96,47 +99,48 @@ class ContextData:
         self.context_data[siren_id] = context_data
         return self
 
-    def format_tables(self):
+    def format_tables(self, format_for_web: bool = True) -> None:
         if not len(self.context_properties):
             raise ValueError("The context_properties list is empty.")
 
         for table in self.list_context_tables():
-            self.format_table(table)
+            self.format_table(table, format_for_web)
 
         self.formated_tables["places_names"] = self.place_names
 
-    def format_table(self, table) -> None:
+    def format_table(self, table, format_for_web: bool = True) -> None:
         formated_table = []
         for prop in self.get_context_properties_for_table(table):
             field = prop["field"]
             row = []
             label = prop["label"].format(**self.vintages)
 
-            if "tooltip" in prop:
+            if "tooltip" in prop and format_for_web:
                 label += f' <span class="fr-fi-question-line oc-tooltip" role="tooltip" title="{prop["tooltip"]}"></span>'
 
             row.append(label)
             for siren_id in self.list_sirens():
-                if prop["type"] == "numeric":
+                if prop["type"] == "numeric" and format_for_web:
                     row.append(format_number(self.context_data[siren_id][field]))
                 elif prop["type"] == "boolean":
-                    if "value_true" in prop:
-                        value_true = prop["value_true"]
-                    else:
-                        value_true = "Vrai"
-
-                    if "value_false" in prop:
-                        value_false = prop["value_false"]
-                    else:
-                        value_false = "Faux"
-
-                    row.append(
-                        value_true
-                        if self.context_data[siren_id][field]
-                        else value_false
-                    )
+                    row.append(self.format_boolean(siren_id, prop))
                 else:
                     row.append(self.context_data[siren_id][field])
 
             formated_table.append(row)
         self.formated_tables[table] = formated_table
+
+    def format_boolean(self, siren_id: str, prop: dict) -> str:
+        field = prop["field"]
+
+        if "value_true" in prop:
+            value_true = prop["value_true"]
+        else:
+            value_true = "Vrai"
+
+        if "value_false" in prop:
+            value_false = prop["value_false"]
+        else:
+            value_false = "Faux"
+
+        return value_true if self.context_data[siren_id][field] else value_false

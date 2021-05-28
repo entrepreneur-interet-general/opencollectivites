@@ -3,17 +3,22 @@
 
 {% block content %}
 <div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
-  <img
-    src="/static/img/undraw_work_in_progress_uhmv.svg"
-    style="float: right; width: 40%"
-    alt=""
-  />
-  <h1>Page en construction</h1>
-  <p>
-    <a href="/" class="fr-link fr-fi-arrow-right-line fr-link--icon-right" target="_self"
-      >Retour à la page d’accueil</a
-    >
-    <br class="oc-clear" />
-  </p>
+  <div class="fr-grid-row fr-grid-row--gutters ">
+    <div class="fr-col-12 fr-col-md-6">
+      <h1>Page en construction</h1>
+      <p>
+        <a href="/" class="fr-link fr-fi-arrow-right-line fr-link--icon-right" target="_self"
+          >Retour à la page d’accueil</a
+        >
+      </p>
+    </div>
+    <div class="fr-col-12 fr-col-md-6">
+        <img
+        src="/static/img/undraw_work_in_progress_uhmv.svg"
+        style="width:100%"
+        alt=""
+      />
+    </div>
+  </div>
 </div>
 {% endblock %}
