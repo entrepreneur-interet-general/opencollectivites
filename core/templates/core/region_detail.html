@@ -17,7 +17,7 @@
 
 {% block content %}
 <div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
-  {% include "core/dsfr/breadcrumb.html" with breadcrumb_data=breadcrumb_data %}
+  {% include "dsfr/breadcrumb.html" with breadcrumb_data=breadcrumb_data %}
 
   {# Intro #}
   <h1>{{ title }}</h1>
@@ -33,19 +33,19 @@
   <div id="navigation-tiles" class="fr-grid-row fr-grid-row--gutters oc-tile-row">
     {% if data.communes_list %}
     <div class="fr-col-12 fr-col-md-2">
-      {% include "core/dsfr/tile.html" with tiledata=data.communes_list %}
+      {% include "dsfr/tile.html" with tiledata=data.communes_list %}
     </div>
     {% endif %}
 
     {% if data.epcis_list %}
     <div class="fr-col-12 fr-col-md-2">
-      {% include "core/dsfr/tile.html" with tiledata=data.epcis_list %}
+      {% include "dsfr/tile.html" with tiledata=data.epcis_list %}
     </div>
     {% endif %}
 
     {% if data.departements_list %}
     <div class="fr-col-12 fr-col-md-2">
-      {% include "core/dsfr/tile.html" with tiledata=data.departements_list %}
+      {% include "dsfr/tile.html" with tiledata=data.departements_list %}
     </div>
     {% endif %}
   </div>

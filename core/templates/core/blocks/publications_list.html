@@ -1,7 +1,7 @@
 <div class="fr-grid-row  fr-grid-row--gutters">
         {% for card in data %}
         <div class="fr-col-12 fr-col-md-3">
-            {% include "core/dsfr/card.html" with card_data=card extra_classes="fr-card--no-arrow" new_tab=True %}
+            {% include "dsfr/card.html" with card_data=card extra_classes="fr-card--no-arrow" new_tab=True %}
         </div>
         {% endfor %}
 </div><!-- end publications list -->
