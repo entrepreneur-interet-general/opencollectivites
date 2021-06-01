@@ -5,7 +5,7 @@ from django.template import Context, Template
 class CreateDsfrCssTagTest(SimpleTestCase):
     def test_css_tag_rendered(self):
         context = Context()
-        template_to_render = Template("{% load dsfr_tags %}" "{% dsfr_css %}")
+        template_to_render = Template("{% load dsfr_tags %} {% dsfr_css %}")
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
             '<link rel="stylesheet" href="/static/dsfr/dist/css/dsfr.min.css">',
@@ -16,7 +16,7 @@ class CreateDsfrCssTagTest(SimpleTestCase):
 class CreateDsfrJsTagTest(SimpleTestCase):
     def test_js_tag_rendered(self):
         context = Context()
-        template_to_render = Template("{% load dsfr_tags %}" "{% dsfr_js %}")
+        template_to_render = Template("{% load dsfr_tags %} {% dsfr_js %}")
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
             """
@@ -29,7 +29,7 @@ class CreateDsfrJsTagTest(SimpleTestCase):
 class CreateDsfrFaviconTagTest(SimpleTestCase):
     def test_favicon_tag_rendered(self):
         context = Context()
-        template_to_render = Template("{% load dsfr_tags %}" "{% dsfr_favicon %}")
+        template_to_render = Template("{% load dsfr_tags %} {% dsfr_favicon %}")
         rendered_template = template_to_render.render(context)
         self.assertInHTML(
             """
@@ -51,7 +51,7 @@ class CreateDsfrBreadcrumbTagTest(SimpleTestCase):
 
     context = Context({"breadcrumb_data": breadcrumb_data})
     template_to_render = Template(
-        "{% load dsfr_tags %}" "{% dsfr_breadcrumb breadcrumb_data %}"
+        "{% load dsfr_tags %} {% dsfr_breadcrumb breadcrumb_data %}"
     )
 
     def test_breadcrumb_tag_current_page(self):
