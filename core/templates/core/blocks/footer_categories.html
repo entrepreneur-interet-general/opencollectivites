@@ -1,3 +1,4 @@
+{% load dsfr_tags %}
 <div class="fr-container-fluid oc-bg--alt oc-padding-bottom-3em oc-padding-top-1em">
   <div id="categories-jumbotron" class="fr-container">
     <h2>
@@ -7,7 +8,7 @@
     <div id="home-categories" class="fr-grid-row fr-grid-row--gutters oc-tile-row">
       {% for topic in context.topics %}
         <div class="fr-col-12 fr-col-md-2">
-        {% include "core/dsfr/tile.html" with tiledata=topic %}
+        {% dsfr_tile topic %}
         </div>
       {% endfor %}
     </div>

@@ -1,5 +1,6 @@
 {% extends "core/base.html" %}
 {% load static %}
+{% load dsfr_tags %}
 
 {% block custom_header %}
 <header role="banner" class="fr-header oc-sticky-header">
@@ -11,11 +12,11 @@
                         Précédent
                     </button>
                 </div>
-                {% include "core/dsfr/select.html" with select_data=filters.topic extra_classes="fr-col-12 fr-col-md-2" %}
+                {% dsfr_select filters.topic extra_classes="fr-col-12 fr-col-md-3" %}
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                {% include "core/dsfr/select.html" with select_data=filters.scope extra_classes="fr-col-12 fr-col-md-3" %}
+                {% dsfr_select filters.scope extra_classes="fr-col-12 fr-col-md-3" %}
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                {% include "core/dsfr/select.html" with select_data=filters.document_type extra_classes="fr-col-12 fr-col-md-2" %}
+                {% dsfr_select filters.document_type extra_classes="fr-col-12 fr-col-md-2" %}
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="fr-col-12 fr-col-md-2 fr-input-group oc-inline-form">
                     <button class="fr-btn fr-btn--secondary" type="button" title="Plus de filtres"data-fr-opened="false" aria-controls="fr-modal-morefilters">
@@ -44,12 +45,12 @@
                             Plus de filtres
                         </h1>
                         <form id="publications-morefilters">
-                            {% include "core/dsfr/select.html" with select_data=filters.source_org %}
+                            {% dsfr_select filters.source_org %}
                             <p>Plage de publication</p>
                             <div class="fr-grid-row">
-                                {% include "core/dsfr/input.html" with input_data=filters.after extra_classes="fr-col-12 fr-col-md-2" %}
+                                {% dsfr_input filters.after extra_classes="fr-col-12 fr-col-md-4" %}
                                 &nbsp;&nbsp;&nbsp;&nbsp;
-                                {% include "core/dsfr/input.html" with input_data=filters.before extra_classes="fr-col-12 fr-col-md-2" %}
+                                {% dsfr_input filters.before extra_classes="fr-col-12 fr-col-md-4" %}
                             </div>
                         </form>
                     </div>
@@ -60,8 +61,7 @@
 </dialog>
 
 <div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
-{% include "core/dsfr/breadcrumb.html" with breadcrumb_data=breadcrumb_data %}
-
+    {% dsfr_breadcrumb breadcrumb_data %}
 {# Intro #}
 <h1> Études, statistiques et outils locaux </h1>
 {% if data.total %}
@@ -70,7 +70,7 @@
 {% include "core/blocks/publications_list.html" with data=data.cards_page %}
 
 {% if data.cards_page.has_other_pages %}
-    {% include "core/dsfr/pagination.html" with page_obj=data.cards_page %}
+    {% dsfr_pagination data.cards_page %}
 {% endif %}
 
 

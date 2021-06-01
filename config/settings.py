@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "analytical",
     "feeds",
+    "dsfr",
     "francesubdivisions.apps.FrancesubdivisionsConfig",
     "aspic.apps.AspicConfig",
     "core",
