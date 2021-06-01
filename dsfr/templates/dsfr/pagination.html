@@ -5,7 +5,7 @@
             <a
             class="fr-pagination__link fr-pagination__link--first"
             {% if page_obj.has_previous %}
-            href="?{% url_remplace_params page=1 %}"
+                href="?{% url_remplace_params page=1 %}"
             {% endif %}
             >
                 Première page
@@ -15,7 +15,7 @@
             <a
             class="fr-pagination__link fr-pagination__link--prev fr-pagination__link--lg-label"
             {% if page_obj.has_previous %}
-            href="?{% url_remplace_params page=page_obj.previous_page_number %}"
+                href="?{% url_remplace_params page=page_obj.previous_page_number %}"
             {% endif %}
             >
                 Page précédente
@@ -68,7 +68,9 @@
         <li>
             <a
             class="fr-pagination__link fr-pagination__link--last"
-            href="?{% url_remplace_params page=page_obj.paginator.num_pages %}"
+            {% if page_obj.has_next %}
+                href="?{% url_remplace_params page=page_obj.paginator.num_pages %}"
+            {% endif %}
             >
                 Dernière page
             </a>
