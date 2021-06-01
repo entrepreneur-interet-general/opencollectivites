@@ -2,12 +2,12 @@ from django.urls.base import reverse
 from core.services.regions import region_data
 from core.services.departements import departement_data
 from django.core.paginator import Paginator
-from django.shortcuts import get_list_or_404, render, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.conf import settings
 from django.views.decorators.http import require_safe
 
 from core.models import Topic, Scope, Source
-from core.services.utils import generate_csv, init_payload
+from core.services.utils import init_payload
 from core.services.communes import (
     commune_data,
     communes_compare,
