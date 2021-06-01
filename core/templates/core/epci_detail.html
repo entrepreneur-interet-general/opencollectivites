@@ -1,5 +1,6 @@
 {% extends "core/base.html" %}
 {% load static %}
+{% load dsfr_tags %}
 
 {% block title %}
 <title>{{ title }} </title>
@@ -17,7 +18,7 @@
 
 {% block content %}
 <div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
-  {% include "dsfr/breadcrumb.html" with breadcrumb_data=breadcrumb_data %}
+    {% dsfr_breadcrumb breadcrumb_data %}
 
   {# Intro #}
   <h1>{{ title }}</h1>
@@ -61,20 +62,20 @@
   {# Navigation #}
   <div id="navigation-tiles" class="fr-grid-row fr-grid-row--gutters oc-tile-row">
     <div class="fr-col-12 fr-col-md-2">
-      {% include "dsfr/tile.html" with tiledata=data.communes_list %}
+      {% dsfr_tile data.communes_list %}
     </div>
 
     <div class="fr-col-12 fr-col-md-2">
-      {% include "dsfr/tile.html" with tiledata=data.seat %}
+      {% dsfr_tile data.seat %}
     </div>
 
     <div class="fr-col-12 fr-col-md-2">
-      {% include "dsfr/tile.html" with tiledata=data.departement %}
+      {% dsfr_tile data.departement %}
     </div>
 
     {% if data.region %}
     <div class="fr-col-12 fr-col-md-2">
-      {% include "dsfr/tile.html" with tiledata=data.region %}
+      {% dsfr_tile data.region %}
     </div>
     {% endif %}
   </div>
@@ -83,7 +84,7 @@
 <div class="fr-grid-row fr-grid-row--gutters ">
   <div class="fr-col-12 fr-col-md-8">
     <h2 id="donnees-socio-economiques">Données socio-économiques</h2>
-    {% include "dsfr/table.html" with caption="Population" content=data.tables.population extra_classes="oc-table--fullwidth oc-table--force10" %}
+    {% dsfr_table caption="Population" content=data.tables.population extra_classes="oc-table--fullwidth oc-table--force10" %}
     {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données groupements" %}
 
     <a
@@ -158,17 +159,17 @@
     <h2 id="ressources-financieres-fiscales">
       Ressources financières et fiscales
     </h2>
-    {% include "dsfr/table.html" with caption="Dotation globale de fonctionnement" content=data.tables.dotation_globale extra_classes="oc-table--fullwidth oc-table--force10" %}
+    {% dsfr_table caption="Dotation globale de fonctionnement" content=data.tables.dotation_globale extra_classes="oc-table--fullwidth oc-table--force10" %}
     {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données groupements" %}
 
 
-    {% include "dsfr/table.html" with caption="Fonds national de péréquation des ressources intercommunales et communales (FPIC)" content=data.tables.dotation_fpic extra_classes="oc-table--fullwidth oc-table--force10" %}
+    {% dsfr_table caption="Fonds national de péréquation des ressources intercommunales et communales (FPIC)" content=data.tables.dotation_fpic extra_classes="oc-table--fullwidth oc-table--force10" %}
     {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données groupements" %}
 
   </div> <!-- end left column -->
   <div class="fr-col-3">
     <div class="oc-sticky-block">
-      {% include "dsfr/summary.html" with items=page_summary %}
+      {% dsfr_summary page_summary %}
     </div>
   </div>
 </div> <!-- end div container-->

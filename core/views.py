@@ -454,5 +454,9 @@ def csv_departement_compare_communes(request, slug):
 @require_safe
 def page_tests(request):
     payload = init_payload("Tests")
+    payload["breadcrumb_with_link"] = {
+        "links": [{"url": "test-url", "title": "Test title"}],
+        "current": "Test page",
+    }
     payload["context"]["hide_brand"] = True
     return render(request, "core/tests.html", payload)

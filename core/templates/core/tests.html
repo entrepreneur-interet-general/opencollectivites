@@ -1,11 +1,12 @@
 {% extends "core/base.html" %}
 {% load static %}
+{% load dsfr_tags %}
 
 {% block content %}
 <div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
-{% include "dsfr/breadcrumb.html" with breadcrumb_data=breadcrumb_data %}
+  {% dsfr_breadcrumb breadcrumb_with_link %}
 
-<h1> Tests </h1>
+  <h1> Tests </h1>
 
   <hr />
   <div class="icon-pack">
