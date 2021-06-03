@@ -23,17 +23,17 @@ Le site est développé en utilisant le framework [Django](https://www.djangopro
 
 ![Application schema](docs/oc-app-schema.png?raw=true "Application schema")
 
-### Librairies tierces
-Le site utilise des contenus provenant des librairies tierces suivantes :
-- [Remix Icon](https://remixicon.com/) : icônes
-- [unDraw](https://undraw.co/) : illustrations
-- [VueJS](https://vuejs.org/) : Scripts Javascript sur le front-end
-
 ### Structure du dépôt
 En plus des applications déjà citées, le dépôt contient les répertoires suivants :
 - **config** : le projet Django proprement dit
 - **devops** : scripts de maintenance, et fichiers de configuration pour [NGINX](https://www.nginx.com/) et [Gunicorn](https://gunicorn.org/)
 - **docs** : la documentation du projet
+
+### Librairies tierces
+Le site utilise des contenus provenant des librairies tierces suivantes :
+- [Remix Icon](https://remixicon.com/) : icônes
+- [unDraw](https://undraw.co/) : illustrations
+- [VueJS](https://vuejs.org/) : Scripts Javascript sur le front-end
 
 <a name="installation"></a>
 ## Installation
