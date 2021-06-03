@@ -1,6 +1,5 @@
 # Open Collectivités
-
-![Open Collectivités](open-collectivites.png?raw=true "Open Collectivités")
+<img align="right" width="250" src="open-collectivites.png?raw=true" title="Open Collectivités" alt="" />
 
 
 Open Collectivités est un projet visant à simplifier l’accès aux informations financières et statistiques des collectivités locales. Il est développé au sein de la [Direction générale des collectivités locales](https://www.collectivites-locales.gouv.fr/) (DGCL), dans le cadre d'un défi de la quatrième promotion du programme [Entrepreneur d'intérêt général](https://entrepreneur-interet-general.etalab.gouv.fr/).
