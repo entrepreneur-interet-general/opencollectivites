@@ -24,7 +24,7 @@ Le site est développé en utilisant le framework [Django](https://www.djangopro
 
 ![Application schema](docs/oc-app-schema.png?raw=true "Application schema")
 
-### Autres librairies
+### Librairies tierces
 Le site utilise des contenus provenant des librairies tierces suivantes :
 - [Remix Icon](https://remixicon.com/) : icônes
 - [unDraw](https://undraw.co/) : illustrations
