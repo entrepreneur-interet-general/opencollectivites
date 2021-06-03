@@ -81,31 +81,28 @@
     sélectionnés ci-dessus, ou essayez une recherche type :
 </p>
 <p>
-    <a
+<a
     class="fr-link fr-fi-arrow-right-line fr-link--icon-right"
     target="_self"
-    href="/publications?type=1"
-    >
-        Publications statistiques sur les collectivités locales
-    </a>
+    href="{% url 'core:page_publications' %}?document_type=1"
+    >Publications statistiques sur les collectivités locales</a
+>
 </p>
 <p>
-    <a
+<a
     class="fr-link fr-fi-arrow-right-line fr-link--icon-right"
     target="_self"
-    href="/publications?type=2"
-    >
-        Jeux de données sur les collectivités locales
-    </a>
+    href="{% url 'core:page_publications' %}?document_type=2"
+    >Jeux de données sur les collectivités locales</a
+>
 </p>
 <p>
-    <a
+<a
     class="fr-link fr-fi-arrow-right-line fr-link--icon-right"
     target="_self"
-    href="/publications?type=3"
-    >
-        Outils utiles pour les collectivités locales
-    </a>
+    href="{% url 'core:page_publications' %}?document_type=3"
+    >Outils utiles pour les collectivités locales</a
+>
 </p>
 {% endif %}
 

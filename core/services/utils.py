@@ -1,5 +1,7 @@
 import csv
 from django.http.response import HttpResponse
+from django.urls import reverse
+
 from core.models import Topic
 
 from babel.numbers import format_decimal
@@ -15,12 +17,13 @@ def init_payload(page_title: str, links: list = []):
     context = {}
     context["topics"] = []
     topics = Topic.objects.all()
+    page_publications = reverse("core:page_publications")
 
     for topic in topics:
         context["topics"].append(
             {
                 "title": topic.name,
-                "url": f"/publications?topic={topic.id}",
+                "url": f"{page_publications}?topic={topic.id}",
                 "image_path": f"/static{topic.icon_path}",
                 "svg_icon": True,
             }

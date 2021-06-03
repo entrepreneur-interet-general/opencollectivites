@@ -17,7 +17,7 @@
         <a
           class="fr-link fr-fi-arrow-right-line fr-link--icon-right"
           target="_self"
-          href="/publications?type=1"
+          href="{% url 'core:page_publications' %}?document_type=1"
           >Publications statistiques sur les collectivités locales</a
         >
       </p>
@@ -25,7 +25,7 @@
         <a
           class="fr-link fr-fi-arrow-right-line fr-link--icon-right"
           target="_self"
-          href="/publications?type=2"
+          href="{% url 'core:page_publications' %}?document_type=2"
           >Jeux de données sur les collectivités locales</a
         >
       </p>
@@ -33,19 +33,19 @@
         <a
           class="fr-link fr-fi-arrow-right-line fr-link--icon-right"
           target="_self"
-          href="/publications?type=3"
+          href="{% url 'core:page_publications' %}?document_type=3"
           >Outils utiles pour les collectivités locales</a
         >
       </p>
       <p>
-        <a class="fr-link fr-fi-arrow-right-line fr-link--icon-right" target="_self" href="/plan"
+        <a class="fr-link fr-fi-arrow-right-line fr-link--icon-right" target="_self" href="{% url 'core:page_sitemap' %}"
           >Plan du site</a
         >
       </p>
     </div>
     <div class="fr-col-12 fr-col-md-6">
       <img
-        src="/static/img/undraw_no_data_re_kwbl.svg"
+        src="{% static 'img/undraw_no_data_re_kwbl.svg' %}"
         style="width:100%"
         alt=""
       />

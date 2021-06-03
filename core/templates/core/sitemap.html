@@ -30,13 +30,13 @@
             <h3>Par thématique</h3>
             <ul>
                 {% for topic in filter_data.topic %}
-                <li><a href="/publications?document_type=1&topic={{ topic.id }}">{{ topic.name }}</a></li>
+                <li><a href="{% url 'core:page_publications' %}?document_type=1&topic={{ topic.id }}">{{ topic.name }}</a></li>
                 {% endfor %}
             </ul>
             <h3>Par type de collectivité</h3>
             <ul>
                 {% for scope in filter_data.scope %}
-                <li><a href="/publications?document_type=1&scope={{ scope.id }}">{{ scope.name }}</a></li>
+                <li><a href="{% url 'core:page_publications' %}?document_type=1&scope={{ scope.id }}">{{ scope.name }}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -45,7 +45,7 @@
             <h3>Par source</h3>
             <ul>
                 {% for source in filter_data.source %}
-                <li><a href="/publications?document_type=1&source={{ source.id }}">{{ source.title }}</a></li>
+                <li><a href="{% url 'core:page_publications' %}?document_type=1&source={{ source.id }}">{{ source.title }}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -58,13 +58,13 @@
             <h3>Par thématique</h3>
             <ul>
                 {% for topic in filter_data.topic %}
-                <li><a href="/publications?document_type=2&topic={{ topic.id }}">{{ topic.name }}</a></li>
+                <li><a href="{% url 'core:page_publications' %}?document_type=2&topic={{ topic.id }}">{{ topic.name }}</a></li>
                 {% endfor %}
             </ul>
             <h3>Par type de collectivité</h3>
             <ul>
                 {% for scope in filter_data.scope %}
-                <li><a href="/publications?document_type=2&scope={{ scope.id }}">{{ scope.name }}</a></li>
+                <li><a href="{% url 'core:page_publications' %}?document_type=2&scope={{ scope.id }}">{{ scope.name }}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -73,7 +73,7 @@
             <h3>Par source</h3>
             <ul>
                 {% for source in filter_data.source %}
-                <li><a href="/publications?document_type=2&source={{ source.id }}">{{ source.title }}</a></li>
+                <li><a href="{% url 'core:page_publications' %}?document_type=2&source={{ source.id }}">{{ source.title }}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -87,13 +87,13 @@
             <h3>Par thématique</h3>
             <ul>
                 {% for topic in filter_data.topic %}
-                <li><a href="/publications?document_type=3&topic={{ topic.id }}">{{ topic.name }}</a></li>
+                <li><a href="{% url 'core:page_publications' %}?document_type=3&topic={{ topic.id }}">{{ topic.name }}</a></li>
                 {% endfor %}
             </ul>
             <h3>Par type de collectivité</h3>
             <ul>
                 {% for scope in filter_data.scope %}
-                <li><a href="/publications?document_type=3&scope={{ scope.id }}">{{ scope.name }}</a></li>
+                <li><a href="{% url 'core:page_publications' %}?document_type=3&scope={{ scope.id }}">{{ scope.name }}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -102,7 +102,7 @@
             <h3>Par source</h3>
             <ul>
                 {% for source in filter_data.source %}
-                <li><a href="/publications?document_type=3&source={{ source.id }}">{{ source.title }}</a></li>
+                <li><a href="{% url 'core:page_publications' %}?document_type=3&source={{ source.id }}">{{ source.title }}</a></li>
                 {% endfor %}
             </ul>
         </div>
