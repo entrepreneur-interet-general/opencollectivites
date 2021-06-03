@@ -2,10 +2,10 @@
 <img align="right" width="250" src="open-collectivites.png?raw=true" title="Open Collectivités" alt="" />
 
 
-**Open Collectivités** est un projet visant à simplifier l’accès aux informations financières et statistiques des collectivités locales. Il est développé au sein de la [Direction générale des collectivités locales](https://www.collectivites-locales.gouv.fr/) (DGCL), dans le cadre d'un défi de la quatrième promotion du programme [Entrepreneur d'intérêt général](https://entrepreneur-interet-general.etalab.gouv.fr/).
+**Open Collectivités** est un projet de portail web visant à simplifier l’accès aux informations financières et statistiques des collectivités locales. Il est développé au sein de la [Direction générale des collectivités locales](https://www.collectivites-locales.gouv.fr/) (DGCL), dans le cadre d'un défi de la quatrième promotion du programme [Entrepreneur d'intérêt général](https://entrepreneur-interet-general.etalab.gouv.fr/).
 
 - [Page de présentation du défi](https://entrepreneur-interet-general.etalab.gouv.fr/defis/2020/open-collectivites.html)
-- [Voir le site](https://www.open-collectivites.fr)
+- [Voir le portail Open Collectivités](https://www.open-collectivites.fr)
 
 ## Table des matières
 * [Architecture](#architecture)
@@ -42,5 +42,5 @@ Le site utilise des contenus provenant des librairies tierces suivantes :
 
 <a name="notes"></a>
 ## Notes
-- Versionning numbers follows the principles of [Semantic versioning](https://semver.org/)
-- Up to version 0.5, the front-end was a separate VueJS project. It is now archived at https://github.com/entrepreneur-interet-general/opencollectivites-front.
+- Les numéros de versions suivent les principes du [versionnage sémantique](https://semver.org/)
+- Jusqu'à la version 0.5, le front-end était un projet séparé, entièrement en VueJS. Il est maintenant archivé sur https://github.com/entrepreneur-interet-general/opencollectivites-front.
