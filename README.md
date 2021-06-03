@@ -37,7 +37,7 @@ Le site utilise des contenus provenant des librairies tierces suivantes :
 
 <a name="installation"></a>
 ## Installation
-Voir [documentation](INSTALL.md)
+- Voir la [documentation dédiée](INSTALL.md).
 
 <a name="notes"></a>
 ## Notes
