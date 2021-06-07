@@ -2,7 +2,10 @@ from django.contrib import admin
 from django.utils.html import format_html
 from django.urls import reverse
 
-from core.services.django_admin import TimeStampModelAdmin, view_reverse_changelink
+from francesubdivisions.services.django_admin import (
+    TimeStampModelAdmin,
+    view_reverse_changelink,
+)
 from core import models
 from config.settings import FRONT_HOME_URL
 

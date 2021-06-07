@@ -1,6 +1,6 @@
 from django.db import models
 
-from core.services.django_admin import TimeStampModel
+from francesubdivisions.services.django_admin import TimeStampModel
 
 from urllib.parse import urlparse
 from datetime import date, datetime
