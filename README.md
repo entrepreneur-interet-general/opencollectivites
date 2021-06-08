@@ -17,8 +17,8 @@
 ### Applications Django
 Le site est développé en utilisant le framework [Django](https://www.djangoproject.com/) et est centré autour d'une application principale nommée **core**, accompagnée des applications suivantes :
 
-- **[france-subdivisions](https://github.com/Ash-Crow/django-france-subdivisions)** : Contient des tables reprenant la structure des collectivités locales françaises (communes, EPCI, départements, régions). À terme, des tables de données y seront associées pour gérer des données concernant ces collectivités, importées depuis [data.gouv.fr](https://www.data.gouv.fr/fr/).
-- **aspic** : Contient la structure de la base aspic, actuellement utilisée pour les données concernant les collectivités locales. Elle devra disparaître à terme.
+- **[france-subdivisions](https://github.com/Ash-Crow/django-france-subdivisions)** : Contient des tables reprenant la structure des collectivités locales françaises (communes, EPCI à fiscalité propre, départements, régions). À terme, des tables de données y seront associées pour gérer des données concernant ces collectivités, importées depuis [data.gouv.fr](https://www.data.gouv.fr/fr/).
+- **aspic** : Contient la structure de la base aspic (Application de la DGCL sur les intercommunalités, destinée aux préfectures), actuellement utilisée pour les données concernant les collectivités locales. Elle devra disparaître à terme.
 - **[django-feed-reader](https://github.com/Ash-Crow/django-feed-reader)** : Un agrégateur de flux RSS permettant de récupérer les métadonnées sur les publications des différents sites des services statistiques des ministères (SSM). Il est prévu de remplacer ce fonctionnement par une application récupérant ces métadonnées sur la future version de la [bibliothèque nationale de la statistique publique](https://www.insee.fr/fr/information/1303569), en s'appuyant sur l'[API de Gallica](https://api.bnf.fr/fr/api-gallica-de-recherche)
 - **dsfr** : Permet d'utiliser facilement le [système de design de l'État](https://gouvfr.atlassian.net/wiki/spaces/DB/overview) dans des templates Django.
 
