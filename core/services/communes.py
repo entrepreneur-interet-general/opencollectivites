@@ -3,7 +3,7 @@ from django.db.models.query import QuerySet
 from django.urls.base import reverse
 from .context_data import ContextData
 
-from francesubdivisions.models import Commune
+from francesubdivisions.models import Commune, DataYear
 
 from aspic.models.t_aspic_communes import (
     T050Communes,
@@ -200,7 +200,7 @@ def group_data(siren_id):
     return response
 
 
-def commune_data(siren_id):
+def commune_data(siren_id: str, year: DataYear = None):
     # Get the basic data
     response = T050Communes.objects.get(siren=siren_id).__dict__
     response.pop("_state", None)
@@ -218,7 +218,9 @@ def commune_data(siren_id):
     ).code_postal
 
     # Subdivisions
-    subdivisions = Commune.objects.get(siren=siren_id)
+    if not year:
+        year = DataYear.objects.order_by("-year")[0]
+    subdivisions = Commune.objects.get(siren=siren_id, years=year)
     if subdivisions.epci:
         response["epci"] = {
             "name": subdivisions.epci.name,
@@ -257,7 +259,7 @@ def commune_data(siren_id):
         }
 
     # Data Tables
-    context_data = CommuneContextData([siren_id])
+    context_data = CommuneContextData([siren_id], datayear=year)
     context_data.fetch_collectivity_context_data(siren_id)
     context_data.format_tables()
 

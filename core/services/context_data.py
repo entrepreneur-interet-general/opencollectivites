@@ -1,3 +1,4 @@
+from francesubdivisions.models import DataYear
 from django.apps import apps
 from django.db.models import Max
 
@@ -12,10 +13,7 @@ class ContextData:
     aspic_data_model_name = ""
     fs_base_model_name = ""
 
-    def __init__(
-        self,
-        sirens: list,
-    ) -> None:
+    def __init__(self, sirens: list, datayear: DataYear = None) -> None:
 
         # Instanciate variables
         self.sirens = []
@@ -24,6 +22,13 @@ class ContextData:
         self.place_names = []
         self.formated_tables = {}
         self.vintages = []
+
+        # sirens/insee codes are normally unique per year
+        if datayear:
+            self.datayear = datayear
+            print(f"datayear is {datayear}")
+        else:
+            self.datayear = DataYear.objects.order_by("-year")[0]
 
         if len(sirens):
             # We want to keep the list of Sirens in order
@@ -53,9 +58,11 @@ class ContextData:
     def list_sirens(self) -> list:
         return self.sirens
 
-    def fetch_collectivity_name(self, siren_id):
+    def fetch_collectivity_name(self, siren_id: str):
         fs_base_model = apps.get_model("francesubdivisions", self.fs_base_model_name)
-        self.place_names.append(fs_base_model.objects.get(siren=siren_id).name)
+        self.place_names.append(
+            fs_base_model.objects.get(siren=siren_id, years=self.datayear).name
+        )
 
     def fetch_collectivities_context_data(self):
         for siren_id in self.list_sirens():
