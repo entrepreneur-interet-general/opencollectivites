@@ -1,4 +1,4 @@
-from francesubdivisions.models import DataYear
+from francedata.models import DataYear
 from django.apps import apps
 from django.db.models import Max
 
@@ -59,7 +59,7 @@ class ContextData:
         return self.sirens
 
     def fetch_collectivity_name(self, siren_id: str):
-        fs_base_model = apps.get_model("francesubdivisions", self.fs_base_model_name)
+        fs_base_model = apps.get_model("francedata", self.fs_base_model_name)
         self.place_names.append(
             fs_base_model.objects.get(siren=siren_id, years=self.datayear).name
         )

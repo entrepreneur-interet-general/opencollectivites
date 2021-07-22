@@ -57,20 +57,20 @@ class SourceSchema(Schema):
     topics = models.ManyToManyField(Topic, verbose_name="sujet", blank=True)
     years = models.ManyToManyField(DataYear, verbose_name="année", blank=True)
     regions = models.ManyToManyField(
-        "francesubdivisions.Region", verbose_name="région", blank=True
+        "francedata.Region", verbose_name="région", blank=True
     )
     departements = models.ManyToManyField(
-        "francesubdivisions.Departement",
+        "francedata.Departement",
         verbose_name="département",
         blank=True,
     )
     epcis = models.ManyToManyField(
-        "francesubdivisions.Epci",
+        "francedata.Epci",
         verbose_name="EPCI",
         blank=True,
     )
     communes = models.ManyToManyField(
-        "francesubdivisions.Commune",
+        "francedata.Commune",
         verbose_name="commune",
         blank=True,
     )
@@ -106,20 +106,20 @@ class DocumentSchema(Schema):
     """
     years = models.ManyToManyField(DataYear, blank=True)
     regions = models.ManyToManyField(
-        "francesubdivisions.Region", verbose_name="région", blank=True
+        "francedata.Region", verbose_name="région", blank=True
     )
     departements = models.ManyToManyField(
-        "francesubdivisions.Departement",
+        "francedata.Departement",
         verbose_name="département",
         blank=True,
     )
     epcis = models.ManyToManyField(
-        "francesubdivisions.Epci",
+        "francedata.Epci",
         verbose_name="EPCI",
         blank=True,
     )
     communes = models.ManyToManyField(
-        "francesubdivisions.Commune",
+        "francedata.Commune",
         verbose_name="commune",
         blank=True,
     )

@@ -1,5 +1,5 @@
 from core.services.context_data import ContextData
-from francesubdivisions.models import Departement
+from francedata.models import Departement
 
 from django.urls import reverse
 

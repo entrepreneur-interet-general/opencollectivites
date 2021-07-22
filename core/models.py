@@ -1,6 +1,6 @@
 from django.db import models
 
-from francesubdivisions.services.django_admin import TimeStampModel
+from francedata.services.django_admin import TimeStampModel
 
 from urllib.parse import urlparse
 from datetime import date, datetime
@@ -149,20 +149,20 @@ class Source(TimeStampModel):
     topics = models.ManyToManyField(Topic, verbose_name="sujet", blank=True)
     years = models.ManyToManyField(DataYear, verbose_name="année", blank=True)
     regions = models.ManyToManyField(
-        "francesubdivisions.Region", verbose_name="région", blank=True
+        "francedata.Region", verbose_name="région", blank=True
     )
     departements = models.ManyToManyField(
-        "francesubdivisions.Departement",
+        "francedata.Departement",
         verbose_name="département",
         blank=True,
     )
     epcis = models.ManyToManyField(
-        "francesubdivisions.Epci",
+        "francedata.Epci",
         verbose_name="EPCI",
         blank=True,
     )
     communes = models.ManyToManyField(
-        "francesubdivisions.Commune",
+        "francedata.Commune",
         verbose_name="commune",
         blank=True,
     )
@@ -216,20 +216,20 @@ class Document(TimeStampModel):
     topics = models.ManyToManyField(Topic, verbose_name="sujet", blank=True)
     years = models.ManyToManyField(DataYear, blank=True)
     regions = models.ManyToManyField(
-        "francesubdivisions.Region", verbose_name="région", blank=True
+        "francedata.Region", verbose_name="région", blank=True
     )
     departements = models.ManyToManyField(
-        "francesubdivisions.Departement",
+        "francedata.Departement",
         verbose_name="département",
         blank=True,
     )
     epcis = models.ManyToManyField(
-        "francesubdivisions.Epci",
+        "francedata.Epci",
         verbose_name="EPCI",
         blank=True,
     )
     communes = models.ManyToManyField(
-        "francesubdivisions.Commune",
+        "francedata.Commune",
         verbose_name="commune",
         blank=True,
     )

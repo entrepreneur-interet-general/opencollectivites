@@ -3,7 +3,7 @@ from django.db.models.query import QuerySet
 from django.urls.base import reverse
 from .context_data import ContextData
 
-from francesubdivisions.models import Commune, DataYear
+from francedata.models import Commune, DataYear
 
 from aspic.models.t_aspic_communes import (
     T050Communes,

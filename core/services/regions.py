@@ -1,4 +1,4 @@
-from francesubdivisions.models import Region, Commune
+from francedata.models import Region, Commune
 
 from django.urls import reverse
 

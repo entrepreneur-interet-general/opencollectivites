@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     "analytical",
     "feeds",
     "dsfr",
-    "francesubdivisions.apps.FrancesubdivisionsConfig",
+    "francedata.apps.FrancedataConfig",
     "aspic.apps.AspicConfig",
     "core",
 ]

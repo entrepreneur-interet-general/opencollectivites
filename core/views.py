@@ -20,7 +20,7 @@ from core.services.publications import (
     publication_filters,
 )
 
-from francesubdivisions.models import Departement, Region, Commune, Epci
+from francedata.models import Departement, Region, Commune, Epci
 
 
 ####################

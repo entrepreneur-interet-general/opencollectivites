@@ -6,44 +6,57 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('francesubdivisions', '0008_remove_epci_insee'),
-        ('core', '0015_auto_20210122_1011'),
+        ("core", "0015_auto_20210122_1011"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='document',
-            name='departements',
-            field=models.ManyToManyField(blank=True, to='francesubdivisions.Departement', verbose_name='département'),
+            model_name="document",
+            name="departements",
+            field=models.ManyToManyField(
+                blank=True,
+                to="francesubdivisions.Departement",
+                verbose_name="département",
+            ),
         ),
         migrations.AlterField(
-            model_name='document',
-            name='document_type',
-            field=models.ManyToManyField(blank=True, to='core.DocumentType', verbose_name='type de document'),
+            model_name="document",
+            name="document_type",
+            field=models.ManyToManyField(
+                blank=True, to="core.DocumentType", verbose_name="type de document"
+            ),
         ),
         migrations.AlterField(
-            model_name='document',
-            name='publication_pages',
-            field=models.ManyToManyField(blank=True, to='core.PageType', verbose_name='pages de publication'),
+            model_name="document",
+            name="publication_pages",
+            field=models.ManyToManyField(
+                blank=True, to="core.PageType", verbose_name="pages de publication"
+            ),
         ),
         migrations.AlterField(
-            model_name='document',
-            name='regions',
-            field=models.ManyToManyField(blank=True, to='francesubdivisions.Region', verbose_name='région'),
+            model_name="document",
+            name="regions",
+            field=models.ManyToManyField(
+                blank=True, to="francesubdivisions.Region", verbose_name="région"
+            ),
         ),
         migrations.AlterField(
-            model_name='document',
-            name='scope',
-            field=models.ManyToManyField(blank=True, to='core.Scope', verbose_name='portée'),
+            model_name="document",
+            name="scope",
+            field=models.ManyToManyField(
+                blank=True, to="core.Scope", verbose_name="portée"
+            ),
         ),
         migrations.AlterField(
-            model_name='document',
-            name='topics',
-            field=models.ManyToManyField(blank=True, to='core.Topic', verbose_name='sujet'),
+            model_name="document",
+            name="topics",
+            field=models.ManyToManyField(
+                blank=True, to="core.Topic", verbose_name="sujet"
+            ),
         ),
         migrations.AlterField(
-            model_name='document',
-            name='years',
-            field=models.ManyToManyField(blank=True, to='core.DataYear'),
+            model_name="document",
+            name="years",
+            field=models.ManyToManyField(blank=True, to="core.DataYear"),
         ),
     ]

@@ -6,19 +6,22 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('francesubdivisions', '0008_remove_epci_insee'),
-        ('core', '0013_auto_20210122_0955'),
+        ("core", "0013_auto_20210122_0955"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='document',
-            name='departements',
-            field=models.ManyToManyField(to='francesubdivisions.Departement', verbose_name='département'),
+            model_name="document",
+            name="departements",
+            field=models.ManyToManyField(
+                to="francesubdivisions.Departement", verbose_name="département"
+            ),
         ),
         migrations.AlterField(
-            model_name='document',
-            name='regions',
-            field=models.ManyToManyField(to='francesubdivisions.Region', verbose_name='région'),
+            model_name="document",
+            name="regions",
+            field=models.ManyToManyField(
+                to="francesubdivisions.Region", verbose_name="région"
+            ),
         ),
     ]

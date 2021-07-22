@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c91cffee49d6682cc81c63ccba28d97e41ff4726851513c59671b06f831dc5c3"
+            "sha256": "69fac5544a11c49958ec2ea2715c753274c2e4479f195c22f17d51d407aaa5cc"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -89,10 +89,10 @@
         },
         "django-francedata": {
             "hashes": [
-                "sha256:111dea18734e9a83c0ee3d11f8ce92e8da3b4eb5cbfad5c199a944a89466bf84"
+                "sha256:dfc1f17abea8ea559b1bbc9ff7fa87391b9dff94317d965079eced18597376b7"
             ],
             "index": "pypi",
-            "version": "==0.8.1"
+            "version": "==0.8.4"
         },
         "django-ninja": {
             "hashes": [

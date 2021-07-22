@@ -1,5 +1,5 @@
 from django.urls.base import reverse
-from francesubdivisions.models import Epci, Commune
+from francedata.models import Epci, Commune
 from aspic.models.t_aspic_intercommunalites import (
     T311Groupements,
     T311DeleguesCom,
