@@ -20,113 +20,114 @@
 <div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
   {% dsfr_breadcrumb breadcrumb_data %}
 
-{# Intro #}
-<h1>{{ title }}</h1>
-<p>
-  Code postal : {{ data.code_postal }} / Code INSEE :
-  {{ data.insee }} / Code SIREN : {{ siren }}
-</p>
+  {# Intro #}
+  <h1>{{ title }}</h1>
+  <p>
+    Code postal : {{ data.code_postal }} / Code INSEE :
+    {{ data.insee }} / Code SIREN : {{ siren }}
+  </p>
 
-<p>
-  {{ data.nom }} est une commune française, située dans le département
-  {{ data.departement.name }}{% if data.region%} en région {{ data.region.name }}{% endif %}.{% if data.nom_maire %} Le maire actuel est
-  {{ data.civ_maire | safe }} {{ data.pre_maire }} {{ data.nom_maire }}.{% endif%}
-</p>
+  <p>
+    {{ data.nom }} est une commune française, située dans le département
+    {{ data.departement.name }}{% if data.region%} en région {{ data.region.name }}{% endif %}.{% if data.nom_maire %} Le maire actuel est
+    {{ data.civ_maire | safe }} {{ data.pre_maire }} {{ data.nom_maire }}.{% endif%}
+  </p>
 
-{# Navigation #}
-<div id="navigation-tiles" class="fr-grid-row fr-grid-row--gutters oc-tile-row">
-  {% if data.epci %}
-  <div class="fr-col-12 fr-col-md-2">
-    {% dsfr_tile data.epci %}
+  {# Navigation #}
+  <div id="navigation-tiles" class="fr-grid-row fr-grid-row--gutters oc-tile-row">
+    {% if data.epci %}
+    <div class="fr-col-12 fr-col-md-2">
+      {% dsfr_tile data.epci %}
+    </div>
+    {% endif %}
+
+    <div class="fr-col-12 fr-col-md-2">
+      {% dsfr_tile data.departement %}
+    </div>
+
+    {% if data.region %}
+    <div class="fr-col-12 fr-col-md-2">
+      {% dsfr_tile data.region %}
+    </div>
+    {% endif %}
   </div>
-  {% endif %}
 
-  <div class="fr-col-12 fr-col-md-2">
-    {% dsfr_tile data.departement %}
-  </div>
+  {# Tables #}
+  <div class="fr-grid-row fr-grid-row--gutters">
+    <div class="fr-col-12 fr-col-md-8">
+      <h2 id="donnees-contexte">Données de contexte</h2>
+      {% dsfr_table caption="Population" content=data.tables.population header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
+      {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données communes" %}
 
-  {% if data.region %}
-  <div class="fr-col-12 fr-col-md-2">
-    {% dsfr_tile data.region %}
-  </div>
-  {% endif %}
-</div>
+      {% dsfr_table caption="Emploi - chômage" content=data.tables.emploi header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
+      {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données communes" %}
 
-{# Tables #}
-<div class="fr-grid-row fr-grid-row--gutters ">
-  <div class="fr-col-12 fr-col-md-8">
-    <h2 id="donnees-contexte">Données de contexte</h2>
-    {% dsfr_table caption="Population" content=data.tables.population extra_classes="oc-table--fullwidth oc-table--force10" %}
-    {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données communes" %}
+      {% dsfr_table caption="Niveau de vie" content=data.tables.niveau_de_vie header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
+      {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données communes" %}
 
-    {% dsfr_table caption="Emploi - chômage" content=data.tables.emploi extra_classes="oc-table--fullwidth oc-table--force10" %}
-    {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données communes" %}
+      <h2 id="intercommunalites-zonage">Intercommunalités et zonage</h2>
+      {% dsfr_table caption="Intercommunalités" content=data.groupements header=data.table_header_interco extra_classes="oc-table--fullwidth" %}
+      
+      {% dsfr_table caption="Zonage" content=data.tables.zonage header=data.table_header_zonage extra_classes="oc-table--fullwidth" %}
+      {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données communes" %}
 
-    {% dsfr_table caption="Niveau de vie" content=data.tables.niveau_de_vie extra_classes="oc-table--fullwidth oc-table--force10" %}
-    {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données communes" %}
-
-    <h2 id="intercommunalites-zonage">Intercommunalités et zonage</h2>
-    {% dsfr_table caption="Intercommunalités" content=data.groupements extra_classes="oc-table--fullwidth" %}
-    
-    {% dsfr_table caption="Zonage" content=data.tables.zonage extra_classes="oc-table--fullwidth" %}
-    {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données communes" %}
-
-    <a
-      title="Observatoire des Territoires"
-      href="https://www.observatoire-des-territoires.gouv.fr/"
-      target="_blank"
-      rel="noopener"
-      class="fr-link fr-fi-arrow-right-line fr-link--icon-right"
-    >
-      Plus d’informations sur le site de l’Observatoire des Territoires
-    </a>
-
-    <h2 id="ressources-financieres-fiscales">
-      Ressources financières et fiscales
-    </h2>
-    {% dsfr_table caption="Dotation globale" content=data.tables.dotation_globale extra_classes="oc-table--fullwidth oc-table--force10" %}
-    {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données communes" %}
-
-    {% dsfr_table caption="Dotation élu local" content=data.tables.dotation_elu_local extra_classes="oc-table--fullwidth oc-table--force10" %}
-    {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données communes" %}
-
-    {% dsfr_table caption="Dotation FPIC" content=data.tables.dotation_fpic extra_classes="oc-table--fullwidth oc-table--force10" %}
-    {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données communes" %}
-    <a
-      title="Dotation - Direction générale des Collectivités locales"
-      href="http://www.dotations-dgcl.interieur.gouv.fr/"
-      target="_blank"
-      rel="noopener"
-      class="fr-link fr-fi-arrow-right-line fr-link--icon-right"
-    >
-      Plus d’informations sur le site dotations de la DGCL
-    </a>
-
-    <p class="oc-padding-top-2em">
-        <a
-        title="Export données de la commune"
-        href="{% url 'core:csv_commune_export' slug %}"
+      <a
+        title="Observatoire des Territoires"
+        href="https://www.observatoire-des-territoires.gouv.fr/"
         target="_blank"
         rel="noopener"
-        class="fr-link fr-fi-download-line fr-link--icon-right"
+        class="fr-link fr-fi-arrow-right-line fr-link--icon-right"
       >
-        Télécharger les données de la commune au format csv
+        Plus d’informations sur le site de l’Observatoire des Territoires
       </a>
-    </p>
 
-    <h2 id="comparaison-autres-communes">
-      Comparaison avec d’autres communes
-    </h2>
-    {% include "core/blocks/compare_selector.html" %}
+      <h2 id="ressources-financieres-fiscales">
+        Ressources financières et fiscales
+      </h2>
+      {% dsfr_table caption="Dotation globale" content=data.tables.dotation_globale header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
+      {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données communes" %}
+
+      {% dsfr_table caption="Dotation élu local" content=data.tables.dotation_elu_local header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
+      {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données communes" %}
+
+      {% dsfr_table caption="Dotation FPIC" content=data.tables.dotation_fpic header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
+      {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données communes" %}
+      <a
+        title="Dotation - Direction générale des Collectivités locales"
+        href="http://www.dotations-dgcl.interieur.gouv.fr/"
+        target="_blank"
+        rel="noopener"
+        class="fr-link fr-fi-arrow-right-line fr-link--icon-right"
+      >
+        Plus d’informations sur le site dotations de la DGCL
+      </a>
+
+      <p class="oc-padding-top-2em">
+          <a
+          title="Export données de la commune"
+          href="{% url 'core:csv_commune_export' slug %}"
+          target="_blank"
+          rel="noopener"
+          class="fr-link fr-fi-download-line fr-link--icon-right"
+        >
+          Télécharger les données de la commune au format csv
+        </a>
+      </p>
+
+      <h2 id="comparaison-autres-communes">
+        Comparaison avec d’autres communes
+      </h2>
+      {% include "core/blocks/compare_selector.html" %}
 
 
-  </div> <!-- end left column -->
-  <div class="fr-col-3">
-    <div class="oc-sticky-block">
-      {% dsfr_summary page_summary %}
+    </div> <!-- end left column -->
+    <div class="fr-col-12 fr-col-md-4">
+      <div class="oc-sticky-block">
+        {% dsfr_summary page_summary %}
+      </div>
     </div>
-  </div>
-</div> <!-- end div container-->
+  </div> <!-- end div container-->
+</div> <!-- end container -->
 
 {{ page_data | json_script:"page-data" }}
 {% endblock %}

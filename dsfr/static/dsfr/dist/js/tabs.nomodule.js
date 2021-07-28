@@ -1,4 +1,4 @@
-/*! DSFR v1.0.0-rc1.0 | restricted use */
+/*! DSFR v1.1.0 | SPDX-License-Identifier: MIT | License-Filename: LICENCE.md | restricted use (see terms and conditions) */
 
 (function () {
   'use strict';
@@ -127,6 +127,7 @@
 
     TabsGroup.prototype.apply = function apply () {
       for (var i = 0; i < this._index; i++) { this.members[i].translate(-1); }
+      this.current.element.style.transition = '';
       this.current.element.style.transform = '';
       for (var i$1 = this._index + 1; i$1 < this.length; i$1++) { this.members[i$1].translate(1); }
       this.element.style.transition = '';
@@ -181,9 +182,8 @@
     };
 
     Tab.prototype.translate = function translate (direction, initial) {
-      if (initial) { this.element.style.transition = 'none'; }
+      this.element.style.transition = initial ? 'none' : '';
       this.element.style.transform = "translate(" + (direction * 100) + "%)";
-      if (initial) { this.element.style.transition = ''; }
     };
 
     Tab.prototype.reset = function reset () {

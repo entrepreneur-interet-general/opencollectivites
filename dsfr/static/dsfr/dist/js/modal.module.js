@@ -1,4 +1,4 @@
-/*! DSFR v1.0.0-rc1.0 | restricted use */
+/*! DSFR v1.1.0 | SPDX-License-Identifier: MIT | License-Filename: LICENCE.md | restricted use (see terms and conditions) */
 
 const namespace = 'dsfr';
 
@@ -84,7 +84,7 @@ class FocusTrap {
     const focusables = this.focusables;
     if (focusables.length) focusables[0].focus();
     this.element.setAttribute('aria-modal', true);
-    this.element.addEventListener('keydown', this.handling);
+    window.addEventListener('keydown', this.handling);
 
     this.stunneds = [];
     // this.stun(document.body);
@@ -169,7 +169,7 @@ class FocusTrap {
     this.isTrapping = false;
 
     this.element.removeAttribute('aria-modal');
-    this.element.removeEventListener('keydown', this.handling);
+    window.removeEventListener('keydown', this.handling);
     this.element = null;
 
     // for (const stunned of this.stunneds) stunned.unstun();
@@ -308,14 +308,18 @@ class Modal extends api.core.Disclosure {
       api.core.removeClass(this.body, SCROLL_SHADOW_CLASS);
     }
 
-    if (isResizing) {
-      this.body.style.maxHeight = (window.innerHeight - OFFSET_MOBILE) + 'px';
+    this.isMedium = window.matchMedia('(min-width: 48em)').matches;
 
-      // Une deuxième fois après positionnement des barres du navigateur (ios)
-      // TODO: à tester si fonctionnel sans setTimeout
-      api.core.engine.renderer.next(() => {
+    if (isResizing) {
+      if (this.isMedium) {
+        this.body.style.removeProperty('max-height');
+      } else {
         this.body.style.maxHeight = (window.innerHeight - OFFSET_MOBILE) + 'px';
-      });
+        // Une deuxième fois après positionnement des barres du navigateur (ios)
+        api.core.engine.renderer.next(() => {
+          this.body.style.maxHeight = (window.innerHeight - OFFSET_MOBILE) + 'px';
+        });
+      }
     }
   }
 

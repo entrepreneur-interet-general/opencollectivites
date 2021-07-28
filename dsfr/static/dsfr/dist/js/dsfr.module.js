@@ -1,4 +1,4 @@
-/*! DSFR v1.0.0-rc1.0 | restricted use */
+/*! DSFR v1.1.0 | SPDX-License-Identifier: MIT | License-Filename: LICENCE.md | restricted use (see terms and conditions) */
 
 const prefix = 'fr';
 const namespace = 'dsfr';
@@ -255,7 +255,7 @@ class DisclosuresGroup {
 
     switch (true) {
       case this.current !== null:
-      case !member.disclosed && !member.primal:
+      case !member.disclosed && !(member.primary && member.primary.disclosed):
         member.disclosed = false;
         break;
 
@@ -351,7 +351,7 @@ class Disclosure extends Instance {
 
     if (buttons.length > 0) for (let i = 0; i < buttons.length; i++) this.addButton(buttons[i]);
 
-    this.disclosed = this.primal === true;
+    this.disclosed = this.primary && this.primary.disclosed;
 
     this.gather();
   }
@@ -378,9 +378,9 @@ class Disclosure extends Instance {
   addButton (element) {
     const button = this.buttonFactory(element);
     if (button.hasAttribute) {
-      if (this.primal === undefined) {
-        this.primal = button.disclosed;
-      } else button.apply(this.primal);
+      if (this.primary === undefined) {
+        this.primary = button;
+      } else button.apply(this.primary.disclosed);
     }
     this.buttons.push(button);
   }
@@ -890,7 +890,7 @@ class FocusTrap {
     const focusables = this.focusables;
     if (focusables.length) focusables[0].focus();
     this.element.setAttribute('aria-modal', true);
-    this.element.addEventListener('keydown', this.handling);
+    window.addEventListener('keydown', this.handling);
 
     this.stunneds = [];
     // this.stun(document.body);
@@ -975,7 +975,7 @@ class FocusTrap {
     this.isTrapping = false;
 
     this.element.removeAttribute('aria-modal');
-    this.element.removeEventListener('keydown', this.handling);
+    window.removeEventListener('keydown', this.handling);
     this.element = null;
 
     // for (const stunned of this.stunneds) stunned.unstun();
@@ -1114,14 +1114,18 @@ class Modal extends api.core.Disclosure {
       api.core.removeClass(this.body, SCROLL_SHADOW_CLASS);
     }
 
-    if (isResizing) {
-      this.body.style.maxHeight = (window.innerHeight - OFFSET_MOBILE) + 'px';
+    this.isMedium = window.matchMedia('(min-width: 48em)').matches;
 
-      // Une deuxième fois après positionnement des barres du navigateur (ios)
-      // TODO: à tester si fonctionnel sans setTimeout
-      api.core.engine.renderer.next(() => {
+    if (isResizing) {
+      if (this.isMedium) {
+        this.body.style.removeProperty('max-height');
+      } else {
         this.body.style.maxHeight = (window.innerHeight - OFFSET_MOBILE) + 'px';
-      });
+        // Une deuxième fois après positionnement des barres du navigateur (ios)
+        api.core.engine.renderer.next(() => {
+          this.body.style.maxHeight = (window.innerHeight - OFFSET_MOBILE) + 'px';
+        });
+      }
     }
   }
 
@@ -1378,15 +1382,12 @@ const SIDEMENU_LIST_CLASS = api.core.ns('sidemenu__list');
 api.Collapse.register(SIDEMENU_CLASS, SIDEMENU_LIST_CLASS);
 
 const TABLE_SELECTOR = api.core.ns.selector('table');
-// export const TABLE_CLASS = api.core.ns('table');
-const TABLE_SCROLLING_SELECTOR = `${api.core.ns.selector('table')}:not(${api.core.ns.selector('table--no-scroll')})`;
+const TABLE_NOSCROLL_SELECTOR = api.core.ns('table--no-scroll');
 const LEFT = 'left';
 const RIGHT = 'right';
 const SHADOW_CLASS = api.core.ns('table--shadow');
 const SHADOW_LEFT_CLASS = api.core.ns('table--shadow-left');
 const SHADOW_RIGHT_CLASS = api.core.ns('table--shadow-right');
-const WRAPPER_CLASS = api.core.ns('table__wrapper');
-const CAPTION_BOTTOM_CLASS = api.core.ns('table--caption-bottom');
 const SCROLL_OFFSET = 1; // valeur en px du scroll avant laquelle le shadow s'active ou se desactive
 
 class Table {
@@ -1396,29 +1397,28 @@ class Table {
 
   init (table) {
     this.table = table;
+    this.table.setAttribute(api.core.ns.attr('js-table'), 'true'); // TODO: code provisoire en attendant la refacto du JS dynamique
     this.tableElem = this.table.querySelector('table');
     this.tableContent = this.tableElem.querySelector('tbody');
     this.isScrollable = this.tableContent.offsetWidth > this.tableElem.offsetWidth;
     this.caption = this.tableElem.querySelector('caption');
     this.captionHeight = 0;
-    this.wrap();
-
     const scrolling = this.change.bind(this);
     this.tableElem.addEventListener('scroll', scrolling);
-    this.change();
   }
 
   change () {
     const newScroll = this.tableContent.offsetWidth > this.tableElem.offsetWidth;
     let firstTimeScrollable = this.tableElem.offsetWidth > this.table.offsetWidth;
     if (newScroll || firstTimeScrollable) {
-      this.scroll();
-      this.handleCaption();
+      if (!this.table.classList.contains(TABLE_NOSCROLL_SELECTOR)) this.scroll();
     } else {
       if (newScroll !== this.isScrollable) this.delete();
     }
     this.isScrollable = newScroll;
     firstTimeScrollable = false;
+    const captionSize = this.caption.getBoundingClientRect();
+    this.table.style.setProperty('--table-offset', captionSize.height + 'px');
   }
 
   delete () {
@@ -1436,15 +1436,6 @@ class Table {
   scroll () {
     api.core.addClass(this.table, SHADOW_CLASS);
     this.setShadowPosition();
-  }
-
-  /* ajoute un wrapper autour du tableau */
-  wrap () {
-    const wrapperHtml = document.createElement('div');
-    wrapperHtml.className = WRAPPER_CLASS;
-    this.table.insertBefore(wrapperHtml, this.tableElem);
-    wrapperHtml.appendChild(this.tableElem);
-    this.tableInnerWrapper = wrapperHtml;
   }
 
   /* affiche les blocs shadow en fonction de la position du scroll, en ajoutant la classe visible */
@@ -1479,22 +1470,6 @@ class Table {
     }
   }
 
-  /* positionne la caption en top négatif et ajoute un margin-top au wrapper */
-  handleCaption () {
-    if (this.caption) {
-      const style = getComputedStyle(this.caption);
-      const newHeight = this.caption.offsetHeight + parseInt(style.marginTop) + parseInt(style.marginBottom);
-      this.captionHeight = newHeight;
-      if (this.table.classList.contains(CAPTION_BOTTOM_CLASS)) {
-        this.tableElem.style.marginBottom = this.captionHeight + 'px';
-        this.caption.style.bottom = -this.captionHeight + 'px';
-      } else {
-        this.tableElem.style.marginTop = this.captionHeight + 'px';
-        this.caption.style.top = -this.captionHeight + 'px';
-      }
-    }
-  }
-
   /* ajoute la classe fr-table--shadow-right ou fr-table--shadow-right sur fr-table
    en fonction d'une valeur de scroll et du sens (right, left) */
   setShadowVisibility (side, scrollPosition) {
@@ -1518,7 +1493,7 @@ const change = () => {
 };
 
 const build$2 = () => {
-  const tableNodes = document.querySelectorAll(TABLE_SCROLLING_SELECTOR);
+  const tableNodes = document.querySelectorAll(TABLE_SELECTOR);
   for (let i = 0; i < tableNodes.length; i++) tables.push(new Table(tableNodes[i]));
 
   window.addEventListener('resize', change);
@@ -1637,6 +1612,7 @@ class TabsGroup extends api.core.DisclosuresGroup {
 
   apply () {
     for (let i = 0; i < this._index; i++) this.members[i].translate(-1);
+    this.current.element.style.transition = '';
     this.current.element.style.transform = '';
     for (let i = this._index + 1; i < this.length; i++) this.members[i].translate(1);
     this.element.style.transition = '';
@@ -1676,9 +1652,8 @@ class Tab extends api.core.Disclosure {
   }
 
   translate (direction, initial) {
-    if (initial) this.element.style.transition = 'none';
+    this.element.style.transition = initial ? 'none' : '';
     this.element.style.transform = `translate(${direction * 100}%)`;
-    if (initial) this.element.style.transition = '';
   }
 
   reset () {
@@ -1721,7 +1696,7 @@ class Header {
     if (!element) return;
     const modals = api.core.Instance.getInstances(element, api.Modal);
     if (!modals || !modals.length) return;
-    this.modals.push(modals[0]);
+    this.modals.push(new HeaderModal(modals[0]));
   }
 
   init () {
@@ -1742,21 +1717,30 @@ class Header {
   change () {
     this.isLarge = window.matchMedia('(min-width: 62em)').matches;
 
-    if (this.isLarge) {
-      for (let i = 0; i < this.modals.length; i++) {
-        this.modals[i].conceal();
-        this.modals[i].element.removeAttribute('role');
-      }
-    } else {
-      for (let i = 0; i < this.modals.length; i++) {
-        this.modals[i].element.setAttribute('role', 'dialog');
-      }
-    }
+    if (this.isLarge) this.modals.forEach((modal) => modal.disable());
+    else this.modals.forEach((modal) => modal.enable());
 
     if (this.linksGroup !== null) {
       if (this.isLarge) this.toolsLinks.appendChild(this.linksGroup);
       else this.menuLinks.appendChild(this.linksGroup);
     }
+  }
+}
+
+class HeaderModal {
+  constructor (modal) {
+    this.modal = modal;
+  }
+
+  enable () {
+    this.modal.element.setAttribute('role', 'dialog');
+    this.modal.element.setAttribute('aria-labelledby', this.modal.primary.element.id);
+  }
+
+  disable () {
+    this.modal.conceal();
+    this.modal.element.removeAttribute('role');
+    this.modal.element.removeAttribute('aria-labelledby');
   }
 }
 

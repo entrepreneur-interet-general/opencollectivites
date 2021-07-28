@@ -46,8 +46,9 @@
     clear: both;
 }
 
-.fr-header, .header-block {
-    background-image: url('/static/img/beta.png'); 
+.fr-header,
+.header-block {
+    background-image: url('/static/img/beta.png');
     background-repeat: no-repeat;
     background-position: right top;
 }
@@ -67,18 +68,23 @@
     top: 20px;
 }
 
-.oc-tile-row > .fr-tile{
+.oc-tile-row>.fr-tile {
     margin-bottom: 2em;
 }
 
 /* Force certain classes to tables */
 .oc-table--fullwidth {
     width: 100%;
-  }
-  
-.oc-table--force10 td + td, .oc-table--force10 th + th {
+}
+
+.oc-table--fullwidth table {
+    display: table;
+}
+
+.oc-table--force10 td+td,
+.oc-table--force10 th+th {
     width: 10%;
-  }
+}
 
 /* Improve inline forms */
 .oc-inline-form {
@@ -90,7 +96,7 @@
 .fr-pagination {
     display: flex;
     justify-content: center;
-    }
+}
 
 /* Tooltip */
 .oc-tooltip {
@@ -99,14 +105,15 @@
 
 .oc-tooltip::before {
     font-size: 1.2em;
-} 
+}
 
 /* When using svg icons instead of images in the tiles */
 .oc-svg-icon {
     width: 100%;
 }
+
 /* Set the color of svg icons in dark mode */
 
-:root[data-fr-theme="dark" i] .oc-svg-icon {
+:root[data-fr-theme="dark"i] .oc-svg-icon {
     filter: brightness(0) saturate(100%) invert(61%) sepia(11%) saturate(2548%) hue-rotate(202deg) brightness(103%) contrast(102%);
 }

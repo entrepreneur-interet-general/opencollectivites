@@ -1,6 +1,15 @@
 <div class="fr-table {% if extra_classes %} {{ extra_classes }}{% endif %}">
     <table>
         <caption>{{ caption }}</caption>
+        {% if header %}
+            <thead>
+                <tr>
+                    {% for cell in header %}
+                        <th scope="col">{{ cell | safe}}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+        {% endif %}
         <tbody>
             {% for row in content %}
             <tr>

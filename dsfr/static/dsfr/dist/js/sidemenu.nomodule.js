@@ -1,4 +1,4 @@
-/*! DSFR v1.0.0-rc1.0 | restricted use */
+/*! DSFR v1.1.0 | SPDX-License-Identifier: MIT | License-Filename: LICENCE.md | restricted use (see terms and conditions) */
 
 (function () {
 	'use strict';

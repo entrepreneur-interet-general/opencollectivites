@@ -1,4 +1,4 @@
-/*! DSFR v1.0.0-rc1.0 | restricted use */
+/*! DSFR v1.1.0 | SPDX-License-Identifier: MIT | License-Filename: LICENCE.md | restricted use (see terms and conditions) */
 
 (function () {
   'use strict';
@@ -27,7 +27,7 @@
     if (!element) { return; }
     var modals = api.core.Instance.getInstances(element, api.Modal);
     if (!modals || !modals.length) { return; }
-    this.modals.push(modals[0]);
+    this.modals.push(new HeaderModal(modals[0]));
   };
 
   Header.prototype.init = function init () {
@@ -48,21 +48,28 @@
   Header.prototype.change = function change () {
     this.isLarge = window.matchMedia('(min-width: 62em)').matches;
 
-    if (this.isLarge) {
-      for (var i = 0; i < this.modals.length; i++) {
-        this.modals[i].conceal();
-        this.modals[i].element.removeAttribute('role');
-      }
-    } else {
-      for (var i$1 = 0; i$1 < this.modals.length; i$1++) {
-        this.modals[i$1].element.setAttribute('role', 'dialog');
-      }
-    }
+    if (this.isLarge) { this.modals.forEach(function (modal) { return modal.disable(); }); }
+    else { this.modals.forEach(function (modal) { return modal.enable(); }); }
 
     if (this.linksGroup !== null) {
       if (this.isLarge) { this.toolsLinks.appendChild(this.linksGroup); }
       else { this.menuLinks.appendChild(this.linksGroup); }
     }
+  };
+
+  var HeaderModal = function HeaderModal (modal) {
+    this.modal = modal;
+  };
+
+  HeaderModal.prototype.enable = function enable () {
+    this.modal.element.setAttribute('role', 'dialog');
+    this.modal.element.setAttribute('aria-labelledby', this.modal.primary.element.id);
+  };
+
+  HeaderModal.prototype.disable = function disable () {
+    this.modal.conceal();
+    this.modal.element.removeAttribute('role');
+    this.modal.element.removeAttribute('aria-labelledby');
   };
 
   api.Header = Header;

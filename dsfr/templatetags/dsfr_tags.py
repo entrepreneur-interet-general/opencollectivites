@@ -231,7 +231,7 @@ def dsfr_summary(items: list):
 
 
 @register.inclusion_tag("dsfr/table.html")
-def dsfr_table(caption: str, content: list, extra_classes: str = ""):
+def dsfr_table(caption: str, content: list, extra_classes: str = "", header: list = []):
     """
     Returns a table item. Takes the following parameters, with the following structure:
 
@@ -239,6 +239,7 @@ def dsfr_table(caption: str, content: list, extra_classes: str = ""):
     content: list of rows, each row being a list of cells itself
 
     extra_classes: (Optional) string with names of extra classes
+    header: (Optional) list of cells for the table header
 
     **Tag name**::
         dsfr_table
@@ -247,7 +248,12 @@ def dsfr_table(caption: str, content: list, extra_classes: str = ""):
     **Example**::
         {% dsfr_table caption="Toto" content=my_content %}
     """
-    return {"caption": caption, "content": content, "extra_classes": extra_classes}
+    return {
+        "caption": caption,
+        "content": content,
+        "extra_classes": extra_classes,
+        "header": header,
+    }
 
 
 @register.inclusion_tag("dsfr/tile.html")

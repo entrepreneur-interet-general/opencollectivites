@@ -55,10 +55,10 @@
   <div class="fr-grid-row fr-grid-row--gutters ">
     <div class="fr-col-12 fr-col-md-8">
       <h2 id="donnees-contexte">Données de contexte</h2>
-      {% dsfr_table caption="Population" content=data.tables.population extra_classes="oc-table--fullwidth oc-table--force10" %}
+      {% dsfr_table caption="Population" content=data.tables.population header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
       {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données départements" %}
 
-      {% dsfr_table caption="Emploi - chômage" content=data.tables.emploi extra_classes="oc-table--fullwidth oc-table--force10" %}
+      {% dsfr_table caption="Emploi - chômage" content=data.tables.emploi header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
       {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données départements" %}
 
     <h2 id="perimetre">Périmètre</h2>

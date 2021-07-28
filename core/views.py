@@ -74,6 +74,10 @@ def page_commune_detail(request, slug):
     payload["commune_name"] = commune.name
     payload["data"] = commune_data(commune.siren)
     payload["page_data"] = {"type": "commune", "slug": slug}
+    payload["data"]["tables_header"] = ["Intitulé", "Donnée"]
+    payload["data"]["table_header_zonage"] = ["Intitulé", "Statut"]
+    payload["data"]["table_header_interco"] = ["Type", "Nom", "Sigle type"]
+
     payload["page_summary"] = [
         {"link": "#donnees-contexte", "title": "Données de contexte"},
         {"link": "#intercommunalites-zonage", "title": "Intercommunalités et zonage"},
@@ -99,6 +103,7 @@ def page_epci_detail(request, slug):
     payload["siren"] = epci.siren
     payload["epci_name"] = epci.name
     payload["data"] = epci_data(epci.siren)
+    payload["data"]["tables_header"] = ["Intitulé", "Donnée"]
     payload["page_summary"] = [
         {"link": "#donnees-socio-economiques", "title": "Données socio-économiques"},
         {"link": "#coordonnees-siege", "title": "Coordonnées du siège"},
@@ -123,7 +128,7 @@ def page_departement_detail(request, slug):
     payload["slug"] = slug
     payload["siren"] = departement.siren
     payload["data"] = departement_data(departement)
-
+    payload["data"]["tables_header"] = ["Intitulé", "Donnée"]
     payload["page_summary"] = [
         {"link": "#donnees-contexte", "title": "Données de contexte"},
         {"link": "#perimetre", "title": "Périmètre"},
@@ -173,6 +178,9 @@ def page_commune_compare(request, slug1, slug2, slug3=0, slug4=0):
     payload = init_payload("Comparaison de communes")
     payload["data"] = {}
     payload["data"]["tables"] = communes_compare(sirens)
+    payload["data"]["tables_header"] = ["Intitulé"] + payload["data"]["tables"][
+        "places_names"
+    ]
 
     payload["data"]["export_link"] = reverse(
         "core:csv_compare_communes_from_list", kwargs=slugs_dict
