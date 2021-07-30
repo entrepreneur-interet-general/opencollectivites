@@ -22,6 +22,7 @@ django-ninja = "*"
 Babel = "*"
 django-analytical = "*"
 django-francedata = "*"
+django-dsfr = "*"
 
 [dev-packages]
 pylint = "*"
