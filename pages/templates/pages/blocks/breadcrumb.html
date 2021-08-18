@@ -1,0 +1,17 @@
+{% load wagtailcore_tags %}
+<nav role="navigation" class="fr-breadcrumb" aria-label="vous êtes ici :">
+    <button class="fr-breadcrumb__button" aria-expanded="false" aria-controls="breadcrumb-1">Voir le fil d’Ariane</button>
+    <div class="fr-collapse" id="breadcrumb-1">
+        <ol class="fr-breadcrumb__list">
+            {% for page in self.get_ancestors %}
+              {% if page.is_root == False %}
+                <li><a class="fr-breadcrumb__link" href="{% pageurl page %}">{{ page.title }}</a></li>
+              {% endif %}
+            {% endfor %}
+
+            <li>
+                <a class="fr-breadcrumb__link" aria-current="page">{{ self.title }}</a>
+            </li>
+        </ol>
+    </div>
+</nav>

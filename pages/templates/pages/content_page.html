@@ -5,12 +5,19 @@
 {% block body_class %}template-contentpage{% endblock %}
 
 {% block content %}
-<!-- Wagtail-generated part -->
 <div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
+  {% include "pages/blocks/breadcrumb.html" %}
+  
   <h1>{{page.title}}</h1>
   
   {% for block in page.body %}
     {% include_block block %}
   {% endfor %}
-</div> <!-- End of Wagtail-generated part -->
+
+
+  {% if page.get_children %}
+    {% include "pages/blocks/subpages_list.html" %}
+  {% endif %}
+</div>
+
 {% endblock %}
