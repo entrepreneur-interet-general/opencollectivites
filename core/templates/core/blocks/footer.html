@@ -1,4 +1,5 @@
 {% extends "dsfr/footer.html" %}
+{% load wagtailcore_tags %}
 
 {% block footer_content %}
 Un service de la DGCL
@@ -9,16 +10,16 @@ Un service de la DGCL
     <a class="fr-footer__bottom-link" href="{% url 'core:page_sitemap' %}">Plan du site</a>
 </li>
 <li class="fr-footer__bottom-item">
-    <a class="fr-footer__bottom-link" href="{% url 'core:page_accessibility' %}">Accessibilité: non</a>
+    <a class="fr-footer__bottom-link" href="{% slugurl 'accessibilite' %}">Accessibilité: non</a>
 </li>
 <li class="fr-footer__bottom-item">
-    <a class="fr-footer__bottom-link" href="{% url 'core:page_legal' %}">Mentions légales</a>
+    <a class="fr-footer__bottom-link" href="{% slugurl 'mentions-legales' %}">Mentions légales</a>
 </li>
 <li class="fr-footer__bottom-item">
-    <a class="fr-footer__bottom-link" href="{% url 'core:page_legal' %}#Donnees-personnelles">Données personnelles</a>
+    <a class="fr-footer__bottom-link" href="{% slugurl 'mentions-legales' %}#Donnees-personnelles">Données personnelles</a>
 </li>
 <li class="fr-footer__bottom-item">
-    <a class="fr-footer__bottom-link" href="{% url 'core:page_legal' %}#Gestion-des-cookies">Gestion des cookies</a>
+    <a class="fr-footer__bottom-link" href="{% slugurl 'mentions-legales' %}#Gestion-des-cookies">Gestion des cookies</a>
 </li>
 <li class="fr-footer__bottom-item">
   <button class="fr-footer__bottom-link fr-fi-theme-fill fr-link--icon-left" aria-controls="fr-theme-modal" data-fr-opened="false">Paramètres d’affichage</button>

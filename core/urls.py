@@ -80,11 +80,8 @@ urlpatterns = [
     ),
     path("publications/", views.page_publications, name="page_publications"),
     path("tests/", views.page_tests, name="page_tests"),
-    path("accessibilite/", views.page_accessibility, name="page_accessibility"),
-    path("mentions-legales/", views.page_legal, name="page_legal"),
     path("plan/", views.page_sitemap, name="page_sitemap"),
     path("test_404/", views.error404, {"exception": Exception()}, name="page_test_404"),
     path("test_500/", views.error500, {"exception": Exception()}, name="page_test_500"),
     path("test_50x/", views.error50x, {"exception": Exception()}, name="page_test_50x"),
-    path("", views.page_index, name="page_index"),
 ]

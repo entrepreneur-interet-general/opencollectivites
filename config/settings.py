@@ -40,12 +40,30 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.postgres",
     "corsheaders",
+    "wagtail.contrib.forms",
+    "wagtail.contrib.redirects",
+    "wagtail.contrib.modeladmin",
+    "wagtail.contrib.styleguide",
+    "wagtail.embeds",
+    "wagtail.sites",
+    "wagtail.users",
+    "wagtail.snippets",
+    "wagtail.documents",
+    "wagtail.images",
+    "wagtail.search",
+    "wagtail.admin",
+    "wagtail.core",
+    "wagtailsvg",
+    "wagtailmarkdown",
+    "modelcluster",
+    "taggit",
     "analytical",
     "feeds",
     "dsfr",
     "francedata.apps.FrancedataConfig",
     "aspic.apps.AspicConfig",
     "core",
+    "pages",
 ]
 
 MIDDLEWARE = [
@@ -57,6 +75,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -133,6 +152,10 @@ FEEDS_SOURCE_NAME_AUTOUPDATE = False
 STATIC_URL = "/static/"
 STATIC_ROOT = path.join(BASE_DIR, "static")
 
+# Media files (user uploaded)
+MEDIA_ROOT = path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
+
 # CORS
 CORS_ORIGIN_ALLOW_ALL = False
 CORS_ORIGIN_WHITELIST = LOCAL_CORS_ORIGIN_WHITELIST
@@ -140,6 +163,9 @@ CORS_ORIGIN_WHITELIST = LOCAL_CORS_ORIGIN_WHITELIST
 # Matomo
 MATOMO_DOMAIN_PATH = LOCAL_MATOMO_DOMAIN_PATH
 MATOMO_SITE_ID = LOCAL_MATOMO_SITE_ID
+
+# Wagtail
+WAGTAIL_SITE_NAME = "Open Collectivités - gestion du contenu"
 
 # Allow bulk deletions
 DATA_UPLOAD_MAX_NUMBER_FIELDS = None

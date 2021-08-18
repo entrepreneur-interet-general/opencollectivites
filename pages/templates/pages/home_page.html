@@ -1,0 +1,101 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/vue-multiselect-dsfr.css' %}">
+<style scoped>
+#oc-homesearch {
+  padding-top: 2em;
+  padding-bottom: 3em;
+  margin-bottom: 2em;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div id="oc-homesearch" class="fr-container-fluid oc-bg--alt fr-padding-bottom-6N fr-padding-top-2N">
+  <div class="fr-container">
+    <h1>
+      Trouver les études, statistiques et outils locaux utiles à vos prises de
+      décision, recherches ou au débat public
+    </h1>
+    <div class="fr-select-group">
+      <label class="fr-label">Commune, EPCI, département, région</label>
+      <div id="vue-app">
+        <vue-multiselect v-model="place" :options="optionList" group-values="items" group-label="groupName" track-by="value"
+        label="text" :group-select="false" :multiple="false" :internal-search="false" :loading="isLoading"
+        :preserve-search="true" placeholder="Taper les premières lettres de la collectivité recherchée"
+        @search-change="searchCollectivities" :options-limit="300" :limit="3" :limit-text="limitText"
+        @input="loadResultPage">
+          <span slot="noOptions"></span>
+          <span slot="noResult">
+            Aucun résultat trouvé, merci de vérifier votre saisie.
+          </span>
+        </vue-multiselect>
+      </div>
+    </div>
+  </div>
+</div> <!-- end homesearch -->
+
+<!-- Wagtail-generated part -->
+<div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
+  {% for block in page.body %}
+    {% include_block block %}
+  {% endfor %}
+</div> <!-- End of Wagtail-generated part -->
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript" src="{% static 'lib/vue-2.6.12/vue.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/vue-multiselect-2.1.0/dist/vue-multiselect.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/axios.0.21.1/axios.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/OpenCollectivitesDataService.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/utils.js' %}"></script>
+
+<script>
+  Vue.component('vue-multiselect', window.VueMultiselect.default);
+
+  const openCollectivitesApiCall = new OpenCollectivitesDataService();
+
+  var app = new Vue({
+    el: '#vue-app',
+    data() {
+      return {
+        optionList: [],
+        place: null,
+        isLoading: false,
+      };
+    },
+    methods: {
+      limitText(count) {
+        return `et ${count} autres résultats`;
+      },
+      searchCollectivities(query) {
+        query = query.toLowerCase();
+
+        if (query.length < 3 && !shortnamedCommunes.includes(query)) {
+          this.optionList = [];
+        } else {
+          this.isLoading = true;
+          openCollectivitesApiCall.listByName(query)
+            .then((response) => {
+              this.optionList = response.data;
+              this.isLoading = false;
+            })
+            .catch((e) => {
+              console.log("🙅  Service not responding");
+              console.log(e);
+            });
+        }
+      },
+      loadResultPage() {
+        window.location.href = '/' + this.place.type + '/' + this.place.slug;
+      },
+    },
+  });
+
+</script>
+{% endblock %}

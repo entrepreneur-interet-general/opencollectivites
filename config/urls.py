@@ -16,7 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
+from django.conf import settings
 from django.conf.urls import url
+from django.conf.urls.static import static
+
+from wagtail.admin import urls as wagtailadmin_urls
+from wagtail.core import urls as wagtail_urls
+from wagtail.documents import urls as wagtaildocs_urls
+
 from config.api import api
 
 # Personalize the Django admin header
@@ -26,8 +33,11 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     url(r"^favicon\.ico$", RedirectView.as_view(url="/static/favicon.ico")),
     path("api/", api.urls),
+    path("cms/", include(wagtailadmin_urls)),
+    path("wd_documents/", include(wagtaildocs_urls)),
     path("", include("core.urls")),
-]
+    path("", include(wagtail_urls)),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = "core.views.error404"
 handler500 = "core.views.error500"

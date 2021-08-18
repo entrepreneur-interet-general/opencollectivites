@@ -23,6 +23,8 @@ Babel = "*"
 django-analytical = "*"
 django-francedata = "*"
 django-dsfr = "*"
+wagtail-markdown = "*"
+wagtailsvg = "*"
 
 [dev-packages]
 pylint = "*"
