@@ -4,7 +4,6 @@ from core.models import Topic
 
 
 def topics_processor(request: HttpRequest) -> dict:
-    print("call to topics processor")
     raw_topics = Topic.objects.all()
     page_publications = reverse("core:page_publications")
     topics = []
