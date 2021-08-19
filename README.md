@@ -21,6 +21,7 @@ Le site est développé en utilisant le framework [Django](https://www.djangopro
 - **aspic** : Contient la structure de la base aspic (Application de la DGCL sur les intercommunalités, destinée aux préfectures), actuellement utilisée pour les données concernant les collectivités locales. Elle est appelée à disparaître à terme.
 - **[django-feed-reader](https://github.com/Ash-Crow/django-feed-reader)** : Un agrégateur de flux RSS permettant de récupérer les métadonnées sur les publications des différents sites des services statistiques des ministères (SSM). Il est prévu de remplacer ce fonctionnement par une application récupérant ces métadonnées sur la future version de la [bibliothèque nationale de la statistique publique](https://www.insee.fr/fr/information/1303569), en s'appuyant sur l'[API de Gallica](https://api.bnf.fr/fr/api-gallica-de-recherche)
 - **[django-dsfr](https://github.com/entrepreneur-interet-general/django-dsfr)** : Permet d'utiliser facilement le [système de design de l'État](https://www.systeme-de-design.gouv.fr/) dans des templates Django.
+- **pages** : Application basée sur le moteur de CMS [Wagtail](https://wagtail.io/) qui gère les pages dynamiques du site, dont la page d’accueil.
 
 ![Application schema](docs/oc-app-schema.png?raw=true "Application schema")
 
