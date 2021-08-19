@@ -5,6 +5,10 @@ server {
         client_max_body_size 200M;
         server_name <url>
 
+        location /media {
+                root <projectpath>; #don't point directly to the static folder!
+        }
+
         location /static {
                 root <projectpath>; #don't point directly to the static folder!
         }
