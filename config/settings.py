@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     "francedata.apps.FrancedataConfig",
     "aspic.apps.AspicConfig",
     "core",
+    "bnsp",
     "pages",
 ]
 

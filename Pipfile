@@ -25,6 +25,7 @@ django-francedata = "*"
 django-dsfr = "*"
 wagtail-markdown = "*"
 wagtailsvg = "*"
+xmltodict = "*"
 
 [dev-packages]
 pylint = "*"

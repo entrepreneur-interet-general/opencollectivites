@@ -43,7 +43,9 @@ class DocumentType(TimeStampModel):
     """
 
     name = models.CharField("nom", max_length=100)
-    icon_path = models.CharField("Chemin de l’icône", max_length=255, null=True)
+    icon_path = models.CharField(
+        "Chemin de l’icône", max_length=255, null=True, blank=True
+    )
 
     def __str__(self):
         return f"{self.name}"
@@ -141,7 +143,11 @@ class Source(TimeStampModel):
     title = models.CharField("titre", max_length=100)
     editor = models.ManyToManyField("Organization", verbose_name="éditeur")
     rss_feed = models.OneToOneField(
-        "feeds.Source", verbose_name="flux RSS", on_delete=models.SET_NULL, null=True
+        "feeds.Source",
+        verbose_name="flux RSS",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
     )
     url = models.URLField("URL", null=True, blank=True)
     base_domain = models.CharField("domaine", max_length=100, null=True, blank=True)
@@ -190,7 +196,8 @@ class Source(TimeStampModel):
         if not self.title:
             self.title = self.url
 
-        self.base_domain = urlparse(self.url).hostname[:100]
+        if self.url:
+            self.base_domain = urlparse(self.url).hostname[:100]
         super().save(*args, **kwargs)
 
     class Meta:
