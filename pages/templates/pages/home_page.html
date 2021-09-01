@@ -1,6 +1,5 @@
 {% extends "core/base.html" %}
-{% load static %}
-{% load wagtailcore_tags %}
+{% load static wagtailcore_tags %}
 
 {% block body_class %}template-homepage{% endblock %}
 
@@ -25,16 +24,16 @@
     <div class="fr-select-group">
       <label class="fr-label">Commune, EPCI, département, région</label>
       <div id="vue-app">
-        <vue-multiselect v-model="place" :options="optionList" group-values="items" group-label="groupName" track-by="value"
-        label="text" :group-select="false" :multiple="false" :internal-search="false" :loading="isLoading"
-        :preserve-search="true" placeholder="Taper les premières lettres de la collectivité recherchée"
-        @search-change="searchCollectivities" :options-limit="300" :limit="3" :limit-text="limitText"
-        @input="loadResultPage">
-          <span slot="noOptions"></span>
-          <span slot="noResult">
-            Aucun résultat trouvé, merci de vérifier votre saisie.
-          </span>
-        </vue-multiselect>
+        <div>
+          <vue-multiselect v-model="place" :options="options" :searchable="true"
+          group-values="items" group-label="groupName" track-by="value" :multiple="false" @search-change="searchCollectivities"
+          label="text"  :group-select="false" :multiple="false" :internal-search="false" :loading="isLoading"
+          :preserve-search="true" placeholder="Taper les premières lettres de la collectivité recherchée"
+          @search-change="searchCollectivities" :options-limit="300" :limit-text="limitText" @input="loadResultPage">
+            <span slot="noOptions">Taper les premières lettres de la collectivité recherchée</span>
+            <span slot="noResult">Aucun résultat trouvé, merci de vérifier votre saisie.</span>
+          </vue-multiselect>
+        </div>
       </div>
     </div>
   </div>
@@ -50,7 +49,7 @@
 
 {% block extra_js %}
 <script type="text/javascript" src="{% static 'lib/vue-2.6.12/vue.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'lib/vue-multiselect-2.1.0/dist/vue-multiselect.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/vue-multiselect-2.1.6/dist/vue-multiselect.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'lib/axios.0.21.1/axios.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/OpenCollectivitesDataService.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/utils.js' %}"></script>
@@ -64,7 +63,7 @@
     el: '#vue-app',
     data() {
       return {
-        optionList: [],
+        options: [],
         place: null,
         isLoading: false,
       };
@@ -76,13 +75,15 @@
       searchCollectivities(query) {
         query = query.toLowerCase();
 
-        if (query.length < 3 && !shortnamedCommunes.includes(query)) {
-          this.optionList = [];
+        if (query.length == 0 && this.isLoading == true) {
+          this.isLoading = false;
+        } else if (query.length < 3 && !shortnamedCommunes.includes(query)) {
+          this.options = [];
         } else {
           this.isLoading = true;
           openCollectivitesApiCall.listByName(query)
             .then((response) => {
-              this.optionList = response.data;
+              this.options = response.data;
               this.isLoading = false;
             })
             .catch((e) => {

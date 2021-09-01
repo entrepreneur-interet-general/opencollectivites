@@ -7,7 +7,7 @@ var app = new Vue({
 
   data() {
     return {
-      optionList: [],
+      options: [],
       defaultList: [],
       places: null,
       isLoading: false,
@@ -33,8 +33,10 @@ var app = new Vue({
     searchCollectivities(query) {
       query = query.toLowerCase();
 
-      if (query.length < 3 && !shortnamedCommunes.includes(query)) {
-        this.optionList = this.defaultList;
+      if (query.length == 0 && this.isLoading == true) {
+        this.isLoading = false;
+      } else if (query.length < 3 && !shortnamedCommunes.includes(query)) {
+        this.options = this.defaultList;
       } else {
         this.isLoading = true;
         openCollectivitesApiCall.listByName(query)
@@ -44,7 +46,7 @@ var app = new Vue({
               // filtering to get only the needed type
               if (r.groupName === this.groupName) {
                 // Do not list the current (origin) page in the results
-                this.optionList = r.items.filter((item) => {
+                this.options = r.items.filter((item) => {
                   return item.slug !== this.origin;
                 });
                 this.isLoading = false;

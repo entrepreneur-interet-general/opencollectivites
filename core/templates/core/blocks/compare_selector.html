@@ -7,7 +7,7 @@
     </label>
     <vue-multiselect
       v-model="places"
-      :options="optionList"
+      :options="options"
       track-by="value"
       label="text"
       :multiple="true"
@@ -22,10 +22,9 @@
       :limit="3"
       :limit-text="limitText"
     >
-      <span slot="noOptions"></span>
-      <span slot="noResult">
-      Aucun résultat trouvé, merci de vérifier votre saisie.
-      </span>
+      <span slot="noOptions">Taper les premières lettres de la collectivité recherchée</span>
+      <span slot="noResult">Aucun résultat trouvé, merci de vérifier votre saisie.</span>
+      <span slot="maxElements">Limite de sélection atteinte.</span>
     </vue-multiselect>
     </div>
     <button class="fr-btn fr-fi-checkbox-line fr-btn--icon-right" :isDisabled="!(places && places.length)">
