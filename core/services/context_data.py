@@ -26,7 +26,6 @@ class ContextData:
         # sirens/insee codes are normally unique per year
         if datayear:
             self.datayear = datayear
-            print(f"datayear is {datayear}")
         else:
             self.datayear = DataYear.objects.order_by("-year")[0]
 
