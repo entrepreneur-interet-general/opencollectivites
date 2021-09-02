@@ -45,7 +45,7 @@
 
   {% dsfr_js %}
   {% block extra_js %}{% endblock %}
-  {% matomo %}
+  {% if debug is not True %}{% matomo %}{% endif %}
 </body>
 
 </html>
