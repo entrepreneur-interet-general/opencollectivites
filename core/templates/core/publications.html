@@ -52,6 +52,9 @@
                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                 {% dsfr_input filters.before extra_classes="fr-col-12 fr-col-md-4" %}
                             </div>
+                            <button class="fr-btn" onclick="setUrlModale(event)">
+                                Valider
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -111,15 +114,39 @@
 
 {% block extra_js %}
 <script>
+const filterParams = new URLSearchParams(window.location.search);
+
 function goBack() {
     window.history.back();
 }
 
-function setUrlParam(select) {
-    const filterParams = new URLSearchParams(window.location.search);
-    filterParams.delete("page") //This will change the list of results so removing the page parameter if set
-    filterParams.set(select.id, select.value);
-    window.location.href = "/publications?"+filterParams.toString();
+function setFilterParam(param) {
+    filterParams.delete("page"); //This will change the list of results so removing the page parameter if set
+    if (param.value) {
+        filterParams.set(param.id, param.value);
+    } else {
+        filterParams.delete(param.id);
+    }
+}
+
+function setUrlParam(param = {}) {
+    if (param) {
+        setFilterParam(param);
+    }
+    setUrl();
+}
+
+function setUrlModale(event) {
+    event.preventDefault();
+    setUrl();
+}
+
+function setModaleParam(param) {
+    setFilterParam(param);
+}
+
+function setUrl(){
+    window.location.href = "{% url 'core:page_publications' %}?"+filterParams.toString();
 }
 </script>
 {% endblock%}

@@ -75,25 +75,46 @@ def publication_filters(request):
     """
     # Model type: select
     models = [
-        {"name": "Thématique", "model": Topic, "key": "topic", "label": "name"},
-        {"name": "Portée", "model": Scope, "key": "scope", "label": "name"},
+        {
+            "name": "Thématique",
+            "model": Topic,
+            "key": "topic",
+            "label": "name",
+            "modale": False,
+        },
+        {
+            "name": "Portée",
+            "model": Scope,
+            "key": "scope",
+            "label": "name",
+            "modale": False,
+        },
         {
             "name": "Type de ressource",
             "model": DocumentType,
             "key": "document_type",
             "label": "name",
+            "modale": False,
         },
         {
             "name": "Organisme auteur",
             "model": Organization,
             "key": "source_org",
             "label": "name",
+            "modale": True,
         },
     ]
     response = {}
     for m in models:
         values = []
         model_key = m["key"]
+
+        # If the filter is in the "Extra filters" modale, we want to store
+        # the result until the "Validate" button is checked
+        if m["modale"]:
+            onchange_function = f"setModaleParam({model_key})"
+        else:
+            onchange_function = f"setUrlParam({model_key})"
 
         entries = m["model"].objects.all()
         for entry in entries:
@@ -107,8 +128,8 @@ def publication_filters(request):
             "label": m["name"],
             "id": model_key,
             "options": values,
-            "selected": request.GET.get(m["key"]),
-            "onchange": f"setUrlParam({m['key']})",
+            "selected": request.GET.get(model_key),
+            "onchange": onchange_function,
             "default": {"text": f"- {m['name']} -", "disabled": False, "hidden": False},
         }
 
@@ -165,7 +186,7 @@ def publication_filters(request):
         "value": date_after,
         "min": date_after_min,
         "max": date_after_max,
-        "onchange": f"setUrlParam(after)",
+        "onchange": f"setModaleParam(after)",
     }
     response["before"] = {
         "label": "Et le",
@@ -174,7 +195,7 @@ def publication_filters(request):
         "value": date_before,
         "min": date_before_min,
         "max": date_before_max,
-        "onchange": f"setUrlParam(before)",
+        "onchange": f"setModaleParam(before)",
     }
 
     # Count the extra filters
