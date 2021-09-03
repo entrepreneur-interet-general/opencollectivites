@@ -21,11 +21,11 @@ gunicorn = "*"
 django-ninja = "*"
 Babel = "*"
 django-analytical = "*"
-django-francedata = "*"
 django-dsfr = "*"
 wagtail-markdown = "*"
 wagtailsvg = "*"
 xmltodict = "*"
+django-francedata = "*"
 
 [dev-packages]
 pylint = "*"
