@@ -24,16 +24,35 @@
     <div class="fr-select-group">
       <label class="fr-label">Commune, EPCI, département, région</label>
       <div id="vue-app">
+      {% verbatim %}
         <div>
-          <vue-multiselect v-model="place" :options="options" :searchable="true"
-          group-values="items" group-label="groupName" track-by="value" :multiple="false" @search-change="searchCollectivities"
-          label="text"  :group-select="false" :multiple="false" :internal-search="false" :loading="isLoading"
-          :preserve-search="true" placeholder="Taper les premières lettres de la collectivité recherchée"
-          @search-change="searchCollectivities" :options-limit="300" :limit-text="limitText" @input="loadResultPage">
+          <vue-multiselect
+            v-model="singlePlace"
+            :options="options"
+            :searchable="true"
+            group-values="items"
+            group-label="groupName"
+            track-by="value"
+            :multiple="false"
+            @search-change="searchCollectivities"
+            label="text"
+            :group-select="false"
+            :multiple="false"
+            :internal-search="false"
+            :loading="isLoading"
+            :preserve-search="true"
+            placeholder="Taper les premières lettres de la collectivité recherchée"
+            :show-labels="false"
+            @search-change="searchCollectivities"
+            :options-limit="300"
+            :limit-text="limitText"
+            @input="loadResultPageHome">
             <span slot="noOptions">Taper les premières lettres de la collectivité recherchée</span>
-            <span slot="noResult">Aucun résultat trouvé, merci de vérifier votre saisie.</span>
+            <span slot="noResult" v-if="query.length < 3">Taper au moins trois caractères</span>
+            <span slot="noResult" v-else>Aucun résultat trouvé, merci de vérifier votre saisie</span>
           </vue-multiselect>
         </div>
+      {% endverbatim %}
       </div>
     </div>
   </div>
@@ -45,6 +64,7 @@
     {% include_block block %}
   {% endfor %}
 </div> <!-- End of Wagtail-generated part -->
+
 {% endblock %}
 
 {% block extra_js %}
@@ -55,48 +75,11 @@
 <script type="text/javascript" src="{% static 'js/utils.js' %}"></script>
 
 <script>
-  Vue.component('vue-multiselect', window.VueMultiselect.default);
-
-  const openCollectivitesApiCall = new OpenCollectivitesDataService();
-
-  var app = new Vue({
-    el: '#vue-app',
-    data() {
-      return {
-        options: [],
-        place: null,
-        isLoading: false,
-      };
-    },
-    methods: {
-      limitText(count) {
-        return `et ${count} autres résultats`;
-      },
-      searchCollectivities(query) {
-        query = query.toLowerCase();
-
-        if (query.length == 0 && this.isLoading == true) {
-          this.isLoading = false;
-        } else if (query.length < 3 && !shortnamedCommunes.includes(query)) {
-          this.options = [];
-        } else {
-          this.isLoading = true;
-          openCollectivitesApiCall.listByName(query)
-            .then((response) => {
-              this.options = response.data;
-              this.isLoading = false;
-            })
-            .catch((e) => {
-              console.log("🙅  Service not responding");
-              console.log(e);
-            });
-        }
-      },
-      loadResultPage() {
-        window.location.href = '/' + this.place.type + '/' + this.place.slug;
-      },
-    },
-  });
-
+const pageData = {
+  type: "all",
+  slug: "home"
+}
 </script>
+
+<script type="text/javascript" src="{% static 'js/place-selector.js' %}"></script>
 {% endblock %}

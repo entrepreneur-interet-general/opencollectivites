@@ -1,6 +1,6 @@
 <div id="vue-app" class="comparison-selector fr-bg--alt">
   {% verbatim %}
-  <form @submit.prevent="loadResultPage">
+  <form @submit.prevent="loadResultPageCompare">
     <div class="fr-select-group">
     <label class="fr-label">
       Sélectionnez jusqu'à trois collectivités :
@@ -21,10 +21,12 @@
       :options-limit="300"
       :limit="3"
       :limit-text="limitText"
+      :show-labels="false"
     >
       <span slot="noOptions">Taper les premières lettres de la collectivité recherchée</span>
-      <span slot="noResult">Aucun résultat trouvé, merci de vérifier votre saisie.</span>
-      <span slot="maxElements">Limite de sélection atteinte.</span>
+      <span slot="noResult" v-if="query.length < 3">Taper au moins trois caractères</span>
+      <span slot="noResult" v-else>Aucun résultat trouvé, merci de vérifier votre saisie</span>
+      <span slot="maxElements">Limite de sélection atteinte</span>
     </vue-multiselect>
     </div>
     <button class="fr-btn fr-fi-checkbox-line fr-btn--icon-right" :isDisabled="!(places && places.length)">

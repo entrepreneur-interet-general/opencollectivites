@@ -10,9 +10,11 @@ var app = new Vue({
       options: [],
       defaultList: [],
       places: null,
+      singlePlace: null,
       isLoading: false,
       type: pageData.type,
-      origin: pageData.slug
+      origin: pageData.slug,
+      query: ""
     };
   },
 
@@ -32,6 +34,7 @@ var app = new Vue({
 
     searchCollectivities(query) {
       query = query.toLowerCase();
+      this.query = query;
 
       if (query.length == 0 && this.isLoading == true) {
         this.isLoading = false;
@@ -39,35 +42,49 @@ var app = new Vue({
         this.options = this.defaultList;
       } else {
         this.isLoading = true;
+        this.options = [];
         openCollectivitesApiCall.listByName(query)
           .then((response) => {
-            const results = response.data;
-            for (const r of results) {
-              // filtering to get only the needed type
-              if (r.groupName === this.groupName) {
-                // Do not list the current (origin) page in the results
-                this.options = r.items.filter((item) => {
-                  return item.slug !== this.origin;
-                });
-                this.isLoading = false;
-              }
+
+            if (this.origin == "home") {
+              console.log("ici")
+              this.options = response.data;
+            } else {
+              this.fillOptionsforComparator(response)
             }
           })
           .catch((e) => {
             console.log("🙅  Service not responding");
             console.log(e);
           });
-      }
+          this.isLoading = false;
+        }
     },
 
-    loadResultPage() {
+    fillOptionsforComparator(response) {
+      const results = response.data;
+      for (const r of results) {
+        // filtering to get only the needed type
+        if (r.type === this.type) {
+          // Do not list the current (origin) page in the results
+          this.options = r.items.filter((item) => {
+            return item.slug !== this.origin;
+          });
+        }
+      }  
+    },
+
+    loadResultPageHome() {
+      window.location.href = '/' + this.singlePlace.type + '/' + this.singlePlace.slug;
+    },
+
+
+    loadResultPageCompare() {
       let result_url = `/compare/${this.type}/${this.origin}`
       for (const p of this.places) {
         result_url += '/' + p.slug
       }
-
       window.location.href = result_url;
-
     },
   },
 });
