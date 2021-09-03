@@ -15,7 +15,7 @@ from core.services.publications import (
 def page_epci_detail(request, slug):
     epci = get_object_or_404(Epci, slug=slug)
 
-    payload = init_payload(f"Fiche EPCI : {epci.name}")
+    payload = init_payload(f"Données locales intercommunalité : {epci.name}")
     payload["slug"] = slug
     payload["siren"] = epci.siren
     payload["epci_name"] = epci.name

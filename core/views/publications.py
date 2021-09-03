@@ -13,7 +13,7 @@ from core.services.publications import (
 
 @require_safe
 def page_publications(request):
-    payload = init_payload("Publications")
+    payload = init_payload("Études, statistiques et outils locaux")
 
     documents = list_documents(
         topic=request.GET.get("topic"),

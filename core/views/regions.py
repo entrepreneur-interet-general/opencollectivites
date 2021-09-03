@@ -98,7 +98,7 @@ def page_region_liste_departements(request, slug):
         f"Liste des { departements.count() } départements de la région {region.name}",
         links=[
             {
-                "title": f"Fiche région : {region.name}",
+                "title": f"Données locales région : {region.name}",
                 "url": reverse("core:page_region_detail", kwargs={"slug": region.slug}),
             }
         ],

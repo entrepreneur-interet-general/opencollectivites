@@ -11,7 +11,7 @@ from core.services.departements import departement_data
 def page_departement_detail(request, slug):
     departement = get_object_or_404(Departement, slug=slug)
 
-    payload = init_payload(f"Fiche département : {departement.name}")
+    payload = init_payload(f"Données locales département : {departement.name}")
     payload["slug"] = slug
     payload["siren"] = departement.siren
     payload["data"] = departement_data(departement)

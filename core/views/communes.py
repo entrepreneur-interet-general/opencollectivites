@@ -7,7 +7,6 @@ from francedata.models import Commune
 from core.services.communes import (
     commune_data,
     communes_compare,
-    compare_communes_for_export,
 )
 
 
@@ -15,7 +14,7 @@ from core.services.communes import (
 def page_commune_detail(request, slug):
     commune = get_object_or_404(Commune, slug=slug)
 
-    payload = init_payload(f"Fiche commune : {commune.name}")
+    payload = init_payload(f"Données locales commune : {commune.name}")
     payload["slug"] = slug
     payload["siren"] = commune.siren
     payload["commune_name"] = commune.name
