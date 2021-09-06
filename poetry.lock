@@ -210,7 +210,7 @@ Django = ">=2.2"
 
 [[package]]
 name = "django-dsfr"
-version = "0.2.0"
+version = "0.2.1"
 description = "Integrate the French government Design System into a Django app"
 category = "main"
 optional = false
@@ -232,7 +232,7 @@ Django = ">=2.2"
 
 [[package]]
 name = "django-francedata"
-version = "0.9.1"
+version = "0.9.2"
 description = "A Django app to provide a database structure, API and import scripts to manage French communes, intercommunalités, départements and régions, with their structure and data from Insee and the DGCL."
 category = "main"
 optional = false
@@ -1060,16 +1060,16 @@ django-cors-headers = [
     {file = "django_cors_headers-3.8.0-py3-none-any.whl", hash = "sha256:425c20ceffa42b9ac11b02611eece4ae6c5fef2ff0f039c14c1df20e00c80df8"},
 ]
 django-dsfr = [
-    {file = "django-dsfr-0.2.0.tar.gz", hash = "sha256:3bd3de4ceaf86be44d1501008dcf6f03f61699edca6d0a1c8f07fea5d99f7376"},
-    {file = "django_dsfr-0.2.0-py3-none-any.whl", hash = "sha256:9b9437abb73895ef54a1e963db4bf7fe21076e70ba1ab4ec1f015f6d5c218b46"},
+    {file = "django-dsfr-0.2.1.tar.gz", hash = "sha256:38f12790415a302b22d97f0d0015a722b042aa4fd156877dfcbc816281b8dbb3"},
+    {file = "django_dsfr-0.2.1-py3-none-any.whl", hash = "sha256:91020c139455be3ad09271fd06b29b443ab8c9c11501dd2b1b0c92f2510ddf4c"},
 ]
 django-filter = [
     {file = "django-filter-2.4.0.tar.gz", hash = "sha256:84e9d5bb93f237e451db814ed422a3a625751cbc9968b484ecc74964a8696b06"},
     {file = "django_filter-2.4.0-py3-none-any.whl", hash = "sha256:e00d32cebdb3d54273c48f4f878f898dced8d5dfaad009438fe61ebdf535ace1"},
 ]
 django-francedata = [
-    {file = "django-francedata-0.9.1.tar.gz", hash = "sha256:bf5e5aef590ace605c48e131ee7d3e1b480f95542b70115a1923030e4a336a62"},
-    {file = "django_francedata-0.9.1-py3-none-any.whl", hash = "sha256:fcac786a5d7f12df61bee20c7ddea5d515e7b7a71719537df6f04dc16ed02811"},
+    {file = "django-francedata-0.9.2.tar.gz", hash = "sha256:6e4b5c36eb59d8938fe619bfbba6639e3d07f815a1f7c48e84a18026f0838bba"},
+    {file = "django_francedata-0.9.2-py3-none-any.whl", hash = "sha256:c9916b26e78ea506327f1d4425541d705128c91887cb97f137cd4396d7fd51a2"},
 ]
 django-modelcluster = [
     {file = "django-modelcluster-5.1.tar.gz", hash = "sha256:783d177f7bf5c8f30fe365c347b9a032920de371fe1c63d955d7b283684d4c08"},
