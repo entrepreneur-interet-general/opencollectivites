@@ -18,7 +18,7 @@
 
 {% block content %}
 <div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
-  {% dsfr_breadcrumb breadcrumb_data %}
+  {% dsfr_breadcrumb %}
 
   {# Intro #}
   <h1>{{ title }}</h1>
@@ -29,7 +29,7 @@
 
   <p>
     {{ data.nom }} est une commune française, située dans le département
-    {{ data.departement.name }}{% if data.region%} en région {{ data.region.name }}{% endif %}.{% if data.nom_maire %} Le maire actuel est
+    {{ data.departement.name }}{% if data.region %} en région {{ data.region.name }}{% endif %}.{% if data.nom_maire %} Le maire actuel est
     {{ data.civ_maire | safe }} {{ data.pre_maire }} {{ data.nom_maire }}.{% endif%}
   </p>
 
