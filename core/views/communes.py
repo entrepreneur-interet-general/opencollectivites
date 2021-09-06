@@ -18,7 +18,7 @@ def page_commune_detail(request, slug):
     payload["slug"] = slug
     payload["siren"] = commune.siren
     payload["commune_name"] = commune.name
-    payload["data"] = commune_data(commune.siren)
+    payload["data"] = commune_data(commune)
     payload["page_data"] = {"type": "commune", "slug": slug}
     payload["data"]["tables_header"] = ["Intitulé", "Donnée"]
     payload["data"]["table_header_zonage"] = ["Intitulé", "Statut"]
@@ -43,7 +43,7 @@ def page_commune_detail(request, slug):
 @require_safe
 def page_commune_compare(request, slug1, slug2, slug3=0, slug4=0):
     slugs = [slug1, slug2]
-    sirens = []
+    communes = []
     slugs_dict = {"slug1": slug1, "slug2": slug2}
 
     """
@@ -59,11 +59,11 @@ def page_commune_compare(request, slug1, slug2, slug3=0, slug4=0):
 
     for s in slugs:
         commune = get_object_or_404(Commune, slug=s)
-        sirens.append(commune.siren)
+        communes.append(commune)
 
     payload = init_payload("Comparaison de communes")
     payload["data"] = {}
-    payload["data"]["tables"] = communes_compare(sirens)
+    payload["data"]["tables"] = communes_compare(communes)
     payload["data"]["tables_header"] = ["Intitulé"] + payload["data"]["tables"][
         "places_names"
     ]

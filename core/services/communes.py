@@ -200,7 +200,8 @@ def group_data(siren_id):
     return response
 
 
-def commune_data(siren_id: str, year: DataYear = None):
+def commune_data(commune: Commune, year: DataYear = None):
+    siren_id = commune.siren
     # Get the basic data
     response = T050Communes.objects.get(siren=siren_id).__dict__
     response.pop("_state", None)
@@ -220,46 +221,42 @@ def commune_data(siren_id: str, year: DataYear = None):
     # Subdivisions
     if not year:
         year = DataYear.objects.order_by("-year")[0]
-    subdivisions = Commune.objects.get(siren=siren_id, years=year)
-    if subdivisions.epci:
+    if commune.epci:
         response["epci"] = {
-            "name": subdivisions.epci.name,
-            "title": f"EPCI : {subdivisions.epci.name}",
+            "name": commune.epci.name,
+            "title": f"EPCI : {commune.epci.name}",
             "url": reverse(
                 "core:page_epci_detail",
-                kwargs={"slug": subdivisions.epci.slug},
+                kwargs={"slug": commune.epci.slug},
             ),
             "image_path": "/static/img/hexagon2.svg",
             "svg_icon": True,
         }
-    if subdivisions.departement:
+    if commune.departement:
         response["departement"] = {
-            "name": subdivisions.departement.name,
-            "title": f"Département : {subdivisions.departement.name}",
+            "name": commune.departement.name,
+            "title": f"Département : {commune.departement.name}",
             "url": reverse(
                 "core:page_departement_detail",
-                kwargs={"slug": subdivisions.departement.slug},
+                kwargs={"slug": commune.departement.slug},
             ),
             "image_path": "/static/img/hexagon3.svg",
             "svg_icon": True,
         }
-    if (
-        subdivisions.departement.region
-        and subdivisions.departement.region.name != "Mayotte"
-    ):
+    if commune.departement.region and commune.departement.region.name != "Mayotte":
         response["region"] = {
-            "name": subdivisions.departement.region.name,
-            "title": f"Région : {subdivisions.departement.region.name}",
+            "name": commune.departement.region.name,
+            "title": f"Région : {commune.departement.region.name}",
             "url": reverse(
                 "core:page_region_detail",
-                kwargs={"slug": subdivisions.departement.region.slug},
+                kwargs={"slug": commune.departement.region.slug},
             ),
             "image_path": "/static/img/hexagon4.svg",
             "svg_icon": True,
         }
 
     # Data Tables
-    context_data = CommuneContextData([siren_id], datayear=year)
+    context_data = CommuneContextData([commune], datayear=year)
     context_data.fetch_collectivity_context_data(siren_id)
     context_data.format_tables()
 
@@ -272,8 +269,8 @@ def commune_data(siren_id: str, year: DataYear = None):
     return response
 
 
-def communes_compare(sirens: list, format_for_web: bool = True) -> dict:
-    context_data = CommuneContextData(sirens)
+def communes_compare(communes: list, format_for_web: bool = True) -> dict:
+    context_data = CommuneContextData(communes)
     context_data.fetch_collectivities_context_data()
 
     context_data.format_tables(format_for_web)
@@ -285,7 +282,7 @@ def compare_communes_for_export(qs: QuerySet, filename: str):
     communes_siren = list(qs.values_list("siren", flat=True))
     communes_insee = list(qs.values_list("insee", flat=True))
 
-    members_context_data = communes_compare(communes_siren, format_for_web=False)
+    members_context_data = communes_compare(qs, format_for_web=False)
     members_names = members_context_data.pop("places_names")
 
     title_row = ["Nom de la commune"] + members_names

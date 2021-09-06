@@ -1,6 +1,7 @@
 from francedata.models import DataYear
 from django.apps import apps
 from django.db.models import Max
+from stdnum.fr import siren
 
 from .utils import format_number
 from aspic.utils import data_vintage
@@ -13,13 +14,14 @@ class ContextData:
     aspic_data_model_name = ""
     fs_base_model_name = ""
 
-    def __init__(self, sirens: list, datayear: DataYear = None) -> None:
+    def __init__(self, collectivities: list, datayear: DataYear = None) -> None:
 
         # Instanciate variables
+        self.collectivities = []
         self.sirens = []
         self.context_data = {}
         self.max_year = None
-        self.place_names = []
+        self.collectivities_names = []
         self.formated_tables = {}
         self.vintages = []
 
@@ -27,14 +29,16 @@ class ContextData:
         if datayear:
             self.datayear = datayear
         else:
-            self.datayear = DataYear.objects.order_by("-year")[0]
+            self.datayear = DataYear.get_latest()
 
-        if len(sirens):
-            # We want to keep the list of Sirens in order
-            self.sirens = sirens
-            for siren_id in sirens:
-                self.context_data[siren_id] = {}
-                self.fetch_collectivity_name(siren_id)
+        # We want to keep the list of Sirens in order
+        if len(collectivities):
+            self.collectivities = collectivities
+            for coll in collectivities:
+                coll_id = coll.id
+                self.sirens.append(coll.siren)
+                self.context_data[coll_id] = {}
+                self.collectivities_names.append(coll.name)
         else:
             raise ValueError("The list of siren IDs is empty")
 
@@ -57,8 +61,12 @@ class ContextData:
     def list_sirens(self) -> list:
         return self.sirens
 
+    def list_collectivities(self) -> list:
+        return self.collectivities
+
     def fetch_collectivity_name(self, siren_id: str):
         fs_base_model = apps.get_model("francedata", self.fs_base_model_name)
+        print(siren_id, self.datayear)
         self.place_names.append(
             fs_base_model.objects.get(siren=siren_id, years=self.datayear).name
         )
@@ -112,7 +120,7 @@ class ContextData:
         for table in self.list_context_tables():
             self.format_table(table, format_for_web)
 
-        self.formated_tables["places_names"] = self.place_names
+        self.formated_tables["places_names"] = self.collectivities_names
 
     def format_table(self, table, format_for_web: bool = True) -> None:
         formated_table = []
