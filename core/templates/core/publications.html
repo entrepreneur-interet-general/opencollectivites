@@ -6,18 +6,10 @@
 <header role="banner" class="fr-header oc-sticky-header">
     <div class="fr-header__body">
         <div class="fr-container">
-            <form id="publications-header-form" class="fr-grid-row">
-                <div class="fr-col-12 fr-col-md-1 fr-input-group oc-inline-form">
-                    <button class="fr-btn fr-btn--secondary fr-fi-arrow-left-s-line" title="Page précédente" onclick="goBack()">
-                        Précédent
-                    </button>
-                </div>
+            <form id="publications-header-form" class="fr-grid-row fr-grid-row--gutters">
                 {% dsfr_select filters.topic extra_classes="fr-col-12 fr-col-md-3" %}
-                &nbsp;&nbsp;&nbsp;&nbsp;
                 {% dsfr_select filters.scope extra_classes="fr-col-12 fr-col-md-3" %}
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                {% dsfr_select filters.document_type extra_classes="fr-col-12 fr-col-md-2" %}
-                &nbsp;&nbsp;&nbsp;&nbsp;
+                {% dsfr_select filters.document_type extra_classes="fr-col-12 fr-col-md-3" %}
                 <div class="fr-col-12 fr-col-md-2 fr-input-group oc-inline-form">
                     <button class="fr-btn fr-btn--secondary" type="button" title="Plus de filtres"data-fr-opened="false" aria-controls="fr-modal-morefilters">
                         Plus de filtres ({{ filters.extra_count}})
@@ -45,12 +37,11 @@
                             Plus de filtres
                         </h1>
                         <form id="publications-morefilters">
-                            {% dsfr_select filters.source_org %}
+                            {% dsfr_select filters.source_org onchange="setModaleParam(source_org)" %}
                             <p>Plage de publication</p>
-                            <div class="fr-grid-row">
-                                {% dsfr_input filters.after extra_classes="fr-col-12 fr-col-md-4" %}
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                                {% dsfr_input filters.before extra_classes="fr-col-12 fr-col-md-4" %}
+                            <div class="fr-grid-row fr-grid-row--gutters">
+                                {% dsfr_input filters.after onchange="setModaleParam(after)" extra_classes="fr-col-12 fr-col-md-4" %}
+                                {% dsfr_input filters.before onchange="setModaleParam(after)" extra_classes="fr-col-12 fr-col-md-4" %}
                             </div>
                             <button class="fr-btn" onclick="setUrlModale(event)">
                                 Valider
@@ -115,10 +106,6 @@
 {% block extra_js %}
 <script>
 const filterParams = new URLSearchParams(window.location.search);
-
-function goBack() {
-    window.history.back();
-}
 
 function setFilterParam(param) {
     filterParams.delete("page"); //This will change the list of results so removing the page parameter if set

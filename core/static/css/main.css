@@ -57,10 +57,19 @@
     color: var(--g800);
     background-color: var(--w);
     border-bottom: 1px solid #ccc;
-    position: sticky;
     top: 0px;
     width: 100%;
     z-index: 100;
+}
+
+@media (min-width: 768px) {
+    .oc-sticky-header {
+        position: sticky;
+    }
+
+    .oc-mobile-only {
+        display: none;
+    }
 }
 
 .oc-sticky-block {
