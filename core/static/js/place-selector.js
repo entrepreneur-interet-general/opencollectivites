@@ -47,7 +47,6 @@ var app = new Vue({
           .then((response) => {
 
             if (this.origin == "home") {
-              console.log("ici")
               this.options = response.data;
             } else {
               this.fillOptionsforComparator(response)
