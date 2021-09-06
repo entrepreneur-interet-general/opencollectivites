@@ -36,7 +36,7 @@ var app = new Vue({
       query = query.toLowerCase();
       this.query = query;
 
-      if (query.length == 0 && this.isLoading == true) {
+      if (query.length == 0 && this.isLoading) {
         this.isLoading = false;
       } else if (query.length < 3 && !shortnamedCommunes.includes(query)) {
         this.options = this.defaultList;

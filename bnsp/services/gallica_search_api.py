@@ -1,4 +1,3 @@
-from typing import List, Union
 import time
 import requests
 
@@ -10,11 +9,11 @@ from xml.parsers.expat import ExpatError
 class GallicaSearch:
     # API defaults
     API_ENDPOINT = "https://gallica.bnf.fr/SRU"
-    MAX_RECORDS = 15  # Max: 50
-    START_RECORD = 1
-    MAX_RETRIES = 3
+    DEFAULT_MAX_RECORDS = 15  # Max: 50
+    DEFAULT_START_RECORD = 1
+    DEFAULT_MAX_RETRIES = 3
 
-    def __init__(self, max_records: int = MAX_RECORDS) -> None:
+    def __init__(self, max_records: int = DEFAULT_MAX_RECORDS) -> None:
         self.set_max_records(max_records)
 
         self.raw_records = []
@@ -32,7 +31,7 @@ class GallicaSearch:
         if 0 < max_records <= 50:
             self.max_records = max_records
         else:
-            self.max_records = self.MAX_RECORDS
+            self.max_records = self.DEFAULT_MAX_RECORDS
 
     def set_slow_mode(self, slow_mode: float = 0):
         """
@@ -45,7 +44,7 @@ class GallicaSearch:
     def gallica_search_retrieve(
         self,
         query: str,
-        start_record: int = START_RECORD,
+        start_record: int = DEFAULT_START_RECORD,
     ) -> dict:
         """
         Perform a query on the SRU endpoint
@@ -62,7 +61,7 @@ class GallicaSearch:
 
             response = requests.get(self.API_ENDPOINT, params=payload)
 
-            retries = self.MAX_RETRIES
+            retries = self.DEFAULT_MAX_RETRIES
             if response.status_code == 500:
                 while retries:
                     print(f"Error 500, retrying (retries: {retries})")
@@ -75,13 +74,11 @@ class GallicaSearch:
 
             return xmltodict.parse(response.content)
         except ExpatError:
-            # print(f"Problem with the query {query}. See returned page below")
-            # print(response.content)
             raise ValueError(
                 "The API endpoint did not return XML content. This is likely the result of an invalid query."
             )
 
-    def count_records(self, query: str) -> int:
+    def count_records(self, query: str) -> dict:
         """
         Retrieve the expected number of records for a query.
         """
