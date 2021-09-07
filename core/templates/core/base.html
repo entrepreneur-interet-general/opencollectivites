@@ -1,5 +1,4 @@
 {% load static wagtailuserbar matomo dsfr_tags %}
-
 <!doctype html>
 <html lang="fr" data-fr-theme="default">
 
@@ -15,8 +14,7 @@
   {% block extra_css %}{% endblock %}
 
   {% block  title %}
-  <title>
-    {% if self.seo_title %}
+  <title>{% if self.seo_title %}
       {{ self.seo_title }}
     {% elif self.title %}
       {{ self.title }}  — Open Collectivités
@@ -24,9 +22,12 @@
       {{ title }} — Open Collectivités
     {% else %}
       Open Collectivités
-    {% endif %}
-  </title>
+    {% endif %}</title>
   {% endblock title %}
+
+  {% block description %}
+    {% if self.search_description %}<meta name="description" content ="{{ self.search_description }}" />{% endif %}
+  {% endblock description %}
 </head>
 
 <body class="{% block body_class %}{% endblock %}">
