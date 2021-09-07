@@ -11,7 +11,7 @@ from core.services.regions import region_data
 def page_region_detail(request, slug):
     region = get_object_or_404(Region, slug=slug)
 
-    payload = init_payload(f"Fiche région : {region.name}")
+    payload = init_payload(f"Données locales région : {region.name}")
     payload["slug"] = slug
     payload["siren"] = region.siren
     payload["data"] = region_data(region)
