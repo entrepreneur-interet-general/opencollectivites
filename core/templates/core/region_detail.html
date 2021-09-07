@@ -1,6 +1,5 @@
 {% extends "core/base.html" %}
-{% load static %}
-{% load dsfr_tags %}
+{% load static load dsfr_tags %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/vue-multiselect-dsfr.css' %}">
@@ -44,8 +43,6 @@
     </div>
     {% endif %}
   </div>
-
-
 </div> <!-- end div container-->
 
 {% endblock %}
