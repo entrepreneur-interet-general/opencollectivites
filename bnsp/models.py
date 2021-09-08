@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.utils.html import strip_tags
-from core.models import Document, Source
+from core.models import DataYear, Document, Source
 from francedata.services.django_admin import TimeStampModel
 from bnsp.services.gallica_search_api import GallicaSearch, Record
 import logging
@@ -91,6 +91,11 @@ class Query(TimeStampModel):
             getattr(new_doc, prop).set(getattr(self.source, prop).all())
 
         new_doc.title = strip_tags(record.title[:255])
+
+        # Document vintage
+        year, _ = DataYear.objects.get_or_create(year=record.date)
+
+        new_doc.years.add(year)
 
         # The description
         new_doc.body = ", ".join(record.get_values("dc:subject"))
