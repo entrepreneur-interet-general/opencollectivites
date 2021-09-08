@@ -112,6 +112,7 @@ class PageTypeAdmin(TimeStampModelAdmin):
 
 @admin.register(models.Document)
 class DocumentAdmin(TimeStampModelAdmin):
+    ordering = ("-created_at",)
     search_fields = ("title", "url")
     list_display = (
         "__str__",
@@ -136,6 +137,7 @@ class DocumentAdmin(TimeStampModelAdmin):
         "image_url",
         "view_image",
         "publication_pages",
+        "years",
         "weight",
         "scope",
         "regions",

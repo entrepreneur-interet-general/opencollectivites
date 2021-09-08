@@ -37,7 +37,7 @@ def list_documents(
     if after and dateparser.parse(after):
         qs = qs.filter(last_update__gte=after)
 
-    qs = qs.order_by("-weight")
+    qs = qs.order_by("-weight", "-last_update", "-years")
     if limit:
         qs = qs[:limit]
     return qs
