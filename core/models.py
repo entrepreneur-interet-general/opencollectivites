@@ -250,6 +250,13 @@ class Document(TimeStampModel):
         null=True,
         blank=True,
     )
+    bnsp_query = models.ForeignKey(
+        "bnsp.Query",
+        verbose_name="Requête Gallica associée",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+    )
     document_type = models.ManyToManyField(
         DocumentType, verbose_name="type de document", blank=True
     )

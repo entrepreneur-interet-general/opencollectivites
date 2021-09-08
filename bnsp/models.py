@@ -4,6 +4,7 @@ from django.utils.html import strip_tags
 from core.models import Document, Source
 from francedata.services.django_admin import TimeStampModel
 from bnsp.services.gallica_search_api import GallicaSearch, Record
+import logging
 
 
 class Query(TimeStampModel):
@@ -29,27 +30,53 @@ class Query(TimeStampModel):
     class Meta:
         verbose_name = "requête"
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.name}"
 
-    def run(self) -> dict:
-        print(f"running query {self.query}")
-        search = GallicaSearch(max_records=50)
+    def run(self, since: str = "") -> None:
+        logging.info(f"running query {self.query}")
 
-        response = search.get_records(self.query)
+        now = timezone.now()
+
+        self.last_polled = now
+        self.save()
+
+        if since:
+            indexation_date = since
+        elif self.last_success:
+            indexation_date = self.last_success.strftime("%Y%m%d")
+        else:
+            indexation_date = "20160101"
+
+        search = GallicaSearch(max_records=50)
+        dated_query = f'({self.query}) and indexationdate > "{indexation_date}"'
+        response = search.get_records(dated_query)
 
         if len(response):
             for record in search.records.values():
                 self.create_or_update_document(record)
+            self.last_change = now
 
-        return response
+        self.last_success = now
+        self.save()
 
-    def create_or_update_document(self, record: Record):
+    def create_or_update_document(self, record: Record) -> None:
         new_doc, return_code_doc = Document.objects.get_or_create(url=record.ark_url)
         if return_code_doc:
-            print(f"📜  New publication created from Gallica record {record.title}")
+            logging.info(
+                f"📜  New publication created from Gallica record {record.title}"
+            )
 
+            # The indexation date is alas not in the record data
+            now = timezone.now()
+            new_doc.last_update = now
+        else:
+            logging.info(f"📜  Publication from Gallica record {record.title} updated")
+
+        new_doc.bnsp_query = self
         new_doc.source = self.source
+
+        new_doc.is_published = True
 
         props = [
             "regions",
@@ -62,10 +89,6 @@ class Query(TimeStampModel):
         ]
         for prop in props:
             getattr(new_doc, prop).set(getattr(self.source, prop).all())
-
-        # The indexation date is alas not in the record data
-        now = timezone.now()
-        new_doc.last_update = now
 
         new_doc.title = strip_tags(record.title[:255])
 

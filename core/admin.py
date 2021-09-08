@@ -131,6 +131,7 @@ class DocumentAdmin(TimeStampModelAdmin):
         "source",
         "is_published",
         "rss_post",
+        "bnsp_query",
         "body",
         "image_url",
         "view_image",

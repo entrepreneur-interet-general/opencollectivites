@@ -1,3 +1,4 @@
+import logging
 import time
 import requests
 
@@ -21,7 +22,7 @@ class GallicaSearch:
         self.records = {}
         self.slow_mode = 0
 
-    def set_max_records(self, max_records: int):
+    def set_max_records(self, max_records: int) -> None:
         """
         Set the value of the max_records parameter (1-50)
         """
@@ -33,7 +34,7 @@ class GallicaSearch:
         else:
             self.max_records = self.DEFAULT_MAX_RECORDS
 
-    def set_slow_mode(self, slow_mode: float = 0):
+    def set_slow_mode(self, slow_mode: float = 0) -> None:
         """
         Set the value of the slow_mode parameter (defaults to zero)
         if set, adds a waiting time between requests
@@ -64,7 +65,7 @@ class GallicaSearch:
             retries = self.DEFAULT_MAX_RETRIES
             if response.status_code == 500:
                 while retries:
-                    print(f"Error 500, retrying (retries: {retries})")
+                    logging.warning(f"Error 500, retrying (retries: {retries})")
                     time.sleep(5)
                     response = requests.get(self.API_ENDPOINT, params=payload)
                     if response.status_code == 200:
@@ -131,11 +132,11 @@ class GallicaSearch:
             self.parse_records()
 
         else:
-            print("The research has no results")
+            logging.info("The research returned no (new) results.")
 
         return {"records": self.raw_records, "total_records": self.total_records}
 
-    def parse_records(self):
+    def parse_records(self) -> None:
         for raw in self.raw_records:
             record = Record(raw)
             self.records[record.ark_id] = record
