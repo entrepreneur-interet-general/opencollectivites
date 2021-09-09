@@ -14,9 +14,9 @@ sudo service $GUNICORN_SERVICE stop && echo "Service $GUNICORN_SERVICE stopped"
 cd $DJANGO_DIR
 git pull
 git submodule update
-$PIPENV install
-$PIPENV run python manage.py migrate
-$PIPENV run python manage.py collectstatic --no-input
+$POETRY install
+$POETRY run python manage.py migrate
+$POETRY run python manage.py collectstatic --no-input
 
 sudo service $GUNICORN_SERVICE start && echo "Service $GUNICORN_SERVICE started"
 sudo service $GUNICORN_SERVICE status
