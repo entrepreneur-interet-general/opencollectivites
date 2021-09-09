@@ -4,7 +4,7 @@ Ce document décrit la procédure intégrale d'installation d'Open Collectivité
 ## Paramétrage initial du serveur
 - Installer les paquets de base
     - `sudo apt install python3-dev python-pip postgresql libpq-dev postgis postgresql-10-postgis-2.4` 
-    - `python3 -m pip install pipenv`
+ - Installer poetry, cf. https://python-poetry.org/docs/
 
 ## Installer la base Aspic
 
@@ -38,8 +38,8 @@ postgres=# \c <db_name>
 - Remplir le fichier `settings_local.py`
 
 ### Créer et activer l'environnement virtuel et installer les dépendances
-- `pipenv install`
-- `pipenv shell`
+- `poetry install`
+- `poetry shell`
  
 ### Installer la structure de base de données et récupérer les fichiers statiques
 - `python3 manage.py migrate`
