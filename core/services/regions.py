@@ -72,7 +72,7 @@ def region_data(region_fs: Region) -> dict:
         departement = departements[0]
         response["departements_list"] = {
             "name": departement.name,
-            "title": f"Commune : { departement.name }",
+            "title": f"Département : { departement.name }",
             "url": reverse(
                 "core:page_departement_detail", kwargs={"slug": departement.slug}
             ),

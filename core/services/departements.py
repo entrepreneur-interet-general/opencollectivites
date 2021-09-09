@@ -1,5 +1,5 @@
 from core.services.context_data import ContextData
-from francedata.models import Departement
+from francedata.models import DataYear, Departement
 
 from django.urls import reverse
 
@@ -47,15 +47,17 @@ class DepartementContextData(ContextData):
     ]
 
     def fetch_departements_context_data(self):
-        for siren_id in self.list_sirens():
-            dept_fs = Departement.objects.get(siren=siren_id)
-            dept_number = dept_fs.insee
+        for dept in self.list_collectivities():
+            dept_number = dept.insee
             self.fetch_collectivity_context_data(
-                siren_id, "num_departement", dept_number
+                dept.siren, "num_departement", dept_number
             )
 
 
-def departement_data(dept_fs: Departement) -> dict:
+def departement_data(dept_fs: Departement, year: DataYear = None) -> dict:
+    if not year:
+        year = DataYear.get_latest()
+
     response = {}
 
     response["name"] = dept_fs.name
@@ -118,7 +120,7 @@ def departement_data(dept_fs: Departement) -> dict:
             "svg_icon": True,
         }
 
-    dept_context_data = DepartementContextData([dept_fs.siren])
+    dept_context_data = DepartementContextData([dept_fs], datayear=year)
     dept_context_data.fetch_departements_context_data()
     dept_context_data.format_tables()
 

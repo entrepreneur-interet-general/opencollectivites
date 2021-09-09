@@ -1,10 +1,5 @@
 {% extends "core/base.html" %}
-{% load static %}
-{% load dsfr_tags %}
-
-{% block title %}
-<title>{{ title }} </title>
-{% endblock %}
+{% load static dsfr_tags %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/vue-multiselect-dsfr.css' %}">
@@ -18,7 +13,7 @@
 
 {% block content %}
 <div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
-  {% dsfr_breadcrumb breadcrumb_data %}
+  {% dsfr_breadcrumb %}
 
   {# Intro #}
   <h1>{{ title }}</h1>
@@ -29,7 +24,7 @@
 
   <p>
     {{ data.nom }} est une commune française, située dans le département
-    {{ data.departement.name }}{% if data.region%} en région {{ data.region.name }}{% endif %}.{% if data.nom_maire %} Le maire actuel est
+    {{ data.departement.name }}{% if data.region %} en région {{ data.region.name }}{% endif %}.{% if data.nom_maire %} Le maire actuel est
     {{ data.civ_maire | safe }} {{ data.pre_maire }} {{ data.nom_maire }}.{% endif%}
   </p>
 
@@ -76,7 +71,7 @@
         href="https://www.observatoire-des-territoires.gouv.fr/"
         target="_blank"
         rel="noopener"
-        class="fr-link fr-fi-arrow-right-line fr-link--icon-right"
+        class="fr-link fr-fi-external-link-line fr-link--icon-right"
       >
         Plus d’informations sur le site de l’Observatoire des Territoires
       </a>
@@ -97,7 +92,7 @@
         href="http://www.dotations-dgcl.interieur.gouv.fr/"
         target="_blank"
         rel="noopener"
-        class="fr-link fr-fi-arrow-right-line fr-link--icon-right"
+        class="fr-link fr-fi-external-link-line fr-link--icon-right"
       >
         Plus d’informations sur le site dotations de la DGCL
       </a>
@@ -134,7 +129,7 @@
 
 {% block extra_js %}
 <script type="text/javascript" src="{% static 'lib/vue-2.6.12/vue.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'lib/vue-multiselect-2.1.0/dist/vue-multiselect.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'lib/vue-multiselect-2.1.6/dist/vue-multiselect.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'lib/axios.0.21.1/axios.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/OpenCollectivitesDataService.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/utils.js' %}"></script>
@@ -143,5 +138,5 @@
 const pageData = JSON.parse(document.getElementById('page-data').textContent);
 </script>
 
-<script type="text/javascript" src="{% static 'js/compare-selector.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/place-selector.js' %}"></script>
 {% endblock%}

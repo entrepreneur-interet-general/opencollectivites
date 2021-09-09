@@ -2,17 +2,15 @@
 # -*- coding: utf-8 -*-
 
 from django.core.management.base import BaseCommand
-from django.core.exceptions import ObjectDoesNotExist
 from django.utils.html import strip_tags
 
 from feeds.models import Post
-from core.models import Metadata, Source, Document, Scope
+from core.models import Metadata, Source, Document
 
 from urllib.parse import urlparse
 from dateutil import parser as dateparser
 from datetime import datetime
 from pytz import UTC
-from pprint import pprint
 
 """
 Ce script importe les publications depuis les posts gérés dans les flux RSS

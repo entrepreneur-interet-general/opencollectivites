@@ -57,10 +57,25 @@
     color: var(--g800);
     background-color: var(--w);
     border-bottom: 1px solid #ccc;
-    position: sticky;
     top: 0px;
     width: 100%;
     z-index: 100;
+}
+
+@media (min-width: 768px) {
+    .oc-sticky-header {
+        position: sticky;
+    }
+
+    .oc-mobile-only {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    .oc-desktop-only {
+        display: none;
+    }
 }
 
 .oc-sticky-block {
@@ -70,6 +85,11 @@
 
 .oc-tile-row>.fr-tile {
     margin-bottom: 2em;
+}
+
+/* Show the top (and header) of publication instead of the middle of the image */
+#oc-publications-list .fr-card__img img {
+    object-position: top;
 }
 
 /* Force certain classes to tables */

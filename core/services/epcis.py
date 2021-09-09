@@ -193,7 +193,7 @@ def epci_data(siren_id):
         groupement=epci_aspic
     )
 
-    epci_context_data = EpciContextData([siren_id])
+    epci_context_data = EpciContextData([epci_fs])
     epci_context_data.fetch_epcis_context_data()
     epci_context_data.format_tables()
 

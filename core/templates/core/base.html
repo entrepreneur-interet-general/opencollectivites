@@ -1,13 +1,10 @@
-{% load static %}
-{% load matomo %}
-{% load dsfr_tags %}
-
+{% load static wagtailuserbar matomo dsfr_tags %}
 <!doctype html>
 <html lang="fr" data-fr-theme="default">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
   {% dsfr_css %}
   {% dsfr_favicon %}
@@ -16,19 +13,30 @@
   <link rel="stylesheet" href="{% static 'fonts/remixicon/remixicon.css' %}">
   {% block extra_css %}{% endblock %}
 
-  {% if title %}
-  <title>{{ title }} — Open Collectivités</title>
-  {% else %}
-  <title>Open Collectivités</title>
-  {% endif %}
+  {% block  title %}
+  <title>{% if self.seo_title %}
+      {{ self.seo_title }}
+    {% elif self.title %}
+      {{ self.title }}  — Open Collectivités
+    {% elif title %}
+      {{ title }} — Open Collectivités
+    {% else %}
+      Open Collectivités
+    {% endif %}</title>
+  {% endblock title %}
+
+  {% block description %}
+    {% if self.search_description %}<meta name="description" content ="{{ self.search_description }}" />{% endif %}
+  {% endblock description %}
 </head>
 
-<body>
+<body class="{% block body_class %}{% endblock %}">
   <main id="content">
     {% block custom_header %}
       {% include "core/blocks/header.html" with hide_brand=context.hide_brand %}
     {% endblock %}
     {% dsfr_theme_modale %}
+    {% wagtailuserbar %}
 
     {% block content %}{% endblock %}
 
@@ -38,7 +46,7 @@
 
   {% dsfr_js %}
   {% block extra_js %}{% endblock %}
-  {% matomo %}
+  {% if debug is not True %}{% matomo %}{% endif %}
 </body>
 
 </html>

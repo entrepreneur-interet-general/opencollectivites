@@ -37,7 +37,7 @@ def list_documents(
     if after and dateparser.parse(after):
         qs = qs.filter(last_update__gte=after)
 
-    qs = qs.order_by("-weight")
+    qs = qs.order_by("-weight", "-last_update", "-years")
     if limit:
         qs = qs[:limit]
     return qs
@@ -75,8 +75,18 @@ def publication_filters(request):
     """
     # Model type: select
     models = [
-        {"name": "Thématique", "model": Topic, "key": "topic", "label": "name"},
-        {"name": "Portée", "model": Scope, "key": "scope", "label": "name"},
+        {
+            "name": "Thématique",
+            "model": Topic,
+            "key": "topic",
+            "label": "name",
+        },
+        {
+            "name": "Portée",
+            "model": Scope,
+            "key": "scope",
+            "label": "name",
+        },
         {
             "name": "Type de ressource",
             "model": DocumentType,
@@ -107,8 +117,8 @@ def publication_filters(request):
             "label": m["name"],
             "id": model_key,
             "options": values,
-            "selected": request.GET.get(m["key"]),
-            "onchange": f"setUrlParam({m['key']})",
+            "selected": request.GET.get(model_key),
+            "onchange": f"setUrlParam({model_key})",
             "default": {"text": f"- {m['name']} -", "disabled": False, "hidden": False},
         }
 
