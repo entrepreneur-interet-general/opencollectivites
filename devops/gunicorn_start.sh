@@ -15,7 +15,7 @@ test -d $RUN_DIR || mkdir -p $RUN_DIR
 # Start your Django Unicorn
 # Programs meant to be run under supervisor should not daemonize themselves (do not use --daemon)
 cd $DJANGO_DIR
-exec $PIPENV run gunicorn ${DJANGO_WSGI_MODULE}:application \
+exec $POETRY run gunicorn ${DJANGO_WSGI_MODULE}:application \
   --name $NAME \
   --workers $NUM_WORKERS \
   --user $USER \
