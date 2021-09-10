@@ -155,10 +155,16 @@ class Record:
         A datapoint can either be a string or a list of strings.
 
         This function casts everything into a list to streamline the parsing.
+
+        It also returns an empty list if the key is missing in the record.
         """
-        values = self.raw[key]
-        if isinstance(values, str):
-            values = [values]
+        if key in self.raw:
+            values = self.raw[key]
+
+            if isinstance(values, str):
+                values = [values]
+        else:
+            values = []
 
         return values
 
