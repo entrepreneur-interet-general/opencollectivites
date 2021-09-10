@@ -9,8 +9,8 @@ import logging
 
 class Query(TimeStampModel):
     # A query on the Gallica Search API
-    name = models.CharField(max_length=255, verbose_name="nom")
-    query = models.CharField(max_length=255, verbose_name="requête")
+    name = models.CharField(max_length=255, verbose_name="nom", unique=True)
+    query = models.CharField(max_length=255, verbose_name="requête", unique=True)
 
     source = models.ForeignKey(
         Source, on_delete=models.CASCADE, verbose_name="source associée"
