@@ -66,7 +66,6 @@ class ContextData:
 
     def fetch_collectivity_name(self, siren_id: str):
         fs_base_model = apps.get_model("francedata", self.fs_base_model_name)
-        print(siren_id, self.datayear)
         self.place_names.append(
             fs_base_model.objects.get(siren=siren_id, years=self.datayear).name
         )

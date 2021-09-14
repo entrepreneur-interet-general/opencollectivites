@@ -1,5 +1,7 @@
 import logging
 import time
+from django.core.exceptions import ValidationError
+from django.core.validators import URLValidator
 import requests
 
 import xmltodict
@@ -9,14 +11,18 @@ from xml.parsers.expat import ExpatError
 
 class GallicaSearch:
     # API defaults
-    API_ENDPOINT = "https://gallica.bnf.fr/SRU"
+    DEFAULT_API_ENDPOINT = "https://gallica.bnf.fr/SRU"
     DEFAULT_MAX_RECORDS = 15  # Max: 50
     DEFAULT_START_RECORD = 1
     DEFAULT_MAX_RETRIES = 3
 
-    def __init__(self, max_records: int = DEFAULT_MAX_RECORDS) -> None:
+    def __init__(
+        self,
+        max_records: int = DEFAULT_MAX_RECORDS,
+        endpoint: str = DEFAULT_API_ENDPOINT,
+    ) -> None:
         self.set_max_records(max_records)
-
+        self.set_api_endpoint(endpoint)
         self.raw_records = []
         self.total_records = 0
         self.records = {}
@@ -33,6 +39,16 @@ class GallicaSearch:
             self.max_records = max_records
         else:
             self.max_records = self.DEFAULT_MAX_RECORDS
+
+    def set_api_endpoint(self, endpoint: str) -> None:
+        """
+        Changes the SRU API endpoint.
+
+        param:
+        - endpoint: the base URL of the SRU on a white-label version of Gallica
+          (ex: "https://nutrisco-patrimoine.lehavre.fr/SRU")
+        """
+        self.api_endpoint = endpoint
 
     def set_slow_mode(self, slow_mode: float = 0) -> None:
         """
@@ -60,14 +76,14 @@ class GallicaSearch:
                 "query": query,
             }
 
-            response = requests.get(self.API_ENDPOINT, params=payload)
+            response = requests.get(self.api_endpoint, params=payload)
 
             retries = self.DEFAULT_MAX_RETRIES
             if response.status_code == 500:
                 while retries:
                     logging.warning(f"Error 500, retrying (retries: {retries})")
                     time.sleep(5)
-                    response = requests.get(self.API_ENDPOINT, params=payload)
+                    response = requests.get(self.DEFAULT_API_ENDPOINT, params=payload)
                     if response.status_code == 200:
                         break
                     else:
@@ -90,10 +106,7 @@ class GallicaSearch:
 
         return {"total_records": self.total_records}
 
-    def get_records(
-        self,
-        query: str,
-    ) -> dict:
+    def fetch_records(self, query: str) -> None:
         """
         Retrieve the full lists of records for a query.
         Calls the gallica_search_retrieve recursively until all results are retrieved.
@@ -134,40 +147,96 @@ class GallicaSearch:
         else:
             logging.info("The research returned no (new) results.")
 
-        return {"records": self.raw_records, "total_records": self.total_records}
-
     def parse_records(self) -> None:
         for raw in self.raw_records:
+            raw = dict(raw)
             record = Record(raw)
             self.records[record.ark_id] = record
+
+    def get_records(self) -> dict:
+        """
+        Returns the dict with the records
+        """
+        return self.records
 
 
 class Record:
     def __init__(self, raw: dict) -> None:
         self.raw = raw
-        self.get_ark()
+        self.set_ark()
+        self.set_date()
         self.ark_id = self.ark_url.split("/")[-1]
-        self.title = raw["dc:title"]
-        self.date = raw["dc:date"]
+        self.title = self.get_first_value("dc:title")
 
     def get_values(self, key: str) -> list:
         """
         A datapoint can either be a string or a list of strings.
 
         This function casts everything into a list to streamline the parsing.
+
+        It also returns an empty list if the key is missing in the record.
         """
-        values = self.raw[key]
-        if isinstance(values, str):
-            values = [values]
+        if key in self.raw:
+            values = self.raw[key]
+
+            if isinstance(values, str):
+                values = [values]
+        else:
+            values = []
 
         return values
 
-    def get_ark(self) -> str:
+    def get_first_value(self, key: str) -> str:
+        """
+        Returns the first value, or an empty string if no value is present
+        """
+        values = self.get_values(key)
+        if len(values):
+            return values[0]
+        else:
+            return ""
+
+    def set_date(self) -> None:
+        """
+        Stores the 'dc:date' value as a string
+        """
+        if "dc:date" in self.raw:
+            date = self.get_first_value("dc:date")
+
+            # Manage some common bad values
+            if date == "[S.d.]":
+                date = ""
+
+            if "à nos jours" in date:
+                date = ""
+
+            # If a date range is provided, only keep the latest year
+            if "-" in date:
+                date_range = date.split("-")
+                date = date_range[-1]
+            self.date = date
+
+        else:
+            self.date = ""
+
+    def set_ark(self, ark_root="https://gallica.bnf.fr/ark") -> str:
         ids = self.get_values("dc:identifier")
 
+        self.ark_url = ""
+        # First, check for the proper Gallica ark
         for id in ids:
-            if "https://gallica.bnf.fr/ark" in id:
+            if ark_root in id:
                 self.ark_url = id
+
+        # Else, check for any URL
+        if not self.ark_url:
+            url_validate = URLValidator()
+            for id in ids:
+                try:
+                    url_validate(id)
+                    self.ark_url = id
+                except ValidationError:
+                    pass
 
         return self.ark_url
 
