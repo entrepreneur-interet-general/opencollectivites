@@ -99,7 +99,7 @@ class Query(TimeStampModel):
             date = dateparser.parse(record.date).strftime("%Y")
             year, _ = DataYear.objects.get_or_create(year=date)
             new_doc.years.add(year)
-        except:
+        except dateparser._parser.ParserError:
             pass
 
         # The description
