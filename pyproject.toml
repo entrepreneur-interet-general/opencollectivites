@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "opencollectivites"
-version = "0.9.0"
+version = "0.9.1"
 description = "Open Collectivités is a web portal aiming at giving an easy access to statistical data about French local collectivities."
 authors = ["Sylvain Boissel <sylvain.boissel@dgcl.gouv.fr>"]
 license = "AGPL-3"
