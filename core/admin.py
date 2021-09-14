@@ -121,7 +121,12 @@ class DocumentAdmin(TimeStampModelAdmin):
         "view_thumbnail",
         "view_rss_post_link",
     )
-    list_filter = ("is_published", "source__editor", "source", "image_url")
+    list_filter = (
+        "is_published",
+        "source__editor",
+        "source",
+        ("image_url", admin.EmptyFieldListFilter),
+    )
 
     raw_id_fields = ("rss_post", "epcis", "communes")
 
