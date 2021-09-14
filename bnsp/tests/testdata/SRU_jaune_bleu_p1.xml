@@ -1,0 +1,2063 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<srw:searchRetrieveResponse xmlns:ns5="http://gallica.bnf.fr/namespaces/gallica/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:srw="http://www.loc.gov/zing/srw/" xmlns:dc="http://purl.org/dc/elements/1.1/"><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"/><link type="text/css" rel="stylesheet" id="dark-mode-general-link"/><style lang="en" type="text/css" id="dark-mode-custom-style"/><style lang="en" type="text/css" id="dark-mode-native-style"/>
+    <srw:version>1.2</srw:version>
+    <srw:echoedSearchRetrieveRequest>
+        <srw:query>dc.title all "jaune bleu"</srw:query>
+        <srw:version>1.2</srw:version>
+    </srw:echoedSearchRetrieveRequest>
+    <srw:numberOfRecords>61</srw:numberOfRecords>
+    <srw:extraResponseData>&lt;numberOfRecordsDecollapser&gt;61&lt;/numberOfRecordsDecollapser&gt;</srw:extraResponseData>
+    <srw:records>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Bally, Alice (1872-1938). Graveur</dc:creator>
+                    <dc:date>1906</dc:date>
+                    <dc:description>Donateur : Musée national d'art moderne (Paris). Donateur</dc:description>
+                    <dc:format>1 est. : gravure sur bois en couleur sur papier Japon ; 26 x 19 cm (tr. c.)</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 1</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b10547034q</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:publisher>[s.n.][s.n.]</dc:publisher>
+                    <dc:relation>Notice de recueil : http://catalogue.bnf.fr/ark:/12148/cb403863436</dc:relation>
+                    <dc:relation>Appartient à : [Recueil. Oeuvre de Alice Bailly]</dc:relation>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb452780288</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Estampes et photographie, FOL-CA20C-1 (BAILLY, Alice)</dc:source>
+                    <dc:subject>Hérens, Val d' (Suisse)</dc:subject>
+                    <dc:subject>Paysages de montagne -- 1870-1913</dc:subject>
+                    <dc:title>[Le Mulet (Val d'Hérence)] : [estampe] ([Tirage en noir, jaune et bleu]) / A. Bally</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                    <dc:type>estampe</dc:type>
+                    <dc:type>engraving</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>0</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b10547034q</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b10547034q.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b10547034q</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:contributor>Forgues, Émile Daurand (1813-1883). Traducteur</dc:contributor>
+                    <dc:creator>Ouida (1839-1908). Auteur du texte</dc:creator>
+                    <dc:date>1884</dc:date>
+                    <dc:description>Avec mode texte</dc:description>
+                    <dc:format>In-12, 308 p.</dc:format>
+                    <dc:format>Nombre total de vues : 316</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/bpt6k1416809r</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:publisher>E. Plon, Nourrit et Cie (Paris)</dc:publisher>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb31045147g</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Littérature et art, 8-Y2-7395</dc:source>
+                    <dc:title>Lady Tattersall. La Mort de Deadly Dash. Jaune ou bleu. Avice Dare. Laura la Perle. Traduit et adapté de l'anglais par E.-D. Forgues / Ouida</dc:title>
+                    <dc:type>text</dc:type>
+                    <dc:type>monographie imprimée</dc:type>
+                    <dc:type>printed monograph</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>1</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/bpt6k1416809r</link>
+                <nqamoyen>88.56</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/bpt6k1416809r.thumbnail</thumbnail>
+                <typedoc>monographies</typedoc>
+                <uri>bpt6k1416809r</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Bally, Alice (1872-1938). Graveur</dc:creator>
+                    <dc:date>1906</dc:date>
+                    <dc:description>Donateur : Musée national d'art moderne (Paris). Donateur</dc:description>
+                    <dc:format>1 est. : gravure sur bois en couleur sur papier Japon ; 25 x 19 cm (tr. c.)</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 1</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b10547025r</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:publisher>[s.n.] (Paris)</dc:publisher>
+                    <dc:relation>Notice de recueil : http://catalogue.bnf.fr/ark:/12148/cb403863436</dc:relation>
+                    <dc:relation>Appartient à : [Recueil. Oeuvre de Alice Bailly]</dc:relation>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb45277830s</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Estampes et photographie, FOL-CA20C-1 (BAILLY, Alice)</dc:source>
+                    <dc:subject>Messe -- Dans l'art</dc:subject>
+                    <dc:subject>Scènes religieuses -- 1870-1913</dc:subject>
+                    <dc:title>[Messe bretonne] : [estampe] ([Tirage en bleu et jaune]) / A Bally 06</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                    <dc:type>estampe</dc:type>
+                    <dc:type>engraving</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>2</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b10547025r</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b10547025r.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b10547025r</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Bally, Alice (1872-1938). Graveur</dc:creator>
+                    <dc:date>1906</dc:date>
+                    <dc:description>Donateur : Musée national d'art moderne (Paris). Donateur</dc:description>
+                    <dc:format>1 est. : gravure sur bois en couleur sur papier Japon ; 25,5 x 19 cm (tr. c.)</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 1</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b10547032t</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:publisher>[s.n.] (Paris)</dc:publisher>
+                    <dc:relation>Notice de recueil : http://catalogue.bnf.fr/ark:/12148/cb403863436</dc:relation>
+                    <dc:relation>Appartient à : [Recueil. Oeuvre de Alice Bailly]</dc:relation>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb45278015x</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Estampes et photographie, FOL-CA20C-1 (BAILLY, Alice)</dc:source>
+                    <dc:subject>Évolène (Suisse)</dc:subject>
+                    <dc:subject>Portraits -- 1870-1913</dc:subject>
+                    <dc:title>[Paysanne d'Évolène] : [estampe] ([Tirage en brun, bleu, jaune et rouge]) / A. Bally</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                    <dc:type>estampe</dc:type>
+                    <dc:type>engraving</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>3</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b10547032t</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b10547032t.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b10547032t</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Bally, Alice (1872-1938). Graveur</dc:creator>
+                    <dc:date>1906</dc:date>
+                    <dc:description>Donateur : Musée national d'art moderne (Paris). Donateur</dc:description>
+                    <dc:format>1 est. : gravure sur bois en couleur sur papier Japon ; 37,3 x 24,8 cm (tr. c.)</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 1</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b10547023v</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:publisher>[s.n.] (Paris)</dc:publisher>
+                    <dc:relation>Notice de recueil : http://catalogue.bnf.fr/ark:/12148/cb403863436</dc:relation>
+                    <dc:relation>Appartient à : [Recueil. Oeuvre de Alice Bailly]</dc:relation>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb45277766h</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Estampes et photographie, FOL-CA20C-1 (BAILLY, Alice)</dc:source>
+                    <dc:subject>Valais (Suisse) -- Dans l'art</dc:subject>
+                    <dc:subject>Paysages de montagne -- 1870-1913</dc:subject>
+                    <dc:title>[Place de village] : [estampe] ([Tirage en vert, bleu, orange et jaune]) / A. Bally</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                    <dc:type>estampe</dc:type>
+                    <dc:type>engraving</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>4</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b10547023v</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b10547023v.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b10547023v</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Bally, Alice (1872-1938). Graveur</dc:creator>
+                    <dc:date>1906</dc:date>
+                    <dc:description>Donateur : Musée national d'art moderne (Paris). Donateur</dc:description>
+                    <dc:format>1 est. : gravure sur bois en couleur sur papier Japon ; 26 x 19 cm (tr. c.)</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 1</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b10547022d</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:publisher>[s.n.] (Paris)</dc:publisher>
+                    <dc:relation>Notice de recueil : http://catalogue.bnf.fr/ark:/12148/cb403863436</dc:relation>
+                    <dc:relation>Appartient à : [Recueil. Oeuvre de Alice Bailly]</dc:relation>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb45277751g</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Estampes et photographie, FOL-CA20C-1 (BAILLY, Alice)</dc:source>
+                    <dc:subject>Saut à la corde</dc:subject>
+                    <dc:subject>Jeux d'extérieur -- 20e siècle</dc:subject>
+                    <dc:subject>Paris (France) -- Jardin du Luxembourg</dc:subject>
+                    <dc:subject>Scènes -- 1870-1913</dc:subject>
+                    <dc:title>[Petites filles au Luxembourg] : [estampe] ([Tirage en vert, bleu, orange, rouge et jaune]) / A. Bally</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                    <dc:type>estampe</dc:type>
+                    <dc:type>engraving</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>5</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b10547022d</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b10547022d.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b10547022d</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Guérard, Henri (1846-1897). Graveur</dc:creator>
+                    <dc:date>1885</dc:date>
+                    <dc:description>[Au jardin]</dc:description>
+                    <dc:description>Référence bibliographique : Bertin, 109</dc:description>
+                    <dc:description>Appartient à l’ensemble documentaire : FranceJp0</dc:description>
+                    <dc:format>1 est. : pointe sèche, roulette et aquatinte, impr. en couleurs ; 41 x 34,5 cm (élt d'impr.)</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 1</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b105310634</dc:identifier>
+                    <dc:language>Sans contenu linguistique</dc:language>
+                    <dc:relation>Notice d’oeuvre : http://catalogue.bnf.fr/ark:/12148/cb177292056</dc:relation>
+                    <dc:relation>Notice de recueil : http://catalogue.bnf.fr/ark:/12148/cb438109886</dc:relation>
+                    <dc:relation>Appartient à : [Recueil. Oeuvre d'Henri Guérard]. [Volume 3]</dc:relation>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb43811880d</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Estampes et photographie, FOL-EF-477 (3)</dc:source>
+                    <dc:subject>Gonzalès, Jeanne (1856-1924) -- Portraits</dc:subject>
+                    <dc:subject>Scènes</dc:subject>
+                    <dc:title>[Au jardin] : [estampe] (4ème état de la planche de bleu, avec le jaune) / H. Guérard</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                    <dc:type>estampe</dc:type>
+                    <dc:type>engraving</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>6</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b105310634</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b105310634.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b105310634</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Bally, Alice (1872-1938). Graveur</dc:creator>
+                    <dc:date>1907</dc:date>
+                    <dc:description>Donateur : Musée national d'art moderne (Paris). Donateur</dc:description>
+                    <dc:format>1 est. : gravure sur bois en couleur sur papier Japon ; 33 x 24 cm (tr. c.)</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 1</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b10547030x</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:publisher>[s.n.] (Paris)</dc:publisher>
+                    <dc:relation>Notice de recueil : http://catalogue.bnf.fr/ark:/12148/cb403863436</dc:relation>
+                    <dc:relation>Appartient à : [Recueil. Oeuvre de Alice Bailly]</dc:relation>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb45277898d</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Estampes et photographie, FOL-CA20C-1 (BAILLY, Alice)</dc:source>
+                    <dc:subject>Paris (France) -- Église Saint-Sulpice</dc:subject>
+                    <dc:subject>Scènes religieuses -- 1870-1913</dc:subject>
+                    <dc:title>[Les Communiantes à Saint-Sulpice] : [estampe] ([Tirage en violet, bleu et jaune]) / A. Bally Paris</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                    <dc:type>estampe</dc:type>
+                    <dc:type>engraving</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>7</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b10547030x</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b10547030x.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b10547030x</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:date>197?</dc:date>
+                    <dc:format>1 impr. photoméc. : coul. ; 60 x 40 cm</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 2</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b52506765s</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:publisher> (Paris)</dc:publisher>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb42571209z</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Arts du spectacle, AFF-1785</dc:source>
+                    <dc:subject>Cirque national Alexis Grüss</dc:subject>
+                    <dc:subject>Théâtre Silvia Monfort (Paris)</dc:subject>
+                    <dc:title>[Cirque à l'ancienne avec le cirque Grüss. Nouveau carré, cirque d'été. Elephant bleu sur fond jaune : affiche]</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>8</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b52506765s</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b52506765s.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b52506765s</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:coverage>Monde</dc:coverage>
+                    <dc:creator>Nolin, Jean-Baptiste (1657?-1708). Auteur du texte</dc:creator>
+                    <dc:date>1696</dc:date>
+                    <dc:description>Échelle(s) : Echelles, 22 Milles d'Italie... [=Om. 075 ; 1:500 000 ]</dc:description>
+                    <dc:format>1 flle avec limites en coul. ; 620 x 490</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 1</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b8493033v</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:publisher>J.B. Nolin (Paris)</dc:publisher>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb406201695</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Cartes et plans, GE D-14997</dc:source>
+                    <dc:subject>Divisions ecclésiastiques</dc:subject>
+                    <dc:subject>Lorraine, Duché de -- Divisions ecclésiastiques</dc:subject>
+                    <dc:title>Le Bleu est Lorraine, le Jaune France. 1697 / Division du Duché de Lorraine et des 3 Evechés selon le Traité de Risvick</dc:title>
+                    <dc:type>map</dc:type>
+                    <dc:type>carte</dc:type>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>9</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b8493033v</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b8493033v.thumbnail</thumbnail>
+                <typedoc>cartes</typedoc>
+                <uri>btv1b8493033v</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Aulnoy, Marie-Catherine Le Jumel de Barneville baronne d' (1650-1705). Auteur du texte</dc:creator>
+                    <dc:date>1845</dc:date>
+                    <dc:description>Appartient à l’ensemble documentaire : UnivJeun0</dc:description>
+                    <dc:description>Avec mode texte</dc:description>
+                    <dc:format>107 p. : fig. ; In-12</dc:format>
+                    <dc:format>Nombre total de vues : 124</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/bpt6k58114019</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:publisher> (Paris)</dc:publisher>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb300396495</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Littérature et art, Y2-14970</dc:source>
+                    <dc:title>Contes des fées contenant : la Belle aux cheveux d'or, l'Oiseau bleu, Brinborion, le Nain jaune, par Mme la comtesse d'Aulnoy</dc:title>
+                    <dc:type>text</dc:type>
+                    <dc:type>monographie imprimée</dc:type>
+                    <dc:type>printed monograph</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>10</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/bpt6k58114019</link>
+                <nqamoyen>96.49</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/bpt6k58114019.thumbnail</thumbnail>
+                <typedoc>monographies</typedoc>
+                <uri>bpt6k58114019</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Letourmi, Jean-Baptiste (17..-1800). Fonction indéterminée</dc:creator>
+                    <dc:description>Appartient à l’ensemble documentaire : RsAlis000</dc:description>
+                    <dc:description>Appartient à l’ensemble documentaire : RsAlis011</dc:description>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 2</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b10580016m</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb44920861d</dc:relation>
+                    <dc:relation>Notice dans un autre catalogue : http://catalogues.toulouse.fr/web2/tramp2.exe/do_keyword_search/log_in?setting_key=BMT1&amp;servers=1home&amp;query=RD17_000150_DOMINOTE</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque municipale de Toulouse, Bibliothèque municipale de Toulouse</dc:source>
+                    <dc:subject>Damiers (motif)</dc:subject>
+                    <dc:subject>Triangles (motif)</dc:subject>
+                    <dc:subject>Fleurs (motif)</dc:subject>
+                    <dc:subject>Blanc (couleur)</dc:subject>
+                    <dc:subject>Jaune (couleur)</dc:subject>
+                    <dc:subject>Rouge (couleur)</dc:subject>
+                    <dc:title>"Papier dominoté. Damier composé d'un motif géométrique (triangle jaune ) et d'une fleur trilobée, blanche, au coeur rouge ; sur un fond bleu foncé</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>11</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b10580016m</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b10580016m.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b10580016m</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Aulnoy, Marie-Catherine Le Jumel de Barneville baronne d' (1650-1705). Auteur du texte</dc:creator>
+                    <dc:date>1882</dc:date>
+                    <dc:description>Contient une table des matières</dc:description>
+                    <dc:description>Avec mode texte</dc:description>
+                    <dc:format>In-4°</dc:format>
+                    <dc:format>Nombre total de vues : 112</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/bpt6k5805521c</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:publisher> (Paris)</dc:publisher>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb30039666r</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Littérature et art, 4-Y2-2242</dc:source>
+                    <dc:title>Contes de Madame d'Aulnoy. Gracieuse et Percinet. La Belle aux cheveux d'or. L'Oiseau bleu. Finette Cendron. Le Nain jaune. La Biche aux bois. La Chatte blanche...</dc:title>
+                    <dc:type>text</dc:type>
+                    <dc:type>monographie imprimée</dc:type>
+                    <dc:type>printed monograph</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>12</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/bpt6k5805521c</link>
+                <nqamoyen>96.67</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/bpt6k5805521c.thumbnail</thumbnail>
+                <typedoc>monographies</typedoc>
+                <uri>bpt6k5805521c</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Le Blon, Jacob Christoph (1667-1741). Graveur</dc:creator>
+                    <dc:creator>Maratti, Carlo (1625-1713). Peintre prétendu</dc:creator>
+                    <dc:date>1725</dc:date>
+                    <dc:description>[Tête de jeune fille]</dc:description>
+                    <dc:description>Référence bibliographique : Singer, 45</dc:description>
+                    <dc:description>Référence bibliographique : Hollstein, 45</dc:description>
+                    <dc:format>1 est. : manière noire en coul. ; 27,5 x 22,5 cm (doc.)</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 1</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b8538838t</dc:identifier>
+                    <dc:publisher>[Jacob Christoph Le Blon] (Londres)</dc:publisher>
+                    <dc:relation>Notice d’oeuvre : http://catalogue.bnf.fr/ark:/12148/cb17729056j</dc:relation>
+                    <dc:relation>Extrait de : Coloritto</dc:relation>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb42681998q</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Estampes et photographie, RESERVE 4-YC-1332</dc:source>
+                    <dc:title>[Tête de jeune fille]. II : [estampe] ([2eme état en deux plaques, imprimé en jaune et bleu]) / [gravé sous la direction de Jacob Christoph Le Blon] ; [d'après Carlo Maratti ?]</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                    <dc:type>estampe</dc:type>
+                    <dc:type>engraving</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>13</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b8538838t</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b8538838t.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b8538838t</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Letourmi, Jean-Baptiste (17..-1800). Graveur</dc:creator>
+                    <dc:creator>Perdoux, Pierre-Fiacre (1743-1808?). Fonction indéterminée</dc:creator>
+                    <dc:description>Appartient à l’ensemble documentaire : RsAlis000</dc:description>
+                    <dc:description>Appartient à l’ensemble documentaire : RsAlis011</dc:description>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 2</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b10576247t</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb44920856t</dc:relation>
+                    <dc:relation>Notice dans un autre catalogue : http://catalogues.toulouse.fr/web2/tramp2.exe/do_keyword_search/log_in?setting_key=BMT1&amp;servers=1home&amp;query=RC18_000176_DOMINOTE</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque municipale de Toulouse, Bibliothèque municipale de Toulouse</dc:source>
+                    <dc:subject>Semis (motif)</dc:subject>
+                    <dc:subject>Croissants (motif)</dc:subject>
+                    <dc:subject>Lune (motif)</dc:subject>
+                    <dc:subject>Points (motif)</dc:subject>
+                    <dc:subject>Tirets (motif)</dc:subject>
+                    <dc:subject>Bleu (couleur)</dc:subject>
+                    <dc:subject>Rouge (couleur)</dc:subject>
+                    <dc:subject>Jaune (couleur)</dc:subject>
+                    <dc:title>Papier dominoté. Semis de croissants (lune) dessinés en bleu, rehaussés de rouge ou de jaune en alternace sur un fond blanc ponctué de tirets verticaux et de points bleus.)</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>14</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b10576247t</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b10576247t.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b10576247t</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Bélanger, François-Joseph (1744-1818). Dessinateur</dc:creator>
+                    <dc:format>1 dess. : Plume, encre noire, crayon graphite, aquarelle, gouache ; 28 x 43.3 cm (feuille)</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 1</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b10025196s</dc:identifier>
+                    <dc:relation>Notice de recueil : http://catalogue.bnf.fr/ark:/12148/cb45595291s</dc:relation>
+                    <dc:relation>Appartient à : [Recueil. Oeuvre de François-Joseph Bélanger. Oeuvre de Réserve]</dc:relation>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb45631001d</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Estampes et photographie, RESERVE HA-58 (4)-BOITE ECU</dc:source>
+                    <dc:subject>Dessins et plans -- 1701-1788</dc:subject>
+                    <dc:title>[Projet de cheminée encadrée de deux colonnes ioniques. Un décor géométrique bleu et jaune occupe le rabat, ponctué de quatre médaillons avec des têtes d'hommes de profil. L'entablement est rose, ponctué de trois aigles et de deux vases en jaune ] : [dessin] / [François-Joseph Bélanger]</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                    <dc:type>estampe</dc:type>
+                    <dc:type>engraving</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>15</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b10025196s</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b10025196s.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b10025196s</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Le Blon, Jacob Christoph (1667-1741). Graveur</dc:creator>
+                    <dc:creator>Maratti, Carlo (1625-1713). Peintre prétendu</dc:creator>
+                    <dc:date>1725</dc:date>
+                    <dc:description>[Tête de jeune fille]</dc:description>
+                    <dc:description>Référence bibliographique : Singer, 45</dc:description>
+                    <dc:description>Référence bibliographique : Hollstein, 45</dc:description>
+                    <dc:format>1 est. : manière noire en coul., rehauts de gouache ; 28,9 x 22,9 cm (doc.)</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 1</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b8538840w</dc:identifier>
+                    <dc:publisher>[Jacob Christoph Le Blon] (Londres)</dc:publisher>
+                    <dc:relation>Notice d’oeuvre : http://catalogue.bnf.fr/ark:/12148/cb17729056j</dc:relation>
+                    <dc:relation>Extrait de : Coloritto</dc:relation>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb426820289</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Estampes et photographie, RESERVE 4-YC-1332</dc:source>
+                    <dc:title>[Tête de jeune fille]. VIII : [estampe] ([6eme état en plusieurs plaques, imprimé en jaune, bleu et rouge]) / [gravé sous la direction de Jacob Christoph Le Blon] ; [d'après Carlo Maratti ?]</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                    <dc:type>estampe</dc:type>
+                    <dc:type>engraving</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>16</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b8538840w</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b8538840w.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b8538840w</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Le Blon, Jacob Christoph (1667-1741). Graveur</dc:creator>
+                    <dc:creator>Maratti, Carlo (1625-1713). Peintre prétendu</dc:creator>
+                    <dc:date>1725</dc:date>
+                    <dc:description>[Tête de jeune fille]</dc:description>
+                    <dc:description>Référence bibliographique : Singer, 45</dc:description>
+                    <dc:description>Référence bibliographique : Hollstein, 45</dc:description>
+                    <dc:format>1 est. : manière noire en coul., rehauts de gouache ; 27,6 x 21,5 cm (doc.)</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 1</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b85388419</dc:identifier>
+                    <dc:publisher>[Jacob Christoph Le Blon] (Londres)</dc:publisher>
+                    <dc:relation>Notice d’oeuvre : http://catalogue.bnf.fr/ark:/12148/cb17729056j</dc:relation>
+                    <dc:relation>Extrait de : Coloritto</dc:relation>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb42682007b</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Estampes et photographie, RESERVE 4-YC-1332</dc:source>
+                    <dc:title>[Tête de jeune fille]. IV : [estampe] ([4eme état en plusieurs plaques, imprimé en jaune, bleu et rouge]) / [gravé sous la direction de Jacob Christoph Le Blon] ; [d'après Carlo Maratti ?]</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                    <dc:type>estampe</dc:type>
+                    <dc:type>engraving</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>17</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b85388419</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b85388419.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b85388419</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Le Blon, Jacob Christoph (1667-1741). Graveur</dc:creator>
+                    <dc:creator>Maratti, Carlo (1625-1713). Peintre prétendu</dc:creator>
+                    <dc:date>1725</dc:date>
+                    <dc:description>[Tête de jeune fille]</dc:description>
+                    <dc:description>Référence bibliographique : Singer, 45</dc:description>
+                    <dc:description>Référence bibliographique : Hollstein, 45</dc:description>
+                    <dc:format>1 est. : manière noire en coul., rehauts de gouache ; 27,7 x 22,1 cm (doc.)</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 1</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b8538837d</dc:identifier>
+                    <dc:publisher>[Jacob Christoph Le Blon] (Londres)</dc:publisher>
+                    <dc:relation>Notice d’oeuvre : http://catalogue.bnf.fr/ark:/12148/cb17729056j</dc:relation>
+                    <dc:relation>Extrait de : Coloritto</dc:relation>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb426820180</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Estampes et photographie, RESERVE 4-YC-1332</dc:source>
+                    <dc:title>[Tête de jeune fille]. VI : [estampe] ([5eme état en plusieurs plaques, imprimé en jaune, bleu et rouge]) / [gravé sous la direction de Jacob Christoph Le Blon] ; [d'après Carlo Maratti ?]</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                    <dc:type>estampe</dc:type>
+                    <dc:type>engraving</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>18</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b8538837d</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b8538837d.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b8538837d</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Le Blon, Jacob Christoph (1667-1741). Graveur</dc:creator>
+                    <dc:creator>Maratti, Carlo (1625-1713). Peintre prétendu</dc:creator>
+                    <dc:date>1725</dc:date>
+                    <dc:description>[Tête de jeune fille]</dc:description>
+                    <dc:description>Référence bibliographique : Singer, 45</dc:description>
+                    <dc:description>Référence bibliographique : Hollstein, 45</dc:description>
+                    <dc:format>1 est. : manière noire en coul. ; 27,5 x 22,5 cm (doc.)</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 1</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b8538842q</dc:identifier>
+                    <dc:publisher>[Jacob Christoph Le Blon] (Londres)</dc:publisher>
+                    <dc:relation>Notice d’oeuvre : http://catalogue.bnf.fr/ark:/12148/cb17729056j</dc:relation>
+                    <dc:relation>Extrait de : Coloritto</dc:relation>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb42682002m</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Estampes et photographie, RESERVE 4-YC-1332</dc:source>
+                    <dc:title>[Tête de jeune fille]. III : [estampe] ([3eme état en plusieurs plaques, imprimé en jaune, bleu et rouge]) / [gravé sous la direction de Jacob Christoph Le Blon] ; [d'après Carlo Maratti ?]</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                    <dc:type>estampe</dc:type>
+                    <dc:type>engraving</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>19</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b8538842q</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b8538842q.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b8538842q</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Lagneau (15..-16.. ; artiste). Dessinateur</dc:creator>
+                    <dc:date>1600-1650</dc:date>
+                    <dc:description>Collectionneur : Marolles, Michel de (1600-1681). Collectionneur</dc:description>
+                    <dc:description>Référence bibliographique : Adhémar, 724</dc:description>
+                    <dc:description>Référence bibliographique : Chantilly 2005, n.d.</dc:description>
+                    <dc:description>Appartient à l’ensemble documentaire : Des17Inv</dc:description>
+                    <dc:format>1 dess. : pierre noire, sanguine, pastel ocre jaune, brun et bleu, estompe ; 425 x 288 mm (f.)</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 1</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b55002080p</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:relation>Notice de recueil : http://catalogue.bnf.fr/ark:/12148/cb40340315p</dc:relation>
+                    <dc:relation>Appartient à : [Recueil de dessins de figures dessinées par Lagneau, provenant de l'abbé de Marolles] ; 33</dc:relation>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb42389248n</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, RESERVE NA-21 (B,4)-BOITE FOL</dc:source>
+                    <dc:subject>Portraits -- 17e siècle</dc:subject>
+                    <dc:title>[Homme se retournant vers la droite, coiffé d'un bonnet de fourrure et portant un manteau bleu bordé de fourrure sur une veste à brandebourgs de couleur jaune] : [dessin] / [Lagneau]</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                    <dc:type>dessin</dc:type>
+                    <dc:type>drawing</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>20</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b55002080p</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b55002080p.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b55002080p</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Janinet, Jean-François (1752-1814). Graveur</dc:creator>
+                    <dc:creator>Lavreince, Niklas (1737-1807). Peintre du modèle</dc:creator>
+                    <dc:date>1787</dc:date>
+                    <dc:description>[Pauvre Minet que ne suis-je à ta place]</dc:description>
+                    <dc:description>Référence bibliographique : IFF18 JANINET (Jean-François), 22</dc:description>
+                    <dc:description>Référence bibliographique : Portalis et Béraldi, Janinet (Jean-François), 43</dc:description>
+                    <dc:description>Référence bibliographique : Bocher, Lavreince, 47</dc:description>
+                    <dc:format>2 est. sur une feuille, imprimée recto-verso : gravure en taille-douce, impression en couleurs au repérage ; 20,8 x 14,2 cm ;</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 2</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b100273376</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:relation>Notice d’oeuvre : http://catalogue.bnf.fr/ark:/12148/cb16863818m</dc:relation>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb445695162</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Estampes et photographie, RESERVE EF-105 (A, 1)-BOITE ECU</dc:source>
+                    <dc:title>Pauvre Minet que ne suis-je à ta place : [estampe] ([Épr. d'essai, au second repérage (pl. de jaune et de bleu) avant la pl. de rouge et la pl. du trait]) / Lavreince pinxit. ; Janinet sculp.</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                    <dc:type>estampe</dc:type>
+                    <dc:type>engraving</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>21</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b100273376</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b100273376.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b100273376</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:description>Appartient à l’ensemble documentaire : RsAlis000</dc:description>
+                    <dc:description>Appartient à l’ensemble documentaire : RsAlis011</dc:description>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 2</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b105763459</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb44920921f</dc:relation>
+                    <dc:relation>Notice dans un autre catalogue : http://catalogues.toulouse.fr/web2/tramp2.exe/do_keyword_search/log_in?setting_key=BMT1&amp;servers=1home&amp;query=RD18_000841_DOMINOTE</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque municipale de Toulouse, Bibliothèque municipale de Toulouse</dc:source>
+                    <dc:subject>Rameaux (motif)</dc:subject>
+                    <dc:subject>Feuilles (motif)</dc:subject>
+                    <dc:subject>Fleurs (motif)</dc:subject>
+                    <dc:subject>Jaune (couleur)</dc:subject>
+                    <dc:subject>Bleu (couleur)</dc:subject>
+                    <dc:subject>Rouge (couleur)</dc:subject>
+                    <dc:title>"Papier dominoté. Motifs floraux : de part et d'autre d' une tige ondulée blanche avec petites feuilles, des fleurs trilobées , pointées au centre, rehaussées de jaune ou de rouge en alternance ; le tout sur fond bleu.</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>22</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b105763459</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b105763459.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b105763459</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Letourmi, Jean-Baptiste (17..-1800). Fonction indéterminée</dc:creator>
+                    <dc:creator>Perdoux, Pierre-Fiacre (1743-1808?). Fonction indéterminée</dc:creator>
+                    <dc:description>Appartient à l’ensemble documentaire : RsAlis000</dc:description>
+                    <dc:description>Appartient à l’ensemble documentaire : RsAlis011</dc:description>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 2</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b10576360w</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb44920937t</dc:relation>
+                    <dc:relation>Notice dans un autre catalogue : http://catalogues.toulouse.fr/web2/tramp2.exe/do_keyword_search/log_in?setting_key=BMT1&amp;servers=1home&amp;query=RD18_000861_DOMINOTE</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque municipale de Toulouse, Bibliothèque municipale de Toulouse</dc:source>
+                    <dc:subject>Damier (motif)</dc:subject>
+                    <dc:subject>Losanges (motif)</dc:subject>
+                    <dc:subject>Ronds (motif)</dc:subject>
+                    <dc:subject>Fleurs (motif)</dc:subject>
+                    <dc:subject>Jaune (couleur)</dc:subject>
+                    <dc:subject>Bleu (couleur)</dc:subject>
+                    <dc:subject>Orléans (France)</dc:subject>
+                    <dc:title>"Papier dominoté. Damier en losanges. Alternance d'un rond orange pointé en son centre avec 3 petites " feuilles " bleues sur fond blanc et du même motif avec des variantes dans la forme des " pétales " et les couleurs (jaune sur fond bleu)</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>23</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b10576360w</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b10576360w.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b10576360w</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Grand-Carteret, John (1850-1927). Auteur du texte</dc:creator>
+                    <dc:date>1900</dc:date>
+                    <dc:description>Avec mode texte</dc:description>
+                    <dc:format>47 p. : tout en ill. ; in-4</dc:format>
+                    <dc:format>Nombre total de vues : 108</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/bpt6k9370799</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:publisher> (Paris)</dc:publisher>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb30532452p</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Philosophie, histoire, sciences de l'homme, 4-NK-304</dc:source>
+                    <dc:title>John Bull sur la sellette : le "Livre bleu" en images, documents pour servir à l'histoire, présentés aux Johns anglais / par John Grand-Carteret</dc:title>
+                    <dc:type>text</dc:type>
+                    <dc:type>monographie imprimée</dc:type>
+                    <dc:type>monographie imprimée</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>24</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/bpt6k9370799</link>
+                <nqamoyen>85.68</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/bpt6k9370799.thumbnail</thumbnail>
+                <typedoc>monographies</typedoc>
+                <uri>bpt6k9370799</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:description>Appartient à l’ensemble documentaire : RsAlis000</dc:description>
+                    <dc:description>Appartient à l’ensemble documentaire : RsAlis011</dc:description>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 4</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b10574555s</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb449208126</dc:relation>
+                    <dc:relation>Notice dans un autre catalogue : http://catalogues.toulouse.fr/web2/tramp2.exe/do_keyword_search/log_in?setting_key=BMT1&amp;servers=1home&amp;query=FAD_011800_008-DOMINOTE</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque municipale de Toulouse, Bibliothèque municipale de Toulouse</dc:source>
+                    <dc:subject>Damiers (motif)</dc:subject>
+                    <dc:subject>Polygones (motif)</dc:subject>
+                    <dc:subject>Points (motif)</dc:subject>
+                    <dc:subject>Fleurs (motif)</dc:subject>
+                    <dc:subject>Rouge (couleur)</dc:subject>
+                    <dc:subject>Jaune (couleur)</dc:subject>
+                    <dc:subject>Bleu (couleur)</dc:subject>
+                    <dc:title>Papier dominoté. Dans un damier en polygone formé par une fleur à 8 pétales aux intersections, rehaussée de rouge et de jaune et d'un losange. Au centre de l'espace crée une autre fleur stylisée rehaussée de bleu, cernée par 4 lignes concentriques en pointillé. Impression noire sur papier blanc.</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>25</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b10574555s</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b10574555s.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b10574555s</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:coverage>France</dc:coverage>
+                    <dc:date>1642-1714</dc:date>
+                    <dc:format>1 flle avec tracés en coul. et la mer en bleu</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 1</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b84928762</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:publisher>[s.n.][s.n.]</dc:publisher>
+                    <dc:relation>Notice de recueil : http://catalogue.bnf.fr/ark:/12148/cb405939263</dc:relation>
+                    <dc:relation>Appartient à : Registre B ; 0868 209</dc:relation>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb40611498m</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Cartes et plans, GE D-14815</dc:source>
+                    <dc:subject>Histoire</dc:subject>
+                    <dc:subject>Annexion</dc:subject>
+                    <dc:subject>France</dc:subject>
+                    <dc:title>Carte de France. Eschelle, Lieues comunes de France... 25 [=Om. 054 ; 1 : 2 058 000 environ]. Le jaune marque l'étendue de la France sous le Roy Louis XIII, le bleu ce que la France a acquis / par le traité de Munster en 1648... Le crayon rouge marque les Bornes du Royaume à la paix d'Utrecht</dc:title>
+                    <dc:type>map</dc:type>
+                    <dc:type>carte</dc:type>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>26</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b84928762</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b84928762.thumbnail</thumbnail>
+                <typedoc>cartes</typedoc>
+                <uri>btv1b84928762</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>France. Conseil d'Etat (13..-1791). Auteur du texte</dc:creator>
+                    <dc:date>1783</dc:date>
+                    <dc:description>[Acte. 1782-12-05. Versailles]</dc:description>
+                    <dc:description>Appartient à l’ensemble documentaire : HNormand1</dc:description>
+                    <dc:format>4°</dc:format>
+                    <dc:format>Nombre total de vues : 4</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b8621845r</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:publisher>Imp. royale (Paris)</dc:publisher>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb33703572z</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Droit, économie, politique, F-21207 (5)</dc:source>
+                    <dc:title>Arrêt du conseil d'Etat qui ordonne qu'à l'avenir les draps de Louviers seront coiffés d'une lisière jaune ayant quatre ou six liteaux bleus ; et que les draps fins d'Elbeuf seront coiffés d'une lisière rouge</dc:title>
+                    <dc:type>text</dc:type>
+                    <dc:type>monographie imprimée</dc:type>
+                    <dc:type>monographie imprimée</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>27</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b8621845r</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b8621845r.thumbnail</thumbnail>
+                <typedoc>monographies</typedoc>
+                <uri>btv1b8621845r</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Audubon, John James (1785-1851). Dessinateur du modèle</dc:creator>
+                    <dc:creator>Havell, Robert (1793-1878). Graveur</dc:creator>
+                    <dc:date>1830</dc:date>
+                    <dc:format>1 est. : eau-forte, pointe sèche et aquatinte aquarellées ; 100 x 65 cm (f.), .65,8 x 51,8 cm (élt d'imp.)</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 1</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b53144042n</dc:identifier>
+                    <dc:language>eng</dc:language>
+                    <dc:publisher>[John J. Audubon] (Londres)</dc:publisher>
+                    <dc:relation>Extrait de : The birds of America ; 102</dc:relation>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb45114467w</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Estampes et photographie, RESERVE FT 6-JB-45 (2)</dc:source>
+                    <dc:subject>Ornithologie</dc:subject>
+                    <dc:subject>Oiseaux -- Amérique du Nord</dc:subject>
+                    <dc:subject>Représentations animalières -- 1800-1869</dc:subject>
+                    <dc:title>The birds of America. [Livraison] 21, Plate CII, Blue Jay, Male, 1. Female 2. 3. : [estampe] / Drawn from Nature by John J. Audubon ; Engraved, printed &amp; Coloured by R. Havell Jun.r</dc:title>
+                    <dc:title>Geai bleu</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                    <dc:type>estampe</dc:type>
+                    <dc:type>engraving</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>28</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b53144042n</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b53144042n.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b53144042n</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Audubon, John James (1785-1851). Dessinateur du modèle</dc:creator>
+                    <dc:creator>Havell, Robert (1793-1878). Graveur</dc:creator>
+                    <dc:date>1831</dc:date>
+                    <dc:format>1 est. : eau-forte, pointe sèche et aquatinte aquarellées ; 100 x 65 cm (f.), .65,8 x 52,9 cm (élt d'imp.)</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 1</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b531440344</dc:identifier>
+                    <dc:language>eng</dc:language>
+                    <dc:publisher>London</dc:publisher>
+                    <dc:relation>Extrait de : The birds of America ; 122</dc:relation>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb45114771z</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Estampes et photographie, RESERVE FT 6-JB-45 (2)</dc:source>
+                    <dc:subject>Ornithologie</dc:subject>
+                    <dc:subject>Guiraca bleu</dc:subject>
+                    <dc:subject>Oiseaux -- Amérique du Nord</dc:subject>
+                    <dc:subject>Représentations animalières -- 1800-1869</dc:subject>
+                    <dc:title>The birds of America. [Livraison] 25, Plate CXXII, Blue Grosbeak, Male 1., Female 2., Young 3. ; Dog-wood : [estampe] / Drawn from Nature by John J. Audubon ; Engraved, printed &amp; Coloured by R. Havell</dc:title>
+                    <dc:title>Guiraca bleu</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                    <dc:type>estampe</dc:type>
+                    <dc:type>engraving</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>29</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b531440344</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b531440344.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b531440344</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:contributor>Bernhardt, Sarah (1844-1923). Acteur</dc:contributor>
+                    <dc:creator>Dullin, Charles (1885-1949). Producteur d'un fonds</dc:creator>
+                    <dc:creator>Jollivet, Simone (1903-1968) . Producteur d'un fonds</dc:creator>
+                    <dc:creator>Rostand, Edmond (1868-1918). Auteur du texte</dc:creator>
+                    <dc:date>1900</dc:date>
+                    <dc:description>Numérisation effectuée à partir d'un document de substitution.</dc:description>
+                    <dc:format>1 élément de costume</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b531380005</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:relation>Notice du catalogue : http://archivesetmanuscrits.bnf.fr/ark:/12148/cc5444q/ca59786840840964</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France. Département des arts du spectacle. COS-2010/0436/01</dc:source>
+                    <dc:title>Fonds Charles Dullin (1885-1949), accompagné du fonds Simone Jollivet (1903-1968). Charles Dullin et le théâtre. Charles Dullin directeur de théâtre. Charles Dullin directeur du Théâtre de la Cité (ex-Théâtre Sarah-Bernhardt). Costumes créés pour des spectacles joués par Sarah Bernhardt. L'Aiglon (1900) : théâtre. Rôle : Valet (rôle interprété par : non identifié). Habit militaire en lainage bleu roi, plastron et poignets lainage jaune, boutons dorés, épaulettes et fourragère en cordons blancs</dc:title>
+                    <dc:type>manuscript</dc:type>
+                    <dc:type>manuscrit</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>30</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b531380005</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b531380005.thumbnail</thumbnail>
+                <typedoc>manuscrits</typedoc>
+                <uri>btv1b531380005</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Nau, John-Antoine (1860-1918). Auteur du texte</dc:creator>
+                    <dc:date>1904</dc:date>
+                    <dc:description>Contient une table des matières</dc:description>
+                    <dc:format>1 vol. (165 p.) ; in-18</dc:format>
+                    <dc:format>Nombre total de vues : 175</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/bpt6k548752</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:publisher> (Paris)</dc:publisher>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb31005460p</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Littérature et art, 8-YE-6395</dc:source>
+                    <dc:title>Hiers bleus : poésies / John-Antoine Nau,...</dc:title>
+                    <dc:type>text</dc:type>
+                    <dc:type>monographie imprimée</dc:type>
+                    <dc:type>monographie imprimée</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>31</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/bpt6k548752</link>
+                <nqamoyen>93.13</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/bpt6k548752.thumbnail</thumbnail>
+                <typedoc>monographies</typedoc>
+                <uri>bpt6k548752</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Audubon, John James (1785-1851). Dessinateur du modèle</dc:creator>
+                    <dc:creator>Audubon, John James (1785-1851). Éditeur scientifique</dc:creator>
+                    <dc:creator>Havell, Robert (1793-1878). Graveur</dc:creator>
+                    <dc:date>1830</dc:date>
+                    <dc:format>1 est. : eau-forte, pointe sèche et aquatinte aquarellées ; 100 x 65 cm (f.), ... x ... cm (élt d'imp.)</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 1</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b53144031s</dc:identifier>
+                    <dc:language>eng</dc:language>
+                    <dc:publisher>London, 1830</dc:publisher>
+                    <dc:relation>Extrait de : The birds of America ; 84</dc:relation>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb451137811</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Estampes et photographie, RESERVE FT 6-JB-45 (2)</dc:source>
+                    <dc:subject>Ornithologie</dc:subject>
+                    <dc:subject>Oiseaux -- Amérique du Nord</dc:subject>
+                    <dc:subject>Noyer noir d'Amérique</dc:subject>
+                    <dc:subject>Représentations animalières -- 1800-1869</dc:subject>
+                    <dc:title>The birds of America. [Livraison] 17, Plate 84, Blue Grey Flycatcher, Male 1. F[emale] 2. ; Vulgo Black Walnut : [estampe] / Drawn from Nature and Published by John J. Audubon ; Engraved, Printed &amp; Coloured by R. Havell Jun.r</dc:title>
+                    <dc:title>Gobemoucheron gris-bleu</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                    <dc:type>estampe</dc:type>
+                    <dc:type>engraving</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>32</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b53144031s</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b53144031s.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b53144031s</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:description>Référence bibliographique : De Vinck, 313</dc:description>
+                    <dc:description>Appartient à l’ensemble documentaire : Est19Vinck</dc:description>
+                    <dc:format>1 est. : gravure à l'eau-forte coloriée ; 29,3 x 18,8 cm</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 1</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b6940299s</dc:identifier>
+                    <dc:publisher>[s.n.]</dc:publisher>
+                    <dc:relation>Notice de recueil : http://catalogue.bnf.fr/ark:/12148/cb41387966w</dc:relation>
+                    <dc:relation>Appartient à : [Recueil. Collection de Vinck. Un siècle d'histoire de France par l'estampe, 1770-1870. Vol. 2 (pièces 187-345), Ancien Régime et Révolution]</dc:relation>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb41511916s</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Estampes et photographie, RESERVE QB-370 (2)-FT 4</dc:source>
+                    <dc:subject>Marie-Antoinette (1755-1793 ; reine de France)</dc:subject>
+                    <dc:title>Marie-Antoinette, en pied, de profil à droite, tenant à la main droite un sceptre, vêtue d'une robe jaune rayée de rouge et d'un manteau vert doublé d'hermine, avec une coiffure haute, dans un jardin où l'on voit à droite un jet d'eau, à gauche une balustrade ornée d'un buste de négresse coiffée de plumes rouges et bleues : "Antoinette d'Autriche - Reine de France. N° IV" : [estampe]</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                    <dc:type>estampe</dc:type>
+                    <dc:type>engraving</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>33</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b6940299s</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b6940299s.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b6940299s</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Hellé, André (1871-1945). Auteur du texte</dc:creator>
+                    <dc:date>1933</dc:date>
+                    <dc:description>Appartient à l’ensemble documentaire : UnivJeun0</dc:description>
+                    <dc:description>Appartient à l’ensemble documentaire : RsAlis000</dc:description>
+                    <dc:description>Appartient à l’ensemble documentaire : RsAlis003</dc:description>
+                    <dc:description>Appartient à l’ensemble documentaire : RsAlis023</dc:description>
+                    <dc:description>Avec mode texte</dc:description>
+                    <dc:description>Imagiers (livres) </dc:description>
+                    <dc:description>Albums à colorier</dc:description>
+                    <dc:format>1 vol. (non paginé [32] p.) : tout en ill. ; 25 cm</dc:format>
+                    <dc:format>Nombre total de vues : 36</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/bpt6k9657433k</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:publisher> (Paris)</dc:publisher>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb444833498</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque municipale de Toulouse, 2016-4625</dc:source>
+                    <dc:title>72 images rouges jaunes bleues oranges violettes vertes à colorier / André Hellé</dc:title>
+                    <dc:type>text</dc:type>
+                    <dc:type>monographie imprimée</dc:type>
+                    <dc:type>monographie imprimée</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>34</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/bpt6k9657433k</link>
+                <nqamoyen>91.23</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/bpt6k9657433k.thumbnail</thumbnail>
+                <typedoc>monographies</typedoc>
+                <uri>bpt6k9657433k</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Roy-Chevrier, Joseph (1860-1949). Auteur du texte</dc:creator>
+                    <dc:date>1898</dc:date>
+                    <dc:description>Collection : Bibliothèque du "Progrès agricole et viticole"</dc:description>
+                    <dc:description>Collection : Bibliothèque du "Progrès agricole et viticole"</dc:description>
+                    <dc:format>1 vol. (67 p.) ; in-8</dc:format>
+                    <dc:format>Nombre total de vues : 72</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/bpt6k379743f</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:publisher> (Villefranche)</dc:publisher>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb31265310f</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Sciences et techniques, 8-S-9764</dc:source>
+                    <dc:title>Voyage au pays des vignes jaunes et aux pays des vignes bleues / par J. Roy-Chevrier,...</dc:title>
+                    <dc:type>text</dc:type>
+                    <dc:type>monographie imprimée</dc:type>
+                    <dc:type>monographie imprimée</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>35</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/bpt6k379743f</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/bpt6k379743f.thumbnail</thumbnail>
+                <typedoc>monographies</typedoc>
+                <uri>bpt6k379743f</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:description>Appartient à l’ensemble documentaire : RsAlis000</dc:description>
+                    <dc:description>Appartient à l’ensemble documentaire : RsAlis011</dc:description>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 3</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b105745209</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb449207765</dc:relation>
+                    <dc:relation>Notice dans un autre catalogue : http://catalogues.toulouse.fr/web2/tramp2.exe/do_keyword_search/log_in?setting_key=BMT1&amp;servers=1home&amp;query=FAD_003435_001_DOMINOTE</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque municipale de Toulouse, Bibliothèque municipale de Toulouse</dc:source>
+                    <dc:subject>Ecossais (motif)</dc:subject>
+                    <dc:subject>Bleu (couleur)</dc:subject>
+                    <dc:subject>Jaune (couleur)</dc:subject>
+                    <dc:title>"Papier dominoté. Papier "écossais" : lignes de diverses épaisseurs bleues ou jaunes se croissant sur fond blanc. (19e siècle)</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>36</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b105745209</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b105745209.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b105745209</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Audubon, John James (1785-1851). Dessinateur du modèle</dc:creator>
+                    <dc:creator>Audubon, John James (1785-1851). Éditeur scientifique</dc:creator>
+                    <dc:creator>Havell, Robert (1793-1878). Graveur</dc:creator>
+                    <dc:date>1828</dc:date>
+                    <dc:format>1 est. : eau-forte, pointe sèche et aquatinte aquarellées ; 100 x 65 cm (f.), 49,4 x 31,1 cm (élt d'imp.)</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 1</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b53144062g</dc:identifier>
+                    <dc:language>eng</dc:language>
+                    <dc:publisher>London</dc:publisher>
+                    <dc:relation>Extrait de : The birds of America ; 28</dc:relation>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb451194255</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Estampes et photographie, RESERVE FT 6-JB-45 (1)</dc:source>
+                    <dc:subject>Ornithologie</dc:subject>
+                    <dc:subject>Oiseaux -- Amérique du Nord</dc:subject>
+                    <dc:subject>Représentations animalières -- 1800-1869</dc:subject>
+                    <dc:title>The birds of America. [Livraison] 6, Plate 28, Solitary Flycatcher, Male 1., F[emale] 2. [i.e. Blue-headed Vireo] ; Plant Vulgo Cane : [estampe] / Drawn from Nature and Published by John J. Audubon ; Engraved, Printed &amp; Coloured by R. Havell &amp; Son</dc:title>
+                    <dc:title>Viréo à tête bleue</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                    <dc:type>estampe</dc:type>
+                    <dc:type>engraving</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>37</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b53144062g</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b53144062g.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b53144062g</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Sevestre-Le Blond, Jean-Baptiste (1728-1805). Fonction indéterminée</dc:creator>
+                    <dc:description>Appartient à l’ensemble documentaire : RsAlis000</dc:description>
+                    <dc:description>Appartient à l’ensemble documentaire : RsAlis011</dc:description>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 2</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b10576341h</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb44920916v</dc:relation>
+                    <dc:relation>Notice dans un autre catalogue : http://catalogues.toulouse.fr/web2/tramp2.exe/do_keyword_search/log_in?setting_key=BMT1&amp;servers=1home&amp;query=RD18_000733_DOMINOTE</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque municipale de Toulouse, Bibliothèque municipale de Toulouse</dc:source>
+                    <dc:subject>Polychromie</dc:subject>
+                    <dc:subject>Rubans (motif)</dc:subject>
+                    <dc:subject>Points (motif)</dc:subject>
+                    <dc:subject>Rayures (motif)</dc:subject>
+                    <dc:subject>Fleurs (motif)</dc:subject>
+                    <dc:title>"Papier dominoté. Entrelacs de "rubans " bleus et jaunes ornés de motifs géométriques qui se croisent ; encadrant ainsi 2 motifs floraux : tige portant une baie ; tige avec 3 feuilles trilobées, en alternance sur un fond rayé. Impression en noir sur fond blanc, rehaussée de diverses couleurs</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>38</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b10576341h</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b10576341h.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b10576341h</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Audubon, John James (1785-1851). Dessinateur du modèle</dc:creator>
+                    <dc:creator>Havell, Robert (1793-1878). Graveur</dc:creator>
+                    <dc:date>1827</dc:date>
+                    <dc:format>1 est. : eau-forte, pointe sèche et aquatinte aquarellées ; 100 x 65 cm (f.), 49,4 x 31 cm (élt d'imp.)</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:format>Nombre total de vues : 1</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b53144035k</dc:identifier>
+                    <dc:language>eng</dc:language>
+                    <dc:publisher>[s.n.] (Londres)</dc:publisher>
+                    <dc:relation>Extrait de : The birds of America ; 20</dc:relation>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb45119321h</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Estampes et photographie, RESERVE FT 6-JB-45 (1)</dc:source>
+                    <dc:subject>Ornithologie</dc:subject>
+                    <dc:subject>Oiseaux -- Amérique du Nord</dc:subject>
+                    <dc:subject>Représentations animalières -- 1800-1869</dc:subject>
+                    <dc:title>The birds of America. [Livraison] 4, Plate 20, Blue Winged Yellow Warbler, Male 1., F[emale] 2. ; Plant Vulgo Wild Althea : [estampe] / Drawn from Nature by John J. Audubon ; Engraved by R. Havell jun.r ; Printed &amp; Coloured by R. Havell sen.r</dc:title>
+                    <dc:title>Paruline à ailes bleues</dc:title>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                    <dc:type>estampe</dc:type>
+                    <dc:type>engraving</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>39</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b53144035k</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b53144035k.thumbnail</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>btv1b53144035k</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:contributor>Bernhardt, Sarah (1844-1923). Acteur</dc:contributor>
+                    <dc:contributor>Thomas, Théophile (1846?-1916)Théophile Thomas</dc:contributor>
+                    <dc:creator>Dullin, Charles (1885-1949). Producteur d'un fonds</dc:creator>
+                    <dc:creator>Jollivet, Simone (1903-1968) . Producteur d'un fonds</dc:creator>
+                    <dc:creator>Sardou, Victorien (1831-1908). Auteur du texte</dc:creator>
+                    <dc:date>1902</dc:date>
+                    <dc:description>Numérisation effectuée à partir d'un document de substitution.</dc:description>
+                    <dc:format>1 élément de costume</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b53138065w</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:relation>Notice du catalogue : http://archivesetmanuscrits.bnf.fr/ark:/12148/cc5444q/ca59786677344641</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France. Département des arts du spectacle. COS-2010/0416/05</dc:source>
+                    <dc:title>Fonds Charles Dullin (1885-1949), accompagné du fonds Simone Jollivet (1903-1968). Charles Dullin et le théâtre. Charles Dullin directeur de théâtre. Charles Dullin directeur du Théâtre de la Cité (ex-Théâtre Sarah-Bernhardt). Costumes créés pour des spectacles joués par Sarah Bernhardt. Théodora (1902) : théâtre. Bélisaire ? (rôle interprété par : Cealis). Costume de : Théophile Thomas. Camail en soie bleue, appliques de lamé or, pierres mauves, bleues, jaunes et perles blanches ; tortillons de lames dorées ; doublure en soie rose</dc:title>
+                    <dc:type>manuscript</dc:type>
+                    <dc:type>manuscrit</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>40</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b53138065w</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b53138065w.thumbnail</thumbnail>
+                <typedoc>manuscrits</typedoc>
+                <uri>btv1b53138065w</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:contributor>Bernhardt, Sarah (1844-1923). Acteur</dc:contributor>
+                    <dc:contributor>Thomas, Théophile (1846?-1916)Théophile Thomas</dc:contributor>
+                    <dc:creator>Dullin, Charles (1885-1949). Producteur d'un fonds</dc:creator>
+                    <dc:creator>Jollivet, Simone (1903-1968) . Producteur d'un fonds</dc:creator>
+                    <dc:creator>Sardou, Victorien (1831-1908). Auteur du texte</dc:creator>
+                    <dc:date>1902</dc:date>
+                    <dc:description>Numérisation effectuée à partir d'un document de substitution.</dc:description>
+                    <dc:format>1 élément de costume</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/btv1b531380200</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:relation>Notice du catalogue : http://archivesetmanuscrits.bnf.fr/ark:/12148/cc5444q/ca59786677344643</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Bibliothèque nationale de France. Département des arts du spectacle. COS-2010/0415/01</dc:source>
+                    <dc:title>Fonds Charles Dullin (1885-1949), accompagné du fonds Simone Jollivet (1903-1968). Charles Dullin et le théâtre. Charles Dullin directeur de théâtre. Charles Dullin directeur du Théâtre de la Cité (ex-Théâtre Sarah-Bernhardt). Costumes créés pour des spectacles joués par Sarah Bernhardt. Théodora (1902) : théâtre. Euphratas (rôle interprété par : Chameroy). Costume de : Théophile Thomas. Dalmatique en damassé lamé doré, à damiers de perles blanches, cabochons jaunes, bleus, rouges ; franges en tourbillons lamé or et pompons en fils lamé doré au bas</dc:title>
+                    <dc:type>manuscript</dc:type>
+                    <dc:type>manuscrit</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>41</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/btv1b531380200</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/btv1b531380200.thumbnail</thumbnail>
+                <typedoc>manuscrits</typedoc>
+                <uri>btv1b531380200</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:date>[S.d.]</dc:date>
+                    <dc:description>[S.d.] des incertitudes sur la datation </dc:description>
+                    <dc:description>Description du contenu : Nom scientifique : Ara ; Famille : Psittacidés ; Nom vulgaire : Ara ; Nom vulgaire anglais : Ara</dc:description>
+                    <dc:format>Vélin ; environ 460 x 330 millimètres</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:identifier>MNHN_VEL_PORTEFEUILLE080_FOL067</dc:identifier>
+                    <dc:identifier>Calames-2015391633897952</dc:identifier>
+                    <dc:identifier>http://bibliotheques.mnhn.fr/medias/doc/EXPLOITATION/IFD/MNHN_VEL_PORTEFEUILLE080_FOL067/</dc:identifier>
+                    <dc:publisher>[S.n.] ([S.l.])</dc:publisher>
+                    <dc:relation>Fait partie de : Collection des vélins du Muséum national d'histoire naturelle - portefeuille 80 - Zoologie - Oiseaux</dc:relation>
+                    <dc:relation>Appartient à : Collection des vélins du Muséum national d'histoire naturelle - portefeuille 80 - Zoologie - Oiseaux</dc:relation>
+                    <dc:relation>vignette : http://bibliotheques.mnhn.fr/EXPLOITATION/infodoc/digitalCollections/thumb.ashx?seid=MNHN_VEL_PORTEFEUILLE080&amp;i=MNHN_VEL_PORTEFEUILLE080_FOL067.jpg&amp;s=large#extension.jpg</dc:relation>
+                    <dc:rights>Muséum national d'histoire naturelle (Paris) - Direction des bibliothèques et de la documentation</dc:rights>
+                    <dc:source>Muséum national d'histoire naturelle (Paris) - Direction des bibliothèques et de la documentation, Portefeuille 80, folio 67</dc:source>
+                    <dc:subject>Ara</dc:subject>
+                    <dc:subject>Psittacidés</dc:subject>
+                    <dc:subject>Ara</dc:subject>
+                    <dc:subject>Ara</dc:subject>
+                    <dc:title>Psittacus alter maximus aureo-caeruleus / Grand perroquet jaune et bleu, Anonyme</dc:title>
+                    <dc:type>Image</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>42</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>http://bibliotheques.mnhn.fr/medias/doc/EXPLOITATION/IFD/MNHN_VEL_PORTEFEUILLE080_FOL067/</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail> http://bibliotheques.mnhn.fr/EXPLOITATION/infodoc/digitalCollections/thumb.ashx?seid=MNHN_VEL_PORTEFEUILLE080&amp;i=MNHN_VEL_PORTEFEUILLE080_FOL067.jpg&amp;s=large#extension.jpg</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>oai:bibliotheques.mnhn.fr:MNHN_VEL_PORTEFEUILLE080_FOL067</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Varley, John (1947-....). Auteur du texte</dc:creator>
+                    <dc:creator>Verley, John. Auteur du texte</dc:creator>
+                    <dc:date>1986</dc:date>
+                    <dc:description>Collection : Étoile double ; 14</dc:description>
+                    <dc:description>Collection : Étoile double ; 14</dc:description>
+                    <dc:description>Comprend : Champagne bleu</dc:description>
+                    <dc:description>Contient une table des matières</dc:description>
+                    <dc:description>Avec mode texte</dc:description>
+                    <dc:format>157 p.</dc:format>
+                    <dc:format>Nombre total de vues : 164</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/bpt6k3403033v</dc:identifier>
+                    <dc:identifier>ISBN 2207340147</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:publisher> (Paris)</dc:publisher>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb348754769</dc:relation>
+                    <dc:rights>conditions spécifiques d'utilisation - Projet de numérisation des indisponibles</dc:rights>
+                    <dc:rights>restricted use</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Littérature et art, EL 8-Y-13749 (14)</dc:source>
+                    <dc:title>Frappez, entrée ; (suivi de) Champagne bleu / John Varley</dc:title>
+                    <dc:type>text</dc:type>
+                    <dc:type>monographie imprimée</dc:type>
+                    <dc:type>monographie imprimée</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>43</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/bpt6k3403033v</link>
+                <nqamoyen>99.99</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/bpt6k3403033v.thumbnail</thumbnail>
+                <typedoc>monographies</typedoc>
+                <uri>bpt6k3403033v</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Widmer, Jean (1929-...)</dc:creator>
+                    <dc:date>1975</dc:date>
+                    <dc:format>1 affiche : en coul. ; 65 x 50 cm</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:identifier>http://bibliotheques-specialisees.paris.fr/ark:/73873/pf0000841766</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:publisher>[éditeur inconnu]</dc:publisher>
+                    <dc:relation>vignette : http://bibliotheques-specialisees.paris.fr/in/rest/Thumb/image?id=p::usmarcdef_0000841766&amp;mat=Poster</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Ville de Paris / Bibl. Forney, AF 219318 PF</dc:source>
+                    <dc:subject>Couleur -- Expositions</dc:subject>
+                    <dc:subject>Iconographie : affiches : expositions et activités culturelles</dc:subject>
+                    <dc:subject>couleur</dc:subject>
+                    <dc:title>Couleur. Centre Beaubourg Centre de création industrielle ... jaune orange rouge violet bleu vert : [affiche]</dc:title>
+                    <dc:type>image</dc:type>
+                    <dc:type>image fixe</dc:type>
+                    <dc:type>still image</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>44</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>http://bibliotheques-specialisees.paris.fr/ark:/73873/pf0000841766</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail> http://bibliotheques-specialisees.paris.fr/in/rest/Thumb/image?id=p::usmarcdef_0000841766&amp;mat=Poster</thumbnail>
+                <typedoc>images</typedoc>
+                <uri>oai:bibliotheques-specialisees.paris.fr:ark:/73873/pf0000841766</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Bleu-Schwenninger, Patricia (1941-....). Auteur du texte</dc:creator>
+                    <dc:date>1993</dc:date>
+                    <dc:description>Contient une table des matières</dc:description>
+                    <dc:description>Avec mode texte</dc:description>
+                    <dc:format>1 vol. (308 p.) : couv. ill. ; 21 cm</dc:format>
+                    <dc:format>Nombre total de vues : 326</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/bpt6k33215909</dc:identifier>
+                    <dc:identifier>ISBN 2902709846</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:language>français</dc:language>
+                    <dc:publisher>Ellug (Grenoble)</dc:publisher>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb35679914w</dc:relation>
+                    <dc:rights>conditions spécifiques d'utilisation - Projet de numérisation des indisponibles</dc:rights>
+                    <dc:rights>restricted use</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Littérature et art, 16-YK-2747</dc:source>
+                    <dc:subject>Dos Passos, John (1896-1970) -- Critique et interprétation</dc:subject>
+                    <dc:title>John Dos Passos, l'écriture-miroir / Patricia Bleu-Schwenninger</dc:title>
+                    <dc:type>text</dc:type>
+                    <dc:type>monographie imprimée</dc:type>
+                    <dc:type>monographie imprimée</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>45</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/bpt6k33215909</link>
+                <nqamoyen>99.99</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/bpt6k33215909.thumbnail</thumbnail>
+                <typedoc>monographies</typedoc>
+                <uri>bpt6k33215909</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:contributor>Institut géographique national (France)</dc:contributor>
+                    <dc:date>1980</dc:date>
+                    <dc:description>Légende dans les marges. Représente Paris et la région parisienne de Auvers-sur-Oise à Etréchy, et de Bonnières-sur-Seine à Lagny</dc:description>
+                    <dc:format>Echelle 1 : 100 000</dc:format>
+                    <dc:format>1 carte : en coul. ; 1060 x 880 mm</dc:format>
+                    <dc:format>image/jpeg</dc:format>
+                    <dc:identifier>http://bibliotheques-specialisees.paris.fr/ark:/73873/pf0000856617</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:publisher>IGN</dc:publisher>
+                    <dc:relation>vignette : http://bibliotheques-specialisees.paris.fr/in/rest/Thumb/image?id=p::usmarcdef_0000856617&amp;mat=Map</dc:relation>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:rights>public domain</dc:rights>
+                    <dc:source>Ville de Paris / BHVP, Gr G 31</dc:source>
+                    <dc:subject>Paris (France) -- Photographies spatiales -- 1970-....</dc:subject>
+                    <dc:subject>Île-de-France (France) -- Photographies spatiales -- 1970-....</dc:subject>
+                    <dc:title>Paris [Spatiocarte]. Satellite Landsat A... Image multispectrale représentée en infrarouge. Couleur : cultures en jaune et orange, forêts en rouge, zones urbanisées, eau en bleu... : [1980]</dc:title>
+                    <dc:type>image</dc:type>
+                    <dc:type>document cartographique</dc:type>
+                    <dc:type>cartographic resource</dc:type>
+                    <dc:type>carte</dc:type>
+                    <dc:type>map</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>46</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>http://bibliotheques-specialisees.paris.fr/ark:/73873/pf0000856617</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail> http://bibliotheques-specialisees.paris.fr/in/rest/Thumb/image?id=p::usmarcdef_0000856617&amp;mat=Map</thumbnail>
+                <typedoc>cartes</typedoc>
+                <uri>oai:bibliotheques-specialisees.paris.fr:ark:/73873/pf0000856617</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:date>1955</dc:date>
+                    <dc:description>BnF-Partenariats, Collection sonore - Believe</dc:description>
+                    <dc:description>Contient une table des matières</dc:description>
+                    <dc:format>1 disque : 45 t ; 17 cm</dc:format>
+                    <dc:format>disc</dc:format>
+                    <dc:format>disque microsillon</dc:format>
+                    <dc:format>multipart/mixed</dc:format>
+                    <dc:format>Nombre total de vues : 6</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/bpt6k8838291c</dc:identifier>
+                    <dc:identifier>Numéro commercial : La voix de son maître 7GF211</dc:identifier>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb38062479k</dc:relation>
+                    <dc:rights>conditions spécifiques d'utilisation - BnF-Partenariats, Collection sonore - Believe</dc:rights>
+                    <dc:rights>restricted use</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Audiovisuel, E-8695</dc:source>
+                    <dc:title>EN VESTON JAUNE / H. ITHIER - M. PANZERI - V. RIPA. LE CHALET BLEU / L. AMADE - H. BOURTAYRE - J.H. RYS ; Luis MARIANO - orch. dir. J.H. RYS</dc:title>
+                    <dc:type>sound</dc:type>
+                    <dc:type>document sonore</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>47</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/bpt6k8838291c</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/bpt6k8838291c.thumbnail</thumbnail>
+                <typedoc>sonores</typedoc>
+                <uri>bpt6k8838291c</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Crosby, Bing (1903-1977). Chant</dc:creator>
+                    <dc:creator>Trotter, John Scott (1900-1975). Direction d'orchestre</dc:creator>
+                    <dc:creator>Trotter, John Scott (1900-1975). Direction d'orchestre</dc:creator>
+                    <dc:creator>Camarata, Toots (1913-2005). Direction d'orchestre</dc:creator>
+                    <dc:creator>Camarata, Toots (1913-2005). Direction d'orchestre</dc:creator>
+                    <dc:creator>Young, Victor (1900-1956). Direction d'orchestre</dc:creator>
+                    <dc:creator>Young, Victor (1900-1956). Direction d'orchestre</dc:creator>
+                    <dc:creator>Young, Victor (1900-1956). Direction d'orchestre</dc:creator>
+                    <dc:creator>Young, Victor (1900-1956). Direction d'orchestre</dc:creator>
+                    <dc:date>1954</dc:date>
+                    <dc:description>Comprend : Where the blue of the night meets the gold of the day ; Let me call your sweetheart ; I'll be yours ; We'll gather lilacs ; When you make love to me ; It could happen to you ; It must be true ; I surrender dear</dc:description>
+                    <dc:description>BnF-Partenariats, Collection sonore - Believe</dc:description>
+                    <dc:description>Contient une table des matières</dc:description>
+                    <dc:format>1 disque : 33 t ; 25 cm</dc:format>
+                    <dc:format>disc</dc:format>
+                    <dc:format>disque microsillon</dc:format>
+                    <dc:format>multipart/mixed</dc:format>
+                    <dc:format>Nombre total de vues : 12</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/bpt6k8815812b</dc:identifier>
+                    <dc:identifier>Numéro commercial : Decca UM233126</dc:identifier>
+                    <dc:language>eng</dc:language>
+                    <dc:language>anglais</dc:language>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb38264366s</dc:relation>
+                    <dc:rights>conditions spécifiques d'utilisation - BnF-Partenariats, Collection sonore - Believe</dc:rights>
+                    <dc:rights>restricted use</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Audiovisuel, C-20257</dc:source>
+                    <dc:subject>chanson anglophone</dc:subject>
+                    <dc:title>Le bleu de la nuit / Bing Crosby, chant... ; John Scott Trotter et son orchestre, Camarata et son orchestre, Victor Young et son orchestre</dc:title>
+                    <dc:type>sound</dc:type>
+                    <dc:type>document sonore</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>48</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/bpt6k8815812b</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/bpt6k8815812b.thumbnail</thumbnail>
+                <typedoc>sonores</typedoc>
+                <uri>bpt6k8815812b</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:contributor>Drouot ; Impr. de l'Art, Ch. Berger</dc:contributor>
+                    <dc:creator>Drouot</dc:creator>
+                    <dc:creator>Baudoin, Henri (1876-1963) &gt; Commissaire-priseur</dc:creator>
+                    <dc:creator>Martini, E. &gt; Expert</dc:creator>
+                    <dc:date>20...</dc:date>
+                    <dc:date>1922-12-22</dc:date>
+                    <dc:date>1922-01-01</dc:date>
+                    <dc:description>1922</dc:description>
+                    <dc:description>20e siècle</dc:description>
+                    <dc:description>Nombre de vues du document : 22</dc:description>
+                    <dc:description>Date de numérisation : 2013</dc:description>
+                    <dc:description>Note : Henri Baudouin fut nommé le 25 janvier 1908 et remplacé à son office le 17 décembre 1941 par M. Denis Émile Pierre Baudouin</dc:description>
+                    <dc:description>Note de contenu : Contient 229 lots et 4 planches</dc:description>
+                    <dc:description>Documents en rapport : &lt;a href="https://bibliotheque-numerique.inha.fr/idurl/1/59442" target="_blank"&gt;&lt;b&gt;Collection Rémy-Martin (deuxième vente). Objets d'art et d'ameublement, tableaux, pastels : [vente des 16 et 17 mars 1923]&lt;/b&gt;&lt;/a&gt;</dc:description>
+                    <dc:description>Documents en rapport : &lt;a href="https://bibliotheque-numerique.inha.fr/idurl/1/59477" target="_blank"&gt;&lt;b&gt;Collection Rémy-Martin (troisième vente). Faïences anciennes : [vente du 27 mars 1923]&lt;/b&gt;&lt;/a&gt;</dc:description>
+                    <dc:description>Documents en rapport : &lt;a href="https://bibliotheque-numerique.inha.fr/idurl/1/59700" target="_blank"&gt;&lt;b&gt;Collection Rémy-Martin (quatrième vente). Lithographies du XIXe siècle, armes et objets révolutionnaires [...] : [vente du 7 mai 1923]&lt;/b&gt;&lt;/a&gt;</dc:description>
+                    <dc:description>Langue du document : Français</dc:description>
+                    <dc:description>Lieu de publication : Paris</dc:description>
+                    <dc:format>1 vol. (32 p.-[4] f. de pl.) : ill. ; in-8°</dc:format>
+                    <dc:identifier>https://bibliotheque-numerique.inha.fr/idurl/1/58924</dc:identifier>
+                    <dc:language>fre</dc:language>
+                    <dc:publisher>Bibliothèque de l'Institut National d'Histoire de l'Art, collections Jacques Doucet</dc:publisher>
+                    <dc:relation>vignette : https://bibliotheque-numerique.inha.fr/i/?IIIF=/77/0e/d7/37/770ed737-5c03-4a2c-a054-e280b97ad45d/iiif/1003_doucet_CV07710_19221222_000001.tif/full/!256,256/0/default.jpg</dc:relation>
+                    <dc:rights>Institut National d'Histoire de l'Art</dc:rights>
+                    <dc:rights>domaine public</dc:rights>
+                    <dc:source>Cote de l'original : VP 1922/738 ; Cote du microfilm : Mfilm 35 1922 12 22 (bobine 192)</dc:source>
+                    <dc:source>NUM CV07710_19221222</dc:source>
+                    <dc:subject>Vente. Art. Paris. 1922-12-22</dc:subject>
+                    <dc:subject>Collection. Céramique. Rémy-Martin</dc:subject>
+                    <dc:title>Collection Rémy-Martin (première vente). Faïences anciennes : [vente des 22 et 23 décembre 1922]</dc:title>
+                    <dc:title>Catalogue des faïences anciennes de Marseille, Montpellier, Moustiers à décors camaïeu, polychrome et fond jaune, haut-relief, Goult, Rouen, Nevers à décors polychrome, fond bleu de Perse bleu-lapis, d'Apt, Aprey, Avignon, Bruxelles, Clermont, Delft, Hispanos-Mauresques, Montauban, Niederviller, Saint-Clément, Saint-Omer, Saintes, Urbino, Wedgvood, etc., provenant du Château de Lignières (Charente) composant la collection de Monsieur Rémy-Martin dont la première vente aura lieu Hôtel Drouot, salle N°11 les vendredi 22 et samedi 23 décembre 1922 à 2 heures</dc:title>
+                    <dc:type>Catalogue de vente</dc:type>
+                    <dc:type>image</dc:type>
+                    <dc:type>still image</dc:type>
+                    <dc:type>text</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>49</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://bibliotheque-numerique.inha.fr/idurl/1/58924</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail> https://bibliotheque-numerique.inha.fr/i/?IIIF=/77/0e/d7/37/770ed737-5c03-4a2c-a054-e280b97ad45d/iiif/1003_doucet_CV07710_19221222_000001.tif/full/!256,256/0/default.jpg</thumbnail>
+                <typedoc>monographies</typedoc>
+                <uri>oai:bibliotheque-numerique.inha.fr:1:58924</uri>
+            </srw:extraRecordData>
+        </srw:record>
+    </srw:records>
+    <srw:nextRecordPosition>51</srw:nextRecordPosition>
+</srw:searchRetrieveResponse>

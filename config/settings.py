@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 # Keep secrets and environment_specific variables in a separate file not using version control
 from settings_local import *
 from os import path
+import sys
+import logging
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = LOCAL_BASE_DIR
@@ -176,3 +178,7 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = None
 # Other
 FRONT_HOME_URL = LOCAL_FRONT_HOME_URL
 PUBLICATIONS_PER_PAGE = LOCAL_PUBLICATIONS_PER_PAGE
+
+# Don't show logs in tests
+if len(sys.argv) > 1 and sys.argv[1] == "test":
+    logging.disable(logging.CRITICAL)

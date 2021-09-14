@@ -36,6 +36,7 @@ pylint = "^2.10.2"
 coverage = "^5.5"
 mock = "^4.0.3"
 requests-mock = "^1.9.3"
+responses = "^0.14.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

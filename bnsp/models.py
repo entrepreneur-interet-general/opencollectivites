@@ -1,3 +1,4 @@
+from dateutil import parser as dateparser
 from django.db import models
 from django.utils import timezone
 from django.utils.html import strip_tags
@@ -50,10 +51,11 @@ class Query(TimeStampModel):
 
         search = GallicaSearch(max_records=50)
         dated_query = f'({self.query}) and indexationdate > "{indexation_date}"'
-        response = search.get_records(dated_query)
+        search.fetch_records(dated_query)
 
-        if len(response):
-            for record in search.records.values():
+        records = search.get_records().values()
+        if len(records):
+            for record in records:
                 self.create_or_update_document(record)
             self.last_change = now
 
@@ -93,9 +95,12 @@ class Query(TimeStampModel):
         new_doc.title = strip_tags(record.title[:255])
 
         # Document vintage
-        year, _ = DataYear.objects.get_or_create(year=record.date)
-
-        new_doc.years.add(year)
+        try:
+            date = dateparser.parse(record.date).strftime("%Y")
+            year, _ = DataYear.objects.get_or_create(year=date)
+            new_doc.years.add(year)
+        except:
+            pass
 
         # The description
         new_doc.body = ", ".join(record.get_values("dc:subject"))
