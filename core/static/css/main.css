@@ -139,3 +139,8 @@
 :root[data-fr-theme="dark"i] .oc-svg-icons img {
     filter: brightness(0) saturate(100%) invert(61%) sepia(11%) saturate(2548%) hue-rotate(202deg) brightness(103%) contrast(102%);
 }
+
+.oc-privacy-icon {
+    margin-left: 2rem;
+    color: var(--g500);
+}
