@@ -64,7 +64,9 @@
 {% include "core/blocks/publications_list.html" with data=data.cards_page %}
 
 {% if data.cards_page.has_other_pages %}
-    {% dsfr_pagination data.cards_page %}
+    <div class="fr-mt-4w">
+        {% dsfr_pagination data.cards_page %}
+    </div>
 {% endif %}
 
 
