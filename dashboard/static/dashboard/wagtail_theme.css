@@ -3,3 +3,9 @@
   --color-primary-saturation: 100%;
   --color-primary-lightness: 28.5%;
 }
+
+.logo {
+  background-color: #fff;
+  border-radius: 50%;
+
+}
