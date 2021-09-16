@@ -457,10 +457,10 @@ ul>li:before {
     }
 }
 
-.oc-padding-bottom-3em {
-    padding-bottom: 3em;
+.fr-mt-4w {
+    margin-top: 2rem !important;
 }
 
-.oc-padding-top-2em {
-    padding-top: 2em;
+.fr-mb-6w {
+    margin-bottom: 3rem !important;
 }
