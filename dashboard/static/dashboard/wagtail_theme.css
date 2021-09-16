@@ -1,0 +1,11 @@
+:root {
+  --color-primary-hue: 240;
+  --color-primary-saturation: 100%;
+  --color-primary-lightness: 21%;
+}
+
+.logo {
+  background-color: #fff;
+  border-radius: 50%;
+
+}

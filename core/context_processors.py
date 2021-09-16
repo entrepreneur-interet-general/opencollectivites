@@ -9,12 +9,15 @@ def topics_processor(request: HttpRequest) -> dict:
     topics = []
 
     for topic in raw_topics:
+        if "media" in topic.icon_path:
+            icon_path = f"/media/{topic.icon_path}"
+        else:
+            icon_path = f"/static{topic.icon_path}"
         topics.append(
             {
                 "title": topic.name,
                 "url": f"{page_publications}?topic={topic.id}",
-                "image_path": f"/static{topic.icon_path}",
-                "svg_icon": True,
+                "image_path": icon_path,
             }
         )
     return {"context_topics": topics}

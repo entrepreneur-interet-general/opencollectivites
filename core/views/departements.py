@@ -1,10 +1,10 @@
-from django.urls.base import reverse
+from core.services.departements import departement_data
+from core.services.publications import list_publications_for_collectivity
 from core.services.utils import init_payload
+from django.urls.base import reverse
 from django.shortcuts import get_object_or_404, render
 from django.views.decorators.http import require_safe
 from francedata.models import Departement
-
-from core.services.departements import departement_data
 
 
 @require_safe
@@ -19,7 +19,12 @@ def page_departement_detail(request, slug):
     payload["page_summary"] = [
         {"link": "#donnees-contexte", "title": "Données de contexte"},
         {"link": "#perimetre", "title": "Périmètre"},
+        {"link": "#list-publications", "title": "Études, statistiques et outils"},
     ]
+
+    payload["publications"] = list_publications_for_collectivity(
+        collectivity_type="departement", collectivity_id=departement.id
+    )
 
     return render(request, "core/departement_detail.html", payload)
 

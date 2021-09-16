@@ -36,6 +36,8 @@ INTERNAL_IPS = ("127.0.0.1",)
 # Application definition
 
 INSTALLED_APPS = [
+    "dsfr",
+    "dashboard",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -45,8 +47,8 @@ INSTALLED_APPS = [
     "django.contrib.postgres",
     "corsheaders",
     "wagtail.contrib.forms",
-    "wagtail.contrib.redirects",
     "wagtail.contrib.modeladmin",
+    "wagtail.contrib.redirects",
     "wagtail.contrib.styleguide",
     "wagtail.embeds",
     "wagtail.sites",
@@ -63,7 +65,6 @@ INSTALLED_APPS = [
     "taggit",
     "analytical",
     "feeds",
-    "dsfr",
     "francedata.apps.FrancedataConfig",
     "aspic.apps.AspicConfig",
     "core",
@@ -170,7 +171,7 @@ MATOMO_DOMAIN_PATH = LOCAL_MATOMO_DOMAIN_PATH
 MATOMO_SITE_ID = LOCAL_MATOMO_SITE_ID
 
 # Wagtail
-WAGTAIL_SITE_NAME = "Open Collectivités - gestion du contenu"
+WAGTAIL_SITE_NAME = "Open Collectivités — Gestion des contenus"
 
 # Allow bulk deletions
 DATA_UPLOAD_MAX_NUMBER_FIELDS = None

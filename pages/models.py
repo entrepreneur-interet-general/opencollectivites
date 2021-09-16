@@ -1,3 +1,4 @@
+from core.services.publications import documents_to_cards, list_documents
 from wagtail.admin.edit_handlers import StreamFieldPanel
 from wagtail.core.fields import StreamField
 from wagtail.core.blocks.field_block import RichTextBlock, CharBlock, ChoiceBlock
@@ -36,6 +37,10 @@ class HomePage(Page):
     content_panels = Page.content_panels + [
         StreamFieldPanel("body", heading="Contenu"),
     ]
+
+    def get_homepage_tiles(self):
+        tools = list_documents(publication_page=5, limit=4)
+        return documents_to_cards(tools)
 
 
 class ContentPage(Page):

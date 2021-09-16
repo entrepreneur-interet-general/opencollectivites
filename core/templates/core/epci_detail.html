@@ -1,18 +1,11 @@
 {% extends "core/base.html" %}
-{% load static load dsfr_tags %}
+{% load static dsfr_tags %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/vue-multiselect-dsfr.css' %}">
-<style scoped>
-#homesearch {
-  padding-top: 10px;
-  padding-bottom: 20px;
-}
-</style>
 {% endblock %}
 
 {% block content %}
-<div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
+<div class="fr-container fr-mt-4w fr-mb-6w">
     {% dsfr_breadcrumb breadcrumb_data %}
 
   {# Intro #}
@@ -75,104 +68,101 @@
     {% endif %}
   </div>
 
-{# Tables #}
-<div class="fr-grid-row fr-grid-row--gutters ">
-  <div class="fr-col-12 fr-col-md-8">
-    <h2 id="donnees-socio-economiques">Données socio-économiques</h2>
-    {% dsfr_table caption="Population" content=data.tables.population header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
-    {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données groupements" %}
-
-    <a
-      title="Comparateur de territoires INSEE"
-      href="https://www.insee.fr/fr/statistiques/1405599?geo=EPCI-{{ siren }}"
-      target="_blank"
-      rel="noopener"
-      class="fr-link fr-fi-external-link-line fr-link--icon-right"
-    >
-      Plus d’informations sur le comparateur de territoires INSEE
-    </a>
-
-    <h2 id="coordonnees-siege">Coordonnées du siège</h2>
-    <dl>
-      <dt>Adresse postale :</dt>
-      <dd>{% if data.contact.address1|length > 0 %}{{ data.contact.address1 }} <br />{% endif %}
-      {% if data.contact.address2|length > 0 %}{{ data.contact.address2 }} <br />{% endif %}
-      {% if data.contact.address3|length > 0 %}{{ data.contact.address3 }} <br />{% endif %}
-      {{ data.contact.postcode }} {{ data.contact.city|upper }}</dd>
-
-      {% if data.contact.website|length > 0 %}
-        <dt>Site internet :</dt>
-        <dd><a href="{{ data.contact.website }}" target="_blank" rel="noopener">{{ data.contact.website }}</a></dd>
-      {% endif %}
-
-      {% if data.contact.telephone|length > 0 %}
-        <dt>Téléphone :</dt>
-        <dd><a href="tel:+33{{ data.contact.telephone|slice:'1:' }}">{{ data.contact.telephone }}</a></dd>
-      {% endif %}
-      {% if data.contact.fax|length > 0 %}
-      <dt>Fax :</dt>
-      <dd><a href="fax:+33{{ data.contact.fax|slice:'1:' }}">{{ data.contact.fax }}</a></dd>
-      {% endif %}
-
-      {% if data.contact.email|length > 0 %}<dt>Courriel :</dt>
-      <dd><a href="mailto:{{ data.contact.email }}">{{ data.contact.email }}</a></dd>{% endif %}
-    </dl>
-
-    <h2 id="perimetre-competences">Périmètre & compétences</h2>
-    <h3 id="perimetre">Périmètre</h3>
-    <p>
-      Nombre total de communes membres : {{ data.members.count }}<br />
-    
-      {% for member in data.members %}
-        <a href="{% url 'core:page_commune_detail' member.slug %}">{{ member.name }}</a>{% if forloop.last %}.{% else %}, {% endif%}
-      {%endfor%}
-    </p>
-
-    <a
-      title="Comparatif des communes membres"
-      href="{% url 'core:csv_epci_compare_communes' slug %}"
-      target="_blank"
-      rel="noopener"
-      class="fr-link fr-fi-download-line fr-link--icon-right"
-    >
-      Télécharger le comparatif des {{ data.members.count }} communes au format csv
-    </a>
-
-    <h3>Compétences</h3>
-    <p>Nombre total de compétences exercées : {{ data.competences.count }} </p>
-
-    <a
-      title="Fiche EPCI sur Banatic"
-      href="https://www.banatic.interieur.gouv.fr/V5/recherche-de-groupements/fiche-raison-sociale.php?siren={{ siren }}"
-      target="_blank"
-      rel="noopener"
-      class="fr-link fr-fi-external-link-line fr-link--icon-right"
-    >
-      Voir le détail sur la fiche EPCI de la base nationale sur l’intercommunalité
-    </a>
-
-    <h2 id="ressources-financieres-fiscales">
-      Ressources financières et fiscales
-    </h2>
-    {% dsfr_table caption="Dotation globale de fonctionnement" content=data.tables.dotation_globale extra_classes="oc-table--fullwidth oc-table--force10" %}
-    {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données groupements" %}
-
-
-    {% dsfr_table caption="Fonds national de péréquation des ressources intercommunales et communales (FPIC)" content=data.tables.dotation_fpic extra_classes="oc-table--fullwidth oc-table--force10" %}
-    {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données groupements" %}
-
-  </div> <!-- end left column -->
-  <div class="fr-col-3">
-    <div class="oc-sticky-block">
+  {# Tables #}
+  <div class="fr-grid-row fr-grid-row--gutters fr-mt-4w fr-mb-6w" id="oc-collectivity-main">
+    <aside class="fr-col-12 fr-col-md-4">
       {% dsfr_summary page_summary %}
-    </div>
-  </div>
-</div> <!-- end div container-->
+    </aside>
+    <article class="fr-col-12 fr-col-md-8">
+      <h2 id="donnees-socio-economiques">Données socio-économiques</h2>
+      {% dsfr_table caption="Population" content=data.tables.population header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
+      {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données groupements" %}
 
-<div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
-  <h2 id=outils-pratiques>Outils pratiques</h2>
-  {% include "core/blocks/publications_list.html" with data=tools_list %}
-</div>
+      <a
+        title="Comparateur de territoires INSEE"
+        href="https://www.insee.fr/fr/statistiques/1405599?geo=EPCI-{{ siren }}"
+        target="_blank"
+        rel="noopener"
+        class="fr-link fr-fi-external-link-line fr-link--icon-right"
+      >
+        Plus d’informations sur le comparateur de territoires INSEE
+      </a>
+
+      <h2 id="coordonnees-siege">Coordonnées du siège</h2>
+      <dl>
+        <dt>Adresse postale :</dt>
+        <dd>{% if data.contact.address1|length > 0 %}{{ data.contact.address1 }} <br />{% endif %}
+        {% if data.contact.address2|length > 0 %}{{ data.contact.address2 }} <br />{% endif %}
+        {% if data.contact.address3|length > 0 %}{{ data.contact.address3 }} <br />{% endif %}
+        {{ data.contact.postcode }} {{ data.contact.city|upper }}</dd>
+
+        {% if data.contact.website|length > 0 %}
+          <dt>Site internet :</dt>
+          <dd><a href="{{ data.contact.website }}" target="_blank" rel="noopener">{{ data.contact.website }}</a></dd>
+        {% endif %}
+
+        {% if data.contact.telephone|length > 0 %}
+          <dt>Téléphone :</dt>
+          <dd><a href="tel:+33{{ data.contact.telephone|slice:'1:' }}">{{ data.contact.telephone }}</a></dd>
+        {% endif %}
+        {% if data.contact.fax|length > 0 %}
+        <dt>Fax :</dt>
+        <dd><a href="fax:+33{{ data.contact.fax|slice:'1:' }}">{{ data.contact.fax }}</a></dd>
+        {% endif %}
+
+        {% if data.contact.email|length > 0 %}<dt>Courriel :</dt>
+        <dd><a href="mailto:{{ data.contact.email }}">{{ data.contact.email }}</a></dd>{% endif %}
+      </dl>
+
+      <h2 id="perimetre-competences">Périmètre & compétences</h2>
+      <h3 id="perimetre">Périmètre</h3>
+      <p>
+        Nombre total de communes membres : {{ data.members.count }}<br />
+      
+        {% for member in data.members %}
+          <a href="{% url 'core:page_commune_detail' member.slug %}">{{ member.name }}</a>{% if forloop.last %}.{% else %}, {% endif%}
+        {%endfor%}
+      </p>
+
+      <a
+        title="Comparatif des communes membres"
+        href="{% url 'core:csv_epci_compare_communes' slug %}"
+        target="_blank"
+        rel="noopener"
+        class="fr-link fr-fi-download-line fr-link--icon-right"
+      >
+        Télécharger le comparatif des {{ data.members.count }} communes au format csv
+      </a>
+
+      <h3>Compétences</h3>
+      <p>Nombre total de compétences exercées : {{ data.competences.count }} </p>
+
+      <a
+        title="Fiche EPCI sur Banatic"
+        href="https://www.banatic.interieur.gouv.fr/V5/recherche-de-groupements/fiche-raison-sociale.php?siren={{ siren }}"
+        target="_blank"
+        rel="noopener"
+        class="fr-link fr-fi-external-link-line fr-link--icon-right"
+      >
+        Voir le détail sur la fiche EPCI de la base nationale sur l’intercommunalité
+      </a>
+
+      <h2 id="ressources-financieres-fiscales">
+        Ressources financières et fiscales
+      </h2>
+      {% dsfr_table caption="Dotation globale de fonctionnement" content=data.tables.dotation_globale extra_classes="oc-table--fullwidth oc-table--force10" %}
+      {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données groupements" %}
+
+
+      {% dsfr_table caption="Fonds national de péréquation des ressources intercommunales et communales (FPIC)" content=data.tables.dotation_fpic extra_classes="oc-table--fullwidth oc-table--force10" %}
+      {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données groupements" %}
+
+    </article> <!-- end left column -->
+  </div> <!-- end columns container-->
+
+  {# Publications lists #}
+  {% include "core/blocks/collectivity_publications.html" with publications=publications %}
+
 {% endblock %}
 
 {% block extra_js %}

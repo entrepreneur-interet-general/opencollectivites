@@ -1,0 +1,36 @@
+{% if publications.instance.cards or publications.level.cards %}
+  <section id="list-publications" class="fr-mt-4w">
+    <h2>Études, statistiques et outils</h2>
+    {% if publications.instance.cards %}
+      <div class="fr-mb-6w"">
+        <div class="oc-heading-with-sidelink">
+          <h3>{{ publications.instance.title }}</h3>
+          <a
+            class="fr-link fr-fi-arrow-right-line fr-link--icon-right"
+            target="_self"
+            href="{% url 'core:page_publications' %}?{{ publications.collectivity_type }}={{ publications.instance.id }}"
+            >Voir tout
+          </a>
+        </div>
+
+        {% include "core/blocks/publications_list.html" with data=publications.instance.cards %}
+      </div>
+    {% endif %}
+
+    {% if publications.level.cards %}
+    
+      <div class="fr-mt-4w fr-mb-6w">
+        <div class="oc-heading-with-sidelink">
+          <h3>{{ publications.level.title }}</h3>
+          <a
+            class="fr-link fr-fi-arrow-right-line fr-link--icon-right"
+            target="_self"
+            href="{% url 'core:page_publications' %}?publication_page={{ publications.level.publication_page_id }}"
+            >Voir tout
+          </a>
+        </div>
+        {% include "core/blocks/publications_list.html" with data=publications.level.cards %}
+      </div>
+    {% endif %}
+  </section>
+{% endif %}

@@ -14,13 +14,17 @@ def list_documents(
     before: str = None,
     after: str = None,
     limit: int = None,
+    commune: int = None,
+    epci: int = None,
+    departement: int = None,
+    region: int = None,
 ):
     """
     Lists **published** documents, with optional filters
     """
     qs = Document.objects.filter(is_published=True)
 
-    # Filters
+    # Generic filters
     if topic:
         qs = qs.filter(topics__id=topic)
     if scope:
@@ -31,6 +35,18 @@ def list_documents(
         qs = qs.filter(publication_pages__id=publication_page)
     if source_org:
         qs = qs.filter(source__editor__id=source_org)
+
+    # Specific collectivity filters
+    if commune:
+        qs = qs.filter(communes__id=commune)
+    if epci:
+        qs = qs.filter(epcis__id=epci)
+    if departement:
+        qs = qs.filter(departements__id=departement)
+    if region:
+        qs = qs.filter(regions__id=region)
+
+    # Date filters
     if before:
         parsed_date = dateparser.parse(before)
         qs = qs.filter(last_update__lte=parsed_date)
@@ -197,3 +213,43 @@ def publication_filters(request):
     response["extra_count"] = extra_filters_count
 
     return response
+
+
+def list_publications_for_collectivity(collectivity_type: str, collectivity_id: int):
+    if collectivity_type == "commune":
+        level_title = "Utiles à toutes les communes"
+        instance_title = "Concernant cette commune"
+        publication_page_id = 1
+        publications_for_instance = list_documents(commune=collectivity_id, limit=8)
+    elif collectivity_type == "epci":
+        level_title = "Utiles à tous les EPCI"
+        instance_title = "Concernant cet EPCI"
+        publication_page_id = 4
+        publications_for_instance = list_documents(epci=collectivity_id, limit=8)
+    elif collectivity_type == "departement":
+        level_title = "Utiles à tous les départements"
+        instance_title = "Concernant ce département"
+        publication_page_id = 2
+        publications_for_instance = list_documents(departement=collectivity_id, limit=8)
+    elif collectivity_type == "region":
+        level_title = "Utiles à toutes les régions"
+        instance_title = "Concernant cette région"
+        publication_page_id = 3
+        publications_for_instance = list_documents(region=collectivity_id, limit=8)
+
+    publications = {"collectivity_type": collectivity_type}
+    level = {}
+    level["title"] = level_title
+    level["publication_page_id"] = publication_page_id
+    publications_for_level = list_documents(
+        publication_page=publication_page_id, limit=8
+    )
+    level["cards"] = documents_to_cards(publications_for_level)
+    publications["level"] = level
+
+    instance = {}
+    instance["title"] = instance_title
+    instance["id"] = collectivity_id
+    instance["cards"] = documents_to_cards(publications_for_instance)
+    publications["instance"] = instance
+    return publications

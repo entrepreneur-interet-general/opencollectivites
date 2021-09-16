@@ -30,18 +30,6 @@
     margin-top: 1em;
 }
 
-.oc-padding-bottom-3em {
-    padding-bottom: 3em;
-}
-
-.oc-padding-top-1em {
-    padding-top: 1em;
-}
-
-.oc-padding-top-2em {
-    padding-top: 2em;
-}
-
 .oc-clear {
     clear: both;
 }
@@ -62,26 +50,31 @@
     z-index: 100;
 }
 
+
+/* Actually only stick the header on desktop */
 @media (min-width: 768px) {
     .oc-sticky-header {
         position: sticky;
     }
 
-    .oc-mobile-only {
-        display: none;
+}
+
+/* Push the summary bar to the right side on desktop and make it stick */
+@media (min-width: 768px) {
+    #oc-collectivity-main>article {
+        order: 1;
+    }
+
+    #oc-collectivity-main>aside {
+        order: 2;
+    }
+
+    #oc-collectivity-main>aside nav {
+        position: sticky;
+        top: 20px;
     }
 }
 
-@media (max-width: 767px) {
-    .oc-desktop-only {
-        display: none;
-    }
-}
-
-.oc-sticky-block {
-    position: sticky;
-    top: 20px;
-}
 
 .oc-tile-row>.fr-tile {
     margin-bottom: 2em;
@@ -128,12 +121,24 @@
 }
 
 /* When using svg icons instead of images in the tiles */
-.oc-svg-icon {
+.oc-svg-icon,
+.oc-svg-icons img {
     width: 100%;
 }
 
 /* Set the color of svg icons in dark mode */
-
-:root[data-fr-theme="dark"i] .oc-svg-icon {
+:root[data-fr-theme="dark"i] .oc-svg-icon,
+:root[data-fr-theme="dark"i] .oc-svg-icons img {
     filter: brightness(0) saturate(100%) invert(61%) sepia(11%) saturate(2548%) hue-rotate(202deg) brightness(103%) contrast(102%);
+}
+
+.oc-privacy-icon {
+    margin-left: 2rem;
+    color: var(--g500);
+}
+
+.oc-heading-with-sidelink {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
 }

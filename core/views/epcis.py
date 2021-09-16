@@ -8,6 +8,7 @@ from core.services.epcis import epci_data
 from core.services.publications import (
     list_documents,
     documents_to_cards,
+    list_publications_for_collectivity,
 )
 
 
@@ -29,9 +30,13 @@ def page_epci_detail(request, slug):
             "link": "#ressources-financieres-fiscales",
             "title": "Ressources financières et fiscales",
         },
-        {"link": "#outils-pratiques", "title": "Outils pratiques"},
+        {"link": "#list-publications", "title": "Études, statistiques et outils"},
     ]
     tools = list_documents(document_type=3, publication_page=4, limit=10)
     payload["tools_list"] = documents_to_cards(tools)
+
+    payload["publications"] = list_publications_for_collectivity(
+        collectivity_type="epci", collectivity_id=epci.id
+    )
 
     return render(request, "core/epci_detail.html", payload)

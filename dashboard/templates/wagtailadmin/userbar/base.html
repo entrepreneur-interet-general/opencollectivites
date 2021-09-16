@@ -1,0 +1,24 @@
+{% extends "wagtailadmin/userbar/base.html" %}
+
+{% load wagtailadmin_tags i18n %}
+
+{% block branding_logo %}
+  <div style="display: none">
+    <svg>
+        <defs>
+          <!-- Replace 'wagtail.svg' with whatever you want from the icons directory, e.g. 'cogs.svg' -->
+          {% include "wagtailadmin/icons/wagtail.svg" %}
+          {% include "wagtailadmin/icons/wagtail-inverse.svg" %}
+          {% include "wagtailadmin/icons/cog.svg" %}
+          {% include "wagtailadmin/icons/cogs.svg" %}
+          {% include "wagtailadmin/icons/folder-open-inverse.svg" %}
+          {% include "wagtailadmin/icons/edit.svg" %}
+          {% include "wagtailadmin/icons/plus.svg" %}
+          {% include "wagtailadmin/icons/tick.svg" %}
+          {% include "wagtailadmin/icons/cross.svg" %}
+        </defs>
+    </svg>
+  </div>
+  <!-- Update the icon name -->
+  {% icon name="edit" class_name="wagtail-userbar-icon" %}
+{% endblock %}

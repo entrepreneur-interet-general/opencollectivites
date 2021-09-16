@@ -15,7 +15,7 @@
 {% endblock %}
 
 {% block content %}
-<div id="oc-homesearch" class="fr-container-fluid oc-bg--alt fr-padding-bottom-6N fr-padding-top-2N">
+<div id="oc-homesearch" class="fr-container-fluid oc-bg--alt">
   <div class="fr-container">
     <h1>
       Trouver les études, statistiques et outils locaux utiles à vos prises de
@@ -58,8 +58,22 @@
   </div>
 </div> <!-- end homesearch -->
 
+<div class="fr-container fr-mt-4w fr-mb-6w">
+  <div class="oc-heading-with-sidelink">
+    <h2 id=outils-pratiques>Publications à la une</h2>
+    <a
+      class="fr-link fr-fi-arrow-right-line fr-link--icon-right"
+      target="_self"
+      href="{% url 'core:page_publications' %}?publication_page=5"
+      >Voir tout
+    </a>
+  </div>
+    {% include "core/blocks/publications_list.html" with data=page.get_homepage_tiles %}
+
+  </div>
+
 <!-- Wagtail-generated part -->
-<div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
+<div class="fr-container fr-mt-4w fr-mb-6w">
   {% for block in page.body %}
     {% include_block block %}
   {% endfor %}

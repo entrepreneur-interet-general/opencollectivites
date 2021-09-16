@@ -21,6 +21,10 @@ def page_publications(request):
         document_type=request.GET.get("document_type"),
         publication_page=request.GET.get("publication_page"),
         source_org=request.GET.get("source_org"),
+        commune=request.GET.get("commune"),
+        epci=request.GET.get("epci"),
+        departement=request.GET.get("departement"),
+        region=request.GET.get("region"),
         before=request.GET.get("before"),
         after=request.GET.get("after"),
     )

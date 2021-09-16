@@ -1,18 +1,11 @@
 {% extends "core/base.html" %}
-{% load static load dsfr_tags %}
+{% load static dsfr_tags %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/vue-multiselect-dsfr.css' %}">
-<style scoped>
-#homesearch {
-  padding-top: 10px;
-  padding-bottom: 20px;
-}
-</style>
 {% endblock %}
 
 {% block content %}
-<div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
+<div class="fr-container fr-mt-4w fr-mb-6w">
     {% dsfr_breadcrumb breadcrumb_data %}
 
   {# Intro #}
@@ -47,8 +40,11 @@
   </div>
 
   {# Tables #}
-  <div class="fr-grid-row fr-grid-row--gutters ">
-    <div class="fr-col-12 fr-col-md-8">
+  <div class="fr-grid-row fr-grid-row--gutters fr-mt-4w fr-mb-6w" id="oc-collectivity-main">
+    <aside class="fr-col-12 fr-col-md-4">
+      {% dsfr_summary page_summary %}
+    </aside>
+    <article class="fr-col-12 fr-col-md-8">
       <h2 id="donnees-contexte">Données de contexte</h2>
       {% dsfr_table caption="Population" content=data.tables.population header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
       {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données départements" %}
@@ -56,26 +52,26 @@
       {% dsfr_table caption="Emploi - chômage" content=data.tables.emploi header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
       {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données départements" %}
 
-    <h2 id="perimetre">Périmètre</h2>
-    <p>Nombre total de communes membres : {{ data.communes_count }}</p>
+      <h2 id="perimetre">Périmètre</h2>
+      <p>Nombre total de communes membres : {{ data.communes_count }}</p>
 
-    {% if data.communes_count > 1 %}
-      <a
-        title="Comparatif des communes membres"
-        href="{% url 'core:csv_departement_compare_communes' slug %}"
-        target="_blank"
-        rel="noopener"
-        class="fr-link fr-fi-download-line fr-link--icon-right"
-      >
-        Télécharger le comparatif des {{ data.communes_count }} communes au format csv
-      </a>
-    {% endif %}
-    </div> <!-- end left column -->
-    <div class="fr-col-3">
-    <div class="oc-sticky-block">
-      {% dsfr_summary page_summary %}
-    </div>
-  </div>
+      {% if data.communes_count > 1 %}
+        <a
+          title="Comparatif des communes membres"
+          href="{% url 'core:csv_departement_compare_communes' slug %}"
+          target="_blank"
+          rel="noopener"
+          class="fr-link fr-fi-download-line fr-link--icon-right"
+        >
+          Télécharger le comparatif des {{ data.communes_count }} communes au format csv
+        </a>
+      {% endif %}
+    </article> <!-- end left column -->
+  </div> <!-- end columns block -->
+
+  {# Publications lists #}
+  {% include "core/blocks/collectivity_publications.html" with publications=publications %}
+
 </div> <!-- end div container-->
 
 {% endblock %}

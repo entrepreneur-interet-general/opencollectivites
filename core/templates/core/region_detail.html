@@ -1,18 +1,11 @@
 {% extends "core/base.html" %}
-{% load static load dsfr_tags %}
+{% load static dsfr_tags %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'css/vue-multiselect-dsfr.css' %}">
-<style scoped>
-#homesearch {
-  padding-top: 10px;
-  padding-bottom: 20px;
-}
-</style>
 {% endblock %}
 
 {% block content %}
-<div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
+<div class="fr-container fr-mt-4w fr-mb-6w">
     {% dsfr_breadcrumb breadcrumb_data %}
 
   {# Intro #}
@@ -43,6 +36,10 @@
     </div>
     {% endif %}
   </div>
+
+  {# Publications lists #}
+  {% include "core/blocks/collectivity_publications.html" with publications=publications %}
+
 </div> <!-- end div container-->
 
 {% endblock %}

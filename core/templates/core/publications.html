@@ -54,7 +54,7 @@
     </div>
 </dialog>
 
-<div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
+<div class="fr-container fr-mt-4w fr-mb-6w">
     {% dsfr_breadcrumb breadcrumb_data %}
 {# Intro #}
 <h1> Études, statistiques et outils locaux </h1>
@@ -64,7 +64,9 @@
 {% include "core/blocks/publications_list.html" with data=data.cards_page %}
 
 {% if data.cards_page.has_other_pages %}
-    {% dsfr_pagination data.cards_page %}
+    <div class="fr-mt-4w">
+        {% dsfr_pagination data.cards_page %}
+    </div>
 {% endif %}
 
 

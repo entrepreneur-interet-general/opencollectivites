@@ -5,10 +5,10 @@
 {% block body_class %}template-contentpage{% endblock %}
 
 {% block content %}
-<div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
+<div class="fr-container fr-mt-4w fr-mb-6w">
   {% include "pages/blocks/breadcrumb.html" %}
   
-  <h1>{{page.title}}</h1>
+  <h1>{{page.title}}{% if page.get_view_restrictions %}<span class="fr-fi-eye-off-line oc-privacy-icon" title="Visibilité : Page à accès restreint"></span>{% endif %}</h1>
   
   {% for block in page.body %}
     {% include_block block %}
