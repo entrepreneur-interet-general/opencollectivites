@@ -1,3 +1,8 @@
+from core.services.publications import (
+    documents_to_cards,
+    list_documents,
+    list_publications_for_collectivity,
+)
 from django.urls.base import reverse
 from core.services.utils import init_payload
 from django.shortcuts import get_object_or_404, render
@@ -15,6 +20,10 @@ def page_region_detail(request, slug):
     payload["slug"] = slug
     payload["siren"] = region.siren
     payload["data"] = region_data(region)
+
+    payload["publications"] = list_publications_for_collectivity(
+        collectivity_type="region", collectivity_id=region.id
+    )
 
     return render(request, "core/region_detail.html", payload)
 

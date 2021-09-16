@@ -1,3 +1,4 @@
+from core.services.publications import list_publications_for_collectivity
 from django.urls.base import reverse
 from core.services.utils import init_payload
 from django.shortcuts import get_object_or_404, render
@@ -35,7 +36,13 @@ def page_commune_detail(request, slug):
             "link": "#comparaison-autres-communes",
             "title": "Comparaison avec d’autres communes",
         },
+        {"link": "#list-publications", "title": "Études, statistiques et outils"},
     ]
+
+    payload["publications"] = list_publications_for_collectivity(
+        collectivity_type="commune", collectivity_id=commune.id
+    )
+
     payload["context"]["hide_brand"] = True
     return render(request, "core/commune_detail.html", payload)
 
