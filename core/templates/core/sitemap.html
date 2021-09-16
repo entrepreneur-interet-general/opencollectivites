@@ -3,13 +3,13 @@
 {% load dsfr_tags %}
 
 {% block content %}
-<div class="fr-container oc-padding-top-2em oc-padding-bottom-3em">
+<div class="fr-container fr-mt-4w fr-mb-6w">
     {% dsfr_breadcrumb breadcrumb_data %}
 
     <h1> Plan du site </h1>
     <h2> Trouver les données de ma communauté </h2>
     <hr />
-    <div class="fr-grid-row fr-grid-row--gutters oc-padding-bottom-3em">
+    <div class="fr-grid-row fr-grid-row--gutters fr-mb-6w">
         <div class="fr-col-12 fr-col-md-6">
             {% for region in regions_data|slice:":9" %}
                 {% include "core/blocks/sitemap_region_entry.html" with region=region %}
@@ -25,7 +25,7 @@
 
     <h2> Trouver une publication </h2>
     <hr />
-    <div class="fr-grid-row fr-grid-row--gutters oc-padding-bottom-3em">
+    <div class="fr-grid-row fr-grid-row--gutters fr-mb-6w">
         <div class="fr-col-12 fr-col-md-6">
             <h3>Par thématique</h3>
             <ul>
@@ -53,7 +53,7 @@
 
     <h2> Trouver un jeu de données</h2>
     <hr />
-    <div class="fr-grid-row fr-grid-row--gutters oc-padding-bottom-3em">
+    <div class="fr-grid-row fr-grid-row--gutters fr-mb-6w">
         <div class="fr-col-12 fr-col-md-6">
             <h3>Par thématique</h3>
             <ul>
@@ -82,7 +82,7 @@
 
     <h2> Trouver un outil</h2>
     <hr />
-    <div class="fr-grid-row fr-grid-row--gutters oc-padding-bottom-3em">
+    <div class="fr-grid-row fr-grid-row--gutters fr-mb-6w">
         <div class="fr-col-12 fr-col-md-6">
             <h3>Par thématique</h3>
             <ul>
