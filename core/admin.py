@@ -63,7 +63,7 @@ class DocumentTypeAdmin(TimeStampModelAdmin):
     view_logo.short_description = "Logo"
 
     def view_documents_link(self, obj):
-        return view_reverse_changelink(obj, "core", "documenttype", "document")
+        return view_reverse_changelink(obj, "core", "document_type", "document")
 
     view_documents_link.short_description = "Documents"
 
@@ -105,7 +105,7 @@ class PageTypeAdmin(TimeStampModelAdmin):
     list_display = ("name", "view_documents_link")
 
     def view_documents_link(self, obj):
-        return view_reverse_changelink(obj, "core", "scope", "document")
+        return view_reverse_changelink(obj, "core", "publication_pages", "document")
 
     view_documents_link.short_description = "Documents"
 
