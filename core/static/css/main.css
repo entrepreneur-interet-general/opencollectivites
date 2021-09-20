@@ -76,10 +76,6 @@
 }
 
 
-.oc-tile-row>.fr-tile {
-    margin-bottom: 2em;
-}
-
 /* Show the top (and header) of publication instead of the middle of the image */
 #oc-publications-list .fr-card__img img {
     object-position: top;
