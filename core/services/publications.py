@@ -1,4 +1,6 @@
 from django.core.exceptions import ValidationError
+from django.db.models.query import QuerySet
+from django.http.request import HttpRequest
 
 from core.models import Topic, Scope, DocumentType, Document, Organization
 
@@ -18,7 +20,7 @@ def list_documents(
     epci: int = None,
     departement: int = None,
     region: int = None,
-):
+) -> QuerySet:
     """
     Lists **published** documents, with optional filters
     """
@@ -59,7 +61,7 @@ def list_documents(
     return qs
 
 
-def documents_to_cards(qs):
+def documents_to_cards(qs: QuerySet) -> list:
     """
     Converts a queryset of documents to a list of cards
     """
@@ -78,17 +80,18 @@ def documents_to_cards(qs):
                 "link": doc.url,
                 "title": doc.title,
                 "description": doc.body,
-                "image": doc.image_url,
+                "image_url": doc.image_url,
             }
         )
 
     return cards
 
 
-def publication_filters(request):
+def publication_filters(request: HttpRequest) -> dict:
     """
-    Returns a list of filters
+    Returns a dict of filters
     """
+    print(type(request))
     # Model type: select
     models = [
         {
