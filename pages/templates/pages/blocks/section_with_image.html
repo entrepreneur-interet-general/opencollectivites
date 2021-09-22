@@ -5,7 +5,7 @@
   <div class="fr-grid-row fr-grid-row--gutters ">
     {% if value.image_position == "left" %}
       <div class="fr-col-12 fr-col-md-4">
-        <img src="{{ value.image.url }}" title="{{ value.image.title }}" style="width:100%" />
+        <img src="{{ value.image.url }}" title="{{ value.image.title }}" role="presentation" alt="" style="width:100%" />
       </div>
       <div class="fr-col-12 fr-col-md-8">
         {{ value.text|richtext }}
@@ -15,7 +15,7 @@
         {{ value.text|richtext }}
       </div>
       <div class="fr-col-12 fr-col-md-4">
-        <img src="{{ value.image.url }}" title="{{ value.image.title }}" style="width:100%" />
+        <img src="{{ value.image.url }}" title="{{ value.image.title }}" role="presentation" alt="" style="width:100%" />
       </div>
     {% endif %}
   </div>
