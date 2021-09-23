@@ -1,0 +1,4 @@
+{% load dsfr_tags %}
+{% with "fr-link--lg fr-link--icon-right "|concatenate:value.icon as extra_classes %}
+  {% dsfr_link url=value.url label=value.label extra_classes=extra_classes %}
+{% endwith %}
