@@ -28,7 +28,7 @@ wagtail-markdown = "^0.7.0"
 wagtailsvg = "^0.0.20"
 xmltodict = "^0.12.0"
 django-francedata = "^0.9.1"
-django-dsfr = "^0.3.0"
+django-dsfr = "^0.4.0"
 
 [tool.poetry.dev-dependencies]
 black = "^21.8b0"

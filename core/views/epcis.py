@@ -23,14 +23,14 @@ def page_epci_detail(request, slug):
     payload["data"] = epci_data(epci.siren)
     payload["data"]["tables_header"] = ["Intitulé", "Donnée"]
     payload["page_summary"] = [
-        {"link": "#donnees-socio-economiques", "title": "Données socio-économiques"},
-        {"link": "#coordonnees-siege", "title": "Coordonnées du siège"},
-        {"link": "#perimetre-competences", "title": "Périmètre & compétences"},
+        {"link": "#donnees-socio-economiques", "label": "Données socio-économiques"},
+        {"link": "#coordonnees-siege", "label": "Coordonnées du siège"},
+        {"link": "#perimetre-competences", "label": "Périmètre & compétences"},
         {
             "link": "#ressources-financieres-fiscales",
-            "title": "Ressources financières et fiscales",
+            "label": "Ressources financières et fiscales",
         },
-        {"link": "#list-publications", "title": "Études, statistiques et outils"},
+        {"link": "#list-publications", "label": "Études, statistiques et outils"},
     ]
     tools = list_documents(document_type=3, publication_page=4, limit=10)
     payload["tools_list"] = documents_to_cards(tools)

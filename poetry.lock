@@ -211,7 +211,7 @@ Django = ">=2.2"
 
 [[package]]
 name = "django-dsfr"
-version = "0.3.0"
+version = "0.4.0"
 description = "Integrate the French government Design System into a Django app"
 category = "main"
 optional = false
@@ -219,6 +219,7 @@ python-versions = ">=3.8,<4.0"
 
 [package.dependencies]
 Django = ">=3.2.5,<4.0.0"
+requests = ">=2.26.0,<3.0.0"
 
 [[package]]
 name = "django-filter"
@@ -800,7 +801,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "urllib3"
-version = "1.26.6"
+version = "1.26.7"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
 category = "main"
 optional = false
@@ -941,7 +942,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "0a5303e6656a368a48b5364ac232c0fd23c23015b3092e388c690060cc6e9741"
+content-hash = "0626c2846e168015e489f2a7dba1c6463bb482339291e9847c43b0fec2c506b7"
 
 [metadata.files]
 anyascii = [
@@ -1078,8 +1079,8 @@ django-cors-headers = [
     {file = "django_cors_headers-3.8.0-py3-none-any.whl", hash = "sha256:425c20ceffa42b9ac11b02611eece4ae6c5fef2ff0f039c14c1df20e00c80df8"},
 ]
 django-dsfr = [
-    {file = "django-dsfr-0.3.0.tar.gz", hash = "sha256:c09b91fba6b8f9173661e9d3bef236f346312e0c96d2188af0d35d603f965bc0"},
-    {file = "django_dsfr-0.3.0-py3-none-any.whl", hash = "sha256:a467688676022298e2ee2a14697bc7ac7e632569dc6a92c5b0939dbc3ebccf49"},
+    {file = "django-dsfr-0.4.0.tar.gz", hash = "sha256:a605f70e7ee80f0cd43ac908667af7c3087a54091cd7bfba53abfd1551076eb9"},
+    {file = "django_dsfr-0.4.0-py3-none-any.whl", hash = "sha256:56c03a0f1c20a7e73c4af23a3613b157db6aee748f93a1c1c62a0ef5a4c66d04"},
 ]
 django-filter = [
     {file = "django-filter-2.4.0.tar.gz", hash = "sha256:84e9d5bb93f237e451db814ed422a3a625751cbc9968b484ecc74964a8696b06"},
@@ -1440,8 +1441,8 @@ unidecode = [
     {file = "Unidecode-1.3.2.tar.gz", hash = "sha256:669898c1528912bcf07f9819dc60df18d057f7528271e31f8ec28cc88ef27504"},
 ]
 urllib3 = [
-    {file = "urllib3-1.26.6-py2.py3-none-any.whl", hash = "sha256:39fb8672126159acb139a7718dd10806104dec1e2f0f6c88aab05d17df10c8d4"},
-    {file = "urllib3-1.26.6.tar.gz", hash = "sha256:f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"},
+    {file = "urllib3-1.26.7-py2.py3-none-any.whl", hash = "sha256:c4fdf4019605b6e5423637e01bc9fe4daef873709a7973e195ceba0a62bbc844"},
+    {file = "urllib3-1.26.7.tar.gz", hash = "sha256:4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece"},
 ]
 wagtail = [
     {file = "wagtail-2.14.1-py3-none-any.whl", hash = "sha256:45de88c0573baee1517cebb86b3102b5f77778791c5fba8fada32fbc4e47e756"},

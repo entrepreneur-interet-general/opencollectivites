@@ -17,9 +17,9 @@ def page_departement_detail(request, slug):
     payload["data"] = departement_data(departement)
     payload["data"]["tables_header"] = ["Intitulé", "Donnée"]
     payload["page_summary"] = [
-        {"link": "#donnees-contexte", "title": "Données de contexte"},
-        {"link": "#perimetre", "title": "Périmètre"},
-        {"link": "#list-publications", "title": "Études, statistiques et outils"},
+        {"link": "#donnees-contexte", "label": "Données de contexte"},
+        {"link": "#perimetre", "label": "Périmètre"},
+        {"link": "#list-publications", "label": "Études, statistiques et outils"},
     ]
 
     payload["publications"] = list_publications_for_collectivity(

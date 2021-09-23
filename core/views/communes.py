@@ -26,17 +26,17 @@ def page_commune_detail(request, slug):
     payload["data"]["table_header_interco"] = ["Type", "Nom", "Sigle type"]
 
     payload["page_summary"] = [
-        {"link": "#donnees-contexte", "title": "Données de contexte"},
-        {"link": "#intercommunalites-zonage", "title": "Intercommunalités et zonage"},
+        {"link": "#donnees-contexte", "label": "Données de contexte"},
+        {"link": "#intercommunalites-zonage", "label": "Intercommunalités et zonage"},
         {
             "link": "#ressources-financieres-fiscales",
-            "title": "Ressources financières et fiscales",
+            "label": "Ressources financières et fiscales",
         },
         {
             "link": "#comparaison-autres-communes",
-            "title": "Comparaison avec d’autres communes",
+            "label": "Comparaison avec d’autres communes",
         },
-        {"link": "#list-publications", "title": "Études, statistiques et outils"},
+        {"link": "#list-publications", "label": "Études, statistiques et outils"},
     ]
 
     payload["publications"] = list_publications_for_collectivity(
