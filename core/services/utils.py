@@ -1,10 +1,7 @@
 import csv
 from django.http.response import HttpResponse
-from django.urls import reverse
-
-from core.models import Topic
-
 from babel.numbers import format_decimal
+from django.utils.text import slugify
 
 
 def init_payload(page_title: str, links: list = []):

@@ -1,7 +1,7 @@
 {% load dsfr_tags %}
 <div id="oc-publications-list" class="fr-grid-row  fr-grid-row--gutters">
         {% for card in data %}
-        <div class="fr-col-12 fr-col-md-3">
+        <div class="fr-col-12 {% if width_class %}{{ width_class }}{% else %}fr-col-md-3{% endif %}">
             {% dsfr_card card extra_classes="fr-card--no-arrow" new_tab=True %}
         </div>
         {% endfor %}

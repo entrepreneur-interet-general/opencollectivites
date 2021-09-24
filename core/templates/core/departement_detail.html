@@ -41,11 +41,11 @@
 
   {# Tables #}
   <div class="fr-grid-row fr-grid-row--gutters fr-mt-4w fr-mb-6w" id="oc-collectivity-main">
-    <aside class="fr-col-12 fr-col-md-4">
-      {% dsfr_summary page_summary %}
+    <aside id="vue-sidemenu" class="fr-col-12 fr-col-md-4">
+      {% dsfr_sidemenu page_menu %}
     </aside>
     <article class="fr-col-12 fr-col-md-8">
-      <h2 id="donnees-contexte">Données de contexte</h2>
+      <h2 id="donnees-de-contexte">Données de contexte</h2>
       {% dsfr_table caption="Population" content=data.tables.population header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
       {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données départements" %}
 
@@ -66,15 +66,16 @@
           Télécharger le comparatif des {{ data.communes_count }} communes au format csv
         </a>
       {% endif %}
+
+      {# Publications lists #}
+      {% include "core/blocks/collectivity_publications.html" with publications=publications %}
     </article> <!-- end left column -->
   </div> <!-- end columns block -->
-
-  {# Publications lists #}
-  {% include "core/blocks/collectivity_publications.html" with publications=publications %}
-
 </div> <!-- end div container-->
 
 {% endblock %}
 
 {% block extra_js %}
+<script type="text/javascript" src="{% static 'lib/vue-2.6.12/vue.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/sidemenu-autoscroll.js' %}"></script>
 {% endblock %}

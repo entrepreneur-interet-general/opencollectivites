@@ -218,34 +218,38 @@ def publication_filters(request: HttpRequest) -> dict:
     return response
 
 
-def list_publications_for_collectivity(collectivity_type: str, collectivity_id: int):
+def list_publications_for_collectivity(
+    collectivity_type: str, collectivity_id: int, limit: int = 6
+):
     if collectivity_type == "commune":
         level_title = "Utiles à toutes les communes"
         instance_title = "Concernant cette commune"
         publication_page_id = 1
-        publications_for_instance = list_documents(commune=collectivity_id, limit=8)
+        publications_for_instance = list_documents(commune=collectivity_id, limit=limit)
     elif collectivity_type == "epci":
         level_title = "Utiles à tous les EPCI"
         instance_title = "Concernant cet EPCI"
         publication_page_id = 4
-        publications_for_instance = list_documents(epci=collectivity_id, limit=8)
+        publications_for_instance = list_documents(epci=collectivity_id, limit=limit)
     elif collectivity_type == "departement":
         level_title = "Utiles à tous les départements"
         instance_title = "Concernant ce département"
         publication_page_id = 2
-        publications_for_instance = list_documents(departement=collectivity_id, limit=8)
+        publications_for_instance = list_documents(
+            departement=collectivity_id, limit=limit
+        )
     elif collectivity_type == "region":
         level_title = "Utiles à toutes les régions"
         instance_title = "Concernant cette région"
         publication_page_id = 3
-        publications_for_instance = list_documents(region=collectivity_id, limit=8)
+        publications_for_instance = list_documents(region=collectivity_id, limit=limit)
 
     publications = {"collectivity_type": collectivity_type}
     level = {}
     level["title"] = level_title
     level["publication_page_id"] = publication_page_id
     publications_for_level = list_documents(
-        publication_page=publication_page_id, limit=8
+        publication_page=publication_page_id, limit=limit
     )
     level["cards"] = documents_to_cards(publications_for_level)
     publications["level"] = level

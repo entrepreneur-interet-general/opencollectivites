@@ -70,8 +70,8 @@
 
   {# Tables #}
   <div class="fr-grid-row fr-grid-row--gutters fr-mt-4w fr-mb-6w" id="oc-collectivity-main">
-    <aside class="fr-col-12 fr-col-md-4">
-      {% dsfr_summary page_summary %}
+    <aside id="vue-sidemenu" class="fr-col-12 fr-col-md-4">
+      {% dsfr_sidemenu page_menu %}
     </aside>
     <article class="fr-col-12 fr-col-md-8">
       <h2 id="donnees-socio-economiques">Données socio-économiques</h2>
@@ -88,7 +88,7 @@
         Plus d’informations sur le comparateur de territoires INSEE
       </a>
 
-      <h2 id="coordonnees-siege">Coordonnées du siège</h2>
+      <h2 id="coordonnees-du-siege">Coordonnées du siège</h2>
       <dl>
         <dt>Adresse postale :</dt>
         <dd>{% if data.contact.address1|length > 0 %}{{ data.contact.address1 }} <br />{% endif %}
@@ -147,7 +147,7 @@
         Voir le détail sur la fiche EPCI de la base nationale sur l’intercommunalité
       </a>
 
-      <h2 id="ressources-financieres-fiscales">
+      <h2 id="ressources-financieres-et-fiscales">
         Ressources financières et fiscales
       </h2>
       {% dsfr_table caption="Dotation globale de fonctionnement" content=data.tables.dotation_globale extra_classes="oc-table--fullwidth oc-table--force10" %}
@@ -157,13 +157,13 @@
       {% dsfr_table caption="Fonds national de péréquation des ressources intercommunales et communales (FPIC)" content=data.tables.dotation_fpic extra_classes="oc-table--fullwidth oc-table--force10" %}
       {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données groupements" %}
 
+      {# Publications lists #}
+      {% include "core/blocks/collectivity_publications.html" with publications=publications %}
     </article> <!-- end left column -->
   </div> <!-- end columns container-->
-
-  {# Publications lists #}
-  {% include "core/blocks/collectivity_publications.html" with publications=publications %}
-
 {% endblock %}
 
 {% block extra_js %}
+<script type="text/javascript" src="{% static 'lib/vue-2.6.12/vue.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/sidemenu-autoscroll.js' %}"></script>
 {% endblock %}
