@@ -1,6 +1,7 @@
 from core.services.utils import init_payload
 from django.shortcuts import get_object_or_404, render
 from django.views.decorators.http import require_safe
+from dsfr.utils import generate_summary_items
 from francedata.models import Epci
 
 from core.services.epcis import epci_data
@@ -22,16 +23,21 @@ def page_epci_detail(request, slug):
     payload["epci_name"] = epci.name
     payload["data"] = epci_data(epci.siren)
     payload["data"]["tables_header"] = ["Intitulé", "Donnée"]
-    payload["page_summary"] = [
-        {"link": "#donnees-socio-economiques", "title": "Données socio-économiques"},
-        {"link": "#coordonnees-siege", "title": "Coordonnées du siège"},
-        {"link": "#perimetre-competences", "title": "Périmètre & compétences"},
-        {
-            "link": "#ressources-financieres-fiscales",
-            "title": "Ressources financières et fiscales",
-        },
-        {"link": "#list-publications", "title": "Études, statistiques et outils"},
-    ]
+
+    payload["page_menu"] = {
+        "title": "Sommaire",
+        "items": generate_summary_items(
+            [
+                "Données socio-économiques",
+                "Coordonnées du siège",
+                "Périmètre & compétences",
+                "Ressources financières et fiscales",
+                "Études, statistiques et outils",
+            ]
+        ),
+        "extra_classes": "fr-sidemenu--sticky-full-height fr-sidemenu--right",
+    }
+
     tools = list_documents(document_type=3, publication_page=4, limit=10)
     payload["tools_list"] = documents_to_cards(tools)
 

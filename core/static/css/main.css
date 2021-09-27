@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 .fr-header {
     box-shadow: none;
     border-bottom: 1.5px solid var(--g400);
@@ -75,10 +79,6 @@
     }
 }
 
-
-.oc-tile-row>.fr-tile {
-    margin-bottom: 2em;
-}
 
 /* Show the top (and header) of publication instead of the middle of the image */
 #oc-publications-list .fr-card__img img {

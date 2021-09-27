@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "opencollectivites"
-version = "0.10.0"
+version = "0.10.1"
 description = "Open Collectivités is a web portal aiming at giving an easy access to statistical data about French local collectivities."
 authors = ["Sylvain Boissel <sylvain.boissel@dgcl.gouv.fr>"]
 license = "AGPL-3"
@@ -24,11 +24,11 @@ gunicorn = "^20.1.0"
 django-ninja = "^0.14.0"
 Babel = "^2.9.1"
 django-analytical = "^3.0.0"
-django-dsfr = "^0.2.0"
 wagtail-markdown = "^0.7.0"
 wagtailsvg = "^0.0.20"
 xmltodict = "^0.12.0"
 django-francedata = "^0.9.1"
+django-dsfr = "^0.4.0"
 
 [tool.poetry.dev-dependencies]
 black = "^21.8b0"

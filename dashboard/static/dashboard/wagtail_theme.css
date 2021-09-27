@@ -9,3 +9,22 @@
   border-radius: 50%;
 
 }
+
+/* Override some places where the primary color was set by hand */
+.changelist-filter li a {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+#main .changelist-filter li.selected a,
+.changelist-filter li a:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary) !important;
+  /* Override an 'important' in the original wagtail colors */
+}
+
+.workflow-tasks__task {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background-color: var(--color-lighter);
+}

@@ -1,11 +1,11 @@
 {% load dsfr_tags %}
-<div class="fr-container-fluid oc-bg--alt fr-mt-4w fr-mb-6w">
+<div class="fr-container-fluid oc-bg--alt fr-pt-4w fr-pb-6w">
   <div id="categories-jumbotron" class="fr-container">
     <h2>
       Toutes les études, statistiques et outils pour les communes par
       thématique
     </h2>
-    <div id="home-categories" class="fr-grid-row fr-grid-row--gutters oc-tile-row oc-svg-icons">
+    <div id="home-categories" class="fr-grid-row fr-grid-row--gutters oc-svg-icons">
       {% for topic in context_topics %}
         <div class="fr-col-12 fr-col-md-2">
         {% dsfr_tile topic %}

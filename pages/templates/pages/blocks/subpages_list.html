@@ -2,6 +2,6 @@
 <h2>Sous-pages</h2>
 <ul>
 {% for post in page.get_children %}
-    <li><a href="{% pageurl post %}">{{ post.title }}</a></li>
+  <li><a href="{% pageurl post %}">{{ post.title }}</a></li>
 {% endfor %}
 </ul>

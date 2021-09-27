@@ -1,3 +1,4 @@
+from wagtail.core.blocks.list_block import ListBlock
 from core.services.publications import documents_to_cards, list_documents
 from wagtail.admin.edit_handlers import StreamFieldPanel
 from wagtail.core.fields import StreamField
@@ -7,6 +8,8 @@ from wagtail.core.blocks import StructBlock
 from wagtail.images.blocks import ImageChooserBlock
 from wagtailmarkdown.blocks import MarkdownBlock
 from wagtailsvg.blocks import SvgChooserBlock
+
+from pages.services.wagtail_dsfr import blocks as dsfr_blocks
 
 
 class SectionWithImageBlock(StructBlock):
@@ -51,6 +54,16 @@ class ContentPage(Page):
             ("image", ImageChooserBlock()),
             ("svg", SvgChooserBlock()),
             ("markdown", MarkdownBlock()),
+            ("alert", dsfr_blocks.AlertBlock()),
+            (
+                "accordion_group",
+                ListBlock(
+                    dsfr_blocks.AccordionBlock(), icon="list-ul", label="Accordéons"
+                ),
+            ),
+            ("callout", dsfr_blocks.CalloutBlock()),
+            ("highlight", dsfr_blocks.HighlightBlock()),
+            ("link", dsfr_blocks.LinkBlock()),
         ],
         blank=True,
     )

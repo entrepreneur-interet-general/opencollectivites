@@ -83,7 +83,7 @@ class GallicaSearch:
                 while retries:
                     logging.warning(f"Error 500, retrying (retries: {retries})")
                     time.sleep(5)
-                    response = requests.get(self.DEFAULT_API_ENDPOINT, params=payload)
+                    response = requests.get(self.api_endpoint, params=payload)
                     if response.status_code == 200:
                         break
                     else:

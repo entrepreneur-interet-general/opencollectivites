@@ -4,6 +4,7 @@ from core.services.utils import init_payload
 from django.urls.base import reverse
 from django.shortcuts import get_object_or_404, render
 from django.views.decorators.http import require_safe
+from dsfr.utils import generate_summary_items
 from francedata.models import Departement
 
 
@@ -16,11 +17,13 @@ def page_departement_detail(request, slug):
     payload["siren"] = departement.siren
     payload["data"] = departement_data(departement)
     payload["data"]["tables_header"] = ["Intitulé", "Donnée"]
-    payload["page_summary"] = [
-        {"link": "#donnees-contexte", "title": "Données de contexte"},
-        {"link": "#perimetre", "title": "Périmètre"},
-        {"link": "#list-publications", "title": "Études, statistiques et outils"},
-    ]
+    payload["page_menu"] = {
+        "title": "Sommaire",
+        "items": generate_summary_items(
+            ["Données de contexte", "Périmètre", "Études, statistiques et outils"]
+        ),
+        "extra_classes": "fr-sidemenu--sticky-full-height fr-sidemenu--right",
+    }
 
     payload["publications"] = list_publications_for_collectivity(
         collectivity_type="departement", collectivity_id=departement.id

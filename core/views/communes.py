@@ -10,6 +10,8 @@ from core.services.communes import (
     communes_compare,
 )
 
+from dsfr.utils import generate_summary_items
+
 
 @require_safe
 def page_commune_detail(request, slug):
@@ -25,19 +27,19 @@ def page_commune_detail(request, slug):
     payload["data"]["table_header_zonage"] = ["Intitulé", "Statut"]
     payload["data"]["table_header_interco"] = ["Type", "Nom", "Sigle type"]
 
-    payload["page_summary"] = [
-        {"link": "#donnees-contexte", "title": "Données de contexte"},
-        {"link": "#intercommunalites-zonage", "title": "Intercommunalités et zonage"},
-        {
-            "link": "#ressources-financieres-fiscales",
-            "title": "Ressources financières et fiscales",
-        },
-        {
-            "link": "#comparaison-autres-communes",
-            "title": "Comparaison avec d’autres communes",
-        },
-        {"link": "#list-publications", "title": "Études, statistiques et outils"},
-    ]
+    payload["page_menu"] = {
+        "title": "Sommaire",
+        "items": generate_summary_items(
+            [
+                "Données de contexte",
+                "Intercommunalités et zonage",
+                "Ressources financières et fiscales",
+                "Comparaison avec d’autres communes",
+                "Études, statistiques et outils",
+            ]
+        ),
+        "extra_classes": "fr-sidemenu--sticky-full-height fr-sidemenu--right",
+    }
 
     payload["publications"] = list_publications_for_collectivity(
         collectivity_type="commune", collectivity_id=commune.id
