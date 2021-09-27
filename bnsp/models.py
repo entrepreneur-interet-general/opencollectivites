@@ -11,7 +11,7 @@ import logging
 class Query(TimeStampModel):
     # A query on the Gallica Search API
     name = models.CharField(max_length=255, verbose_name="nom", unique=True)
-    query = models.CharField(max_length=255, verbose_name="requête", unique=True)
+    query = models.CharField(max_length=1000, verbose_name="requête", unique=True)
 
     source = models.ForeignKey(
         Source, on_delete=models.CASCADE, verbose_name="source associée"
@@ -49,8 +49,10 @@ class Query(TimeStampModel):
         else:
             indexation_date = "20160101"
 
+        # search = GallicaSearch(max_records=50, endpoint="https://www.bnsp.insee.fr/SRU")
+        # Temporary fix to get BNSP urls while they fix their endpoint (cf #OC-213)
         search = GallicaSearch(max_records=50)
-        dated_query = f'({self.query}) and indexationdate > "{indexation_date}"'
+        dated_query = f'({self.query}) and dc.date >= "2016" and indexationdate >= "{indexation_date}"'
         search.fetch_records(dated_query)
 
         records = search.get_records().values()
@@ -63,6 +65,14 @@ class Query(TimeStampModel):
         self.save()
 
     def create_or_update_document(self, record: Record) -> None:
+        """
+        Creates or updates a Document object based on a Record retrieved from
+        Gallica or a white-label of it.
+        """
+
+        # Temporary fix to get BNSP urls while they fix their endpoint (cf #OC-213)
+        record.ark_url = record.ark_url.replace("gallica.bnf.fr", "www.bnsp.insee.fr")
+
         new_doc, return_code_doc = Document.objects.get_or_create(url=record.ark_url)
         if return_code_doc:
             logging.info(
