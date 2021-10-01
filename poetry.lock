@@ -211,7 +211,7 @@ Django = ">=2.2"
 
 [[package]]
 name = "django-dsfr"
-version = "0.4.2"
+version = "0.4.5"
 description = "Integrate the French government Design System into a Django app"
 category = "main"
 optional = false
@@ -1079,8 +1079,8 @@ django-cors-headers = [
     {file = "django_cors_headers-3.8.0-py3-none-any.whl", hash = "sha256:425c20ceffa42b9ac11b02611eece4ae6c5fef2ff0f039c14c1df20e00c80df8"},
 ]
 django-dsfr = [
-    {file = "django-dsfr-0.4.2.tar.gz", hash = "sha256:0dfadae80d3a914454ed6b236cd2e3080df2ef5fb263bd1fd597dbec5172264b"},
-    {file = "django_dsfr-0.4.2-py3-none-any.whl", hash = "sha256:b11ec1e4364bdee6961ed1021a6c00cc345f12400936e76fbf2982513cbdd90d"},
+    {file = "django-dsfr-0.4.5.tar.gz", hash = "sha256:4835853e1f624a484644b41ec734dad062ba1f3548e7112105946c127e1f1f4d"},
+    {file = "django_dsfr-0.4.5-py3-none-any.whl", hash = "sha256:7a2db33569609d8bdd79d03941b9fa3e2d1387b409ffec043040fd251ed4aa63"},
 ]
 django-filter = [
     {file = "django-filter-2.4.0.tar.gz", hash = "sha256:84e9d5bb93f237e451db814ed422a3a625751cbc9968b484ecc74964a8696b06"},

@@ -91,7 +91,6 @@ def publication_filters(request: HttpRequest) -> dict:
     """
     Returns a dict of filters
     """
-    print(type(request))
     # Model type: select
     models = [
         {
