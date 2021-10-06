@@ -2,6 +2,7 @@
 [![Made with Wagtail](https://img.shields.io/badge/Made%20with-Wagtail-0F7676.svg)](https://wagtail.io/)
 [![GitHub license](https://img.shields.io/github/license/entrepreneur-interet-general/opencollectivites.svg)](https://github.com/entrepreneur-interet-general/opencollectivites/blob/master/LICENSE)
 [![Website open-collectivites.fr](https://img.shields.io/website.svg?down_color=red&down_message=down&up_color=green&up_message=up&url=https%3A%2F%2Fwww.open-collectivites.fr)](https://www.open-collectivites.fr)
+[![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=entrepreneur-interet-general_opencollectivites&metric=alert_status)](https://sonarcloud.io/dashboard?id=entrepreneur-interet-general_opencollectivites)
 
 # Open Collectivités
 <img align="right" width="250" src="open-collectivites.png?raw=true" title="Open Collectivités" alt="" />
