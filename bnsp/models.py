@@ -90,17 +90,7 @@ class Query(TimeStampModel):
 
         new_doc.is_published = True
 
-        props = [
-            "regions",
-            "departements",
-            "epcis",
-            "communes",
-            "scope",
-            "topics",
-            "document_type",
-        ]
-        for prop in props:
-            getattr(new_doc, prop).set(getattr(self.source, prop).all())
+        new_doc.get_props_from_source()
 
         new_doc.title = strip_tags(record.title[:255])
 
@@ -111,6 +101,11 @@ class Query(TimeStampModel):
             new_doc.years.add(year)
         except dateparser._parser.ParserError:
             pass
+
+        # tags
+        for tag in record.get_values("dc:subject"):
+            cap_tag = tag[:1].upper() + tag[1:]
+            new_doc.tags.add(cap_tag)
 
         # The description
         new_doc.body = ", ".join(record.get_values("dc:subject"))

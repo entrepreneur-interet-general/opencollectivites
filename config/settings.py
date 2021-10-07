@@ -177,6 +177,9 @@ MATOMO_SITE_ID = LOCAL_MATOMO_SITE_ID
 # Wagtail
 WAGTAIL_SITE_NAME = "Open Collectivités — Gestion des contenus"
 
+# Taggit
+TAGGIT_CASE_INSENSITIVE = True
+
 # Allow bulk deletions
 DATA_UPLOAD_MAX_NUMBER_FIELDS = None
 

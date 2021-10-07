@@ -5,6 +5,7 @@ from francedata.models import Departement, Epci, Region
 
 from urllib.parse import urlparse
 from datetime import date, datetime
+from taggit.managers import TaggableManager
 
 
 # Models
@@ -219,6 +220,7 @@ class Document(TimeStampModel):
         PageType, verbose_name="pages de publication", blank=True
     )
     image_url = models.URLField("URL de l’image", max_length=255, blank=True, null=True)
+    tags = TaggableManager(related_name="documents_tags", blank=True)
     weight = models.PositiveSmallIntegerField("poids", default=100)
     scope = models.ManyToManyField(Scope, verbose_name="portée", blank=True)
     topics = models.ManyToManyField(Topic, verbose_name="sujet", blank=True)

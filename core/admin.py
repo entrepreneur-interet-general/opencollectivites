@@ -125,6 +125,7 @@ class DocumentAdmin(TimeStampModelAdmin):
         "is_published",
         "source__editor",
         "source",
+        "tags",
         ("image_url", admin.EmptyFieldListFilter),
     )
 
@@ -164,9 +165,10 @@ class DocumentAdmin(TimeStampModelAdmin):
             "Classement",
             {
                 "fields": [
+                    "weight",
+                    "tags",
                     "publication_pages",
                     "years",
-                    "weight",
                     "scope",
                     "regions",
                     "departements",
