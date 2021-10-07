@@ -1,6 +1,7 @@
 from django.db import models
 
 from francedata.services.django_admin import TimeStampModel
+from francedata.models import Departement, Epci, Region
 
 from urllib.parse import urlparse
 from datetime import date, datetime
@@ -274,3 +275,52 @@ class Document(TimeStampModel):
             self.last_update = datetime.now()
 
         super().save(*args, **kwargs)
+
+    def get_props_from_source(self, props: list = None) -> None:
+        """
+        Copies a list of properties from the source
+        """
+        if not props:
+            props = [
+                "regions",
+                "departements",
+                "epcis",
+                "communes",
+                "scope",
+                "topics",
+                "document_type",
+            ]
+
+        for prop in props:
+            for value in getattr(self.source, prop).all():
+                getattr(self, prop).add(value)
+
+    def identify_regions(self, text: str) -> None:
+        """
+        Tries to identify the name of a région in the given string
+        """
+        regions = Region.objects.all()
+        for region in regions:
+            if region.name in text:
+                self.regions.add(region)
+        self.save()
+
+    def identify_departements(self, text: str) -> None:
+        """
+        Tries to identify the name of a département in the given string
+        """
+        departements = Departement.objects.all()
+        for departement in departements:
+            if departement.name in text:
+                self.departements.add(departement)
+        self.save()
+
+    def identify_metropoles(self, text: str) -> None:
+        """
+        Tries to identify the name of a métropole in the given string
+        """
+        metropoles = Epci.objects.filter(epci_type__in=["MET69", "METRO"])
+        for metropole in metropoles:
+            if metropole.name in text:
+                self.epcis.add(metropole)
+        self.save()

@@ -45,7 +45,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.postgres",
+    "django_json_widget",
     "corsheaders",
+    "simple_history",
     "wagtail.contrib.forms",
     "wagtail.contrib.modeladmin",
     "wagtail.contrib.redirects",
@@ -66,6 +68,7 @@ INSTALLED_APPS = [
     "analytical",
     "feeds",
     "francedata.apps.FrancedataConfig",
+    "external_apis",
     "aspic.apps.AspicConfig",
     "core",
     "bnsp",
@@ -81,6 +84,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "simple_history.middleware.HistoryRequestMiddleware",
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
 ]
 
