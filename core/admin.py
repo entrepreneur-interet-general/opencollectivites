@@ -130,33 +130,58 @@ class DocumentAdmin(TimeStampModelAdmin):
 
     raw_id_fields = ("rss_post", "epcis", "communes")
 
-    fields = (
-        "title",
-        "url",
-        "base_domain",
-        "source",
-        "is_published",
-        "rss_post",
-        "bnsp_query",
-        "body",
-        "image_url",
-        "view_image",
-        "publication_pages",
-        "years",
-        "weight",
-        "scope",
-        "regions",
-        "departements",
-        "epcis",
-        "communes",
-        "topics",
-        "document_type",
-        "last_update",
-        "created_at",
-        "updated_at",
-    )
+    fieldsets = [
+        (
+            None,
+            {
+                "fields": [
+                    ("title", "is_published"),
+                    ("url", "base_domain"),
+                ]
+            },
+        ),
+        (
+            "Contenu",
+            {
+                "fields": [
+                    "body",
+                    ("image_url", "view_image"),
+                ]
+            },
+        ),
+        (
+            "Source",
+            {
+                "fields": [
+                    "source",
+                    "rss_post",
+                    "bnsp_query",
+                    "ods_queries",
+                ]
+            },
+        ),
+        (
+            "Classement",
+            {
+                "fields": [
+                    "publication_pages",
+                    "years",
+                    "weight",
+                    "scope",
+                    "regions",
+                    "departements",
+                    "epcis",
+                    "communes",
+                    "topics",
+                    "document_type",
+                ]
+            },
+        ),
+        ("Métadonnées", {"fields": ["id", "created_at", "updated_at"]}),
+    ]
 
     readonly_fields = [
+        "id",
         "view_image",
         "base_domain",
         "created_at",

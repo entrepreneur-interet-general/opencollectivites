@@ -212,7 +212,7 @@ class Document(TimeStampModel):
 
     url = models.URLField("URL", max_length=512, unique=True)
     title = models.CharField("titre", max_length=255, null=True, blank=True)
-    body = models.TextField(blank=True)
+    body = models.TextField("corps", blank=True)
     base_domain = models.CharField("domaine", max_length=100, null=True, blank=True)
     is_published = models.BooleanField("est publié", null=True, blank=True)
     publication_pages = models.ManyToManyField(
@@ -256,6 +256,11 @@ class Document(TimeStampModel):
         verbose_name="Requête Gallica associée",
         on_delete=models.SET_NULL,
         null=True,
+        blank=True,
+    )
+    ods_queries = models.ManyToManyField(
+        "external_apis.OpenDataSoftQuery",
+        verbose_name="Requête OpenDataSoft associée",
         blank=True,
     )
     document_type = models.ManyToManyField(

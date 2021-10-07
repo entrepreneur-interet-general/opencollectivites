@@ -5,7 +5,11 @@ from core.models import Source
 
 class ExternalApiQuery(TimeStampModel):
     name = models.CharField(max_length=255, verbose_name="nom", unique=True)
-    query = models.CharField(max_length=1000, verbose_name="requête")
+    query = models.CharField(
+        max_length=1000,
+        verbose_name="requête",
+        help_text="Entrer '*' pour rechercher toutes les entrées",
+    )
 
     last_polled = models.DateTimeField(
         blank=True, null=True, verbose_name="dernière tentative"

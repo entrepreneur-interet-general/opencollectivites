@@ -124,7 +124,7 @@ class OpenDataSoftQuery(ExternalApiQuery):
                 f"📜  Publication from {self.endpoint.name} dataset {title} updated"
             )
 
-        # new_doc.ods_query = self
+        new_doc.ods_queries.add(self)
         new_doc.source = self.endpoint.source
 
         new_doc.is_published = True
