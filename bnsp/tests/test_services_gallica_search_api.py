@@ -28,11 +28,6 @@ class GallicaSearchTestCase(TestCase):
         self.test_gs.set_max_records(30)
         self.assertEqual(self.test_gs.max_records, 30)
 
-    def test_sru_endpoint_can_be_set(self) -> None:
-        test_endpoint = "https://nutrisco-patrimoine.lehavre.fr/SRU"
-        self.test_gs.set_api_endpoint(test_endpoint)
-        self.assertEqual(self.test_gs.api_endpoint, test_endpoint)
-
     def test_max_records_value_cant_be_below_one(self) -> None:
         self.test_gs.set_max_records(0)
         self.assertEqual(self.test_gs.max_records, 15)
@@ -40,6 +35,11 @@ class GallicaSearchTestCase(TestCase):
     def test_max_records_value_cant_be_above_50(self) -> None:
         self.test_gs.set_max_records(60)
         self.assertEqual(self.test_gs.max_records, 15)
+
+    def test_sru_endpoint_can_be_set(self) -> None:
+        test_endpoint = "https://nutrisco-patrimoine.lehavre.fr/SRU"
+        self.test_gs.set_api_endpoint(test_endpoint)
+        self.assertEqual(self.test_gs.api_endpoint, test_endpoint)
 
     def test_slow_mode_value_defaults_to_0(self) -> None:
         self.assertEqual(self.test_gs.slow_mode, 0)
