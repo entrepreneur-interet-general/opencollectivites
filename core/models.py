@@ -1,9 +1,12 @@
 from django.db import models
+from django.db.models.query import QuerySet
 
 from francedata.services.django_admin import TimeStampModel
+from francedata.models import Commune, Departement, Epci, Region
 
 from urllib.parse import urlparse
 from datetime import date, datetime
+from taggit.managers import TaggableManager
 
 
 # Models
@@ -211,13 +214,14 @@ class Document(TimeStampModel):
 
     url = models.URLField("URL", max_length=512, unique=True)
     title = models.CharField("titre", max_length=255, null=True, blank=True)
-    body = models.TextField(blank=True)
+    body = models.TextField("corps", blank=True)
     base_domain = models.CharField("domaine", max_length=100, null=True, blank=True)
     is_published = models.BooleanField("est publié", null=True, blank=True)
     publication_pages = models.ManyToManyField(
         PageType, verbose_name="pages de publication", blank=True
     )
     image_url = models.URLField("URL de l’image", max_length=255, blank=True, null=True)
+    tags = TaggableManager(related_name="documents_tags", blank=True)
     weight = models.PositiveSmallIntegerField("poids", default=100)
     scope = models.ManyToManyField(Scope, verbose_name="portée", blank=True)
     topics = models.ManyToManyField(Topic, verbose_name="sujet", blank=True)
@@ -257,6 +261,11 @@ class Document(TimeStampModel):
         null=True,
         blank=True,
     )
+    ods_queries = models.ManyToManyField(
+        "external_apis.OpenDataSoftQuery",
+        verbose_name="Requête OpenDataSoft associée",
+        blank=True,
+    )
     document_type = models.ManyToManyField(
         DocumentType, verbose_name="type de document", blank=True
     )
@@ -274,3 +283,82 @@ class Document(TimeStampModel):
             self.last_update = datetime.now()
 
         super().save(*args, **kwargs)
+
+    def get_props_from_source(self, props: list = None) -> None:
+        """
+        Copies a list of properties from the source
+        """
+        if not props:
+            props = [
+                "regions",
+                "departements",
+                "epcis",
+                "communes",
+                "scope",
+                "topics",
+                "document_type",
+            ]
+
+        for prop in props:
+            for value in getattr(self.source, prop).all():
+                getattr(self, prop).add(value)
+
+    def identify_regions(self, text: str) -> None:
+        """
+        Tries to identify the name of a région in the given string
+        """
+        regions = Region.objects.all()
+        for region in regions:
+            if region.name in text:
+                self.regions.add(region)
+        self.save()
+
+    def identify_departements(self, text: str) -> None:
+        """
+        Tries to identify the name of a département in the given string
+        """
+        departements = Departement.objects.all()
+        for departement in departements:
+            if departement.name in text:
+                self.departements.add(departement)
+        self.save()
+
+    def identify_metropoles(self, text: str) -> None:
+        """
+        Tries to identify the name of a métropole in the given string
+        """
+        metropoles = Epci.objects.filter(epci_type__in=["MET69", "METRO"])
+        for metropole in metropoles:
+            if metropole.name in text:
+                self.epcis.add(metropole)
+        self.save()
+
+    def identify_main_cities_by_departement(
+        self, text: str, departements: QuerySet
+    ) -> None:
+        """
+        Tries to identify the name of the city in the given string.
+        The city has to belong to the main cities in France and be in the given list of departements.
+        """
+        main_cities = Commune.get_main_cities()
+
+        for departement in departements:
+            main_cities_in_departement = main_cities.filter(departement=departement)
+            for city in main_cities_in_departement:
+                if city.name in text:
+                    self.communes.add(city)
+        self.save()
+
+    def identify_main_cities_by_region(self, text: str, regions: QuerySet) -> None:
+        """
+        Tries to identify the name of the city in the given string.
+        The city has to belong to the main cities in France and be in the given list of regions.
+        """
+        main_cities = Commune.get_main_cities()
+
+        for region in regions:
+            main_cities_in_region = main_cities.filter(departement__region=region)
+            for city in main_cities_in_region:
+                if city.name in text:
+                    self.communes.add(city)
+        self.save()

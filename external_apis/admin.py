@@ -1,18 +1,32 @@
+from django.db import models
 from django.contrib import admin, messages
 from django.http.response import HttpResponseRedirect
 from django.utils.translation import ngettext
 
+from django_json_widget.widgets import JSONEditorWidget
 from francedata.services.django_admin import (
     TimeStampModelAdmin,
     view_reverse_changelink,
 )
+from simple_history.admin import SimpleHistoryAdmin
+from external_apis.models import DataMapping, OpenDataSoftEndpoint, OpenDataSoftQuery
 
-from bnsp import models
+
+@admin.register(DataMapping)
+class DataMappingAdmin(SimpleHistoryAdmin):
+    formfield_overrides = {
+        models.JSONField: {"widget": JSONEditorWidget},
+    }
 
 
-@admin.register(models.Query)
-class QueryAdmin(TimeStampModelAdmin):
-    change_form_template = "bnsp/admin/query_changeform.html"
+@admin.register(OpenDataSoftEndpoint)
+class OpenDataSoftEndpointAdmin(TimeStampModelAdmin):
+    pass
+
+
+@admin.register(OpenDataSoftQuery)
+class OpenDataSoftQueryAdmin(TimeStampModelAdmin):
+    change_form_template = "external_apis/admin/query_changeform.html"
 
     search_fields = ("name", "query")
     list_display = (
@@ -20,7 +34,7 @@ class QueryAdmin(TimeStampModelAdmin):
         "last_polled",
         "view_documents_link",
     )
-    list_filter = ("source",)
+    list_filter = ("endpoint",)
 
     readonly_fields = [
         "id",
@@ -36,7 +50,7 @@ class QueryAdmin(TimeStampModelAdmin):
                 "fields": [
                     "name",
                     ("query", "is_active"),
-                    "source",
+                    "endpoint",
                     "view_documents_link",
                 ]
             },
@@ -45,10 +59,10 @@ class QueryAdmin(TimeStampModelAdmin):
             "Ajout de métadonnées",
             {
                 "fields": [
+                    "mapping",
                     "identify_regions",
                     "identify_departements",
                     "identify_metropoles",
-                    "identify_main_cities",
                 ]
             },
         ),
@@ -68,7 +82,7 @@ class QueryAdmin(TimeStampModelAdmin):
     actions = ["force_run_queries"]
 
     def view_documents_link(self, obj):
-        return view_reverse_changelink(obj, "core", "bnsp_query", "document")
+        return view_reverse_changelink(obj, "core", "ods_queries", "document")
 
     view_documents_link.short_description = "Documents"
 

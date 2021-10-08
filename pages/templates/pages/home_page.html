@@ -22,11 +22,12 @@
       décision, recherches ou au débat public
     </h1>
     <div class="fr-select-group">
-      <label class="fr-label">Commune, EPCI, département, région</label>
+      <label for="oc-home-search" class="fr-label">Commune, EPCI, département, région</label>
       <div id="vue-app">
       {% verbatim %}
         <div>
           <vue-multiselect
+            id="oc-home-search"
             v-model="singlePlace"
             :options="options"
             :searchable="true"

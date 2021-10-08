@@ -14,7 +14,16 @@ def init_payload(page_title: str, links: list = []):
 
     breadcrumb_data = {"current": page_title, "links": links}
 
-    return {"context": context, "title": page_title, "breadcrumb_data": breadcrumb_data}
+    skiplinks = [
+        {"link": "#content", "label": "Contenu"},
+    ]
+
+    return {
+        "context": context,
+        "title": page_title,
+        "breadcrumb_data": breadcrumb_data,
+        "skiplinks": skiplinks,
+    }
 
 
 def format_number(n, format_for_web):

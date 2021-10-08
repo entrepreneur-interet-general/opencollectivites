@@ -45,6 +45,15 @@ class HomePage(Page):
         tools = list_documents(publication_page=5, limit=4)
         return documents_to_cards(tools)
 
+    def get_context(self, request):
+        context = super().get_context(request)
+
+        context["skiplinks"] = [
+            {"link": "#content", "label": "Contenu"},
+            {"link": "#oc-home-search", "label": "Recherche"},
+        ]
+        return context
+
 
 class ContentPage(Page):
     body = StreamField(
@@ -71,3 +80,11 @@ class ContentPage(Page):
     content_panels = Page.content_panels + [
         StreamFieldPanel("body", heading="Contenu"),
     ]
+
+    def get_context(self, request):
+        context = super().get_context(request)
+
+        context["skiplinks"] = [
+            {"link": "#content", "label": "Contenu"},
+        ]
+        return context

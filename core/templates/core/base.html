@@ -31,18 +31,21 @@
 </head>
 
 <body class="{% block body_class %}{% endblock %}">
-  <main id="content">
+    {% block skiplinks %}
+        {% dsfr_skiplinks skiplinks %}
+    {% endblock %}
     {% block custom_header %}
       {% include "core/blocks/header.html" with hide_brand=context.hide_brand %}
     {% endblock %}
     {% dsfr_theme_modale %}
     {% wagtailuserbar %}
 
-    {% block content %}{% endblock %}
+    <main id="content">
+      {% block content %}{% endblock %}
+    </main>
 
     {% include "core/blocks/footer_categories.html" %}
     {% include "core/blocks/footer.html" %}
-  </main>
 
   {% dsfr_js %}
   {% block extra_js %}{% endblock %}

@@ -58,9 +58,9 @@ fieldset[disabled] .multiselect {
 
 .multiselect {
     display: block;
-    appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
+    appearance: none;
     width: 100%;
     border: 0;
     border-radius: 0.25rem 0.25rem 0 0;
@@ -342,7 +342,7 @@ fieldset[disabled] .multiselect {
 }
 
 .multiselect__placeholder {
-    color: #adadad;
+    color: var(--g600);
     display: inline-block;
     margin-bottom: 10px;
     padding-top: 2px;

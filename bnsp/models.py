@@ -3,36 +3,36 @@ from django.db import models
 from django.utils import timezone
 from django.utils.html import strip_tags
 from core.models import DataYear, Document, Source
-from francedata.services.django_admin import TimeStampModel
 from bnsp.services.gallica_search_api import GallicaSearch, Record
 import logging
+from external_apis.abstract import ExternalApiQuery
 
 
-class Query(TimeStampModel):
+class Query(ExternalApiQuery):
     # A query on the Gallica Search API
-    name = models.CharField(max_length=255, verbose_name="nom", unique=True)
-    query = models.CharField(max_length=1000, verbose_name="requête", unique=True)
-
     source = models.ForeignKey(
         Source, on_delete=models.CASCADE, verbose_name="source associée"
     )
 
-    last_polled = models.DateTimeField(
-        blank=True, null=True, verbose_name="dernière tentative"
+    identify_regions = models.BooleanField(
+        verbose_name="Identifier les noms de régions", default=False
     )
-    last_success = models.DateTimeField(
-        blank=True, null=True, verbose_name="dernière réussite"
+    identify_departements = models.BooleanField(
+        verbose_name="Identifier les noms de départements", default=False
     )
-    last_change = models.DateTimeField(
-        blank=True, null=True, verbose_name="dernier changement"
+    identify_metropoles = models.BooleanField(
+        verbose_name="Identifier les noms de métropoles", default=False
     )
-    live = models.BooleanField(default=True, verbose_name="requête active")
+
+    identify_main_cities = models.BooleanField(
+        verbose_name="Identifier les noms des principales villes",
+        default=False,
+        help_text="Ne marche que si la source possède des départements ou régions.",
+    )
 
     class Meta:
         verbose_name = "requête"
-
-    def __str__(self) -> str:
-        return f"{self.name}"
+        unique_together = ["query", "source"]
 
     def run(self, since: str = "") -> None:
         logging.info(f"running query {self.query}")
@@ -90,17 +90,7 @@ class Query(TimeStampModel):
 
         new_doc.is_published = True
 
-        props = [
-            "regions",
-            "departements",
-            "epcis",
-            "communes",
-            "scope",
-            "topics",
-            "document_type",
-        ]
-        for prop in props:
-            getattr(new_doc, prop).set(getattr(self.source, prop).all())
+        new_doc.get_props_from_source()
 
         new_doc.title = strip_tags(record.title[:255])
 
@@ -112,8 +102,34 @@ class Query(TimeStampModel):
         except dateparser._parser.ParserError:
             pass
 
+        # tags
+        for tag in record.get_values("dc:subject"):
+            cap_tag = tag[:1].upper() + tag[1:]
+            new_doc.tags.add(cap_tag)
+
         # The description
         new_doc.body = ", ".join(record.get_values("dc:subject"))
         new_doc.image_url = record.get_thumbnail()
 
         new_doc.save()
+
+        # Extra filters
+        if self.identify_regions:
+            new_doc.identify_regions(record.title)
+
+        if self.identify_departements:
+            new_doc.identify_departements(record.title)
+
+        if self.identify_metropoles:
+            new_doc.identify_metropoles(record.title)
+
+        if self.identify_main_cities:
+            if self.source.departements.count():
+                new_doc.identify_main_cities_by_departement(
+                    record.title, departements=self.source.departements.all()
+                )
+
+            if self.source.regions.count():
+                new_doc.identify_main_cities_by_region(
+                    record.title, regions=self.source.regions.all()
+                )

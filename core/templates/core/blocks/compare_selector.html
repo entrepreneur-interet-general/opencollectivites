@@ -2,11 +2,12 @@
   {% verbatim %}
   <form @submit.prevent="loadResultPageCompare">
     <div class="fr-select-group">
-    <label class="fr-label">
+    <label for="oc-compare-selector" class="fr-label">
       Sélectionnez jusqu'à trois collectivités :
     </label>
     <vue-multiselect
       v-model="places"
+      id="oc-compare-selector"
       :options="options"
       track-by="value"
       label="text"
@@ -29,7 +30,7 @@
       <span slot="maxElements">Limite de sélection atteinte</span>
     </vue-multiselect>
     </div>
-    <button class="fr-btn fr-fi-checkbox-line fr-btn--icon-right" :isDisabled="!(places && places.length)">
+    <button type="submit" class="fr-btn fr-fi-checkbox-line fr-btn--icon-right" :isDisabled="!(places && places.length)">
       Comparer
     </button>
   </form>
