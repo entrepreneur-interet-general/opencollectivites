@@ -188,7 +188,7 @@ class OpenDataSoftQuery(ExternalApiQuery):
             document.publication_pages.add(properties["value"])
         elif properties["type"] == "region":
             document.regions.add(properties["value"])
-        elif properties["type"] == "region":
-            document.regions.add(properties["value"])
+        elif properties["type"] == "departement":
+            document.departements.add(properties["value"])
 
         document.save()
