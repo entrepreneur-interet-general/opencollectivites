@@ -1,23 +1,9 @@
 {% extends 'admin/base.html' %}
-{% load i18n static %}
+{% load i18n static version_tags %}
 
 {% block extrahead %}{{ block.super }}
-<style>
-:root {
-  --primary: #00006d;
-  --secondary: #00006d;
-}
-
-#header a:hover {
-    color: #fff;
-}
-
-#branding h1 a, #branding h1 a:visited {
-    color: #fff;
-    font-weight: bolder;
-}
-</style>
-<link rel="icon" href="{% static '/dashboard/favicon.ico' %}"/>
+<link rel="stylesheet" href="{% static '/dashboard/css/admin.css' %}" />
+<link rel="icon" href="{% static '/dashboard/favicon.ico' %}" />
 {% endblock %}
 
 
@@ -36,4 +22,10 @@
     <a href="{% url 'admin:password_change' %}">{% translate 'Change password' %}</a> /
     {% endif %}
     <a href="{% url 'admin:logout' %}">{% translate 'Log out' %}</a>
+{% endblock %}
+
+{% block footer %}
+    <div id="footer">
+        <p>Version {% version_number %}</p>
+    </div>
 {% endblock %}
