@@ -35,9 +35,20 @@ class QueryAdmin(TimeStampModelAdmin):
             {
                 "fields": [
                     "name",
-                    ("query", "live"),
+                    ("query", "is_active"),
                     "source",
                     "view_documents_link",
+                ]
+            },
+        ),
+        (
+            "Ajout de métadonnées",
+            {
+                "fields": [
+                    "identify_regions",
+                    "identify_departements",
+                    "identify_metropoles",
+                    "identify_main_cities",
                 ]
             },
         ),

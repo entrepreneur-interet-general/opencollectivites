@@ -54,13 +54,13 @@ class OpenDataSoftQuery(ExternalApiQuery):
     )
 
     identify_regions = models.BooleanField(
-        verbose_name="Identifier les noms de régions", null=True
+        verbose_name="Identifier les noms de régions", default=False
     )
     identify_departements = models.BooleanField(
-        verbose_name="Identifier les noms de départements", null=True
+        verbose_name="Identifier les noms de départements", default=False
     )
     identify_metropoles = models.BooleanField(
-        verbose_name="Identifier les noms de métropoles", null=True
+        verbose_name="Identifier les noms de métropoles", default=False
     )
 
     class Meta:

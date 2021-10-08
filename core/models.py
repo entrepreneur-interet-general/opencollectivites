@@ -1,7 +1,8 @@
 from django.db import models
+from django.db.models.query import QuerySet
 
 from francedata.services.django_admin import TimeStampModel
-from francedata.models import Departement, Epci, Region
+from francedata.models import Commune, Departement, Epci, Region
 
 from urllib.parse import urlparse
 from datetime import date, datetime
@@ -330,4 +331,34 @@ class Document(TimeStampModel):
         for metropole in metropoles:
             if metropole.name in text:
                 self.epcis.add(metropole)
+        self.save()
+
+    def identify_main_cities_by_departement(
+        self, text: str, departements: QuerySet
+    ) -> None:
+        """
+        Tries to identify the name of the city in the given string.
+        The city has to belong to the main cities in France and be in the given list of departements.
+        """
+        main_cities = Commune.get_main_cities()
+
+        for departement in departements:
+            main_cities_in_departement = main_cities.filter(departement=departement)
+            for city in main_cities_in_departement:
+                if city.name in text:
+                    self.communes.add(city)
+        self.save()
+
+    def identify_main_cities_by_region(self, text: str, regions: QuerySet) -> None:
+        """
+        Tries to identify the name of the city in the given string.
+        The city has to belong to the main cities in France and be in the given list of regions.
+        """
+        main_cities = Commune.get_main_cities()
+
+        for region in regions:
+            main_cities_in_region = main_cities.filter(departement__region=region)
+            for city in main_cities_in_region:
+                if city.name in text:
+                    self.communes.add(city)
         self.save()

@@ -1,6 +1,5 @@
 from django.db import models
 from francedata.services.django_admin import TimeStampModel
-from core.models import Source
 
 
 class ExternalApiQuery(TimeStampModel):
