@@ -7,19 +7,27 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('feeds', '0009_auto_20201104_1023'),
-        ('core', '0040_auto_20210722_1148'),
+        ("feeds", "0009_auto_20201104_1023"),
+        ("core", "0001_squashed_0040_auto_20210722_1148"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='documenttype',
-            name='icon_path',
-            field=models.CharField(blank=True, max_length=255, null=True, verbose_name='Chemin de l’icône'),
+            model_name="documenttype",
+            name="icon_path",
+            field=models.CharField(
+                blank=True, max_length=255, null=True, verbose_name="Chemin de l’icône"
+            ),
         ),
         migrations.AlterField(
-            model_name='source',
-            name='rss_feed',
-            field=models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='feeds.source', verbose_name='flux RSS'),
+            model_name="source",
+            name="rss_feed",
+            field=models.OneToOneField(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                to="feeds.source",
+                verbose_name="flux RSS",
+            ),
         ),
     ]
