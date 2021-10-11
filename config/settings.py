@@ -66,7 +66,6 @@ INSTALLED_APPS = [
     "modelcluster",
     "taggit",
     "analytical",
-    "feeds",
     "francedata.apps.FrancedataConfig",
     "external_apis",
     "aspic.apps.AspicConfig",

@@ -10,9 +10,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ("feeds", "0008_auto_20201027_1623"),
         ("francedata", "0001_initial"),
-        ("feeds", "0009_auto_20201104_1023"),
     ]
 
     operations = [
@@ -204,15 +202,6 @@ class Migration(migrations.Migration):
                     models.ManyToManyField(to="core.Editor", verbose_name="éditeur"),
                 ),
                 (
-                    "rss_feed",
-                    models.OneToOneField(
-                        null=True,
-                        on_delete=django.db.models.deletion.SET_NULL,
-                        to="feeds.source",
-                        verbose_name="flux RSS",
-                    ),
-                ),
-                (
                     "last_update",
                     models.DateField(
                         default=datetime.date.today, verbose_name="dernière mise à jour"
@@ -371,16 +360,6 @@ class Migration(migrations.Migration):
                     "last_update",
                     models.DateField(
                         blank=True, null=True, verbose_name="dernière mise à jour"
-                    ),
-                ),
-                (
-                    "rss_post",
-                    models.ForeignKey(
-                        blank=True,
-                        null=True,
-                        on_delete=django.db.models.deletion.SET_NULL,
-                        to="feeds.post",
-                        verbose_name="Post associé",
                     ),
                 ),
                 (

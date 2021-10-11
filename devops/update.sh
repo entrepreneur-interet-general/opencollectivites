@@ -13,7 +13,6 @@ sudo service $GUNICORN_SERVICE stop && echo "Service $GUNICORN_SERVICE stopped"
 # Go to the directory and update if needed
 cd $DJANGO_DIR
 git pull
-git submodule update
 $POETRY install
 $POETRY run python manage.py migrate
 $POETRY run python manage.py collectstatic --no-input

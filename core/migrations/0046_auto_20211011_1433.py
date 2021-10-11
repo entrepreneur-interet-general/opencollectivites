@@ -6,16 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0045_alter_document_tags'),
+        ("core", "0045_alter_document_tags"),
     ]
 
-    operations = [
-        migrations.RemoveField(
-            model_name='document',
-            name='rss_post',
-        ),
-        migrations.RemoveField(
-            model_name='source',
-            name='rss_feed',
-        ),
-    ]
+    operations = []

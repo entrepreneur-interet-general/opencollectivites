@@ -28,10 +28,8 @@ postgres=# \c <db_name>
 ```
 
 ## Installer le projet
-### Cloner le projet et récupérer les sous-modules
+### Cloner le projet
 - `git clone` ce répertoire quelque part et `cd` dedans.
-- `git submodule init`
-- `git submodule update`
 
 ### Régler les paramètres locaux
 - `cp settings_local.py.sample settings_local.py`
