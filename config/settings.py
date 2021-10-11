@@ -151,12 +151,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# RSS Feeds
-FEEDS_USER_AGENT = "OpenCollectivités Test RSS aggregator"
-FEEDS_SERVER = "http://localhost"
-FEEDS_SOURCE_NAME_AUTOUPDATE = False
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATIC_URL = "/static/"

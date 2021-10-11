@@ -145,13 +145,6 @@ class Source(TimeStampModel):
 
     title = models.CharField("titre", max_length=100)
     editor = models.ManyToManyField("Organization", verbose_name="éditeur")
-    rss_feed = models.OneToOneField(
-        "feeds.Source",
-        verbose_name="flux RSS",
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-    )
     url = models.URLField("URL", null=True, blank=True)
     base_domain = models.CharField("domaine", max_length=100, null=True, blank=True)
     scope = models.ManyToManyField(Scope, verbose_name="portée", blank=True)
@@ -193,9 +186,6 @@ class Source(TimeStampModel):
         return self.title
 
     def save(self, *args, **kwargs):
-        if self.rss_feed and not self.url:
-            self.url = self.rss_feed.feed_url
-
         if not self.title:
             self.title = self.url
 
@@ -246,13 +236,6 @@ class Document(TimeStampModel):
     )
     source = models.ForeignKey(
         "Source", on_delete=models.SET_NULL, null=True, blank=True
-    )
-    rss_post = models.ForeignKey(
-        "feeds.Post",
-        verbose_name="Post associé",
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
     )
     bnsp_query = models.ForeignKey(
         "bnsp.Query",

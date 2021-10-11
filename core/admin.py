@@ -119,7 +119,6 @@ class DocumentAdmin(TimeStampModelAdmin):
         "is_published",
         "last_update",
         "view_thumbnail",
-        "view_rss_post_link",
     )
     list_filter = (
         "is_published",
@@ -129,7 +128,7 @@ class DocumentAdmin(TimeStampModelAdmin):
         ("image_url", admin.EmptyFieldListFilter),
     )
 
-    raw_id_fields = ("rss_post", "epcis", "communes")
+    raw_id_fields = ("epcis", "communes")
 
     fieldsets = [
         (
@@ -155,7 +154,6 @@ class DocumentAdmin(TimeStampModelAdmin):
             {
                 "fields": [
                     "source",
-                    "rss_post",
                     "bnsp_query",
                     "ods_queries",
                 ]
@@ -192,15 +190,6 @@ class DocumentAdmin(TimeStampModelAdmin):
 
     actions = [make_published, make_not_published]
 
-    def view_rss_post_link(self, obj):
-        if obj.rss_post:
-            url = reverse("admin:feeds_post_change", args=(obj.rss_post.pk,))
-            return format_html('<a href="{}">Post</a>', url)
-        else:
-            return ""
-
-    view_rss_post_link.short_description = "Lien post associé"
-
     def view_image(self, obj):
         return format_html(f'<img src="{obj.image_url}" width="300px" alt="" />')
 
@@ -218,29 +207,19 @@ class SourceAdmin(TimeStampModelAdmin):
     list_display = (
         "__str__",
         "last_update",
-        "view_rss_feed_link",
         "view_documents_link",
     )
     list_filter = (
         "source_type",
         "editor",
     )
-    raw_id_fields = ("rss_feed", "epcis", "communes")
+    raw_id_fields = ("epcis", "communes")
 
     readonly_fields = [
         "base_domain",
         "created_at",
         "updated_at",
     ]
-
-    def view_rss_feed_link(self, obj):
-        if obj.rss_feed:
-            url = reverse("admin:feeds_source_change", args=(obj.rss_feed.pk,))
-            return format_html('<a href="{}">Flux</a>', url)
-        else:
-            return ""
-
-    view_rss_feed_link.short_description = "Lien flux associé"
 
     def view_documents_link(self, obj):
         return view_reverse_changelink(obj, "core", "source", "document")
