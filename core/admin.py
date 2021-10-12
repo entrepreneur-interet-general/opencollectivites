@@ -155,6 +155,7 @@ class DocumentAdmin(TimeStampModelAdmin):
                 "fields": [
                     "source",
                     "bnsp_query",
+                    "bnsp_queries",
                     "ods_queries",
                 ]
             },

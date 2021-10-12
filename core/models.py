@@ -246,7 +246,12 @@ class Document(TimeStampModel):
     )
     ods_queries = models.ManyToManyField(
         "external_apis.OpenDataSoftQuery",
-        verbose_name="Requête OpenDataSoft associée",
+        verbose_name="Requêtes OpenDataSoft associées",
+        blank=True,
+    )
+    bnsp_queries = models.ManyToManyField(
+        "external_apis.BnspQuery",
+        verbose_name="Requête BNSP associée",
         blank=True,
     )
     document_type = models.ManyToManyField(

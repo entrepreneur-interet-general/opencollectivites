@@ -3,7 +3,7 @@ from django.db import models
 from django.utils import timezone
 from django.utils.html import strip_tags
 from core.models import DataYear, Document, Source
-from bnsp.services.gallica_search_api import GallicaSearch, Record
+from external_apis.services.gallica_search_api import GallicaSearch, Record
 import logging
 from external_apis.abstract import ExternalApiQuery
 

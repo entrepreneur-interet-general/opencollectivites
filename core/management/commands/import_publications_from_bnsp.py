@@ -4,7 +4,7 @@
 import logging
 from django.core.management.base import BaseCommand
 from dateutil import parser as dateparser
-from bnsp.models import Query
+from external_apis.models import BnspQuery
 
 
 class Command(BaseCommand):
@@ -17,10 +17,25 @@ class Command(BaseCommand):
             help="If specified, only the records indexed after than the specified value will be parsed",
         )
 
-    def handle(self, *args, **options):
-        logging.basicConfig(level=logging.INFO)
+        parser.add_argument(
+            "--query",
+            type=int,
+            help="If specified, only query with the specified id will run",
+        )
 
-        qs = Query.objects.filter(live=True)
+    def handle(self, *args, **options):
+        # Manage output
+        FORMAT = "%(asctime)s %(message)s"
+        verbosity = int(options["verbosity"])
+        if verbosity > 1:
+            logging.basicConfig(level=logging.DEBUG, format=FORMAT)
+        else:
+            logging.basicConfig(level=logging.INFO, format=FORMAT)
+
+        if options["query"]:
+            qs = BnspQuery.objects.filter(id=options["query"])
+        else:
+            qs = BnspQuery.objects.filter(is_active=True)
 
         if options["since"]:
             since = options["since"].strftime("%Y%m%d")

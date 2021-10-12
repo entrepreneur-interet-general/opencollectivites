@@ -134,6 +134,10 @@ class GallicaSearch:
                 new_records = srr["srw:records"]["srw:record"]
                 local_raw_records.extend(new_records)
 
+            # If there was only one result, we need to force it in a list
+            if not isinstance(local_raw_records, list):
+                local_raw_records = [local_raw_records]
+
             for raw in local_raw_records:
                 if "srw:recordData" in raw and "oai_dc:dc" in raw["srw:recordData"]:
                     record = raw["srw:recordData"]["oai_dc:dc"]
