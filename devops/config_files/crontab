@@ -1,0 +1,5 @@
+POETRY=<path_to_poetry>
+DJANGODIR=<path_to_open_collectivites_root>
+
+10 0 * * * cd $DJANGODIR && $POETRY run python manage.py import_publications_from_ods
+30 0 * * * cd $DJANGODIR && $POETRY run python manage.py import_publications_from_bnsp

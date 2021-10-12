@@ -3,7 +3,7 @@ authors = ["Sylvain Boissel <sylvain.boissel@dgcl.gouv.fr>"]
 description = "Open Collectivités is a web portal aiming at giving an easy access to statistical data about French local collectivities."
 license = "AGPL-3"
 name = "opencollectivites"
-version = "0.11.4"
+version = "0.11.5"
 
 [tool.poetry.dependencies]
 Babel = "^2.9.1"

@@ -70,7 +70,6 @@ INSTALLED_APPS = [
     "external_apis",
     "aspic.apps.AspicConfig",
     "core",
-    "bnsp",
     "pages",
 ]
 

@@ -7,14 +7,7 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('bnsp', '0001_initial'),
-        ('core', '0041_auto_20210827_1536'),
+        ("core", "0041_auto_20210827_1536"),
     ]
 
-    operations = [
-        migrations.AddField(
-            model_name='document',
-            name='bnsp_query',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='bnsp.query', verbose_name='Requête Gallica associée'),
-        ),
-    ]
+    operations = []
