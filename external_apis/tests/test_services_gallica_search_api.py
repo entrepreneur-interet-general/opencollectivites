@@ -1,9 +1,9 @@
 from unittest import TestCase
 from unittest.mock import patch
-from bnsp.services.gallica_search_api import GallicaSearch, Record
+from external_apis.services.gallica_search_api import GallicaSearch, Record
 import responses
 
-from bnsp.tests.testdata import data_objects
+from external_apis.tests.testdata import data_objects
 
 
 class GallicaSearchTestCase(TestCase):

@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<srw:searchRetrieveResponse xmlns:ns5="http://gallica.bnf.fr/namespaces/gallica/" xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/" xmlns:srw="http://www.loc.gov/zing/srw/" xmlns:dc="http://purl.org/dc/elements/1.1/"><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"/><link type="text/css" rel="stylesheet" id="dark-mode-general-link"/><style lang="en" type="text/css" id="dark-mode-custom-style"/><style lang="en" type="text/css" id="dark-mode-native-style"/>
+    <srw:version>1.2</srw:version>
+    <srw:echoedSearchRetrieveRequest>
+        <srw:query>dc.title all "jaune bleu"</srw:query>
+        <srw:version>1.2</srw:version>
+    </srw:echoedSearchRetrieveRequest>
+    <srw:numberOfRecords>61</srw:numberOfRecords>
+    <srw:extraResponseData>&lt;numberOfRecordsDecollapser&gt;61&lt;/numberOfRecordsDecollapser&gt;</srw:extraResponseData>
+    <srw:records>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:date>1961</dc:date>
+                    <dc:description>BnF-Partenariats, Collection sonore - Believe</dc:description>
+                    <dc:description>Contient une table des matières</dc:description>
+                    <dc:format>1 disque : 45 t ; 17 cm</dc:format>
+                    <dc:format>disc</dc:format>
+                    <dc:format>disque microsillon</dc:format>
+                    <dc:format>multipart/mixed</dc:format>
+                    <dc:format>Nombre total de vues : 8</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/bpt6k88290531</dc:identifier>
+                    <dc:identifier>Numéro commercial : Polydor 21766</dc:identifier>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb37989577p</dc:relation>
+                    <dc:rights>conditions spécifiques d'utilisation - BnF-Partenariats, Collection sonore - Believe</dc:rights>
+                    <dc:rights>restricted use</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Audiovisuel, E-20868</dc:source>
+                    <dc:title>LE BLEU DE L'ETE (The green leaves of summer) / TIOMKIN (Dimitri), CONTET (Henri). L'ORAGE / MAXTED, DELANOE et ABER. SUMMERTIME (C'est l'été) / GERSHWIN (George) et ROUZAUD (R). ADIEU MAMMA / DENONCIN (René) et ROUX ; WILLIAM (John) orch Mario BUA</dc:title>
+                    <dc:type>sound</dc:type>
+                    <dc:type>document sonore</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>0</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/bpt6k88290531</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/bpt6k88290531.thumbnail</thumbnail>
+                <typedoc>sonores</typedoc>
+                <uri>bpt6k88290531</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:date>1961</dc:date>
+                    <dc:description>BnF-Partenariats, Collection sonore - Believe</dc:description>
+                    <dc:description>Contient une table des matières</dc:description>
+                    <dc:format>1 disque : 45 t ; 17 cm</dc:format>
+                    <dc:format>disc</dc:format>
+                    <dc:format>disque microsillon</dc:format>
+                    <dc:format>multipart/mixed</dc:format>
+                    <dc:format>Nombre total de vues : 8</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/bpt6k8828284z</dc:identifier>
+                    <dc:identifier>Numéro commercial : PBM EP26</dc:identifier>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb379699583</dc:relation>
+                    <dc:rights>conditions spécifiques d'utilisation - BnF-Partenariats, Collection sonore - Believe</dc:rights>
+                    <dc:rights>restricted use</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Audiovisuel, E-20051</dc:source>
+                    <dc:title>ALAMO (le bleu de l'été) / CONTET (Henri) et TIOMKIN (Dimitri). L'OLIVIER / MARNAY (E), MERANE (M) et MISSIR (Léo). TU PARLES TROP (You talk too much) / JONES (J), HALL (R), ABER (G). LES MARRONS CHAUDS / NICOLAS (C), GARVARENTZ (G) ; BOLAND (Didier) et son orchestre</dc:title>
+                    <dc:type>sound</dc:type>
+                    <dc:type>document sonore</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>1</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/bpt6k8828284z</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/bpt6k8828284z.thumbnail</thumbnail>
+                <typedoc>sonores</typedoc>
+                <uri>bpt6k8828284z</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:date>1961</dc:date>
+                    <dc:description>BnF-Partenariats, Collection sonore - Believe</dc:description>
+                    <dc:description>Contient une table des matières</dc:description>
+                    <dc:format>1 disque : 45 t ; 17 cm</dc:format>
+                    <dc:format>disc</dc:format>
+                    <dc:format>disque microsillon</dc:format>
+                    <dc:format>multipart/mixed</dc:format>
+                    <dc:format>Nombre total de vues : 8</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/bpt6k8828276d</dc:identifier>
+                    <dc:identifier>Numéro commercial : Actualité LD20</dc:identifier>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb37764168n</dc:relation>
+                    <dc:rights>conditions spécifiques d'utilisation - BnF-Partenariats, Collection sonore - Believe</dc:rights>
+                    <dc:rights>restricted use</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Audiovisuel, E-20043</dc:source>
+                    <dc:title>Alamo : Le bleu de l'été / Contet (Henri), Tiomkin (Dimitri). Garde-moi la dernière danse / Salvet (André), Llenas (François), Pomus (Doc), Shuman (M.). Tu parles trop = You talk too much / Jones (Joe), Hall (Reginald), Aber (Georges). Les Marrons chauds / Nicolas (Clément) et Garvarentz (Georges) ; Nicolas (Marc) et son orchestre</dc:title>
+                    <dc:type>sound</dc:type>
+                    <dc:type>document sonore</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>2</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/bpt6k8828276d</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/bpt6k8828276d.thumbnail</thumbnail>
+                <typedoc>sonores</typedoc>
+                <uri>bpt6k8828276d</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:date>1962</dc:date>
+                    <dc:description>BnF-Partenariats, Collection sonore - Believe</dc:description>
+                    <dc:description>Contient une table des matières</dc:description>
+                    <dc:format>1 disque : 45 t ; 17 cm</dc:format>
+                    <dc:format>disc</dc:format>
+                    <dc:format>disque microsillon</dc:format>
+                    <dc:format>multipart/mixed</dc:format>
+                    <dc:format>Nombre total de vues : 8</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/bpt6k8831609g</dc:identifier>
+                    <dc:identifier>Numéro commercial : Pacific 91466</dc:identifier>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb37949399m</dc:relation>
+                    <dc:rights>conditions spécifiques d'utilisation - BnF-Partenariats, Collection sonore - Believe</dc:rights>
+                    <dc:rights>restricted use</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Audiovisuel, E-22847</dc:source>
+                    <dc:title>LES ROSES DE PICARDIE / D'AMOR (P), WOOD (Haynd) ; LUMIERE (Jean) ; avec GUILLERMIN (Pierre) et son orchestre. FUMEE BLEUE / DUVER (Roger), DARLING (John) ; LUMIERE (Jean) ; CARIVEN (Marcel) et son orchestre. L'ANNEAU D'ARGENT / CHAMINADE (Cécile) (musique), GERARD (Rosemonde) (poème) ; LUMIERE (Jean) ; JACQUE-SIMONOT. LA REINE DES SONGES / CHOPIN (F) (musique), SAND (George) (poème) ; LUMIERE (Jean) ; JACQUE-SIMONOT</dc:title>
+                    <dc:type>sound</dc:type>
+                    <dc:type>document sonore</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>3</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/bpt6k8831609g</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/bpt6k8831609g.thumbnail</thumbnail>
+                <typedoc>sonores</typedoc>
+                <uri>bpt6k8831609g</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Willemetz, Albert (1887-1964). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Wayne, Mabel (1904-1978). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Vivarelli, F.. Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Vaucaire, Michel (1904-1980). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Thil, Don. Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Salvador, Henri (1917-2008). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Révil, Rudi (1916-1983). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Nicolas, Clément. Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Leseyeux, Jean (18..-1957). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Jouvin, Georges (1923-2016). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Jones, Jo (1911-1985). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Jollet, Christian. Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Holl, Regina. Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Gustin, Gérard (1930-1994). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Gilbert, L. Wolfe (1886-1970). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Garvarentz, Georges (1932-1993). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Everly, Phil (1939-2014). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Derse, Gus. Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Denoncin, René (1920-2002). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Delanoë, Pierre (1918-2006). Auteur du texte</dc:creator>
+                    <dc:creator>Celentano, Adriano (1938-....). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Castel, Serge (1921-1981). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Cassez, Michel (1931-....). Parolier</dc:creator>
+                    <dc:creator>Canfora, Armand (1921-1973). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Calvet, Jean-Pierre (1925-1989). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Broussolle, Jean (1920-1984). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Bonifay, Fernand (1920-1993). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Barelli, Aimé (1917-1995). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Tchicoray, Ray. Direction d'orchestre</dc:creator>
+                    <dc:creator>Jil et Jan. Auteur ou responsable intellectuel</dc:creator>
+                    <dc:date>1961</dc:date>
+                    <dc:description>Titre uniforme : [Ramona]</dc:description>
+                    <dc:description>Titre uniforme : [Ramona]</dc:description>
+                    <dc:description>Titre uniforme : [Ventiquattromila baci]</dc:description>
+                    <dc:description>BnF-Partenariats, Collection sonore - Believe</dc:description>
+                    <dc:description>Contient une table des matières</dc:description>
+                    <dc:format>1 disque : 33 t ; 30 cm</dc:format>
+                    <dc:format>disc</dc:format>
+                    <dc:format>disque microsillon</dc:format>
+                    <dc:format>multipart/mixed</dc:format>
+                    <dc:format>Nombre total de vues : 18</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/bpt6k8809346c</dc:identifier>
+                    <dc:identifier>Numéro commercial : Vega V30S840</dc:identifier>
+                    <dc:relation>Notice d’oeuvre : http://catalogue.bnf.fr/ark:/12148/cb13872969b</dc:relation>
+                    <dc:relation>Notice d’oeuvre : http://catalogue.bnf.fr/ark:/12148/cb138727344</dc:relation>
+                    <dc:relation>Notice d’oeuvre : http://catalogue.bnf.fr/ark:/12148/cb13872556w</dc:relation>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb38046893s</dc:relation>
+                    <dc:rights>conditions spécifiques d'utilisation - BnF-Partenariats, Collection sonore - Believe</dc:rights>
+                    <dc:rights>restricted use</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Audiovisuel, B-10814</dc:source>
+                    <dc:title>TROMPETTE D'OR : slow / G. JOUVIN et R. DENONCIN. RAMONA : moderato / Albert WILLEMETZ - Jean LE SEYEUX - Mabel WAYNE et L. WOLFEGILBERT. LE BLEU DE L'ETE : rock lent / Dimitri TIOMKIN. COU-COUCHE PANIER : cha cha cha / Serge CASTEL et René DENONCIN. LES MARRONS CHAUDS : cha cha cha / Cl. NICOLAS et G. GARVARENTZ. TU PARLES TROP : rock cha cha / JONES - Regina HOLL et G. ABER. FAUT RIGOLER : cha cha cha / Henri SALVADOR. ALLEZ SAVOIR POURQUOI : boléro cha cha / J.P. CALVET et J. BROUSSOLLE. ANNETTE, BRIGITTE ET Cie : cha cha cha / JOLLET - CANFORA et JOUVIN. 24.000 BAISERS : rock cha cha / Fernand BONIFAY - A. CELENTANO-FULCI et VIVARELLI. MON DIEU : slow / M. VAUCAIRE et Ch. DUMONT. LE PETIT CLOWN DE MON COEUR : moderato / Rudy REVIL - G. ABER - Pierre DELANOE - Don THIL et EVERLY. KILI WATCH : rock / JIL et JEAN et Gus DERSE. POUR FAIRE UN DIXIELAND : charleston / M. CASSEZ - Aimé BARELLI et G. GUSTIN ; Ray TCHICORAY et son Orchestre</dc:title>
+                    <dc:type>sound</dc:type>
+                    <dc:type>document sonore</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>4</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/bpt6k8809346c</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/bpt6k8809346c.thumbnail</thumbnail>
+                <typedoc>sonores</typedoc>
+                <uri>bpt6k8809346c</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:date>1960</dc:date>
+                    <dc:description>BnF-Partenariats, Collection sonore - Believe</dc:description>
+                    <dc:description>Contient une table des matières</dc:description>
+                    <dc:format>1 disque : 45 t ; 17 cm</dc:format>
+                    <dc:format>disc</dc:format>
+                    <dc:format>disque microsillon</dc:format>
+                    <dc:format>multipart/mixed</dc:format>
+                    <dc:format>Nombre total de vues : 8</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/bpt6k8825431k</dc:identifier>
+                    <dc:identifier>Numéro commercial : Odéon SOE3537</dc:identifier>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb37943737q</dc:relation>
+                    <dc:rights>conditions spécifiques d'utilisation - BnF-Partenariats, Collection sonore - Believe</dc:rights>
+                    <dc:rights>restricted use</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Audiovisuel, E-16752</dc:source>
+                    <dc:title>ADONIS / BONIFAY (F) et GOEHRING (G). NUIT BLEUE / BERTRET (Guy), AMEL et FARINA. LINDA / ROGER (Jeannine) et MOTTIER (J.P.). IL BAT MON COEUR / MOTTIER (J. P) et JONES (Ralph) ; GEIGER-GIRL</dc:title>
+                    <dc:type>sound</dc:type>
+                    <dc:type>document sonore</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>5</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/bpt6k8825431k</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/bpt6k8825431k.thumbnail</thumbnail>
+                <typedoc>sonores</typedoc>
+                <uri>bpt6k8825431k</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:date>1961</dc:date>
+                    <dc:description>BnF-Partenariats, Collection sonore - Believe</dc:description>
+                    <dc:description>Contient une table des matières</dc:description>
+                    <dc:format>1 disque : 45 t ; 17 cm</dc:format>
+                    <dc:format>disc</dc:format>
+                    <dc:format>disque microsillon</dc:format>
+                    <dc:format>multipart/mixed</dc:format>
+                    <dc:format>Nombre total de vues : 8</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/bpt6k8827799t</dc:identifier>
+                    <dc:identifier>Numéro commercial : Barclay 72454</dc:identifier>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb377825947</dc:relation>
+                    <dc:rights>conditions spécifiques d'utilisation - BnF-Partenariats, Collection sonore - Believe</dc:rights>
+                    <dc:rights>restricted use</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Audiovisuel, E-19566</dc:source>
+                    <dc:title>Tu parles trop / Aber (Georges), Jones (J.) et Hall (R.). Ne crois surtout pas / Aznavour (Charles). Dix mille bulles bleues / Delanoë (Pierre) et Rossi (C. A.). Parlez-moi d'amour / Lenoir (J.) ; Ben et sa tumba</dc:title>
+                    <dc:type>sound</dc:type>
+                    <dc:type>document sonore</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>6</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/bpt6k8827799t</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/bpt6k8827799t.thumbnail</thumbnail>
+                <typedoc>sonores</typedoc>
+                <uri>bpt6k8827799t</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:date>1961</dc:date>
+                    <dc:description>Collection : La bourse des chansons Pathé-Marconi ; 4</dc:description>
+                    <dc:description>BnF-Partenariats, Collection sonore - Believe</dc:description>
+                    <dc:description>Contient une table des matières</dc:description>
+                    <dc:format>1 disque : 33 t ; 25 cm</dc:format>
+                    <dc:format>disc</dc:format>
+                    <dc:format>disque microsillon</dc:format>
+                    <dc:format>multipart/mixed</dc:format>
+                    <dc:format>Nombre total de vues : 13</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/bpt6k8811483s</dc:identifier>
+                    <dc:identifier>Numéro commercial : La voix de son maître FDLP1099M</dc:identifier>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb38062041s</dc:relation>
+                    <dc:rights>conditions spécifiques d'utilisation - BnF-Partenariats, Collection sonore - Believe</dc:rights>
+                    <dc:rights>restricted use</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Audiovisuel, C-22703</dc:source>
+                    <dc:title>NON, JE NE REGRETTE RIEN / M. VAUCAIRE, CH. DUMONT ; EDITH PIAF ; avec l'orchestre de ROBERT CHAUVIGNY. TU PARLES TROP (You talk too much) / G. ABER, J. JONES, R. HALL ; RICHARD ANTHONY ; avec l'orchestre de CHRISTIAN CHEVALLIER ; LES ANGELS. GARDE-MOI LA DERNIERE DANSE = Save the last dance for me / A. SALVET, F. LLENAS, D. POMUS, M. SHUMAN ; DANIELLE DARRIEUX ; avec l'orchestre de CHRISTIAN CHEVALLIER. COU COUCHE PANIER / S. CASTEL, R. DENONCIN ; EDMOND TAILLET ; avec l'orchestre de JERRY MENGO. PEPE : du film "Pépé" / J. LARUE, H. WITTSTATT ; JACQUELINE BOYER ; avec l'orchestre de JO MOUTET ; LES PETITS CHANTEURS DE ST FRANCOIS D'ASSISE DE SAINT-MAUR, dir : ANDRE BATEJAT. EXODUS / E. MARNAY, E. GOLD ; EDITH PIAF ; avec l'orchestre de ROBERT CHAUVIGNY. LE BLEU DE L'ETE (The green leaves of summer) du film "Alamo" / H. CONTET, D. TIOMKIN, arrgt : J. BROUSSOLLE ; LES COMPAGNONS DE LA CHANSON. LA JOIE D'AIMER (The need for love) thème du film "Le vent dans la plaine" (The unforgiven) / J. BROUSSOLLE, D. TIOMKIN ; GLORIA LASSO ; avec l'orchestre de CHRISTIAN CHEVALLIER ; LES ANGELS. LES FIANCES D'AUVERGNE / FAVEREAU, VERCHUREN ; ANDRE THIVET et son orchestre ; avec l'orchestre de JO RIVERA</dc:title>
+                    <dc:type>sound</dc:type>
+                    <dc:type>document sonore</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>7</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/bpt6k8811483s</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/bpt6k8811483s.thumbnail</thumbnail>
+                <typedoc>sonores</typedoc>
+                <uri>bpt6k8811483s</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:creator>Warren, Harry (1893-1981). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Verstraete, Fernand (1925-1992). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Rodgers, Richard (1902-1979). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Noble, Ray (1903-1978). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>De Sylva, B. G. (1896-1950). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Corts, Enrique (1914-1982). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Bowman, Brooks. Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Basie, Count (1904-1984). Auteur ou responsable intellectuel</dc:creator>
+                    <dc:creator>Vasseur, Benny (1926-2015). Trombone</dc:creator>
+                    <dc:creator>Paquinet, André (1926-2014). Trombone. Direction d'orchestre</dc:creator>
+                    <dc:date>1958</dc:date>
+                    <dc:description>Titre uniforme : [September in the rain]</dc:description>
+                    <dc:description>Titre uniforme : [There's a small hotel]</dc:description>
+                    <dc:description>BnF-Partenariats, Collection sonore - Believe</dc:description>
+                    <dc:description>Contient une table des matières</dc:description>
+                    <dc:format>1 disque : 33 t ; 25 cm</dc:format>
+                    <dc:format>disc</dc:format>
+                    <dc:format>disque microsillon</dc:format>
+                    <dc:format>multipart/mixed</dc:format>
+                    <dc:format>Nombre total de vues : 14</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/bpt6k8815185t</dc:identifier>
+                    <dc:identifier>Numéro commercial : Festival FLD140</dc:identifier>
+                    <dc:relation>Notice d’oeuvre : http://catalogue.bnf.fr/ark:/12148/cb13872702h</dc:relation>
+                    <dc:relation>Notice d’oeuvre : http://catalogue.bnf.fr/ark:/12148/cb139761756</dc:relation>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb378794651</dc:relation>
+                    <dc:rights>conditions spécifiques d'utilisation - BnF-Partenariats, Collection sonore - Believe</dc:rights>
+                    <dc:rights>restricted use</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Audiovisuel, C-10393</dc:source>
+                    <dc:title>JAZZ A LA FIESTA : SWINGIN THE BLUES ; HAVE YOU MET MISS JONES ? ; THAT OLD BLACK MAGIG ; CHEROKEE ; KING COLE BLUES ; RYTHMES BLEUS AU PALM-BEACH : THERE IS A SMALL HOTEL ; SEPTEMBER IN THE RAIN ; TOUT BAS, TOUT BAS ; SONNY BOY ; EAST OF THE SUN / Benny VASSEUR et André PAQUINET et les trombones paraders</dc:title>
+                    <dc:type>sound</dc:type>
+                    <dc:type>document sonore</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>8</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/bpt6k8815185t</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/bpt6k8815185t.thumbnail</thumbnail>
+                <typedoc>sonores</typedoc>
+                <uri>bpt6k8815185t</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:date>1956</dc:date>
+                    <dc:description>BnF-Partenariats, Collection sonore - Believe</dc:description>
+                    <dc:description>Contient une table des matières</dc:description>
+                    <dc:format>1 disque : 45 t ; 17 cm</dc:format>
+                    <dc:format>disc</dc:format>
+                    <dc:format>disque microsillon</dc:format>
+                    <dc:format>multipart/mixed</dc:format>
+                    <dc:format>Nombre total de vues : 8</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/bpt6k8840482w</dc:identifier>
+                    <dc:identifier>Numéro commercial : RCA 75317</dc:identifier>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb38005537d</dc:relation>
+                    <dc:rights>conditions spécifiques d'utilisation - BnF-Partenariats, Collection sonore - Believe</dc:rights>
+                    <dc:rights>restricted use</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Audiovisuel, E-11221</dc:source>
+                    <dc:title>THE SEARCHERS (slow) du film : PRISONNIERE DU DESERT / Stan JONES. THE LAST FRONTIER (fox) du film : CHARGE DES TUNIQUES BLEUES / WASHINGTON-LEE ; les SONS OF THE PIONNERS ; Orchestre et choeurs HENRI-RENE. IF YOU WANNA SEE MAMIE TONIGHT (boléro) du film : "BUNGALOW POUR FEMMES" / WEBSTER-FAIN. FOREVER DARLING (demain peut-être) (slow) du film : SON ANGE GARDIEN / S. CAHN - B. KAPER ; THE AMES BROTHERS ; avec : Hugo WINTERHALTER et son Orchestre</dc:title>
+                    <dc:type>sound</dc:type>
+                    <dc:type>document sonore</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>9</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/bpt6k8840482w</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/bpt6k8840482w.thumbnail</thumbnail>
+                <typedoc>sonores</typedoc>
+                <uri>bpt6k8840482w</uri>
+            </srw:extraRecordData>
+        </srw:record>
+        <srw:record>
+            <srw:recordSchema>http://www.openarchives.org/OAI/2.0/OAIdc.xsd</srw:recordSchema>
+            <srw:recordPacking>xml</srw:recordPacking>
+            <srw:recordData>
+                <oai_dc:dc>
+                    <dc:date>1961</dc:date>
+                    <dc:description>BnF-Partenariats, Collection sonore - Believe</dc:description>
+                    <dc:description>Contient une table des matières</dc:description>
+                    <dc:format>1 disque : 33 t ; 25 cm</dc:format>
+                    <dc:format>disc</dc:format>
+                    <dc:format>disque microsillon</dc:format>
+                    <dc:format>multipart/mixed</dc:format>
+                    <dc:format>Nombre total de vues : 14</dc:format>
+                    <dc:identifier>https://gallica.bnf.fr/ark:/12148/bpt6k8811499n</dc:identifier>
+                    <dc:identifier>Numéro commercial : Barclay 82252</dc:identifier>
+                    <dc:relation>Notice du catalogue : http://catalogue.bnf.fr/ark:/12148/cb37783681d</dc:relation>
+                    <dc:rights>conditions spécifiques d'utilisation - BnF-Partenariats, Collection sonore - Believe</dc:rights>
+                    <dc:rights>restricted use</dc:rights>
+                    <dc:source>Bibliothèque nationale de France, département Audiovisuel, C-22734</dc:source>
+                    <dc:title>Tu parles trop / G. Aber, J. Jones, R. Hall. LOS ARETAS DE LA LUNA / J. D. Quinones. Parlez-moi d'amour / J. Lenoir. I TALK TO THE TREES / F. Loewe. Dix mille bulles bleues / P. Delanoë, C. A. Rossi. LA BOA / F. Reyna, C. Reyes. Ne crois surtout pas / Aznavour. ASI SE HACE / J. Barreto. SI ME DICES QUE SI / A. Penalver. AY PERO BESAME / G. Pimental, S. Escartin ; Ben, sa tumba et son orchestre</dc:title>
+                    <dc:type>sound</dc:type>
+                    <dc:type>document sonore</dc:type>
+                </oai_dc:dc>
+            </srw:recordData>
+            <srw:recordIdentifier>ark</srw:recordIdentifier>
+            <srw:recordPosition>10</srw:recordPosition>
+            <srw:extraRecordData>
+                <epubFile/>
+                <infoSupModifiable/>
+                <link>https://gallica.bnf.fr/ark:/12148/bpt6k8811499n</link>
+                <nqamoyen>0.0</nqamoyen>
+                <thumbnail>https://gallica.bnf.fr/ark:/12148/bpt6k8811499n.thumbnail</thumbnail>
+                <typedoc>sonores</typedoc>
+                <uri>bpt6k8811499n</uri>
+            </srw:extraRecordData>
+        </srw:record>
+    </srw:records>
+    <srw:nextRecordPosition>101</srw:nextRecordPosition>
+</srw:searchRetrieveResponse>

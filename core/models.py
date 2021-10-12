@@ -237,13 +237,6 @@ class Document(TimeStampModel):
     source = models.ForeignKey(
         "Source", on_delete=models.SET_NULL, null=True, blank=True
     )
-    bnsp_query = models.ForeignKey(
-        "bnsp.Query",
-        verbose_name="Requête Gallica associée",
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-    )
     ods_queries = models.ManyToManyField(
         "external_apis.OpenDataSoftQuery",
         verbose_name="Requêtes OpenDataSoft associées",
