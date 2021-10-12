@@ -15,10 +15,10 @@ class GallicaSearchTestCase(TestCase):
             "?operation=searchRetrieve&version=1.2&maximumRecords=15"
             "&startRecord=1&query=dc.title+all+%22jaune+bleu%22"
         )
-        with open("bnsp/tests/testdata/SRU_jaune_bleu_p1.xml", "r") as f:
+        with open("external_apis/tests/testdata/SRU_jaune_bleu_p1.xml", "r") as f:
             self.test_response_p1 = f.read()
 
-        with open("bnsp/tests/testdata/SRU_jaune_bleu_p2.xml", "r") as f:
+        with open("external_apis/tests/testdata/SRU_jaune_bleu_p2.xml", "r") as f:
             self.test_response_p2 = f.read()
 
     def test_search_instance_is_created(self) -> None:
