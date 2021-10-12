@@ -176,7 +176,7 @@ class BnspQueryAdmin(TimeStampModelAdmin):
     actions = ["force_run_queries"]
 
     def view_documents_link(self, obj):
-        return view_reverse_changelink(obj, "core", "bnsp_query", "document")
+        return view_reverse_changelink(obj, "core", "bnsp_queries", "document")
 
     view_documents_link.short_description = "Documents"
 
