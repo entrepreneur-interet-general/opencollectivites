@@ -10,11 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
-# Keep secrets and environment_specific variables in a separate file not using version control
-from settings_local import *
 from os import path
 import sys
 import logging
+
+# Keep secrets and environment_specific variables in a separate file not using version control
+try:
+    from settings_local import *
+except ImportError:
+    from settings_local_sample import *
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = LOCAL_BASE_DIR
