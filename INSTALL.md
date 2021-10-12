@@ -32,7 +32,7 @@ postgres=# \c <db_name>
 - `git clone` ce répertoire quelque part et `cd` dedans.
 
 ### Régler les paramètres locaux
-- `cp settings_local.py.sample settings_local.py`
+- `cp settings_local_sample.py settings_local.py`
 - Remplir le fichier `settings_local.py`
 
 ### Créer et activer l'environnement virtuel et installer les dépendances
