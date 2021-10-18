@@ -63,6 +63,9 @@ class OpenDataSoftQuery(ExternalApiQuery):
     identify_metropoles = models.BooleanField(
         verbose_name="Identifier les noms de métropoles", default=False
     )
+    identify_years = models.BooleanField(
+        verbose_name="Identifier les années de publication", default=False
+    )
 
     class Meta:
         verbose_name = "OpenDataSoft — requête"
@@ -151,6 +154,9 @@ class OpenDataSoftQuery(ExternalApiQuery):
         if self.identify_metropoles:
             new_doc.identify_metropoles(full_text)
 
+        if self.identify_years:
+            self.get_years_from_keywords(new_doc, metadata["keyword"])
+
     def apply_mappings(self, document: Document, metadata: dict) -> None:
         """
         Applies the selected mappings to the document
@@ -171,27 +177,37 @@ class OpenDataSoftQuery(ExternalApiQuery):
             metadata_values = metadata[field]
             for mapping_value, properties in mapping_values.items():
                 if mapping_value in metadata_values:
-                    if isinstance(properties, list):
-                        for property in properties:
-                            self.add_metadata_properties(document, property)
-                    else:
-                        self.add_metadata_properties(document, properties)
+                    self.add_metadata_properties(document, properties)
 
     def add_metadata_properties(self, document: Document, properties: dict) -> None:
         """
         Add metadata from a properties dict
         """
-        if properties["type"] == "topic":
-            document.topics.add(properties["value"])
-        elif properties["type"] == "scope":
-            document.scope.add(properties["value"])
-        elif properties["type"] == "publication_pages":
-            document.publication_pages.add(properties["value"])
-        elif properties["type"] == "region":
-            document.regions.add(properties["value"])
-        elif properties["type"] == "departement":
-            document.departements.add(properties["value"])
+        for key, values in properties.items():
+            if not isinstance(values, list):
+                values = [values]
 
+            if key == "topic":
+                document.topics.add(*values)
+            elif key == "scope":
+                document.scope.add(*values)
+            elif key == "publication_pages":
+                document.publication_pages.add(*values)
+            elif key == "region":
+                document.regions.add(*values)
+            elif key == "departement":
+                document.departements.add(*values)
+
+        document.save()
+
+    def get_years_from_keywords(self, document: Document, keywords: dict) -> None:
+        """
+        Tries to identify publications years from the keywords dict
+        """
+        for keyword in keywords:
+            if keyword.isnumeric() and int(keyword) >= 2000 and int(keyword) <= 2100:
+                year, year_is_new = DataYear.objects.get_or_create(year=keyword)
+                document.years.add(year)
         document.save()
 
 

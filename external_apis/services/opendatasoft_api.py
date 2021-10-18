@@ -42,9 +42,9 @@ class OpenDataSoftSearch:
             while retries:
                 logging.warning(f"An error happened, retrying (retries: {retries})")
                 logging.debug(f"Parameters used:")
-                logging.debug(f"endpoint:", endpoint)
-                logging.debug(f"payload:", payload)
-                logging.debug(f"response:", response.text)
+                logging.debug(f"endpoint: {endpoint}")
+                logging.debug(f"payload: {payload}")
+                logging.debug(f"response: {response.text}")
                 time.sleep(5)
                 response = requests.get(endpoint, params=payload)
                 if response.status_code == 200:
@@ -81,7 +81,9 @@ class OpenDataSoftSearch:
             logging.info("The research returned no (new) results.")
             return []
 
-    def catalog_datasets(self, where: str = "", sort: str = "", exclude: str = "") -> list:
+    def catalog_datasets(
+        self, where: str = "", sort: str = "", exclude: str = ""
+    ) -> list:
         """
         Perform a query on the Search endpoint
         """

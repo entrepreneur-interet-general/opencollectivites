@@ -68,6 +68,7 @@ class OpenDataSoftQueryAdmin(TimeStampModelAdmin):
                     "identify_regions",
                     "identify_departements",
                     "identify_metropoles",
+                    "identify_years",
                 ]
             },
         ),

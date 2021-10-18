@@ -2,15 +2,15 @@ from pathlib import Path
 
 LOCAL_BASE_DIR = Path(__file__).resolve().parent
 
-LOCAL_SECRET_KEY = <your_secret_key> # Generate with `cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 50 | head -n 1` or `base64 /dev/urandom | head -c50 -n1`
+LOCAL_SECRET_KEY = "your_secret_key"  # Generate with `cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 50 | head -n 1` or `base64 /dev/urandom | head -c50 -n1`
 LOCAL_DEBUG = True
 LOCAL_ALLOWED_HOSTS = ["127.0.0.1"]
 LOCAL_DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": <your_db_name>,
-        "USER": <your_user_name>,
-        "PASSWORD": <your_password>,
+        "NAME": "sample_db_name",
+        "USER": "sample_user_name",
+        "PASSWORD": "sample_password",
         "HOST": "localhost",
         "PORT": "",
     }
