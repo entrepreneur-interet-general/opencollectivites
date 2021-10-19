@@ -41,6 +41,8 @@ class HomePage(Page):
         StreamFieldPanel("body", heading="Contenu"),
     ]
 
+    subpage_types = ["pages.ContentPage"]
+
     def get_homepage_tiles(self):
         tools = list_documents(publication_page=5, limit=4)
         return documents_to_cards(tools)
@@ -80,6 +82,9 @@ class ContentPage(Page):
     content_panels = Page.content_panels + [
         StreamFieldPanel("body", heading="Contenu"),
     ]
+
+    parent_page_types = ["pages.HomePage", "pages.ContentPage"]
+    subpage_types = ["pages.ContentPage"]
 
     def get_context(self, request):
         context = super().get_context(request)
