@@ -20,3 +20,6 @@ pg_dump -U $DB_USER -h $DB_HOST -d $DB_NAME -W -F c -Z 9 -f $BACKUP_DIR/db-$DATE
 echo "media backup"
 cd $DJANGO_DIR
 tar cvzf $BACKUP_DIR/oc-media-$DATE.tar.gz media/
+
+echo "New backup files:"
+ls -hal $BACKUP_DIR/*$DATE*
