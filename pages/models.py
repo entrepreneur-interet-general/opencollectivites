@@ -2,29 +2,14 @@ from wagtail.core.blocks.list_block import ListBlock
 from core.services.publications import documents_to_cards, list_documents
 from wagtail.admin.edit_handlers import StreamFieldPanel
 from wagtail.core.fields import StreamField
-from wagtail.core.blocks.field_block import RichTextBlock, CharBlock, ChoiceBlock
+from wagtail.core.blocks.field_block import RichTextBlock
 from wagtail.core.models import Page
-from wagtail.core.blocks import StructBlock
 from wagtail.images.blocks import ImageChooserBlock
 from wagtailmarkdown.blocks import MarkdownBlock
 from wagtailsvg.blocks import SvgChooserBlock
 
+from pages.blocks import SectionWithImageBlock, CodeBlock
 from pages.services.wagtail_dsfr import blocks as dsfr_blocks
-
-
-class SectionWithImageBlock(StructBlock):
-    title = CharBlock(heading="Titre")
-    text = RichTextBlock(heading="Texte")
-    image_position = ChoiceBlock(
-        choices=[("left", "Gauche"), ("right", "Droite")],
-        heading="Position de l’image",
-    )
-    image = SvgChooserBlock(heading="Image")
-
-    class Meta:
-        icon = "doc-full"
-        label = "Paragraphe avec image"
-        template = "pages/blocks/section_with_image.html"
 
 
 class HomePage(Page):
@@ -75,6 +60,7 @@ class ContentPage(Page):
             ("callout", dsfr_blocks.CalloutBlock()),
             ("highlight", dsfr_blocks.HighlightBlock()),
             ("link", dsfr_blocks.LinkBlock()),
+            ("code", CodeBlock()),
         ],
         blank=True,
     )

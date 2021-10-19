@@ -3,6 +3,10 @@
 
 {% block body_class %}template-contentpage{% endblock %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'pages/css/dsfr-code.css' %}">
+{% endblock %}
+
 {% block content %}
 <div class="fr-container fr-mt-4w fr-mb-6w">
   {% include "pages/dsfr_blocks/breadcrumb.html" %}

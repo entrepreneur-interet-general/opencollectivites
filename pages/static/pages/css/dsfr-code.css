@@ -1,0 +1,374 @@
+.dsfr-code .hll {
+  background-color: var(--bf100-g750)
+}
+
+.dsfr-code pre {
+  background: var(--g200);
+  color: var(--g700);
+  padding: 1rem;
+  margin: 2rem 0;
+}
+
+.dsfr-code .c {
+  color: var(--g700)
+}
+
+/* Comment */
+.dsfr-code .err {
+  color: var(--g600)
+}
+
+/* Error */
+.dsfr-code .esc {
+  color: var(--g600)
+}
+
+/* Escape */
+.dsfr-code .g {
+  color: var(--g600)
+}
+
+/* Generic */
+.dsfr-code .k {
+  color: var(--success)
+}
+
+/* Keyword */
+.dsfr-code .l {
+  color: var(--g600)
+}
+
+/* Literal */
+.dsfr-code .n {
+  color: var(--g600)
+}
+
+/* Name */
+.dsfr-code .o {
+  color: var(--success)
+}
+
+/* Operator */
+.dsfr-code .x {
+  color: var(--error)
+}
+
+/* Other */
+.dsfr-code .p {
+  color: var(--g600)
+}
+
+/* Punctuation */
+.dsfr-code .ch {
+  color: var(--g200)
+}
+
+/* Comment.Hashbang */
+.dsfr-code .cm {
+  color: var(--g200)
+}
+
+/* Comment.Multiline */
+.dsfr-code .cp {
+  color: var(--success)
+}
+
+/* Comment.Preproc */
+.dsfr-code .cpf {
+  color: var(--g200)
+}
+
+/* Comment.PreprocFile */
+.dsfr-code .c1 {
+  color: var(--g200)
+}
+
+/* Comment.Single */
+.dsfr-code .cs {
+  color: var(--success)
+}
+
+/* Comment.Special */
+.dsfr-code .gd {
+  color: var(--error)
+}
+
+/* Generic.Deleted */
+.dsfr-code .ge {
+  color: var(--g600);
+  font-style: italic
+}
+
+/* Generic.Emph */
+.dsfr-code .gr {
+  color: var(--error);
+  font-weight: bold
+}
+
+/* Generic.Error */
+.dsfr-code .gh {
+  color: var(--error)
+}
+
+/* Generic.Heading */
+.dsfr-code .gi {
+  color: var(--success)
+}
+
+/* Generic.Inserted */
+.dsfr-code .go {
+  color: var(--g600)
+}
+
+/* Generic.Output */
+.dsfr-code .gp {
+  color: var(--g600)
+}
+
+/* Generic.Prompt */
+.dsfr-code .gs {
+  color: var(--g600);
+  font-weight: bold
+}
+
+/* Generic.Strong */
+.dsfr-code .gu {
+  color: var(--info)
+}
+
+/* Generic.Subheading */
+.dsfr-code .gt {
+  color: var(--g600)
+}
+
+/* Generic.Traceback */
+.dsfr-code .kc {
+  color: var(--error)
+}
+
+/* Keyword.Constant */
+.dsfr-code .kd {
+  color: var(--info)
+}
+
+/* Keyword.Declaration */
+.dsfr-code .kn {
+  color: var(--success)
+}
+
+/* Keyword.Namespace */
+.dsfr-code .kp {
+  color: var(--success)
+}
+
+/* Keyword.Pseudo */
+.dsfr-code .kr {
+  color: var(--info)
+}
+
+/* Keyword.Reserved */
+.dsfr-code .kt {
+  color: var(--error)
+}
+
+/* Keyword.Type */
+.dsfr-code .ld {
+  color: var(--g600)
+}
+
+/* Literal.Date */
+.dsfr-code .m {
+  color: var(--success)
+}
+
+/* Literal.Number */
+.dsfr-code .s {
+  color: var(--success)
+}
+
+/* Literal.String */
+.dsfr-code .na {
+  color: var(--g600)
+}
+
+/* Name.Attribute */
+.dsfr-code .nb {
+  color: var(--bf300-plain)
+}
+
+/* Name.Builtin */
+.dsfr-code .nc {
+  color: var(--info)
+}
+
+/* Name.Class */
+.dsfr-code .no {
+  color: var(--error)
+}
+
+/* Name.Constant */
+.dsfr-code .nd {
+  color: var(--info)
+}
+
+/* Name.Decorator */
+.dsfr-code .ni {
+  color: var(--error)
+}
+
+/* Name.Entity */
+.dsfr-code .ne {
+  color: var(--error)
+}
+
+/* Name.Exception */
+.dsfr-code .nf {
+  color: var(--info)
+}
+
+/* Name.Function */
+.dsfr-code .nl {
+  color: var(--g600)
+}
+
+/* Name.Label */
+.dsfr-code .nn {
+  color: var(--g600)
+}
+
+/* Name.Namespace */
+.dsfr-code .nx {
+  color: var(--g600)
+}
+
+/* Name.Other */
+.dsfr-code .py {
+  color: var(--g600)
+}
+
+/* Name.Property */
+.dsfr-code .nt {
+  color: var(--info)
+}
+
+/* Name.Tag */
+.dsfr-code .nv {
+  color: var(--info)
+}
+
+/* Name.Variable */
+.dsfr-code .ow {
+  color: var(--success)
+}
+
+/* Operator.Word */
+.dsfr-code .w {
+  color: var(--g600)
+}
+
+/* Text.Whitespace */
+.dsfr-code .mb {
+  color: var(--success)
+}
+
+/* Literal.Number.Bin */
+.dsfr-code .mf {
+  color: var(--success)
+}
+
+/* Literal.Number.Float */
+.dsfr-code .mh {
+  color: var(--success)
+}
+
+/* Literal.Number.Hex */
+.dsfr-code .mi {
+  color: var(--success)
+}
+
+/* Literal.Number.Integer */
+.dsfr-code .mo {
+  color: var(--success)
+}
+
+/* Literal.Number.Oct */
+.dsfr-code .sb {
+  color: var(--g200)
+}
+
+/* Literal.String.Backtick */
+.dsfr-code .sc {
+  color: var(--success)
+}
+
+/* Literal.String.Char */
+.dsfr-code .sd {
+  color: var(--g600)
+}
+
+/* Literal.String.Doc */
+.dsfr-code .s2 {
+  color: var(--success)
+}
+
+/* Literal.String.Double */
+.dsfr-code .se {
+  color: var(--error)
+}
+
+/* Literal.String.Escape */
+.dsfr-code .sh {
+  color: var(--g600)
+}
+
+/* Literal.String.Heredoc */
+.dsfr-code .si {
+  color: var(--success)
+}
+
+/* Literal.String.Interpol */
+.dsfr-code .sx {
+  color: var(--success)
+}
+
+/* Literal.String.Other */
+.dsfr-code .sr {
+  color: var(--error)
+}
+
+/* Literal.String.Regex */
+.dsfr-code .s1 {
+  color: var(--success)
+}
+
+/* Literal.String.Single */
+.dsfr-code .ss {
+  color: var(--success)
+}
+
+/* Literal.String.Symbol */
+.dsfr-code .bp {
+  color: var(--info)
+}
+
+/* Name.Builtin.Pseudo */
+.dsfr-code .vc {
+  color: var(--info)
+}
+
+/* Name.Variable.Class */
+.dsfr-code .vg {
+  color: var(--info)
+}
+
+/* Name.Variable.Global */
+.dsfr-code .vi {
+  color: var(--info)
+}
+
+/* Name.Variable.Instance */
+.dsfr-code .il {
+  color: var(--success)
+}
+
+/* Literal.Number.Integer.Long */
