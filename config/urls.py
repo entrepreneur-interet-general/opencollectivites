@@ -31,6 +31,7 @@ admin.site.site_header = "Administration d’Open Collectivités"
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("accounts/", include("django.contrib.auth.urls")),
     url(r"^favicon\.ico$", RedirectView.as_view(url="/static/favicon.ico")),
     path("api/", api.urls),
     path("cms/", include(wagtailadmin_urls)),

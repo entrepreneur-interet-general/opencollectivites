@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "django_json_widget",
     "corsheaders",
     "simple_history",
+    "widget_tweaks",
     "wagtail.contrib.forms",
     "wagtail.contrib.modeladmin",
     "wagtail.contrib.redirects",
@@ -153,6 +154,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# Authentication
+WAGTAIL_FRONTEND_LOGIN_URL = LOGIN_URL = "/accounts/login/"
+LOGIN_REDIRECT_URL = "/"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
