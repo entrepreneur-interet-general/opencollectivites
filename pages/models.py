@@ -29,8 +29,8 @@ class HomePage(Page):
     subpage_types = ["pages.ContentPage"]
 
     def get_homepage_tiles(self):
-        tools = list_documents(publication_page=5, limit=4)
-        return documents_to_cards(tools)
+        docs, docs_count = list_documents(publication_page=5, limit=4)
+        return {"tiles": documents_to_cards(docs), "count": docs_count}
 
     def get_context(self, request):
         context = super().get_context(request)

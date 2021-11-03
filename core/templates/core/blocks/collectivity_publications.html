@@ -5,12 +5,14 @@
       <div class="fr-mb-6w"">
         <div class="oc-heading-with-sidelink">
           <h3>{{ publications.instance.title }}</h3>
+          {% if publications.instance.see_all %}
           <a
             class="fr-link fr-fi-arrow-right-line fr-link--icon-right"
             target="_self"
             href="{% url 'core:page_publications' %}?{{ publications.collectivity_type }}={{ publications.instance.id }}"
             >Voir tout
           </a>
+          {% endif %}
         </div>
 
         {% include "core/blocks/publications_list.html" with data=publications.instance.cards width_class="fr-col-md-4" %}
@@ -22,12 +24,14 @@
       <div class="fr-mt-4w fr-mb-6w">
         <div class="oc-heading-with-sidelink">
           <h3>{{ publications.level.title }}</h3>
+          {% if publications.level.see_all %}
           <a
             class="fr-link fr-fi-arrow-right-line fr-link--icon-right"
             target="_self"
             href="{% url 'core:page_publications' %}?publication_page={{ publications.level.publication_page_id }}"
             >Voir tout
           </a>
+          {% endif %}
         </div>
         {% include "core/blocks/publications_list.html" with data=publications.level.cards width_class="fr-col-md-4" %}
       </div>

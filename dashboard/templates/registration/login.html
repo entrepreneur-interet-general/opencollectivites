@@ -1,0 +1,41 @@
+{% extends "core/base.html" %}
+{% load widget_tweaks %}
+
+{% block content %}
+  <div class="fr-container fr-mt-4w fr-mb-6w">
+    <h1>Connexion</h1>
+    {% if form.errors %}
+      <p>Votre identifiant et mot de passe ne correspondent pas, merci de réessayer.</p>
+    {% endif %}
+
+    {% if next %}
+      {% if user.is_authenticated %}
+        <p>Votre compte n’a pas accès à cette page. Pour continuer, merci de vous connecter
+        avec un compte autorisé.</p>
+      {% else %}
+        <p>Merci de vous identifier pour accéder à cette page.</p>
+      {% endif %}
+    {% endif %}
+
+    <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+      <div class="fr-input-group">
+        <label class="fr-label" for="id_username">Identifiant&nbsp;:</label>
+        {{ form.username |add_class:"fr-input" }}
+      </div>
+      <div class="fr-input-group">
+        <label class="fr-label" for="id_password">Mot de passe&nbsp;:</label>
+        {{ form.password |add_class:"fr-input" }}
+      </div>
+
+      <div class="fr-input-group">
+        <input class="fr-btn" type="submit" value="Connexion" />
+        <input type="hidden" name="next" value="{{ next }}" />
+      </div>
+
+    </form>
+
+    {# No password_reset view in URLconf yet #}
+    {# <p><a href="{% url 'password_reset' %}">Mot de passe oublié ?</a></p>#}
+  </div>
+{% endblock %}

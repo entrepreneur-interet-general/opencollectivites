@@ -15,7 +15,7 @@ from core.services.publications import (
 def page_publications(request):
     payload = init_payload("Études, statistiques et outils locaux")
 
-    documents = list_documents(
+    documents, total_count = list_documents(
         topic=request.GET.get("topic"),
         scope=request.GET.get("scope"),
         document_type=request.GET.get("document_type"),

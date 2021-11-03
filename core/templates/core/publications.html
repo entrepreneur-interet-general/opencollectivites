@@ -38,10 +38,12 @@
                         </h1>
                         <form id="publications-morefilters">
                             {% dsfr_select filters.source_org onchange="setModaleParam(source_org)" %}
+                            {% dsfr_select filters.region onchange="setModaleParam(region)" %}
+                            {% dsfr_select filters.departement onchange="setModaleParam(departement)" %}
                             <p>Plage de publication</p>
                             <div class="fr-grid-row fr-grid-row--gutters">
                                 {% dsfr_input filters.after onchange="setModaleParam(after)" extra_classes="fr-col-12 fr-col-md-4" %}
-                                {% dsfr_input filters.before onchange="setModaleParam(after)" extra_classes="fr-col-12 fr-col-md-4" %}
+                                {% dsfr_input filters.before onchange="setModaleParam(before)" extra_classes="fr-col-12 fr-col-md-4" %}
                             </div>
                             <button type="submit" class="fr-btn" onclick="setUrlModale(event)">
                                 Valider
@@ -61,6 +63,8 @@
 {% if data.total %}
 <h2>Votre recherche a renvoyé {{data.total}} résultat{% if data.total > 1 %}s{% endif %} :</h2>
 
+{% include "core/blocks/publications_tags_list.html" with filters=filters %}
+
 {% include "core/blocks/publications_list.html" with data=data.cards_page %}
 
 {% if data.cards_page.has_other_pages %}
@@ -72,6 +76,8 @@
 
 {% else %}
 <h2>Votre recherche n’a renvoyé aucun résultat</h2>
+{% include "core/blocks/publications_tags_list.html" with filters=filters %}
+
 <p>
     Essayez de relancer la recherche en supprimant l’un des filtres
     sélectionnés ci-dessus, ou essayez une recherche type :
@@ -108,6 +114,12 @@
 {% block extra_js %}
 <script>
 const filterParams = new URLSearchParams(window.location.search);
+
+function removeUrlParam(param) {
+    filterParams.delete("page"); //This will change the list of results so removing the page parameter if set
+    filterParams.delete(param);
+    setUrl();
+}
 
 function setFilterParam(param) {
     filterParams.delete("page"); //This will change the list of results so removing the page parameter if set

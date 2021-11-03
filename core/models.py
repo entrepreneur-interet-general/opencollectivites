@@ -94,7 +94,7 @@ class Topic(TimeStampModel):
 
 class Scope(TimeStampModel):
     """
-    (fr: Portée)
+    (fr: Type de territoire, anciennement Portée)
     The reach of a site or document (national, regional, etc.)
     """
 
@@ -105,7 +105,8 @@ class Scope(TimeStampModel):
 
     class Meta:
         ordering = ["name"]
-        verbose_name = "portée"
+        verbose_name = "type de territoire"
+        verbose_name_plural = "types de territoire"
 
 
 class Organization(TimeStampModel):
@@ -213,7 +214,7 @@ class Document(TimeStampModel):
     image_url = models.URLField("URL de l’image", max_length=255, blank=True, null=True)
     tags = TaggableManager(related_name="documents_tags", blank=True)
     weight = models.PositiveSmallIntegerField("poids", default=100)
-    scope = models.ManyToManyField(Scope, verbose_name="portée", blank=True)
+    scope = models.ManyToManyField(Scope, verbose_name="type de territoire", blank=True)
     topics = models.ManyToManyField(Topic, verbose_name="sujet", blank=True)
     years = models.ManyToManyField(DataYear, blank=True)
     regions = models.ManyToManyField(
