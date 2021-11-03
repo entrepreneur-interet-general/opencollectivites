@@ -60,18 +60,22 @@
 </div> <!-- end homesearch -->
 
 <div class="fr-container fr-mt-4w fr-mb-6w">
+  {% if page.get_homepage_tiles.count %}
   <div class="oc-heading-with-sidelink">
     <h2 id=outils-pratiques>Publications à la une</h2>
+    {% if page.get_homepage_tiles.count > 4 %}
     <a
       class="fr-link fr-fi-arrow-right-line fr-link--icon-right"
       target="_self"
       href="{% url 'core:page_publications' %}?publication_page=5"
       >Voir tout
     </a>
+    {% endif %}
   </div>
-    {% include "core/blocks/publications_list.html" with data=page.get_homepage_tiles %}
+    {% include "core/blocks/publications_list.html" with data=page.get_homepage_tiles.tiles %}
 
   </div>
+  {% endif %}
 
 <!-- Wagtail-generated part -->
 <div class="fr-container fr-mt-4w fr-mb-6w">

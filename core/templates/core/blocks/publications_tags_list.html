@@ -1,0 +1,8 @@
+{% load dsfr_tags %}
+{% if filters.filter_tags %}
+    <ul class="fr-tags-group">
+    {% for filter_tag in filters.filter_tags %}
+        {% dsfr_tag filter_tag extra_classes="fr-fi-close-line fr-tag--icon-right" %}
+    {% endfor %}
+    </ul>
+{% endif %}

@@ -1,8 +1,9 @@
 from django.core.exceptions import ValidationError
 from django.db.models.query import QuerySet
 from django.http.request import HttpRequest
+from francedata.models import Commune, Departement, Epci, Region
 
-from core.models import Topic, Scope, DocumentType, Document, Organization
+from core.models import PageType, Topic, Scope, DocumentType, Document, Organization
 
 import dateparser
 
@@ -55,10 +56,13 @@ def list_documents(
     if after and dateparser.parse(after):
         qs = qs.filter(last_update__gte=after)
 
-    qs = qs.order_by("-weight", "-last_update", "-years")
+    qs = qs.order_by("-weight", "-last_update")
+
+    total_count = qs.count()
     if limit:
         qs = qs[:limit]
-    return qs
+
+    return qs, total_count
 
 
 def documents_to_cards(qs: QuerySet) -> list:
@@ -100,7 +104,7 @@ def publication_filters(request: HttpRequest) -> dict:
             "label": "name",
         },
         {
-            "name": "Portée",
+            "name": "Type de territoire",
             "model": Scope,
             "key": "scope",
             "label": "name",
@@ -117,28 +121,60 @@ def publication_filters(request: HttpRequest) -> dict:
             "key": "source_org",
             "label": "name",
         },
+        {
+            "name": "Région",
+            "model": Region,
+            "key": "region",
+            "label": "name",
+        },
+        {
+            "name": "Département",
+            "model": Departement,
+            "key": "departement",
+            "label": "name",
+        },
     ]
     response = {}
+    filter_tags = []
     for m in models:
         values = []
         model_key = m["key"]
+        selected_value = request.GET.get(model_key)
+        selected_value_name = selected_value
 
         entries = m["model"].objects.all()
+
+        if m["label"] == "title":
+            entries = entries.order_by("title")
+        else:
+            entries = entries.order_by("name")
         for entry in entries:
             if m["label"] == "title":
                 entry_text = entry.title
             else:
                 entry_text = entry.name
+
+            if str(entry.id) == selected_value:
+                selected_value_name = entry_text
             values.append({"value": str(entry.id), "text": entry_text})
 
         response[model_key] = {
             "label": m["name"],
             "id": model_key,
             "options": values,
-            "selected": request.GET.get(model_key),
+            "selected": selected_value,
             "onchange": f"setUrlParam({model_key})",
             "default": {"text": f"- {m['name']} -", "disabled": False, "hidden": False},
         }
+
+        if selected_value:
+            filter_tags.append(
+                {
+                    "label": f"{m['name']} : {selected_value_name}",
+                    "link": "#",
+                    "onclick": f"removeUrlParam('{model_key}');",
+                }
+            )
 
     # Model type: date
 
@@ -174,6 +210,14 @@ def publication_filters(request: HttpRequest) -> dict:
             if date_before_parsed.date() < date_max:
                 date_after_max = date_before
 
+            filter_tags.append(
+                {
+                    "label": f"Avant le : {date_before}",
+                    "link": "#",
+                    "onclick": f"removeUrlParam('before');",
+                }
+            )
+
         except ValidationError:
             pass
 
@@ -183,6 +227,15 @@ def publication_filters(request: HttpRequest) -> dict:
             date_after_parsed = dateparser.parse(date_after)
             if date_after_parsed.date() > date_min:
                 date_before_min = date_after
+
+            filter_tags.append(
+                {
+                    "label": f"Après le : {date_after}",
+                    "link": "#",
+                    "onclick": f"removeUrlParam('after');",
+                }
+            )
+
         except ValidationError:
             pass
 
@@ -209,11 +262,50 @@ def publication_filters(request: HttpRequest) -> dict:
     extra_filters_count = 0
     if request.GET.get("source_org"):
         extra_filters_count += 1
+    if request.GET.get("region"):
+        extra_filters_count += 1
+    if request.GET.get("departement"):
+        extra_filters_count += 1
     if date_after or date_before:
         extra_filters_count += 1
 
     response["extra_count"] = extra_filters_count
 
+    # Tags for the filters that are in neither form
+    if request.GET.get("publication_page"):
+        page = request.GET.get("publication_page")
+        page_name = PageType.objects.get(id=page).name
+        filter_tags.append(
+            {
+                "label": f"Page : {page_name}",
+                "link": "#",
+                "onclick": f"removeUrlParam('publication_page');",
+            }
+        )
+
+    if request.GET.get("epci"):
+        epci = request.GET.get("epci")
+        epci_name = Epci.objects.get(id=epci).name
+        filter_tags.append(
+            {
+                "label": f"EPCI : {epci_name}",
+                "link": "#",
+                "onclick": f"removeUrlParam('epci');",
+            }
+        )
+
+    if request.GET.get("commune"):
+        commune = request.GET.get("commune")
+        commune_name = Commune.objects.get(id=commune).name
+        filter_tags.append(
+            {
+                "label": f"Commune : {commune_name}",
+                "link": "#",
+                "onclick": f"removeUrlParam('commune');",
+            }
+        )
+
+    response["filter_tags"] = sorted(filter_tags, key=lambda d: d["label"])
     return response
 
 
@@ -224,38 +316,54 @@ def list_publications_for_collectivity(
         level_title = "Utiles à toutes les communes"
         instance_title = "Concernant cette commune"
         publication_page_id = 1
-        publications_for_instance = list_documents(commune=collectivity_id, limit=limit)
+        publications_for_instance, instance_total_count = list_documents(
+            commune=collectivity_id, limit=limit
+        )
     elif collectivity_type == "epci":
         level_title = "Utiles à tous les EPCI"
         instance_title = "Concernant cet EPCI"
         publication_page_id = 4
-        publications_for_instance = list_documents(epci=collectivity_id, limit=limit)
+        publications_for_instance, instance_total_count = list_documents(
+            epci=collectivity_id, limit=limit
+        )
     elif collectivity_type == "departement":
         level_title = "Utiles à tous les départements"
         instance_title = "Concernant ce département"
         publication_page_id = 2
-        publications_for_instance = list_documents(
+        publications_for_instance, instance_total_count = list_documents(
             departement=collectivity_id, limit=limit
         )
     elif collectivity_type == "region":
         level_title = "Utiles à toutes les régions"
         instance_title = "Concernant cette région"
         publication_page_id = 3
-        publications_for_instance = list_documents(region=collectivity_id, limit=limit)
+        publications_for_instance, instance_total_count = list_documents(
+            region=collectivity_id, limit=limit
+        )
+
+    if instance_total_count > limit:
+        instance_see_all = True
+    else:
+        instance_see_all = False
 
     publications = {"collectivity_type": collectivity_type}
     level = {}
     level["title"] = level_title
     level["publication_page_id"] = publication_page_id
-    publications_for_level = list_documents(
+    publications_for_level, level_total_count = list_documents(
         publication_page=publication_page_id, limit=limit
     )
     level["cards"] = documents_to_cards(publications_for_level)
+    if level_total_count > limit:
+        level["see_all"] = True
+    else:
+        level["see_all"] = False
     publications["level"] = level
 
     instance = {}
     instance["title"] = instance_title
     instance["id"] = collectivity_id
     instance["cards"] = documents_to_cards(publications_for_instance)
+    instance["see_all"] = instance_see_all
     publications["instance"] = instance
     return publications

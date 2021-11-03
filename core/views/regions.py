@@ -1,6 +1,4 @@
 from core.services.publications import (
-    documents_to_cards,
-    list_documents,
     list_publications_for_collectivity,
 )
 from django.urls.base import reverse

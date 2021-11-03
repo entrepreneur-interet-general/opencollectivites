@@ -38,7 +38,7 @@ def page_epci_detail(request, slug):
         "extra_classes": "fr-sidemenu--sticky-full-height fr-sidemenu--right",
     }
 
-    tools = list_documents(document_type=3, publication_page=4, limit=10)
+    tools, total_count = list_documents(document_type=3, publication_page=4, limit=10)
     payload["tools_list"] = documents_to_cards(tools)
 
     payload["publications"] = list_publications_for_collectivity(
