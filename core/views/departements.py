@@ -26,7 +26,7 @@ def page_departement_detail(request, slug):
     }
 
     payload["publications"] = list_publications_for_collectivity(
-        collectivity_type="departement", collectivity_id=departement.id
+        collectivity_type="departement", collectivity_slug=departement.slug
     )
 
     return render(request, "core/departement_detail.html", payload)
