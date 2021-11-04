@@ -42,7 +42,7 @@ def page_epci_detail(request, slug):
     payload["tools_list"] = documents_to_cards(tools)
 
     payload["publications"] = list_publications_for_collectivity(
-        collectivity_type="epci", collectivity_id=epci.id
+        collectivity_type="epci", collectivity_slug=epci.slug
     )
 
     return render(request, "core/epci_detail.html", payload)

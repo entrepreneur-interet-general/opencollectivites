@@ -38,6 +38,7 @@
                         </h1>
                         <form id="publications-morefilters">
                             {% dsfr_select filters.source_org onchange="setModaleParam(source_org)" %}
+                            {% dsfr_select filters.year onchange="setModaleParam(year)" %}
                             {% dsfr_select filters.region onchange="setModaleParam(region)" %}
                             {% dsfr_select filters.departement onchange="setModaleParam(departement)" %}
                             <p>Plage de publication</p>

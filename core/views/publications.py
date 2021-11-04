@@ -1,7 +1,7 @@
 from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.conf import settings
-from django.views.decorators.http import require_safe
+from django.views.decorators.http import require_GET, require_safe
 
 from core.services.utils import init_payload
 from core.services.publications import (
@@ -21,6 +21,7 @@ def page_publications(request):
         document_type=request.GET.get("document_type"),
         publication_page=request.GET.get("publication_page"),
         source_org=request.GET.get("source_org"),
+        year=request.GET.get("year"),
         commune=request.GET.get("commune"),
         epci=request.GET.get("epci"),
         departement=request.GET.get("departement"),
