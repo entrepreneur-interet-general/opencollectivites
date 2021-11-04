@@ -90,6 +90,7 @@ class DocumentSchema(Schema):
     id: int
     url: str
     title: str
+    """
     base_domain: str
     image_url: str = None
     publication_pages: List[PageTypeSchema]
@@ -99,6 +100,7 @@ class DocumentSchema(Schema):
     last_update: date
     source: SourceSchema
     body: str = None
+    """
 
     """
     years = models.ManyToManyField(DataYear, blank=True)

@@ -1,3 +1,4 @@
+from django.shortcuts import get_object_or_404
 from ninja import Router
 from typing import List
 
@@ -20,7 +21,7 @@ def list_scopes(request):
 
 
 @router.get("/scopes/{scope_id}", response=ScopeSchema, tags=["core"])
-def get_scope(request, topic_id: int):
+def get_scope(request, scope_id: int):
     item = get_object_or_404(Scope, id=scope_id)
     return item
 

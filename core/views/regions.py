@@ -20,7 +20,7 @@ def page_region_detail(request, slug):
     payload["data"] = region_data(region)
 
     payload["publications"] = list_publications_for_collectivity(
-        collectivity_type="region", collectivity_id=region.id
+        collectivity_type="region", collectivity_slug=region.slug
     )
 
     return render(request, "core/region_detail.html", payload)

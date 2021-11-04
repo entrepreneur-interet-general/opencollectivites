@@ -42,7 +42,7 @@ def page_commune_detail(request, slug):
     }
 
     payload["publications"] = list_publications_for_collectivity(
-        collectivity_type="commune", collectivity_id=commune.id
+        collectivity_type="commune", collectivity_slug=commune.slug
     )
 
     payload["context"]["hide_brand"] = True

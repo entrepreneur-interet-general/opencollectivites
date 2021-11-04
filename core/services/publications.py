@@ -1,9 +1,18 @@
 from django.core.exceptions import ValidationError
+from django.core.paginator import Page
 from django.db.models.query import QuerySet
 from django.http.request import HttpRequest
 from francedata.models import Commune, Departement, Epci, Region
 
-from core.models import PageType, Topic, Scope, DocumentType, Document, Organization
+from core.models import (
+    DataYear,
+    PageType,
+    Topic,
+    Scope,
+    DocumentType,
+    Document,
+    Organization,
+)
 
 import dateparser
 
@@ -14,13 +23,15 @@ def list_documents(
     document_type: int = None,
     publication_page: int = None,
     source_org: int = None,
-    before: str = None,
+    year: int = None,
+    commune: str = None,
+    epci: str = None,
+    departement: str = None,
+    region: str = None,
     after: str = None,
+    before: str = None,
     limit: int = None,
-    commune: int = None,
-    epci: int = None,
-    departement: int = None,
-    region: int = None,
+    offset: int = 0,
 ) -> QuerySet:
     """
     Lists **published** documents, with optional filters
@@ -38,16 +49,18 @@ def list_documents(
         qs = qs.filter(publication_pages__id=publication_page)
     if source_org:
         qs = qs.filter(source__editor__id=source_org)
+    if year:
+        qs = qs.filter(years__year=year)
 
     # Specific collectivity filters
     if commune:
-        qs = qs.filter(communes__id=commune)
+        qs = qs.filter(communes__slug=commune)
     if epci:
-        qs = qs.filter(epcis__id=epci)
+        qs = qs.filter(epcis__slug=epci)
     if departement:
-        qs = qs.filter(departements__id=departement)
+        qs = qs.filter(departements__slug=departement)
     if region:
-        qs = qs.filter(regions__id=region)
+        qs = qs.filter(regions__slug=region)
 
     # Date filters
     if before:
@@ -60,7 +73,7 @@ def list_documents(
 
     total_count = qs.count()
     if limit:
-        qs = qs[:limit]
+        qs = qs[offset : offset + limit]
 
     return qs, total_count
 
@@ -102,36 +115,49 @@ def publication_filters(request: HttpRequest) -> dict:
             "model": Topic,
             "key": "topic",
             "label": "name",
+            "id_key": "id",
         },
         {
             "name": "Type de territoire",
             "model": Scope,
             "key": "scope",
             "label": "name",
+            "id_key": "id",
         },
         {
             "name": "Type de ressource",
             "model": DocumentType,
             "key": "document_type",
             "label": "name",
+            "id_key": "id",
         },
         {
             "name": "Organisme auteur",
             "model": Organization,
             "key": "source_org",
             "label": "name",
+            "id_key": "id",
+        },
+        {
+            "name": "Année",
+            "model": DataYear,
+            "key": "year",
+            "label": "year",
+            "id_key": "year",
         },
         {
             "name": "Région",
             "model": Region,
             "key": "region",
             "label": "name",
+            "id_key": "slug",
         },
         {
             "name": "Département",
             "model": Departement,
             "key": "departement",
             "label": "name",
+            "id_key": "slug",
         },
     ]
     response = {}
@@ -140,23 +166,42 @@ def publication_filters(request: HttpRequest) -> dict:
         values = []
         model_key = m["key"]
         selected_value = request.GET.get(model_key)
+
+        # Assigning the value name to the value itself in case it references something
+        # that doesn't exist.
         selected_value_name = selected_value
 
         entries = m["model"].objects.all()
 
+        # Sort entries
         if m["label"] == "title":
             entries = entries.order_by("title")
+        elif m["label"] == "year":
+            entries = entries.order_by("year")
         else:
             entries = entries.order_by("name")
+
         for entry in entries:
+            # Label of the select option
             if m["label"] == "title":
                 entry_text = entry.title
+            elif m["label"] == "year":
+                entry_text = entry.year
             else:
                 entry_text = entry.name
 
-            if str(entry.id) == selected_value:
+            # Value of the select option
+            if m["id_key"] == "slug":
+                entry_id = entry.slug
+            elif m["id_key"] == "year":
+                entry_id = str(entry.year)
+            else:
+                entry_id = str(entry.id)
+
+            if entry_id == selected_value:
                 selected_value_name = entry_text
-            values.append({"value": str(entry.id), "text": entry_text})
+
+            values.append({"value": entry_id, "text": entry_text})
 
         response[model_key] = {
             "label": m["name"],
@@ -262,19 +307,26 @@ def publication_filters(request: HttpRequest) -> dict:
     extra_filters_count = 0
     if request.GET.get("source_org"):
         extra_filters_count += 1
-    if request.GET.get("region"):
+    if request.GET.get("year"):
         extra_filters_count += 1
     if request.GET.get("departement"):
+        extra_filters_count += 1
+    if request.GET.get("region"):
         extra_filters_count += 1
     if date_after or date_before:
         extra_filters_count += 1
 
     response["extra_count"] = extra_filters_count
 
-    # Tags for the filters that are in neither form
+    # Tags for the special filters (that are in neither form)
+
     if request.GET.get("publication_page"):
         page = request.GET.get("publication_page")
-        page_name = PageType.objects.get(id=page).name
+        page_item = PageType.objects.filter(id=page).first()
+        if page_item:
+            page_name = page_item.name
+        else:
+            page_name = page
         filter_tags.append(
             {
                 "label": f"Page : {page_name}",
@@ -285,7 +337,11 @@ def publication_filters(request: HttpRequest) -> dict:
 
     if request.GET.get("epci"):
         epci = request.GET.get("epci")
-        epci_name = Epci.objects.get(id=epci).name
+        epci_item = Epci.objects.filter(slug=epci).first()
+        if epci_item:
+            epci_name = epci_item.name
+        else:
+            epci_name = epci
         filter_tags.append(
             {
                 "label": f"EPCI : {epci_name}",
@@ -296,7 +352,11 @@ def publication_filters(request: HttpRequest) -> dict:
 
     if request.GET.get("commune"):
         commune = request.GET.get("commune")
-        commune_name = Commune.objects.get(id=commune).name
+        commune_item = Commune.objects.filter(slug=commune).first()
+        if commune_item:
+            commune_name = commune_item.name
+        else:
+            commune_name = commune
         filter_tags.append(
             {
                 "label": f"Commune : {commune_name}",
@@ -310,35 +370,35 @@ def publication_filters(request: HttpRequest) -> dict:
 
 
 def list_publications_for_collectivity(
-    collectivity_type: str, collectivity_id: int, limit: int = 6
+    collectivity_type: str, collectivity_slug: str, limit: int = 6
 ):
     if collectivity_type == "commune":
         level_title = "Utiles à toutes les communes"
         instance_title = "Concernant cette commune"
         publication_page_id = 1
         publications_for_instance, instance_total_count = list_documents(
-            commune=collectivity_id, limit=limit
+            commune=collectivity_slug, limit=limit
         )
     elif collectivity_type == "epci":
         level_title = "Utiles à tous les EPCI"
         instance_title = "Concernant cet EPCI"
         publication_page_id = 4
         publications_for_instance, instance_total_count = list_documents(
-            epci=collectivity_id, limit=limit
+            epci=collectivity_slug, limit=limit
         )
     elif collectivity_type == "departement":
         level_title = "Utiles à tous les départements"
         instance_title = "Concernant ce département"
         publication_page_id = 2
         publications_for_instance, instance_total_count = list_documents(
-            departement=collectivity_id, limit=limit
+            departement=collectivity_slug, limit=limit
         )
     elif collectivity_type == "region":
         level_title = "Utiles à toutes les régions"
         instance_title = "Concernant cette région"
         publication_page_id = 3
         publications_for_instance, instance_total_count = list_documents(
-            region=collectivity_id, limit=limit
+            region=collectivity_slug, limit=limit
         )
 
     if instance_total_count > limit:
@@ -362,7 +422,7 @@ def list_publications_for_collectivity(
 
     instance = {}
     instance["title"] = instance_title
-    instance["id"] = collectivity_id
+    instance["slug"] = collectivity_slug
     instance["cards"] = documents_to_cards(publications_for_instance)
     instance["see_all"] = instance_see_all
     publications["instance"] = instance
