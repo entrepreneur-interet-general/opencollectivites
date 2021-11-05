@@ -5,27 +5,14 @@ from django.utils import timezone
 from django.utils.html import strip_tags
 from francedata.services.django_admin import TimeStampModel
 from core.models import DataYear, Document, Source
-from external_apis.abstract import ExternalApiQuery
+from external_apis.abstract import ExternalApiQueryModel, DataMappingModel
 from external_apis.services.gallica_search_api import GallicaSearch, Record
 from external_apis.services.opendatasoft_api import OpenDataSoftSearch
 from simple_history.models import HistoricalRecords
 
 
-class DataMapping(TimeStampModel):
-    name = models.CharField("nom", max_length=100)
-    source_field = models.CharField(
-        "champ source", max_length=100, blank=True, null=True
-    )
-    mapping = models.JSONField("données")
-
+class DataMapping(DataMappingModel):
     history = HistoricalRecords()
-
-    class Meta:
-        verbose_name = "Table de correspondance"
-        verbose_name_plural = "tables de correspondance"
-
-    def __str__(self):
-        return self.name
 
 
 class OpenDataSoftEndpoint(TimeStampModel):
@@ -43,7 +30,7 @@ class OpenDataSoftEndpoint(TimeStampModel):
         return self.name
 
 
-class OpenDataSoftQuery(ExternalApiQuery):
+class OpenDataSoftQuery(ExternalApiQueryModel):
     # A query on the OpenDataSoft Search API
     # Retrieves a list of datasets
     endpoint = models.ForeignKey(
@@ -211,7 +198,7 @@ class OpenDataSoftQuery(ExternalApiQuery):
         document.save()
 
 
-class BnspQuery(ExternalApiQuery):
+class BnspQuery(ExternalApiQueryModel):
     # A query on the Gallica Search API
     source = models.ForeignKey(
         Source, on_delete=models.CASCADE, verbose_name="source associée"

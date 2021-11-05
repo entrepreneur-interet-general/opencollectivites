@@ -2,7 +2,7 @@ from django.db import models
 from francedata.services.django_admin import TimeStampModel
 
 
-class ExternalApiQuery(TimeStampModel):
+class ExternalApiQueryModel(TimeStampModel):
     name = models.CharField(max_length=255, verbose_name="nom", unique=True)
     query = models.CharField(
         max_length=1000,
@@ -29,3 +29,19 @@ class ExternalApiQuery(TimeStampModel):
 
     def run(self, since: str = "") -> None:
         raise NotImplementedError
+
+
+class DataMappingModel(TimeStampModel):
+    name = models.CharField("nom", max_length=100)
+    source_field = models.CharField(
+        "champ source", max_length=100, blank=True, null=True
+    )
+    mapping = models.JSONField("données")
+
+    class Meta:
+        abstract = True
+        verbose_name = "Table de correspondance"
+        verbose_name_plural = "tables de correspondance"
+
+    def __str__(self):
+        return self.name
