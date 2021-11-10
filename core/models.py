@@ -38,6 +38,7 @@ class DataYear(TimeStampModel):
     class Meta:
         ordering = ["year"]
         verbose_name = "millésime"
+        get_latest_by = "year"
 
 
 class DocumentType(TimeStampModel):
@@ -55,8 +56,8 @@ class DocumentType(TimeStampModel):
 
     class Meta:
         ordering = ["name"]
-        verbose_name = "type de document"
-        verbose_name_plural = "types de document"
+        verbose_name = "type de ressource"
+        verbose_name_plural = "types de ressource"
 
 
 class PageType(TimeStampModel):
@@ -171,7 +172,7 @@ class Source(TimeStampModel):
     )
     document_type = models.ManyToManyField(
         DocumentType,
-        verbose_name="type des documents inclus",
+        verbose_name="type des publications inclus",
         blank=True,
         related_name="documents_type",
     )
@@ -207,7 +208,9 @@ class Document(TimeStampModel):
     title = models.CharField("titre", max_length=255, null=True, blank=True)
     body = models.TextField("corps", blank=True)
     base_domain = models.CharField("domaine", max_length=100, null=True, blank=True)
-    is_published = models.BooleanField("est publié", null=True, blank=True)
+    is_published = models.BooleanField(
+        "est publié", default=True, null=True, blank=True
+    )
     publication_pages = models.ManyToManyField(
         PageType, verbose_name="pages de publication", blank=True
     )
@@ -215,7 +218,7 @@ class Document(TimeStampModel):
     tags = TaggableManager(related_name="documents_tags", blank=True)
     weight = models.PositiveSmallIntegerField("poids", default=100)
     scope = models.ManyToManyField(Scope, verbose_name="type de territoire", blank=True)
-    topics = models.ManyToManyField(Topic, verbose_name="sujet", blank=True)
+    topics = models.ManyToManyField(Topic, verbose_name="thématique", blank=True)
     years = models.ManyToManyField(DataYear, blank=True)
     regions = models.ManyToManyField(
         "francedata.Region", verbose_name="région", blank=True
@@ -249,9 +252,13 @@ class Document(TimeStampModel):
         blank=True,
     )
     document_type = models.ManyToManyField(
-        DocumentType, verbose_name="type de document", blank=True
+        DocumentType, verbose_name="type de ressource", blank=True
     )
     last_update = models.DateField("dernière mise à jour", null=True, blank=True)
+
+    class Meta:
+        ordering = ["-created_at"]
+        verbose_name = "publication"
 
     def __str__(self):
         if self.title:
@@ -344,3 +351,18 @@ class Document(TimeStampModel):
                 if city.name in text:
                     self.communes.add(city)
         self.save()
+
+    def years_range(self) -> str:
+        """
+        Returns a string containing either:
+        - a year range (eg. "2012-2020") if years has several values
+        - a single year (eg. "2018") if years has a single value
+        - an empty string if years isn't set
+        """
+        years_count = self.years.count()
+        if years_count > 1:
+            return f"{self.years.earliest().year}-{self.years.latest().year}"
+        elif years_count == 1:
+            return self.years.first().year
+        else:
+            return ""
