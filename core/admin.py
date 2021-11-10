@@ -48,7 +48,7 @@ class ScopeAdmin(TimeStampModelAdmin):
     def view_documents_link(self, obj):
         return view_reverse_changelink(obj, "core", "scope", "document")
 
-    view_documents_link.short_description = "Documents"
+    view_documents_link.short_description = "Publications"
 
 
 @admin.register(models.DocumentType)
@@ -65,7 +65,7 @@ class DocumentTypeAdmin(TimeStampModelAdmin):
     def view_documents_link(self, obj):
         return view_reverse_changelink(obj, "core", "document_type", "document")
 
-    view_documents_link.short_description = "Documents"
+    view_documents_link.short_description = "Publications"
 
 
 @admin.register(models.Topic)
@@ -92,7 +92,7 @@ class TopicAdmin(TimeStampModelAdmin):
 
     view_logo.short_description = "Logo"
 
-    view_documents_link.short_description = "Documents"
+    view_documents_link.short_description = "Publications"
 
 
 @admin.register(models.Organization)
@@ -107,7 +107,7 @@ class PageTypeAdmin(TimeStampModelAdmin):
     def view_documents_link(self, obj):
         return view_reverse_changelink(obj, "core", "publication_pages", "document")
 
-    view_documents_link.short_description = "Documents"
+    view_documents_link.short_description = "Publications"
 
 
 @admin.register(models.Document)
@@ -122,9 +122,9 @@ class DocumentAdmin(TimeStampModelAdmin):
     )
     list_filter = (
         "is_published",
+        "years",
         "source__editor",
         "source",
-        "tags",
         ("image_url", admin.EmptyFieldListFilter),
     )
 
@@ -224,4 +224,4 @@ class SourceAdmin(TimeStampModelAdmin):
     def view_documents_link(self, obj):
         return view_reverse_changelink(obj, "core", "source", "document")
 
-    view_documents_link.short_description = "Documents"
+    view_documents_link.short_description = "Publications"

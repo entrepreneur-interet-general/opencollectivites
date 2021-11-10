@@ -1,8 +1,8 @@
 from django.core.exceptions import ValidationError
-from django.core.paginator import Page
 from django.db.models.query import QuerySet
 from django.http.request import HttpRequest
 from francedata.models import Commune, Departement, Epci, Region
+from django.db.models import Max
 
 from core.models import (
     DataYear,
@@ -69,7 +69,9 @@ def list_documents(
     if after and dateparser.parse(after):
         qs = qs.filter(last_update__gte=after)
 
-    qs = qs.order_by("-weight", "-last_update")
+    qs = qs.annotate(max_year=Max("years__year")).order_by(
+        "-weight", "-max_year", "title"
+    )
 
     total_count = qs.count()
     if limit:
@@ -84,10 +86,13 @@ def documents_to_cards(qs: QuerySet) -> list:
     """
     cards = []
     for doc in qs:
-        if len(doc.document_type.all()):
-            detail = f"{doc.document_type.all()[0]} | {doc.last_update}"
+        if doc.document_type.count():
+            detail = f"{doc.document_type.first()}"
         else:
-            detail = f" Publication | {doc.last_update}"
+            detail = f" Publication"
+
+        if doc.years_range():
+            detail = f"{detail} | {doc.years_range()}"
 
         if doc.source and len(doc.source.editor.all()):
             detail = f"{detail} • {', '.join([ i.short_name() for i in doc.source.editor.all()])}"
