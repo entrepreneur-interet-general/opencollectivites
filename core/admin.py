@@ -122,7 +122,7 @@ class DocumentAdmin(TimeStampModelAdmin):
     )
     list_filter = (
         "is_published",
-        "years",
+        "years__year",
         "source__editor",
         "source",
         ("image_url", admin.EmptyFieldListFilter),
