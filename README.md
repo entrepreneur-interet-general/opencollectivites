@@ -1,7 +1,3 @@
-[![Made with Django](https://img.shields.io/badge/Made%20with-Django-0C4B33.svg)](https://www.djangoproject.com/)
-[![Made with Wagtail](https://img.shields.io/badge/Made%20with-Wagtail-0F7676.svg)](https://wagtail.io/)
-[![GitHub license](https://img.shields.io/github/license/entrepreneur-interet-general/opencollectivites.svg)](https://github.com/entrepreneur-interet-general/opencollectivites/blob/master/LICENSE)
-[![Website open-collectivites.fr](https://img.shields.io/website.svg?down_color=red&down_message=down&up_color=green&up_message=up&url=https%3A%2F%2Fwww.open-collectivites.fr)](https://www.open-collectivites.fr)
 [![OpenCollectivites CI](https://github.com/entrepreneur-interet-general/opencollectivites/actions/workflows/django.yml/badge.svg)](https://github.com/entrepreneur-interet-general/opencollectivites/actions/workflows/django.yml)
 [![CodeQL](https://github.com/entrepreneur-interet-general/opencollectivites/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/entrepreneur-interet-general/opencollectivites/actions/workflows/codeql-analysis.yml)
 [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=entrepreneur-interet-general_opencollectivites&metric=alert_status)](https://sonarcloud.io/dashboard?id=entrepreneur-interet-general_opencollectivites)
@@ -15,6 +11,9 @@
 - [Page de présentation du défi](https://entrepreneur-interet-general.etalab.gouv.fr/defis/2020/open-collectivites.html)
 - [Voir le portail Open Collectivités](https://www.open-collectivites.fr)
 
+[![GitHub license](https://img.shields.io/github/license/entrepreneur-interet-general/opencollectivites.svg)](https://github.com/entrepreneur-interet-general/opencollectivites/blob/master/LICENSE)
+[![Website open-collectivites.fr](https://img.shields.io/website.svg?down_color=red&down_message=down&up_color=green&up_message=up&url=https%3A%2F%2Fwww.open-collectivites.fr)](https://www.open-collectivites.fr)
+
 ## Table des matières
 * [Architecture](#architecture)
 * [Installation](#installation)
@@ -23,6 +22,9 @@
 <a name="architecture"></a>
 ## Architecture
 ### Applications Django
+[![Made with Django](https://img.shields.io/badge/Made%20with-Django-0C4B33.svg)](https://www.djangoproject.com/)
+[![Made with Wagtail](https://img.shields.io/badge/Made%20with-Wagtail-0F7676.svg)](https://wagtail.io/)
+
 Le site est développé en utilisant le framework [Django](https://www.djangoproject.com/) et est centré autour d'une application principale nommée **core**, accompagnée des applications suivantes :
 
 - **[django-francedata](https://github.com/entrepreneur-interet-general/django-francedata/)** : Contient des tables reprenant la structure des collectivités locales françaises (communes, EPCI à fiscalité propre, départements, régions) ainsi que des tables de données associées pour gérer des données concernant ces collectivités, importées depuis [data.gouv.fr](https://www.data.gouv.fr/fr/) et [banatic](https://www.banatic.interieur.gouv.fr/V5/accueil/index.php).
