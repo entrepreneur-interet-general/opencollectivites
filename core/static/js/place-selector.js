@@ -38,7 +38,7 @@ var app = new Vue({
 
       if (query.length == 0 && this.isLoading) {
         this.isLoading = false;
-      } else if (query.length < 3 && !shortnamedCommunes.includes(query)) {
+      } else if (query.length < 3 && isNaN(query) && !shortnamedCommunes.includes(query)) {
         this.options = this.defaultList;
       } else {
         this.isLoading = true;

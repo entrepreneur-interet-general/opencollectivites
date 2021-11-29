@@ -42,13 +42,13 @@
             :internal-search="false"
             :loading="isLoading"
             :preserve-search="true"
-            placeholder="Taper les premières lettres de la collectivité recherchée"
+            placeholder="Taper les premières lettres du nom de la collectivité recherchée, ou son code Siren ou Insee"
             :show-labels="false"
             @search-change="searchCollectivities"
             :options-limit="300"
             :limit-text="limitText"
             @input="loadResultPageHome">
-            <span slot="noOptions">Taper les premières lettres de la collectivité recherchée</span>
+            <span slot="noOptions">Taper les premières lettres du nom de la collectivité recherchée, ou son code Siren ou Insee</span>
             <span slot="noResult" v-if="query.length < 3">Taper au moins trois caractères</span>
             <span slot="noResult" v-else>Aucun résultat trouvé, merci de vérifier votre saisie</span>
           </vue-multiselect>
