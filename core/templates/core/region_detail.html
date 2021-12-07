@@ -10,6 +10,11 @@
 
   {# Intro #}
   <h1>{{ title }}</h1>
+
+  {% for message in messages %}
+    {% dsfr_callout text=message.message %}
+  {% endfor %}
+
   <p>Code SIREN : {{ siren }}</p>
 
   <p>

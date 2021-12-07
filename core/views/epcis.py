@@ -1,10 +1,11 @@
+from collectivity_pages.services.utils import get_messages_for_collectivity
 from core.services.utils import init_payload
 from django.shortcuts import get_object_or_404, render
 from django.views.decorators.http import require_safe
 from dsfr.utils import generate_summary_items
 from francedata.models import Epci
 
-from core.services.epcis import epci_data
+from collectivity_pages.services.epcis import epci_data
 
 from core.services.publications import (
     list_documents,
@@ -40,6 +41,10 @@ def page_epci_detail(request, slug):
 
     tools, total_count = list_documents(document_type=3, publication_page=4, limit=10)
     payload["tools_list"] = documents_to_cards(tools)
+
+    payload["messages"] = get_messages_for_collectivity(
+        collectivity_type="EPCI", collectivity_slug=epci.slug
+    )
 
     payload["publications"] = list_publications_for_collectivity(
         collectivity_type="epci", collectivity_slug=epci.slug

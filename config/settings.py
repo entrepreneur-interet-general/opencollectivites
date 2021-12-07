@@ -74,7 +74,7 @@ INSTALLED_APPS = [
     "analytical",
     "config.apps.CollDataConfig",
     "external_apis",
-    "aspic.apps.AspicConfig",
+    "collectivity_pages",
     "core",
     "pages",
 ]
@@ -118,8 +118,6 @@ WSGI_APPLICATION = "config.wsgi.application"
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = LOCAL_DATABASES
-
-DATABASE_ROUTERS = ["aspic.router.AspicRouter"]
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 

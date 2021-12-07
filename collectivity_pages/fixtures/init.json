@@ -1,0 +1,816 @@
+[{
+  "model": "collectivity_pages.vintage",
+  "pk": 1,
+  "fields": {
+    "created_at": "2021-11-30T11:19:39.207Z",
+    "updated_at": "2021-11-30T11:19:39.208Z",
+    "key": "aah",
+    "value": "2018"
+  }
+}, {
+  "model": "collectivity_pages.vintage",
+  "pk": 2,
+  "fields": {
+    "created_at": "2021-11-30T11:19:55.036Z",
+    "updated_at": "2021-11-30T11:19:55.036Z",
+    "key": "apa",
+    "value": "2017"
+  }
+}, {
+  "model": "collectivity_pages.vintage",
+  "pk": 3,
+  "fields": {
+    "created_at": "2021-11-30T11:20:00.440Z",
+    "updated_at": "2021-11-30T11:20:00.440Z",
+    "key": "densite",
+    "value": "2021"
+  }
+}, {
+  "model": "collectivity_pages.vintage",
+  "pk": 4,
+  "fields": {
+    "created_at": "2021-11-30T11:20:21.422Z",
+    "updated_at": "2021-11-30T11:20:21.422Z",
+    "key": "pch_actp",
+    "value": "2017"
+  }
+}, {
+  "model": "collectivity_pages.vintage",
+  "pk": 5,
+  "fields": {
+    "created_at": "2021-11-30T14:14:22.264Z",
+    "updated_at": "2021-11-30T14:14:22.264Z",
+    "key": "pop_active_1564%",
+    "value": "2016"
+  }
+}, {
+  "model": "collectivity_pages.vintage",
+  "pk": 6,
+  "fields": {
+    "created_at": "2021-11-30T14:15:02.874Z",
+    "updated_at": "2021-11-30T14:15:02.874Z",
+    "key": "pop_chom_1564%",
+    "value": "2016"
+  }
+}, {
+  "model": "collectivity_pages.vintage",
+  "pk": 7,
+  "fields": {
+    "created_at": "2021-11-30T14:30:47.925Z",
+    "updated_at": "2021-11-30T14:30:47.925Z",
+    "key": "pop_muni",
+    "value": "2021 (millésimée 2018)"
+  }
+}, {
+  "model": "collectivity_pages.vintage",
+  "pk": 8,
+  "fields": {
+    "created_at": "2021-11-30T14:30:59.810Z",
+    "updated_at": "2021-11-30T14:30:59.810Z",
+    "key": "pop_tot",
+    "value": "2021 (millésimée 2018)"
+  }
+}, {
+  "model": "collectivity_pages.vintage",
+  "pk": 9,
+  "fields": {
+    "created_at": "2021-11-30T14:36:38.861Z",
+    "updated_at": "2021-11-30T14:36:38.861Z",
+    "key": "revenu_fiscal",
+    "value": "2017"
+  }
+}, {
+  "model": "collectivity_pages.vintage",
+  "pk": 10,
+  "fields": {
+    "created_at": "2021-11-30T14:36:58.925Z",
+    "updated_at": "2021-11-30T14:36:58.925Z",
+    "key": "rsa",
+    "value": "2018"
+  }
+}, {
+  "model": "collectivity_pages.vintage",
+  "pk": 11,
+  "fields": {
+    "created_at": "2021-11-30T14:37:15.726Z",
+    "updated_at": "2021-11-30T14:37:15.726Z",
+    "key": "tcam",
+    "value": "2016 et 2021"
+  }
+}, {
+  "model": "collectivity_pages.datatable",
+  "pk": 1,
+  "fields": {
+    "created_at": "2021-11-30T10:57:48.411Z",
+    "updated_at": "2021-11-30T10:57:48.411Z",
+    "name": "Population",
+    "page_type": "COMM",
+    "slug": "comm-population"
+  }
+}, {
+  "model": "collectivity_pages.datatable",
+  "pk": 2,
+  "fields": {
+    "created_at": "2021-11-30T15:35:57.486Z",
+    "updated_at": "2021-11-30T15:43:55.641Z",
+    "name": "Emploi",
+    "page_type": "COMM",
+    "slug": "comm-emploi"
+  }
+}, {
+  "model": "collectivity_pages.datatable",
+  "pk": 3,
+  "fields": {
+    "created_at": "2021-11-30T15:42:31.739Z",
+    "updated_at": "2021-11-30T15:56:02.181Z",
+    "name": "Niveau de vie",
+    "page_type": "COMM",
+    "slug": "comm-niveau-de-vie"
+  }
+}, {
+  "model": "collectivity_pages.datatable",
+  "pk": 4,
+  "fields": {
+    "created_at": "2021-11-30T15:43:47.296Z",
+    "updated_at": "2021-11-30T16:06:55.366Z",
+    "name": "Zonage",
+    "page_type": "COMM",
+    "slug": "comm-zonage"
+  }
+}, {
+  "model": "collectivity_pages.datatable",
+  "pk": 5,
+  "fields": {
+    "created_at": "2021-11-30T16:19:20.364Z",
+    "updated_at": "2021-11-30T16:19:20.364Z",
+    "name": "Dotation globale",
+    "page_type": "COMM",
+    "slug": "comm-dotation-globale"
+  }
+}, {
+  "model": "collectivity_pages.datatable",
+  "pk": 6,
+  "fields": {
+    "created_at": "2021-11-30T16:19:57.836Z",
+    "updated_at": "2021-11-30T16:19:57.836Z",
+    "name": "Dotation élu local",
+    "page_type": "COMM",
+    "slug": "comm-dotation-elu-local"
+  }
+}, {
+  "model": "collectivity_pages.datatable",
+  "pk": 7,
+  "fields": {
+    "created_at": "2021-11-30T16:26:55.404Z",
+    "updated_at": "2021-11-30T16:26:55.404Z",
+    "name": "Dotation FPIC",
+    "page_type": "COMM",
+    "slug": "comm-dotation-fpic"
+  }
+}, {
+  "model": "collectivity_pages.datatable",
+  "pk": 8,
+  "fields": {
+    "created_at": "2021-12-06T09:50:09.367Z",
+    "updated_at": "2021-12-06T10:12:06.228Z",
+    "name": "Population",
+    "page_type": "EPCI",
+    "slug": "epci-population"
+  }
+}, {
+  "model": "collectivity_pages.datatable",
+  "pk": 9,
+  "fields": {
+    "created_at": "2021-12-06T09:58:16.988Z",
+    "updated_at": "2021-12-06T09:58:16.988Z",
+    "name": "Dotation globale de fonctionnement",
+    "page_type": "EPCI",
+    "slug": "epci-dgf"
+  }
+}, {
+  "model": "collectivity_pages.datatable",
+  "pk": 10,
+  "fields": {
+    "created_at": "2021-12-06T10:02:00.429Z",
+    "updated_at": "2021-12-06T10:02:00.429Z",
+    "name": "Fonds national de péréquation des ressources intercommunales et communales (FPIC)",
+    "page_type": "EPCI",
+    "slug": "epci-fpic"
+  }
+}, {
+  "model": "collectivity_pages.datatable",
+  "pk": 11,
+  "fields": {
+    "created_at": "2021-12-06T14:09:32.854Z",
+    "updated_at": "2021-12-06T14:10:45.661Z",
+    "name": "Population",
+    "page_type": "DEPT",
+    "slug": "dept-population"
+  }
+}, {
+  "model": "collectivity_pages.datatable",
+  "pk": 12,
+  "fields": {
+    "created_at": "2021-12-06T14:14:55.082Z",
+    "updated_at": "2021-12-06T14:14:55.082Z",
+    "name": "Emploi - chômage",
+    "page_type": "DEPT",
+    "slug": "dept-emploi"
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 1,
+  "fields": {
+    "created_at": "2021-11-30T10:57:48.412Z",
+    "updated_at": "2021-11-30T10:57:48.412Z",
+    "table": 1,
+    "rank": 1,
+    "key": "pop_tot",
+    "label": "Population totale en vigueur en {pop_tot}",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 2,
+  "fields": {
+    "created_at": "2021-11-30T10:57:48.413Z",
+    "updated_at": "2021-11-30T10:57:48.413Z",
+    "table": 1,
+    "rank": 2,
+    "key": "pop_muni",
+    "label": "Population municipale en vigueur en {pop_muni}",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 3,
+  "fields": {
+    "created_at": "2021-11-30T10:57:48.413Z",
+    "updated_at": "2021-11-30T10:57:48.413Z",
+    "table": 1,
+    "rank": 3,
+    "key": "densite",
+    "label": "Densité démographique en {densite} (population totale/superficie géographique, en hab/km²)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 4,
+  "fields": {
+    "created_at": "2021-11-30T10:57:48.414Z",
+    "updated_at": "2021-11-30T10:57:48.414Z",
+    "table": 1,
+    "rank": 4,
+    "key": "tcam",
+    "label": "Variation annuelle de la population entre {tcam} (en %)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 5,
+  "fields": {
+    "created_at": "2021-11-30T15:35:57.487Z",
+    "updated_at": "2021-11-30T15:35:57.487Z",
+    "table": 2,
+    "rank": 1,
+    "key": "pop_active_1564%",
+    "label": "Taux d’activité des 15 à 64 ans en {pop_active_1564%} (en %)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 6,
+  "fields": {
+    "created_at": "2021-11-30T15:35:57.488Z",
+    "updated_at": "2021-11-30T15:35:57.488Z",
+    "table": 2,
+    "rank": 2,
+    "key": "pop_chom_1564%",
+    "label": "Taux de chômage des 15 à 64 ans en {pop_chom_1564%} (en %)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 7,
+  "fields": {
+    "created_at": "2021-11-30T15:42:31.741Z",
+    "updated_at": "2021-11-30T15:56:02.181Z",
+    "table": 3,
+    "rank": 1,
+    "key": "revenu_fiscal",
+    "label": "Revenu fiscal médian des ménages par unité de consommation {revenu_fiscal} (en €)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 8,
+  "fields": {
+    "created_at": "2021-11-30T15:43:47.297Z",
+    "updated_at": "2021-11-30T15:43:47.297Z",
+    "table": 4,
+    "rank": 1,
+    "key": "zrr",
+    "label": "Classement de la commune en zone de revitalisation rurale (ZRR)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 9,
+  "fields": {
+    "created_at": "2021-11-30T16:06:55.367Z",
+    "updated_at": "2021-11-30T16:06:55.367Z",
+    "table": 4,
+    "rank": 2,
+    "key": "qpv",
+    "label": "Commune possédant au moins un Quartier prioritaire de la politique de la ville (QPV)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 10,
+  "fields": {
+    "created_at": "2021-11-30T16:06:55.368Z",
+    "updated_at": "2021-11-30T16:06:55.368Z",
+    "table": 4,
+    "rank": 3,
+    "key": "montagne",
+    "label": "Commune classée en zone de montagne",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 11,
+  "fields": {
+    "created_at": "2021-11-30T16:06:55.368Z",
+    "updated_at": "2021-11-30T16:06:55.368Z",
+    "table": 4,
+    "rank": 4,
+    "key": "touristique",
+    "label": "Commune classée comme touristique",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 12,
+  "fields": {
+    "created_at": "2021-11-30T16:19:20.365Z",
+    "updated_at": "2021-11-30T16:19:20.365Z",
+    "table": 5,
+    "rank": 1,
+    "key": "dgf_totale",
+    "label": "Dotation globale de fonctionnement totale (en €)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 13,
+  "fields": {
+    "created_at": "2021-11-30T16:19:20.366Z",
+    "updated_at": "2021-11-30T16:19:20.366Z",
+    "table": 5,
+    "rank": 2,
+    "key": "forfaitaire",
+    "label": "Dont dotation forfaitaire (en €)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 14,
+  "fields": {
+    "created_at": "2021-11-30T16:19:20.367Z",
+    "updated_at": "2021-11-30T16:19:20.367Z",
+    "table": 5,
+    "rank": 3,
+    "key": "dsu",
+    "label": "- dotation de solidarité urbaine et de cohésion sociale (DSU) (en €)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 15,
+  "fields": {
+    "created_at": "2021-11-30T16:19:20.368Z",
+    "updated_at": "2021-11-30T16:19:20.368Z",
+    "table": 5,
+    "rank": 4,
+    "key": "dsr",
+    "label": "- dotation de solidarité rurale (DSR) (en €)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 16,
+  "fields": {
+    "created_at": "2021-11-30T16:19:20.368Z",
+    "updated_at": "2021-11-30T16:19:20.368Z",
+    "table": 5,
+    "rank": 5,
+    "key": "dnp",
+    "label": "- dotation de péréquation totale (DNP) (en €)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 17,
+  "fields": {
+    "created_at": "2021-11-30T16:19:20.369Z",
+    "updated_at": "2021-11-30T16:19:20.369Z",
+    "table": 5,
+    "rank": 6,
+    "key": "dgf_par_hab",
+    "label": "DGF par habitant (en €)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 18,
+  "fields": {
+    "created_at": "2021-11-30T16:19:20.370Z",
+    "updated_at": "2021-11-30T16:19:20.370Z",
+    "table": 5,
+    "rank": 7,
+    "key": "pop_dgf",
+    "label": "Population « DGF »",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 19,
+  "fields": {
+    "created_at": "2021-11-30T16:19:57.836Z",
+    "updated_at": "2021-11-30T16:19:57.836Z",
+    "table": 6,
+    "rank": 1,
+    "key": "dotation_elu_local",
+    "label": "Dotation élu local (en €)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 20,
+  "fields": {
+    "created_at": "2021-11-30T16:26:55.405Z",
+    "updated_at": "2021-11-30T16:26:55.405Z",
+    "table": 7,
+    "rank": 1,
+    "key": "solde_fpic",
+    "label": "Solde net FPIC (en €)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 21,
+  "fields": {
+    "created_at": "2021-11-30T16:26:55.406Z",
+    "updated_at": "2021-11-30T16:26:55.406Z",
+    "table": 7,
+    "rank": 2,
+    "key": "attribution_fpic",
+    "label": "Dont reversement au profit de la commune (en €)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 22,
+  "fields": {
+    "created_at": "2021-11-30T16:26:55.406Z",
+    "updated_at": "2021-11-30T16:26:55.406Z",
+    "table": 7,
+    "rank": 3,
+    "key": "contribution_fpic",
+    "label": "Dont prélèvement de la commune (en €)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 23,
+  "fields": {
+    "created_at": "2021-11-30T16:26:55.407Z",
+    "updated_at": "2021-11-30T16:26:55.407Z",
+    "table": 7,
+    "rank": 4,
+    "key": "solde_fpic_dgf",
+    "label": "FPIC par habitant (en €)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 24,
+  "fields": {
+    "created_at": "2021-12-06T09:50:09.369Z",
+    "updated_at": "2021-12-06T10:12:06.229Z",
+    "table": 8,
+    "rank": 1,
+    "key": "total_pop_tot",
+    "label": "Population totale en vigueur en {pop_tot}",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 25,
+  "fields": {
+    "created_at": "2021-12-06T09:58:16.989Z",
+    "updated_at": "2021-12-06T09:58:16.989Z",
+    "table": 9,
+    "rank": 1,
+    "key": "dgf_totale",
+    "label": "Dotation globale de fonctionnement totale de fonctionnement (en €)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 26,
+  "fields": {
+    "created_at": "2021-12-06T09:58:16.990Z",
+    "updated_at": "2021-12-06T09:58:16.990Z",
+    "table": 9,
+    "rank": 2,
+    "key": "dotation_interco",
+    "label": "- dont dotation d’intercommunalité",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 27,
+  "fields": {
+    "created_at": "2021-12-06T09:58:16.990Z",
+    "updated_at": "2021-12-06T09:58:16.990Z",
+    "table": 9,
+    "rank": 3,
+    "key": "dotation_compensation",
+    "label": "- dont dotation de compensation",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 28,
+  "fields": {
+    "created_at": "2021-12-06T09:58:16.991Z",
+    "updated_at": "2021-12-06T09:58:16.991Z",
+    "table": 9,
+    "rank": 4,
+    "key": "dgf_totale_par_hab",
+    "label": "DGF totale par habitant (en €)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 29,
+  "fields": {
+    "created_at": "2021-12-06T10:02:00.430Z",
+    "updated_at": "2021-12-06T10:02:00.430Z",
+    "table": 10,
+    "rank": 1,
+    "key": "fpic_solde",
+    "label": "Solde de l’ensemble intercommunal (en €)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 30,
+  "fields": {
+    "created_at": "2021-12-06T10:02:00.430Z",
+    "updated_at": "2021-12-06T10:02:00.431Z",
+    "table": 10,
+    "rank": 2,
+    "key": "fpic_prelevement",
+    "label": "- dont prélèvement de l’ensemble intercommunal (en €)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 31,
+  "fields": {
+    "created_at": "2021-12-06T10:02:00.431Z",
+    "updated_at": "2021-12-06T10:02:00.431Z",
+    "table": 10,
+    "rank": 3,
+    "key": "fpic_reversement",
+    "label": "- dont versement au profit de l’ensemble intercommunal (en €)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 32,
+  "fields": {
+    "created_at": "2021-12-06T10:02:00.431Z",
+    "updated_at": "2021-12-06T10:02:00.431Z",
+    "table": 10,
+    "rank": 4,
+    "key": "fpic_par_hab",
+    "label": "FPIC par habitant (en €)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 33,
+  "fields": {
+    "created_at": "2021-12-06T10:10:44.529Z",
+    "updated_at": "2021-12-06T10:12:06.230Z",
+    "table": 8,
+    "rank": 2,
+    "key": "total_pop_mun",
+    "label": "Population municipale en vigueur en {pop_muni}",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 34,
+  "fields": {
+    "created_at": "2021-12-06T14:09:32.856Z",
+    "updated_at": "2021-12-06T14:10:45.662Z",
+    "table": 11,
+    "rank": 1,
+    "key": "pop_tot",
+    "label": "Population totale en vigueur en {pop_tot}",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 35,
+  "fields": {
+    "created_at": "2021-12-06T14:09:32.859Z",
+    "updated_at": "2021-12-06T14:09:32.859Z",
+    "table": 11,
+    "rank": 2,
+    "key": "densite",
+    "label": "Densité démographique en {densite} (population totale/superficie géographique, en hab/km²)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 36,
+  "fields": {
+    "created_at": "2021-12-06T14:09:32.860Z",
+    "updated_at": "2021-12-06T14:09:32.861Z",
+    "table": 11,
+    "rank": 3,
+    "key": "tcam",
+    "label": "Variation annuelle moyenne de la population entre {tcam} (en %)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 37,
+  "fields": {
+    "created_at": "2021-12-06T14:14:55.084Z",
+    "updated_at": "2021-12-06T14:14:55.084Z",
+    "table": 12,
+    "rank": 1,
+    "key": "taux_activite",
+    "label": "Taux d’activité des 15 à 64 ans (en %)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.datarow",
+  "pk": 38,
+  "fields": {
+    "created_at": "2021-12-06T14:14:55.086Z",
+    "updated_at": "2021-12-06T14:14:55.086Z",
+    "table": 12,
+    "rank": 2,
+    "key": "taux_chomage",
+    "label": "Taux de chômage des 15 à 64 ans (en %)",
+    "tooltip": null
+  }
+}, {
+  "model": "collectivity_pages.collectivitymessage",
+  "pk": 1,
+  "fields": {
+    "created_at": "2021-12-01T09:53:11.561Z",
+    "updated_at": "2021-12-07T09:25:53.825Z",
+    "collectivity_type": "COMM",
+    "collectivity_slug": "paris-75056",
+    "message": "La Ville de Paris est une collectivité à statut particulier qui se substitue à la commune de Paris et au département de Paris (à partir du 1er janvier 2019).\r\n\r\nCompte-tenu de la façon dont les fiches sont générées, les données peuvent être réparties sur la fiche « commune » et la fiche « département »"
+  }
+}, {
+  "model": "collectivity_pages.collectivitymessage",
+  "pk": 2,
+  "fields": {
+    "created_at": "2021-12-06T15:31:34.087Z",
+    "updated_at": "2021-12-07T09:26:41.712Z",
+    "collectivity_type": "DEPT",
+    "collectivity_slug": "paris",
+    "message": "La Ville de Paris est une collectivité à statut particulier qui se substitue à la commune de Paris et au département de Paris (à partir du 1er janvier 2019).\r\n\r\nCompte-tenu de la façon dont les fiches sont générées, les données peuvent être réparties sur la fiche « commune » et la fiche « département »"
+  }
+}, {
+  "model": "collectivity_pages.collectivitymessage",
+  "pk": 3,
+  "fields": {
+    "created_at": "2021-12-06T16:44:55.926Z",
+    "updated_at": "2021-12-07T09:08:22.994Z",
+    "collectivity_type": "REG",
+    "collectivity_slug": "martinique",
+    "message": "La Martinique est une collectivité ayant le statut de collectivité territoriale unique (CTU) rassemblant les compétences d'un département et d'une région (en vigueur depuis le 1e janvier 2016)\r\n\r\nCompte-tenu de la façon dont les fiches sont générées, les données peuvent être réparties sur la fiche « département » et la fiche « région »"
+  }
+}, {
+  "model": "collectivity_pages.collectivitymessage",
+  "pk": 4,
+  "fields": {
+    "created_at": "2021-12-06T16:46:50.391Z",
+    "updated_at": "2021-12-07T09:09:07.159Z",
+    "collectivity_type": "REG",
+    "collectivity_slug": "guyane",
+    "message": "La Guyane est une collectivité ayant le statut de collectivité territoriale unique (CTU) rassemblant les compétences d'un département et d'une région (en vigueur depuis le 1e janvier 2016)\r\n\r\nCompte-tenu de la façon dont les fiches sont générées, les données peuvent être réparties sur la fiche « département » et la fiche « région »"
+  }
+}, {
+  "model": "collectivity_pages.collectivitymessage",
+  "pk": 5,
+  "fields": {
+    "created_at": "2021-12-07T09:08:45.029Z",
+    "updated_at": "2021-12-07T09:08:45.029Z",
+    "collectivity_type": "DEPT",
+    "collectivity_slug": "martinique",
+    "message": "La Martinique est une collectivité ayant le statut de collectivité territoriale unique (CTU) rassemblant les compétences d'un département et d'une région (en vigueur depuis le 1e janvier 2016) Compte-tenu de la façon dont les fiches sont générées, les données peuvent être réparties sur la fiche « département » et la fiche « région »"
+  }
+}, {
+  "model": "collectivity_pages.collectivitymessage",
+  "pk": 6,
+  "fields": {
+    "created_at": "2021-12-07T09:09:18.010Z",
+    "updated_at": "2021-12-07T09:09:18.010Z",
+    "collectivity_type": "DEPT",
+    "collectivity_slug": "guyane",
+    "message": "La Guyane est une collectivité ayant le statut de collectivité territoriale unique (CTU) rassemblant les compétences d'un département et d'une région (en vigueur depuis le 1e janvier 2016) Compte-tenu de la façon dont les fiches sont générées, les données peuvent être réparties sur la fiche « département » et la fiche « région »"
+  }
+}, {
+  "model": "collectivity_pages.collectivitymessage",
+  "pk": 7,
+  "fields": {
+    "created_at": "2021-12-07T09:31:17.906Z",
+    "updated_at": "2021-12-07T09:31:17.906Z",
+    "collectivity_type": "DEPT",
+    "collectivity_slug": "mayotte",
+    "message": "Le département de Mayotte est une collectivité à statut particulier depuis le 31 mars 2011 ; il n'y pas de conseil régional à Mayotte."
+  }
+}, {
+  "model": "collectivity_pages.collectivitymessage",
+  "pk": 8,
+  "fields": {
+    "created_at": "2021-12-07T09:33:38.638Z",
+    "updated_at": "2021-12-07T09:33:38.638Z",
+    "collectivity_type": "REG",
+    "collectivity_slug": "corse",
+    "message": "La collectivité de Corse est une collectivité territoriale unique qui regroupe les compétences des deux départements et de la région de Corse depuis le 1er janvier 2018.\r\n\r\nCompte-tenu de la façon dont les fiches sont générées, les données peuvent être réparties sur la fiche « région » et les deux fiches « département »."
+  }
+}, {
+  "model": "collectivity_pages.collectivitymessage",
+  "pk": 9,
+  "fields": {
+    "created_at": "2021-12-07T09:33:58.479Z",
+    "updated_at": "2021-12-07T09:33:58.479Z",
+    "collectivity_type": "DEPT",
+    "collectivity_slug": "haute-corse",
+    "message": "La collectivité de Corse est une collectivité territoriale unique qui regroupe les compétences des deux départements et de la région de Corse depuis le 1er janvier 2018.\r\n\r\nCompte-tenu de la façon dont les fiches sont générées, les données peuvent être réparties sur la fiche « région » et les deux fiches « département »."
+  }
+}, {
+  "model": "collectivity_pages.collectivitymessage",
+  "pk": 10,
+  "fields": {
+    "created_at": "2021-12-07T09:34:06.250Z",
+    "updated_at": "2021-12-07T09:34:06.250Z",
+    "collectivity_type": "DEPT",
+    "collectivity_slug": "corse-du-sud",
+    "message": "La collectivité de Corse est une collectivité territoriale unique qui regroupe les compétences des deux départements et de la région de Corse depuis le 1er janvier 2018.\r\n\r\nCompte-tenu de la façon dont les fiches sont générées, les données peuvent être réparties sur la fiche « région » et les deux fiches « département »."
+  }
+}, {
+  "model": "collectivity_pages.collectivitymessage",
+  "pk": 11,
+  "fields": {
+    "created_at": "2021-12-07T09:36:38.237Z",
+    "updated_at": "2021-12-07T09:37:14.212Z",
+    "collectivity_type": "EPCI",
+    "collectivity_slug": "metropole-de-lyon-200046977",
+    "message": "La Métropole de Lyon exerce les compétences d'une métropole (EPCI à fiscalité propre) et du département depuis le 1er janvier 2015."
+  }
+}, {
+  "model": "collectivity_pages.collectivitymessage",
+  "pk": 12,
+  "fields": {
+    "created_at": "2021-12-07T09:45:53.900Z",
+    "updated_at": "2021-12-07T09:47:06.966Z",
+    "collectivity_type": "DEPT",
+    "collectivity_slug": "rhone",
+    "message": "Le Conseil départemental du Rhône exerce depuis le 1er janvier 2015 les compétence du département sur le territoire de l'ensemble des communes de la circonscription administrative du Rhône (69) qui ne sont pas dans la Métropole de Lyon."
+  }
+}, {
+  "model": "collectivity_pages.collectivitymessage",
+  "pk": 13,
+  "fields": {
+    "created_at": "2021-12-07T09:52:58.722Z",
+    "updated_at": "2021-12-07T09:52:58.722Z",
+    "collectivity_type": "DEPT",
+    "collectivity_slug": "haut-rhin",
+    "message": "La Collectivité européenne d'Alsace (CeA) est une collectivité ayant le statut de conseil départemental en rassemblant les départements du Haut-Rhin et du Bas-Rhin depuis le 1er janvier 2021."
+  }
+}, {
+  "model": "collectivity_pages.collectivitymessage",
+  "pk": 14,
+  "fields": {
+    "created_at": "2021-12-07T09:53:06.544Z",
+    "updated_at": "2021-12-07T09:53:06.545Z",
+    "collectivity_type": "DEPT",
+    "collectivity_slug": "bas-rhin",
+    "message": "La Collectivité européenne d'Alsace (CeA) est une collectivité ayant le statut de conseil départemental en rassemblant les départements du Haut-Rhin et du Bas-Rhin depuis le 1er janvier 2021."
+  }
+}]

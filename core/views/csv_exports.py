@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404
 from django.views.decorators.http import require_safe
 
-from core.services.communes import (
+from collectivity_pages.services.communes import (
     compare_communes_for_export,
 )
 

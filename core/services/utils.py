@@ -33,12 +33,17 @@ def format_number(n, format_for_web):
     If format_for_web is True, then it also applies French locale (comma
     for decimal separator, narrow no-break space for thousands separator)
     """
+
+    if format_for_web:
+        locale = "fr_FR"
+        format = "#,##0.#"
+    else:
+        # Useful for csv export
+        locale = "en_US"
+        format = "###0.#"
+
     if type(n) in [int, float]:
-        if format_for_web:
-            return format_decimal(n, locale="fr_FR", format="#,##0.#")
-        else:
-            # Useful for csv export
-            return format_decimal(n, locale="en_US", format="###0.#")
+        return format_decimal(n, locale=locale, format=format)
     elif n is None:
         return ""
     else:
@@ -72,7 +77,7 @@ def generate_csv(
 
     if tables_dict:
         for _, table in tables_dict.items():
-            for row in table:
+            for row in table["rows"]:
                 writer.writerow(row)
 
     return response

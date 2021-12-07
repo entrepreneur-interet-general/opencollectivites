@@ -6,13 +6,13 @@
 <div class="fr-container fr-mt-4w fr-mb-6w">
   {# Tables #}
   <h2 id="donnees-contexte">Données de contexte</h2>
-  {% dsfr_table caption="Population" content=data.tables.population header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
-  {% dsfr_table caption="Emploi - chômage" content=data.tables.emploi header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
-  {% dsfr_table caption="Niveau de vie" content=data.tables.niveau_de_vie header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
-  {% dsfr_table caption="Zonage" content=data.tables.zonage header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
-  {% dsfr_table caption="Dotation globale" content=data.tables.dotation_globale header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
-  {% dsfr_table caption="Dotation élu local" content=data.tables.dotation_elu_local header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
-  {% dsfr_table caption="Dotation FPIC" content=data.tables.dotation_fpic header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
+  {% dsfr_table caption="Population" content=data.tables.comm_population.rows header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
+  {% dsfr_table caption="Emploi - chômage" content=data.tables.comm_emploi.rows header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
+  {% dsfr_table caption="Niveau de vie" content=data.tables.comm_niveau_de_vie.rows header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
+  {% dsfr_table caption="Zonage" content=data.tables.comm_zonage.rows header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
+  {% dsfr_table caption="Dotation globale" content=data.tables.comm_dotation_globale.rows header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
+  {% dsfr_table caption="Dotation élu local" content=data.tables.comm_dotation_elu_local.rows header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
+  {% dsfr_table caption="Dotation FPIC" content=data.tables.comm_dotation_fpic.rows header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
 
   <p>
     <a

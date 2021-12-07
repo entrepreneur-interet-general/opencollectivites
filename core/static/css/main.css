@@ -38,13 +38,6 @@ html {
     clear: both;
 }
 
-.fr-header,
-.header-block {
-    background-image: url('/static/img/beta.png');
-    background-repeat: no-repeat;
-    background-position: right top;
-}
-
 .oc-sticky-header {
     color: var(--g800);
     background-color: var(--w);

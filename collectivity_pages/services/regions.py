@@ -1,22 +1,35 @@
 from francedata.models import Region, Commune
 
 from django.urls import reverse
+from francedata.models.meta import DataYear
+
+from collectivity_pages.services.context_data import ContextData
 
 
-def region_data(region_fs: Region) -> dict:
+class RegionContextData(ContextData):
+    base_model_name = "Region"
+    data_model_name = "RegionData"
+    data_model_key = "region"
+    tables_page_type = "REG"
+
+
+def region_data(region: Region, year: DataYear = None) -> dict:
+    if not year:
+        year = DataYear.objects.latest()
+
     response = {}
 
-    response["name"] = region_fs.name
-    response["insee"] = region_fs.insee
-    response["siren"] = region_fs.siren
+    response["name"] = region.name
+    response["insee"] = region.insee
+    response["siren"] = region.siren
 
-    communes = Commune.objects.filter(departement__region=region_fs)
+    communes = Commune.objects.filter(departement__region=region)
     if communes.count() > 1:
         response["communes_list"] = {
             "name": f"Liste des {communes.count()} communes",
             "title": f"Liste des {communes.count()}  communes",
             "url": reverse(
-                "core:page_region_liste_communes", kwargs={"slug": region_fs.slug}
+                "core:page_region_liste_communes", kwargs={"slug": region.slug}
             ),
             "image_path": "/static/img/hexagon1.svg",
             "svg_icon": True,
@@ -38,7 +51,7 @@ def region_data(region_fs: Region) -> dict:
             "name": f"Liste des {epcis.count()} EPCI",
             "title": f"Liste des {epcis.count()}  EPCI",
             "url": reverse(
-                "core:page_region_liste_epcis", kwargs={"slug": region_fs.slug}
+                "core:page_region_liste_epcis", kwargs={"slug": region.slug}
             ),
             "image_path": "/static/img/hexagon2.svg",
             "svg_icon": True,
@@ -56,13 +69,13 @@ def region_data(region_fs: Region) -> dict:
             "svg_icon": True,
         }
 
-    departements = region_fs.departement_set.all()
+    departements = region.departement_set.all()
     if departements.count() > 1:
         response["departements_list"] = {
             "name": f"Liste des {departements.count()} departements",
             "title": f"Liste des {departements.count()} departements",
             "url": reverse(
-                "core:page_region_liste_departements", kwargs={"slug": region_fs.slug}
+                "core:page_region_liste_departements", kwargs={"slug": region.slug}
             ),
             "image_path": "/static/img/hexagon3.svg",
             "svg_icon": True,
@@ -79,5 +92,9 @@ def region_data(region_fs: Region) -> dict:
             "image_path": "/static/img/hexagon3.svg",
             "svg_icon": True,
         }
+
+    context_data = RegionContextData([region], datayear=year)
+    context_data.fetch_collectivities_context_data()
+    context_data.format_tables()
 
     return response

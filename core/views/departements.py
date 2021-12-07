@@ -1,4 +1,5 @@
-from core.services.departements import departement_data
+from collectivity_pages.services.departements import departement_data
+from collectivity_pages.services.utils import get_messages_for_collectivity
 from core.services.publications import list_publications_for_collectivity
 from core.services.utils import init_payload
 from django.urls.base import reverse
@@ -24,6 +25,10 @@ def page_departement_detail(request, slug):
         ),
         "extra_classes": "fr-sidemenu--sticky-full-height fr-sidemenu--right",
     }
+
+    payload["messages"] = get_messages_for_collectivity(
+        collectivity_type="DEPT", collectivity_slug=slug
+    )
 
     payload["publications"] = list_publications_for_collectivity(
         collectivity_type="departement", collectivity_slug=departement.slug
