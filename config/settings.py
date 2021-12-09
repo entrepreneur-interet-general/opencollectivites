@@ -13,28 +13,11 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from os import path
 import sys
 import logging
-
-# Keep secrets and environment_specific variables in a separate file not using version control
-try:
-    from settings_local import *
-except ImportError:
-    from settings_local_sample import *
+from pathlib import Path
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = LOCAL_BASE_DIR
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = LOCAL_SECRET_KEY
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = LOCAL_DEBUG
-
-ALLOWED_HOSTS = LOCAL_ALLOWED_HOSTS
+BASE_DIR = Path(__file__).resolve().parent
 
 INTERNAL_IPS = ("127.0.0.1",)
 
@@ -117,7 +100,6 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = LOCAL_DATABASES
 
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
@@ -165,14 +147,6 @@ STATIC_ROOT = path.join(BASE_DIR, "static")
 MEDIA_ROOT = path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
-# CORS
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = LOCAL_CORS_ORIGIN_WHITELIST
-
-# Matomo
-MATOMO_DOMAIN_PATH = LOCAL_MATOMO_DOMAIN_PATH
-MATOMO_SITE_ID = LOCAL_MATOMO_SITE_ID
-
 # Wagtail
 WAGTAIL_SITE_NAME = "Open Collectivités — Gestion des contenus"
 
@@ -182,10 +156,13 @@ TAGGIT_CASE_INSENSITIVE = True
 # Allow bulk deletions
 DATA_UPLOAD_MAX_NUMBER_FIELDS = None
 
-# Other
-FRONT_HOME_URL = LOCAL_FRONT_HOME_URL
-PUBLICATIONS_PER_PAGE = LOCAL_PUBLICATIONS_PER_PAGE
-
 # Don't show logs in tests
 if len(sys.argv) > 1 and sys.argv[1] == "test":
     logging.disable(logging.CRITICAL)
+
+# Keep secrets and environment_specific variables in a separate file not using version control
+# Local settings
+try:
+    from .settings_local import *
+except ImportError:
+    from .settings_local_sample import *
