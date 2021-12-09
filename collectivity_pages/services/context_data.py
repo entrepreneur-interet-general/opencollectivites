@@ -1,13 +1,9 @@
-from typing import Union
 from francedata.models import DataYear
 from django.apps import apps
-from django.db.models import Max
 from francedata.models.collectivity import CollectivityModel
-from stdnum.fr import siren
-from collectivity_pages.models import CollectivityMessage, DataRow, DataTable, Vintage
+from collectivity_pages.models import DataRow, DataTable, Vintage
 
-from core.services.utils import format_number
-from collectivity_pages.services.utils import format_boolean
+from collectivity_pages.services.utils import format_raw_data
 
 
 class ContextData:
@@ -119,17 +115,8 @@ class ContextData:
                     if raw_data.source not in sources:
                         sources.append(raw_data.source)
 
-                    # Managing empty strings, then casting according to the proper datatype
-                    if raw_data.value == "":
-                        row.append(raw_data.value)
-                    elif raw_data.datatype == "int":
-                        row.append(format_number(int(raw_data.value), format_for_web))
-                    elif raw_data.datatype == "float":
-                        row.append(format_number(float(raw_data.value), format_for_web))
-                    elif raw_data.datatype == "bool":
-                        row.append(format_boolean(raw_data.value))
-                    else:
-                        row.append(raw_data.value)
+                    row.append(format_raw_data(raw_data, format_for_web))
+
                 else:
                     row.append("")
 

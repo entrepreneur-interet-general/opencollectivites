@@ -1,7 +1,6 @@
 import csv
 from django.http.response import HttpResponse
 from babel.numbers import format_decimal
-from django.utils.text import slugify
 
 
 def init_payload(page_title: str, links: list = []):
@@ -36,14 +35,14 @@ def format_number(n, format_for_web):
 
     if format_for_web:
         locale = "fr_FR"
-        format = "#,##0.#"
+        number_format = "#,##0.#"
     else:
         # Useful for csv export
         locale = "en_US"
-        format = "###0.#"
+        number_format = "###0.#"
 
     if type(n) in [int, float]:
-        return format_decimal(n, locale=locale, format=format)
+        return format_decimal(n, locale=locale, format=number_format)
     elif n is None:
         return ""
     else:

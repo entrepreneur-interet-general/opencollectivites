@@ -1,8 +1,6 @@
-from francedata.models import collectivity
-from collectivity_pages.models import CollectivityMessage
 from collectivity_pages.services.context_data import ContextData
 from francedata.models.meta import DataYear
-from francedata.models.collectivity import Commune, Departement, Epci, EpciData
+from francedata.models.collectivity import Departement
 from django.urls.base import reverse
 
 

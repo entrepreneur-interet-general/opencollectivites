@@ -120,15 +120,3 @@ def epci_data(siren_id, year: DataYear = None):
     response["max_year"] = epci_context_data.max_year
 
     return response
-
-
-"""
-def get_epci_president(entity):
-    president = T311DeleguesCom.objects.get(groupement=entity, fonction="Président")
-
-    response = {}
-    response["civility"] = clean_civility(president.civilite)
-    response["first_name"] = president.prenom
-    response["last_name"] = president.nom
-    return response
-"""
