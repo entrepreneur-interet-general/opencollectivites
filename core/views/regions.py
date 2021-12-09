@@ -1,3 +1,4 @@
+from collectivity_pages.services.utils import get_messages_for_collectivity
 from core.services.publications import (
     list_publications_for_collectivity,
 )
@@ -7,7 +8,7 @@ from django.shortcuts import get_object_or_404, render
 from django.views.decorators.http import require_safe
 from francedata.models import Commune, Region
 
-from core.services.regions import region_data
+from collectivity_pages.services.regions import region_data
 
 
 @require_safe
@@ -21,6 +22,10 @@ def page_region_detail(request, slug):
 
     payload["publications"] = list_publications_for_collectivity(
         collectivity_type="region", collectivity_slug=region.slug
+    )
+
+    payload["messages"] = get_messages_for_collectivity(
+        collectivity_type="REG", collectivity_slug=slug
     )
 
     return render(request, "core/region_detail.html", payload)

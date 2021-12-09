@@ -1,3 +1,4 @@
+from collectivity_pages.services.utils import get_messages_for_collectivity
 from core.services.publications import list_publications_for_collectivity
 from django.urls.base import reverse
 from core.services.utils import init_payload
@@ -5,10 +6,7 @@ from django.shortcuts import get_object_or_404, render
 from django.views.decorators.http import require_safe
 from francedata.models import Commune
 
-from core.services.communes import (
-    commune_data,
-    communes_compare,
-)
+from collectivity_pages.services.communes import commune_data, communes_compare
 
 from dsfr.utils import generate_summary_items
 
@@ -40,6 +38,10 @@ def page_commune_detail(request, slug):
         ),
         "extra_classes": "fr-sidemenu--sticky-full-height fr-sidemenu--right",
     }
+
+    payload["messages"] = get_messages_for_collectivity(
+        collectivity_type="COMM", collectivity_slug=slug
+    )
 
     payload["publications"] = list_publications_for_collectivity(
         collectivity_type="commune", collectivity_slug=commune.slug

@@ -10,12 +10,17 @@
 
   {# Intro #}
   <h1>{{ title }}</h1>
+
+  {% for message in messages %}
+    {% dsfr_callout text=message.message %}
+  {% endfor %}
+
   <p>
-  Code SIREN : {{ siren }} / Code Insee : {{ data.insee }}
+  {% if siren %}Code SIREN : {{ siren }} / {% endif %}Code Insee : {{ data.insee }}
   </p>
 
   <p>
-    {{ data.name }} est un département français situé dans la région {{ data.region.name }}.
+    {{ data.name }} est un département français{% if data.region %} situé dans la région {{ data.region.name }}{% endif %}.
   </p>
 
   {# Navigation #}
@@ -46,11 +51,11 @@
     </aside>
     <article class="fr-col-12 fr-col-md-8">
       <h2 id="donnees-de-contexte">Données de contexte</h2>
-      {% dsfr_table caption="Population" content=data.tables.population header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
-      {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données départements" %}
+      {% dsfr_table caption="Population" content=data.tables.dept_population.rows header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
+      {% include "core/blocks/sources_line.html" with sources=data.tables.dept_population.sources %}
 
-      {% dsfr_table caption="Emploi - chômage" content=data.tables.emploi header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
-      {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données départements" %}
+      {% dsfr_table caption="Emploi - chômage" content=data.tables.dept_emploi.rows header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
+      {% include "core/blocks/sources_line.html" with sources=data.tables.dept_emploi.sources %}
 
       <h2 id="perimetre">Périmètre</h2>
       <p>Nombre total de communes membres : {{ data.communes_count }}</p>

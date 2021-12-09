@@ -1,0 +1,24 @@
+<p class="fr-text--xs">
+    Source(s) des données :
+    {% for source in sources %}
+        {% if source.url %}
+        <a
+            href="{{ source.url }}"
+            target="_blank" rel="noopener">
+                {% if source.public_label %}
+                    {{ source.public_label }}
+                {% else %}
+                    {{ source.title }}
+                {% endif %}
+            </a>
+        {% else%}
+            {% if source.public_label %}
+                {{ source.public_label }}
+            {% else %}
+                {{ source.title }}
+            {% endif %}
+        {% endif %}
+        (année : {{ source.year }}, sauf précision)
+        {% if not forloop.last %} – {% endif %}
+    {% endfor %} 
+</p>

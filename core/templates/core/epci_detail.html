@@ -10,38 +10,52 @@
 
   {# Intro #}
   <h1>{{ title }}</h1>
+
+  {% for message in messages %}
+    {% dsfr_callout text=message.message %}
+  {% endfor %}
+
   <p>
   Code SIREN : {{ siren }}
   </p>
 
-  <p>
-    {{ data.name }} est une {{ data.type.name}} ({{data.type.acronym}}) française dont le siège est
-    <a href="{% url 'core:page_commune_detail' data.seat.slug %}">{{ data.seat.name }}</a>.  
-  </p>
-
-  <p>
-  {% if data.departements.count == 1 %}
-    Elle est située intégralement dans le département
-    <a href="{% url 'core:page_departement_detail' data.departement.slug %}">{{ data.departement.name }}</a>{% if data.region %}
-    et la région <a href="{% url 'core:page_region_detail' data.region.slug %}">{{ data.region.name }}</a>{% endif %}.
+  {# Special case for the Métropole de Lyon #}
+  {% if slug == "metropole-de-lyon-200046977" %}
+    <p>
+      La Métropole de Lyon est une métropole française située dans la région <a href="{% url 'core:page_region_detail' 'auvergne-rhone-alpes' %}">Auvergne-Rhône-Alpes</a>.  
+    </p>
   {% else %}
-    Elle est située sur les départements 
-      {% for departement in data.departements %}
-        <a href="{% url 'core:page_departement_detail' departement.departement__slug %}">{{ departement.departement__name }}</a>{% if forloop.last %} {% else %}, {% endif%}
-      {%endfor%}
-      {% if data.regions.count == 1 %}
-        et la région <a href="{% url 'core:page_region_detail' data.region.slug %}">{{ data.region.name }}</a>.
-      {% elif data.regions.count > 1 %}
-        et les régions
-        {% for region in data.regions %}
-          <a href="{% url 'core:page_region_detail' region.departement__region__slug %}">{{ region.departement__region__name }}</a>{% if forloop.last %}.{% else %}, {% endif%}
+    <p>
+      {{ data.name }} est une {{ data.type.name}} ({{data.type.acronym}}) française{% if data.seat %} dont le siège est
+      <a href="{% url 'core:page_commune_detail' data.seat.slug %}">{{ data.seat.name }}{% endif %}</a>.  
+    </p>
+
+    <p>
+    {% if data.departements.count == 1 %}
+      Elle est située intégralement dans le département
+      {% with data.departements|first as departement %}
+        <a href="{% url 'core:page_departement_detail' departement.departement__slug %}">{{ departement.departement__name }}</a>{% if departement.departement__region__name %}
+        et la région <a href="{% url 'core:page_region_detail' departement.departement__region__slug %}">{{ departement.departement__region__name }}</a>{% endif %}.
+      {% endwith %}
+    {% else %}
+      Elle est située sur les départements 
+        {% for departement in data.departements %}
+          <a href="{% url 'core:page_departement_detail' departement.departement__slug %}">{{ departement.departement__name }}</a>{% if forloop.last %} {% else %}, {% endif%}
         {%endfor%}
-      {% endif %}
-
-
+        {% if data.regions.count == 1 %}
+          et la région <a href="{% url 'core:page_region_detail' data.region.slug %}">{{ data.region.name }}</a>.
+        {% elif data.regions.count > 1 %}
+          et les régions
+          {% for region in data.regions %}
+            <a href="{% url 'core:page_region_detail' region.departement__region__slug %}">{{ region.departement__region__name }}</a>{% if forloop.last %}.{% else %}, {% endif%}
+          {%endfor%}
+        {% else %}
+        .
+        {% endif %}
+    {% endif %}
+    </p>
   {% endif %}
-  </p>
-  
+
   <p>
     {% if data.president.last_name %}Le président actuel est
     {{ data.president.civility | safe }} {{ data.president.first_name }} {{ data.president.last_name }}.{% endif%}
@@ -53,13 +67,17 @@
       {% dsfr_tile data.communes_list %}
     </div>
 
-    <div class="fr-col-12 fr-col-md-2">
-      {% dsfr_tile data.seat %}
-    </div>
+    {% if data.seat %}
+      <div class="fr-col-12 fr-col-md-2">
+        {% dsfr_tile data.seat %}
+      </div>
+    {% endif %}
 
-    <div class="fr-col-12 fr-col-md-2">
-      {% dsfr_tile data.departement %}
-    </div>
+    {% if data.departement %}
+      <div class="fr-col-12 fr-col-md-2">
+        {% dsfr_tile data.departement %}
+      </div>
+    {% endif %}
 
     {% if data.region %}
     <div class="fr-col-12 fr-col-md-2">
@@ -75,8 +93,8 @@
     </aside>
     <article class="fr-col-12 fr-col-md-8">
       <h2 id="donnees-socio-economiques">Données socio-économiques</h2>
-      {% dsfr_table caption="Population" content=data.tables.population header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
-      {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données groupements" %}
+      {% dsfr_table caption="Population" content=data.tables.epci_population.rows header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
+      {% include "core/blocks/sources_line.html" with sources=data.tables.epci_population.sources %}
 
       <a
         title="Comparateur de territoires INSEE"
@@ -89,6 +107,7 @@
       </a>
 
       <h2 id="coordonnees-du-siege">Coordonnées du siège</h2>
+      {% if data.contact %}
       <dl>
         <dt>Adresse postale :</dt>
         <dd>{% if data.contact.address1|length > 0 %}{{ data.contact.address1 }} <br />{% endif %}
@@ -113,6 +132,7 @@
         {% if data.contact.email|length > 0 %}<dt>Courriel :</dt>
         <dd><a href="mailto:{{ data.contact.email }}">{{ data.contact.email }}</a></dd>{% endif %}
       </dl>
+      {% endif %}
 
       <h2 id="perimetre-competences">Périmètre & compétences</h2>
       <h3 id="perimetre">Périmètre</h3>
@@ -150,12 +170,12 @@
       <h2 id="ressources-financieres-et-fiscales">
         Ressources financières et fiscales
       </h2>
-      {% dsfr_table caption="Dotation globale de fonctionnement" content=data.tables.dotation_globale extra_classes="oc-table--fullwidth oc-table--force10" %}
-      {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données groupements" %}
+      {% dsfr_table caption="Dotation globale de fonctionnement" content=data.tables.epci_dgf.rows extra_classes="oc-table--fullwidth oc-table--force10" %}
+      {% include "core/blocks/sources_line.html" with sources=data.tables.epci_dgf.sources %}
 
 
-      {% dsfr_table caption="Fonds national de péréquation des ressources intercommunales et communales (FPIC)" content=data.tables.dotation_fpic extra_classes="oc-table--fullwidth oc-table--force10" %}
-      {% include "core/blocks/source_aspic_banatic.html" with max_year=data.max_year file="Données groupements" %}
+      {% dsfr_table caption="Fonds national de péréquation des ressources intercommunales et communales (FPIC)" content=data.tables.epci_fpic.rows extra_classes="oc-table--fullwidth oc-table--force10" %}
+      {% include "core/blocks/sources_line.html" with sources=data.tables.epci_fpic.sources %}
 
       {# Publications lists #}
       {% include "core/blocks/collectivity_publications.html" with publications=publications %}
