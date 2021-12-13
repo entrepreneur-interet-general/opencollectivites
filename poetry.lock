@@ -235,7 +235,7 @@ Django = ">=2.2"
 
 [[package]]
 name = "django-francedata"
-version = "0.14.3"
+version = "0.14.4"
 description = "A Django app to provide a database structure, API and import scripts to manage French communes, intercommunalités, départements and régions, with their structure and data from Insee and the DGCL."
 category = "main"
 optional = false
@@ -1076,7 +1076,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "3feb68484c7304b2dbb54dd0a48af32d3e5bc91d485590b5313ba5f8be06ef1e"
+content-hash = "a9182ceb14c1733439bf5213c65ccd0821639a16195cab511f177cfe70d4dc68"
 
 [metadata.files]
 anyascii = [
@@ -1221,8 +1221,8 @@ django-filter = [
     {file = "django_filter-21.1-py3-none-any.whl", hash = "sha256:f4a6737a30104c98d2e2a5fb93043f36dd7978e0c7ddc92f5998e85433ea5063"},
 ]
 django-francedata = [
-    {file = "django-francedata-0.14.3.tar.gz", hash = "sha256:ac01eb9d6495b2d0cf0ab1f770da495ef1abcfbf8bde6ab67fe2f39910bc6b9e"},
-    {file = "django_francedata-0.14.3-py3-none-any.whl", hash = "sha256:f063eaa2fa84f50ce8abc4a4710c9b3ddbadd86b2dfaac305e14c0c5c69d700c"},
+    {file = "django-francedata-0.14.4.tar.gz", hash = "sha256:ff13cfbbe4e538d728e2449ac2e73bdd2109d33fc4a6b485ba993cdd0acf655b"},
+    {file = "django_francedata-0.14.4-py3-none-any.whl", hash = "sha256:6f43a9daa815e53857b5d1a077e9cd778a4696ca8016eb164c12bfc8ab5a0645"},
 ]
 django-json-widget = [
     {file = "django-json-widget-1.1.1.tar.gz", hash = "sha256:ec948a4c379687f9c854748ba540fdbeb1b1730846ca953f186818521de7e696"},
