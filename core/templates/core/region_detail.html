@@ -15,7 +15,7 @@
     {% dsfr_callout text=message.message %}
   {% endfor %}
 
-  <p>Code SIREN : {{ siren }}</p>
+  <p>Code SIREN : <a href="https://annuaire-entreprises.data.gouv.fr/entreprise/{{ siren }}" target="_blank" rel="noopener noreferrer">{{ siren }}</a></p>
 
   <p>
     {{ data.name }} est une région française.

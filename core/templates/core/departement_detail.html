@@ -16,7 +16,7 @@
   {% endfor %}
 
   <p>
-  {% if siren %}Code SIREN : {{ siren }} / {% endif %}Code Insee : {{ data.insee }}
+  {% if siren %}Code SIREN : <a href="https://annuaire-entreprises.data.gouv.fr/entreprise/{{ siren }}" target="_blank" rel="noopener noreferrer">{{ siren }}</a> / {% endif %}Code Insee : {{ data.insee }}
   </p>
 
   <p>

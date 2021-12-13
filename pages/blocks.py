@@ -60,7 +60,7 @@ class CodeBlock(blocks.StructBlock):
 
         formatter = get_formatter_by_name(
             "html",
-            linenos=None,
+            linenos=False,
             cssclass=" ".join(css_classes),
             noclasses=False,
             wrapcode=True,
