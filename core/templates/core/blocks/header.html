@@ -1,22 +1,14 @@
 {% extends "dsfr/header.html" %}
-
-{% block service_title %}
-<a href="/" title="Accueil - Open Collectivités">
-    <p class="fr-header__service-title">Open Collectivités</p>
-</a>
-{% endblock %}
-
-{% block service_tagline %}Un service de la DGCL{% endblock %}
-
+{% load wagtailcore_tags %}
 {% block brand %}
   {% if hide_brand is not True %}
-  <p class="fr-logo"
-      title="Ministère de la Cohésion des territoires et des Relations avec les collectivités territoriales">
-      Ministère <br />de la Cohésion <br />des territoires <br />et des Relations <br />avec les collectivités
-      <br />territoriales
-  </p>
+    <a href="/" title="Accueil — {{ SITE_CONFIG.site_title }}">
+      <p class="fr-logo">{{ SITE_CONFIG.header_brand_html|default_if_none:"république<br>française" | safe }}</p>
+    </a>
   {% else %}
-  <p class="fr-logo"></p>
+    <a href="/" title="Accueil — {{ SITE_CONFIG.site_title }}">
+      <p class="fr-logo"></p>
+    </a>
   {% endif %}
 {% endblock %}
 
@@ -31,4 +23,12 @@
 {% endblock %}
 
 {% block main_menu %}
+    <div class="fr-header__menu fr-modal" id="fr-menu-modal" aria-labelledby="fr-btn-menu-modal">
+      <div class="fr-container">
+        <button type="button" class="fr-link--close fr-link" aria-controls="fr-menu-modal">Fermer</button>
+        <div class="fr-header__menu-links"></div>
+        <nav class="fr-nav" id="fr-navigation" role="navigation" aria-label="Menu principal">
+        </nav>
+      </div>
+    </div>
 {% endblock %}

@@ -4,11 +4,11 @@ html {
 
 .fr-header {
     box-shadow: none;
-    border-bottom: 1.5px solid var(--g400);
+    border-bottom: 1.5px solid var(--border-default-grey);
 }
 
 .oc-bg--alt {
-    background-color: var(--g200);
+    background-color: var(--background-alt-grey);
 }
 
 .feed-more-link {
@@ -18,7 +18,6 @@ html {
 .feed-more-link a {
     font-size: 1.3rem;
 }
-
 
 .fr-tile__link {
     text-align: center;
@@ -39,9 +38,9 @@ html {
 }
 
 .oc-sticky-header {
-    color: var(--g800);
-    background-color: var(--w);
-    border-bottom: 1px solid #ccc;
+    color: var(--text-default-grey);
+    background-color: var(--background-default-grey);
+    border-bottom: 1px solid var(--border-default-grey);
     top: 0px;
     width: 100%;
     z-index: 100;
@@ -49,23 +48,23 @@ html {
 
 
 /* Actually only stick the header on desktop */
+
 @media (min-width: 768px) {
     .oc-sticky-header {
         position: sticky;
     }
-
 }
 
+
 /* Push the summary bar to the right side on desktop and make it stick */
+
 @media (min-width: 768px) {
     #oc-collectivity-main>article {
         order: 1;
     }
-
     #oc-collectivity-main>aside {
         order: 2;
     }
-
     #oc-collectivity-main>aside nav {
         position: sticky;
         top: 20px;
@@ -74,11 +73,14 @@ html {
 
 
 /* Show the top (and header) of publication instead of the middle of the image */
+
 #oc-publications-list .fr-card__img img {
     object-position: top;
 }
 
+
 /* Force certain classes to tables */
+
 .oc-table--fullwidth {
     width: 100%;
 }
@@ -92,19 +94,25 @@ html {
     width: 10%;
 }
 
+
 /* Improve inline forms */
+
 .oc-inline-form {
     display: flex;
     align-items: center;
 }
 
+
 /* Center the pagination component */
+
 .fr-pagination {
     display: flex;
     justify-content: center;
 }
 
+
 /* Tooltip */
+
 .oc-tooltip {
     float: right;
 }
@@ -113,13 +121,17 @@ html {
     font-size: 1.2em;
 }
 
+
 /* When using svg icons instead of images in the tiles */
+
 .oc-svg-icon,
 .oc-svg-icons img {
     width: 100%;
 }
 
+
 /* Set the color of svg icons in dark mode */
+
 :root[data-fr-theme="dark"i] .oc-svg-icon,
 :root[data-fr-theme="dark"i] .oc-svg-icons img {
     filter: brightness(0) saturate(100%) invert(61%) sepia(11%) saturate(2548%) hue-rotate(202deg) brightness(103%) contrast(102%);
@@ -127,7 +139,7 @@ html {
 
 .oc-privacy-icon {
     margin-left: 2rem;
-    color: var(--g500);
+    color: var(--text-disabled-grey);
 }
 
 .oc-heading-with-sidelink {
