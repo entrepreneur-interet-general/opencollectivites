@@ -6,11 +6,6 @@ Ce document décrit la procédure intégrale d'installation d'Open Collectivité
     - `sudo apt install python3-dev python-pip postgresql libpq-dev postgis postgresql-10-postgis-2.4` 
  - Installer poetry, cf. https://python-poetry.org/docs/
 
-## Installer la base Aspic
-
-- Cf documentation interne dédiée
-
-
 ## Préparer la base de données dédiée
 - Créer une base de données PostgreSQL et l'utilisateur associé
 ```
