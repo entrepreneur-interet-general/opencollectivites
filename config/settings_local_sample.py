@@ -1,6 +1,10 @@
 from pathlib import Path
 
+from .settings import INSTALLED_APPS
+
 BASE_DIR = Path(__file__).resolve().parent
+
+INSTALLED_APPS += ["django_extensions"]
 
 SECRET_KEY = "your_secret_key"  # Generate with `cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 50 | head -n 1` or `base64 /dev/urandom | head -c50 -n1`
 DEBUG = True
