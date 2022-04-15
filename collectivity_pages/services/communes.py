@@ -20,7 +20,7 @@ def commune_data(commune: Commune, year: DataYear = None):
     # Get the basic data
     response = {
         item.datacode: item.value
-        for item in CommuneData.objects.filter(commune=commune, year=year)
+        for item in CommuneData.objects.filter(commune=commune).order_by("year__year")
     }
 
     # Fix the 'civ_maire' syntax

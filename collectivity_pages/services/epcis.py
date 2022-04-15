@@ -20,7 +20,7 @@ def epci_data(siren_id, year: DataYear = None):
     # Get the basic data
     response = {
         item.datacode: item.value
-        for item in EpciData.objects.filter(epci=epci, year=year)
+        for item in EpciData.objects.filter(epci=epci).order_by("year__year")
     }
 
     response["siren"] = epci.siren
