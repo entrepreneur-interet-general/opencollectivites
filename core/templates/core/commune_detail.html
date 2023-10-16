@@ -52,6 +52,12 @@
       {% dsfr_sidemenu page_menu %}
     </aside>
     <article class="fr-col-12 fr-col-md-8">
+
+      <h2>Représentations graphiques</h2>
+      {% autoescape off %}
+      {{ data.plot_div }}
+      {% endautoescape %}
+
       <h2 id="donnees-de-contexte">Données de contexte</h2>
       {% dsfr_table caption="Population" content=data.tables.comm_population.rows header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
       {% include "core/blocks/sources_line.html" with sources=data.tables.comm_population.sources %}

@@ -5,7 +5,8 @@ from francedata.models.meta import DataYear
 from collectivity_pages.services.context_data import ContextData
 from collectivity_pages.services.utils import format_civility
 from core.services.utils import generate_csv
-
+from plotly.offline import plot
+from plotly.graph_objs import Scatter
 
 class CommuneContextData(ContextData):
     base_model_name = "Commune"
@@ -90,6 +91,14 @@ def commune_data(commune: Commune, year: DataYear = None):
 
     response["tables"] = context_data.formated_tables
     response["max_year"] = context_data.max_year
+
+    x_data = [0,1,2,3]
+    y_data = [x**2 for x in x_data]
+    plot_div = plot([Scatter(x=x_data, y=y_data,
+                        mode='lines', name='test',
+                        opacity=0.8, marker_color='green')],
+               output_type='div')
+    response["plot_div"] = plot_div
 
     return response
 
