@@ -27,7 +27,7 @@ def format_raw_data(raw_data: str, format_for_web: bool) -> str:
     if raw_data.value == "":
         formatted_value = raw_data.value
     elif raw_data.datatype == "int":
-        formatted_value = format_number(int(raw_data.value), format_for_web)
+        formatted_value = format_number(int(float(raw_data.value)), format_for_web)
     elif raw_data.datatype == "float":
         formatted_value = format_number(float(raw_data.value), format_for_web)
     elif raw_data.datatype == "bool":
