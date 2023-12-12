@@ -5,8 +5,6 @@ from francedata.models.meta import DataYear
 from collectivity_pages.services.context_data import ContextData
 from collectivity_pages.services.utils import format_civility
 from core.services.utils import generate_csv
-from plotly.offline import plot
-from plotly.graph_objs import Scatter
 
 class CommuneContextData(ContextData):
     base_model_name = "Commune"
