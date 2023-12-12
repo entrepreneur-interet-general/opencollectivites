@@ -21,7 +21,12 @@ def page_departement_detail(request, slug):
     payload["page_menu"] = {
         "title": "Sommaire",
         "items": generate_summary_items(
-            ["Données de contexte", "Périmètre", "Études, statistiques et outils"]
+            [
+                "Données de contexte",
+                "Ressources financières et fiscales",
+                "Périmètre",
+                "Études, statistiques et outils"
+            ]
         ),
         "extra_classes": "fr-sidemenu--sticky-full-height fr-sidemenu--right",
     }

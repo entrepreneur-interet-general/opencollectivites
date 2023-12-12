@@ -57,6 +57,20 @@
       {% dsfr_table caption="Emploi - chômage" content=data.tables.dept_emploi.rows header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}
       {% include "core/blocks/sources_line.html" with sources=data.tables.dept_emploi.sources %}
 
+      <h2 id="ressources-financieres-et-fiscales">Ressources financières et fiscales</h2>
+      {% dsfr_table caption="Dotation globale" content=data.tables.dept_dotation_globale.rows header=data.tables_header extra_classes="oc-table--fullwidth oc-table--force10" %}      
+      {% include "core/blocks/sources_line.html" with sources=data.tables.dept_dotation_globale.sources %}
+
+     <a
+        title="Dotation - Direction générale des Collectivités locales"
+        href="http://www.dotations-dgcl.interieur.gouv.fr/"
+        target="_blank"
+        rel="noopener"
+        class="fr-link fr-link--lg fr-fi-external-link-line fr-link--icon-right"
+      >
+        Plus d’informations sur le site dotations de la DGCL
+      </a>
+
       <h2 id="perimetre">Périmètre</h2>
       <p>Nombre total de communes membres : {{ data.communes_count }}</p>
 
