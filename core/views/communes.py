@@ -47,7 +47,7 @@ def page_commune_detail(request, slug):
         collectivity_type="commune", collectivity_slug=commune.slug
     )
 
-    payload["context"]["hide_brand"] = True
+    payload["context"]["hide_brand"] = False
     return render(request, "core/commune_detail.html", payload)
 
 

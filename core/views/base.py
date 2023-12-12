@@ -59,5 +59,5 @@ def page_tests(request):
         "links": [{"url": "test-url", "title": "Test title"}],
         "current": "Test page",
     }
-    payload["context"]["hide_brand"] = True
+    payload["context"]["hide_brand"] = False
     return render(request, "core/tests.html", payload)
