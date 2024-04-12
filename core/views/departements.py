@@ -45,7 +45,8 @@ def page_departement_detail(request, slug):
 @require_safe
 def page_departement_liste_communes(request, slug):
     departement = get_object_or_404(Departement, slug=slug)
-    communes = departement.commune_set.all().order_by("name")
+    max_year = max(departement.commune_set.values_list("years", flat=True))
+    communes = departement.commune_set.filter(years=max_year).order_by("name")
     payload = init_payload(
         f"Liste des { communes.count() } communes du département {departement.name}",
         links=[
