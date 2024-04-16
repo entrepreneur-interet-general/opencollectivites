@@ -57,7 +57,8 @@ def departement_data(dept: Departement, year: DataYear = None) -> dict:
         }
     response["communes_count"] = communes_count
 
-    epcis = dept.list_epcis()
+    max_year = max(dept.list_epcis().values_list("years", flat=True))
+    epcis = dept.list_epcis().filter(years=max_year)
     if epcis.count() > 1:
         response["epcis_list"] = {
             "name": f"Liste des {epcis.count()} EPCI",
