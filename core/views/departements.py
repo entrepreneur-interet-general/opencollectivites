@@ -69,7 +69,8 @@ def page_departement_liste_communes(request, slug):
 @require_safe
 def page_departement_liste_epcis(request, slug):
     departement = get_object_or_404(Departement, slug=slug)
-    epcis = departement.list_epcis().order_by("slug")
+    max_year = max(departement.list_epcis().values_list("years", flat=True))
+    epcis = departement.list_epcis().filter(years=max_year).order_by("slug")
 
     payload = init_payload(
         f"Liste des { len(epcis) } EPCI du département {departement.name}",
