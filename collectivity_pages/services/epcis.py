@@ -91,8 +91,9 @@ def epci_data(siren_id, year: DataYear = None):
                 "svg_icon": True,
             }
 
+    max_year = max(epci.commune_set.values_list("years", flat=True))
     response["departements"] = (
-        epci.commune_set.all()
+        epci.commune_set.filter(years=max_year)
         .values(
             "departement__slug",
             "departement__name",
@@ -110,7 +111,7 @@ def epci_data(siren_id, year: DataYear = None):
         "svg_icon": True,
     }
 
-    response["members"] = epci.commune_set.all().order_by("name")
+    response["members"] = epci.commune_set.filter(years=max_year).order_by("name")
 
     epci_context_data = EpciContextData([epci])
     epci_context_data.fetch_collectivities_context_data()
