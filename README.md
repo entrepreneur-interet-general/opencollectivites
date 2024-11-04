@@ -8,6 +8,8 @@
 
 **Open Collectivités** est un portail web visant à simplifier l’accès aux informations statistiques des collectivités locales. Il est développé au sein de la [Direction générale des collectivités locales](https://www.collectivites-locales.gouv.fr/) (DGCL), dans le cadre d'un défi de la quatrième promotion du programme [Entrepreneur d'intérêt général](https://entrepreneur-interet-general.etalab.gouv.fr/).
 
+Ce projet est maintenant archivé.
+
 - [Page de présentation du défi](https://entrepreneur-interet-general.etalab.gouv.fr/defis/2020/open-collectivites.html)
 - [Voir le portail Open Collectivités](https://www.open-collectivites.fr)
 
